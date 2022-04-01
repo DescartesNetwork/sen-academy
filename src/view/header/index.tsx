@@ -37,12 +37,14 @@ const Header = () => {
       <Col span={24} className="container">
         <Row gutter={[16, 16]} justify="space-between">
           <Col flex="auto" className="logo">
-            <Image
-              style={{ cursor: 'pointer' }}
-              src={logo}
-              onClick={() => history.push('/home')}
-              preview={false}
-            />
+            <Space align="center" style={{ height: '100%' }}>
+              <Image
+                style={{ cursor: 'pointer' }}
+                src={logo}
+                onClick={() => history.push('/home')}
+                preview={false}
+              />
+            </Space>
           </Col>
           <Col flex={!isMobile ? 'auto' : undefined}>
             <Space>
