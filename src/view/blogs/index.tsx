@@ -76,11 +76,9 @@ const Blogs = () => {
                 <MakeUpHtml>{title}</MakeUpHtml>
               </span>
               <Space direction="vertical">
-                {subDesc.map((sub, idx) => (
-                  <Typography.Text type="secondary" key={idx}>
-                    {sub}
-                  </Typography.Text>
-                ))}
+                <Typography.Text type="secondary">
+                  {subDesc[blogCat as BlogCategory]}
+                </Typography.Text>
               </Space>
             </Space>
           </Col>
