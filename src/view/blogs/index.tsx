@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import {
   Button,
@@ -11,36 +12,22 @@ import {
   Space,
   Typography,
 } from 'antd'
-import {
-  BlogCategory,
-  DEFAULT_LIMIT_POST,
-  PostContent,
-  SelectedTabs,
-} from 'constant'
+import { BlogTabs, DEFAULT_LIMIT_POST, PostsData, SelectedTabs } from 'constant'
 import PostCard from './postCard'
-
-import { coreData } from 'static/base/core'
-import { data } from 'static/base/blogs'
-
-import './index.less'
 import MakeUpHtml from 'components/makeUpHtml'
 
-const {
-  banner: { subDesc },
-  blogs: { tabs },
-} = coreData
+import './index.less'
 
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
   const [postPerpage, setPostPerpage] = useState(DEFAULT_LIMIT_POST)
-  const location = useLocation()
   const history = useHistory()
+  const { t } = useTranslation()
+  const location = useLocation()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
   const blogCat = query.get('category') || ''
-  const postData = data[blogCat as BlogCategory]
-  const banerData = subDesc[blogCat as BlogCategory]
 
-  const compare = (a: PostContent, b: PostContent) => {
+  const compare = (a: PostsData, b: PostsData) => {
     if (a.date > b.date) return -1
     if (a.date < b.date) return 1
     return 0
@@ -51,13 +38,22 @@ const Blogs = () => {
     return setPostPerpage(DEFAULT_LIMIT_POST)
   }
 
-  const filteredData = postData?.filter(({ category }) =>
-    category.includes(seletecCat),
-  )
+  const blogTabs: BlogTabs[] = t('blogs.tabs', { returnObjects: true })
+  const postsData: PostsData[] = t(`postsData.${blogCat}`, {
+    returnObjects: true,
+  })
+
+  const filteredData = useMemo(() => {
+    if (!postsData.length) return []
+    return postsData?.filter(({ category }) => category.includes(seletecCat))
+  }, [postsData, seletecCat])
+
   const renderData = useMemo(() => {
-    const nextData = seletecCat === SelectedTabs.all ? postData : filteredData
+    const nextData = seletecCat === SelectedTabs.all ? postsData : filteredData
+    if (!nextData.length) return []
     return nextData?.sort(compare)
-  }, [filteredData, postData, seletecCat])
+  }, [filteredData, postsData, seletecCat])
+
   const limitPost =
     postPerpage >= renderData?.length ? renderData?.length : postPerpage
 
@@ -73,17 +69,28 @@ const Blogs = () => {
           <Col xs={24} md={12}>
             <Space direction="vertical" size={32}>
               <span className="title">
-                <MakeUpHtml>{banerData?.title}</MakeUpHtml>
+                <MakeUpHtml>
+                  {t(`banner.subDesc.${blogCat}.title`, {
+                    returnObjects: true,
+                  })}
+                </MakeUpHtml>
               </span>
               <Space direction="vertical">
                 <Typography.Text type="secondary">
-                  {banerData?.label}
+                  {t(`banner.subDesc.${blogCat}.label`, {
+                    returnObjects: true,
+                  })}
                 </Typography.Text>
               </Space>
             </Space>
           </Col>
           <Col xs={24} md={12}>
-            <Image src={banerData?.src} preview={false} />
+            <Image
+              src={t(`banner.subDesc.${blogCat}.src`, {
+                returnObjects: true,
+              })}
+              preview={false}
+            />
           </Col>
           <Col span={24} className="safe-space" /> {/* Safe space */}
           <Col span={24}>
@@ -93,7 +100,7 @@ const Blogs = () => {
               defaultValue={seletecCat}
             >
               <Space>
-                {tabs.map((tab) => (
+                {blogTabs?.map((tab) => (
                   <Space key={tab.key}>
                     <Radio.Button value={tab.key}>{tab.label}</Radio.Button>
                   </Space>

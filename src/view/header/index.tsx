@@ -1,27 +1,42 @@
-import { Fragment, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Fragment, useEffect, useMemo, useState } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import { Col, Image, Row, Menu, Space, Button } from 'antd'
 import { HEADER_MENU, SubMenu } from 'constant'
+import IonIcon from 'components/ionicon'
+
 import { useUI } from 'providerd'
 
 import logo from 'static/images/logo/logo.svg'
 import { coreData } from 'static/base/core'
 import iconMoon from 'static/images/system/moon.svg'
-import iconFlag from 'static/images/system/flag.svg'
+import flagEn from 'static/images/system/flag-en.svg'
+import flagVn from 'static/images/system/flag-vn.svg'
 
 import './index.less'
-import IonIcon from 'components/ionicon'
 
 const { menu } = coreData
 
 const Header = () => {
   const [visible, setVisible] = useState(false)
+  const [isVnLang, setIsVnLang] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState('home')
   const history = useHistory()
   const {
     ui: { width },
   } = useUI()
+  const { t, i18n } = useTranslation()
+  const location = useLocation()
+  const query = useMemo(() => new URLSearchParams(location.search), [location])
+  const blogCat = query.get('category') || ''
+
+  const onHandleLanguage = () => {
+    const condition = !isVnLang
+    setIsVnLang(condition)
+    if (condition) return i18n.changeLanguage('en')
+    return i18n.changeLanguage('vn')
+  }
 
   const onHandleMenu = (key: string) => {
     setSelectedMenu(key)
@@ -31,6 +46,12 @@ const Header = () => {
   }
 
   const isMobile = width < 768
+  const iconFlag = !isVnLang ? flagEn : flagVn
+
+  useEffect(() => {
+    if (blogCat) return setSelectedMenu(blogCat)
+    return setSelectedMenu('home')
+  }, [blogCat])
 
   return (
     <Row justify="center">
@@ -61,14 +82,14 @@ const Header = () => {
                   className="header-menu"
                 >
                   {HEADER_MENU.map((key) => {
-                    if (key !== 'subMenu' || !Array.isArray(menu[key]))
+                    if (key !== 'subMenu')
                       return (
                         <Menu.Item
                           key={key}
                           style={{ fontSize: 16 }}
                           disabled={key === 'user'}
                         >
-                          {menu[key]}
+                          {t(`menu.${key}`, { returnObjects: true })}
                         </Menu.Item>
                       )
 
@@ -79,12 +100,16 @@ const Header = () => {
                         {data.map((item, idx) => (
                           <Menu.SubMenu
                             key={`subMenu-${idx}`}
-                            title={item.label}
+                            title={t(`menu.${key}.${idx}.label`, {
+                              returnObjects: true,
+                            })}
                             disabled
                           >
                             {item.data.map((subMenu) => (
                               <Menu.Item key={subMenu} style={{ fontSize: 16 }}>
-                                {subMenu}
+                                {t(`menu.${key}.${subMenu}`, {
+                                  returnObjects: true,
+                                })}
                               </Menu.Item>
                             ))}
                           </Menu.SubMenu>
@@ -125,7 +150,7 @@ const Header = () => {
                 type="text"
                 size="small"
                 icon={<Image src={iconFlag} preview={false} />}
-                disabled
+                onClick={onHandleLanguage}
               />
             </Space>
           </Col>
