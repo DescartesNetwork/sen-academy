@@ -7,4 +7,23 @@
   background: transparent !important;
   border: none !important;
   line-height: unset !important;
+  min-width: 500px;
+}
+.menu-mobile {
+  min-width: auto;
+  display: none;
+  position: fixed;
+  width: 80%;
+  height: 100vh;
+  padding: 0 24px;
+  background: #f4f4f5 !important;
+  top: 0;
+  right: -80%;
+  box-shadow: 0 0 40px 15px #dadada57;
+  transition: all 0.15s linear;
+  z-index: 999;
+  &.active {
+    display: block;
+    right: 0;
+  }
 }
