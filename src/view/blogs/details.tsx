@@ -17,7 +17,7 @@ const Details = () => {
   const postData = postsData.find(({ id }) => id === postId)
 
   return (
-    <Row gutter={[24, 24]} justify="center">
+    <Row gutter={[24, 24]} justify="center" style={{ padding: '0 12px' }}>
       <Col span={24} className="container">
         <Row
           gutter={[24, 24]}
