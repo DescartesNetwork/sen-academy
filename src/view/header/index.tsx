@@ -1,4 +1,5 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { Col, Image, Row, Menu, Space, Button } from 'antd'
 import { HEADER_MENU, SubMenu } from 'constant'
@@ -13,15 +14,34 @@ import './index.less'
 const { menu } = coreData
 
 const Header = () => {
+  const [selectedMenu, setSelectedMenu] = useState('home')
+  const history = useHistory()
+
+  const onHandleMenu = (key: string) => {
+    setSelectedMenu(key)
+    if (key === 'home') return history.push(key)
+    history.push(`/blogs?category=${key}`)
+  }
+
   return (
     <Row justify="center">
       <Col span={24} className="container">
         <Row gutter={[16, 16]} justify="space-between">
           <Col flex="auto" className="logo">
-            <Image src={logo} preview={false} />
+            <Image
+              style={{ cursor: 'pointer' }}
+              src={logo}
+              onClick={() => history.push('/home')}
+              preview={false}
+            />
           </Col>
           <Col flex="auto">
-            <Menu selectedKeys={[]} mode="horizontal" className="header-menu">
+            <Menu
+              selectedKeys={[selectedMenu]}
+              onClick={(e) => onHandleMenu(e.key)}
+              mode="horizontal"
+              className="header-menu"
+            >
               {HEADER_MENU.map((key) => {
                 if (key !== 'subMenu' || !Array.isArray(menu[key]))
                   return (
@@ -35,7 +55,11 @@ const Header = () => {
                 return (
                   <Fragment key={key}>
                     {data.map((item, idx) => (
-                      <Menu.SubMenu key={`subMenu-${idx}`} title={item.label}>
+                      <Menu.SubMenu
+                        key={`subMenu-${idx}`}
+                        title={item.label}
+                        disabled
+                      >
                         {item.data.map((subMenu) => (
                           <Menu.Item key={subMenu} style={{ fontSize: 16 }}>
                             {subMenu}
