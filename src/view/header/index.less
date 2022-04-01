@@ -15,16 +15,18 @@
   position: fixed;
   width: 80%;
   height: 100vh;
-  padding: 0 24px;
-  background: #f4f4f5 !important;
+  background: #eff1fb !important;
   top: 0;
   right: -80%;
-  box-shadow: 0 0 40px 15px #dadada57;
+  box-shadow: 0px 12px 40px rgba(33, 36, 51, 0.24);
   transition: all 0.15s linear;
   z-index: 999;
   &.active {
     display: block;
     right: 0;
+  }
+  .sen-academy-menu-item-selected {
+    background-color: #f9575e29 !important;
   }
 }
 .language-menu {
@@ -50,5 +52,11 @@
     display: flex !important;
     flex-wrap: wrap;
     gap: 16px;
+  }
+}
+#dark {
+  .menu-mobile {
+    background: #171c36 !important;
+    box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.36);
   }
 }
