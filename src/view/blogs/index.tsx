@@ -26,7 +26,7 @@ import './index.less'
 import MakeUpHtml from 'components/makeUpHtml'
 
 const {
-  banner: { title, subDesc },
+  banner: { subDesc },
   blogs: { tabs },
 } = coreData
 
@@ -38,6 +38,7 @@ const Blogs = () => {
   const query = useMemo(() => new URLSearchParams(location.search), [location])
   const blogCat = query.get('category') || ''
   const postData = data[blogCat as BlogCategory]
+  const banerData = subDesc[blogCat as BlogCategory]
 
   const compare = (a: PostContent, b: PostContent) => {
     if (a.date > b.date) return -1
@@ -72,20 +73,17 @@ const Blogs = () => {
           <Col xs={24} md={12}>
             <Space direction="vertical" size={32}>
               <span className="title">
-                <MakeUpHtml>{title}</MakeUpHtml>
+                <MakeUpHtml>{banerData?.title}</MakeUpHtml>
               </span>
               <Space direction="vertical">
                 <Typography.Text type="secondary">
-                  {subDesc[blogCat as BlogCategory]?.label}
+                  {banerData?.label}
                 </Typography.Text>
               </Space>
             </Space>
           </Col>
           <Col xs={24} md={12}>
-            <Image
-              src={subDesc[blogCat as BlogCategory]?.src}
-              preview={false}
-            />
+            <Image src={banerData?.src} preview={false} />
           </Col>
           <Col span={24} className="safe-space" /> {/* Safe space */}
           <Col span={24}>
