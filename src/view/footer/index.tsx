@@ -1,4 +1,4 @@
-import { Button, Col, Image, Row, Space } from 'antd'
+import { Button, Col, Image, Row, Space, Typography } from 'antd'
 
 import youtube from 'static/images/social/yt.svg'
 import facebook from 'static/images/social/fb.svg'
@@ -6,6 +6,7 @@ import discord from 'static/images/social/dc.svg'
 import twitter from 'static/images/social/tw.svg'
 import telegram from 'static/images/social/te.svg'
 import medium from 'static/images/social/me.svg'
+import footerLogo from 'static/images/logo/ft-logo.svg'
 
 const SOCIAL_MEDIA = [
   { icon: youtube, src: '' },
@@ -20,8 +21,20 @@ const Footer = () => {
   return (
     <Row gutter={[16, 16]} justify="center">
       <Col span={24} className="container">
-        <Row gutter={[24, 24]}>
-          <Col flex="auto"></Col>
+        <Row
+          gutter={[24, 24]}
+          style={{ padding: 24 }}
+          justify="center"
+          align="middle"
+        >
+          <Col flex="auto">
+            <Space align="center">
+              <Image src={footerLogo} preview={false} />
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                © 2022, All Rights Reserved
+              </Typography.Text>
+            </Space>
+          </Col>
           <Col>
             <Space size={18}>
               {SOCIAL_MEDIA.map((social, idx) => (
