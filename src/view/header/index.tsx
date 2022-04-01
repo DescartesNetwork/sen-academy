@@ -1,10 +1,12 @@
 import { Fragment } from 'react'
 
-import { Col, Image, Row, Menu } from 'antd'
+import { Col, Image, Row, Menu, Space, Button } from 'antd'
 import { HEADER_MENU, SubMenu } from 'constant'
 
 import logo from 'static/images/logo/logo.svg'
 import { coreData } from 'static/base/core'
+import iconMoon from 'static/images/system/moon.svg'
+import iconFlag from 'static/images/system/flag.svg'
 
 import './index.less'
 
@@ -46,7 +48,22 @@ const Header = () => {
               })}
             </Menu>
           </Col>
-          <Col>Social</Col>
+          <Col>
+            <Space>
+              <Button
+                type="text"
+                size="small"
+                icon={<Image src={iconMoon} preview={false} />}
+                disabled
+              />
+              <Button
+                type="text"
+                size="small"
+                icon={<Image src={iconFlag} preview={false} />}
+                disabled
+              />
+            </Space>
+          </Col>
         </Row>
       </Col>
     </Row>
