@@ -15,9 +15,10 @@ export const coreData = {
       'Giải mã <strong>DeFi</strong> cùng <span class="primary">Sen Academy.</span>',
     desciption:
       'Nắm vững kiến thức cơ bản về DeFi cho nhà đầu tư và lập trình Solana cho developer.',
-    subDesc: [
-      'Nắm bắt toàn cảnh về ngành blockchain và tự tay lập trình phần mềm Solana đơn giản',
-    ],
+    subDesc: {
+      dev: 'Nắm bắt toàn cảnh về ngành blockchain và tự tay lập trình phần mềm Solana đơn giản',
+      user: 'DeFi khác biệt gì so với CeFi và cách tận dụng DeFi làm đòn bẩy tài chính của bạn.',
+    },
   },
   academyUser: {
     title: 'Đầu tư bền vững với DeFi',

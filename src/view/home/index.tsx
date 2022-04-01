@@ -55,6 +55,7 @@ const Home = () => {
           imgUrl={userSrc}
           button={userBtn}
           floatRight
+          disabled
           onClick={() => history.push('/blogs?category=dev')}
         />
       </Col>

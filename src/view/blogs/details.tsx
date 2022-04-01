@@ -3,9 +3,9 @@ import { useLocation, useParams } from 'react-router-dom'
 
 import { Col, Image, Row, Space, Typography } from 'antd'
 import { BlogCategory } from 'constant'
+import PostTags from './postTags'
 
 import { data } from 'static/base/blogs'
-import PostTags from './postTags'
 
 const Details = () => {
   const location = useLocation()

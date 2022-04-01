@@ -1,4 +1,5 @@
 import { Button, Col, Image, Row, Space, Typography } from 'antd'
+import { useUI } from 'providerd'
 
 import youtube from 'static/images/social/yt.svg'
 import facebook from 'static/images/social/fb.svg'
@@ -7,7 +8,8 @@ import twitter from 'static/images/social/tw.svg'
 import telegram from 'static/images/social/te.svg'
 import medium from 'static/images/social/me.svg'
 import footerLogo from 'static/images/logo/ft-logo.svg'
-import { useUI } from 'providerd'
+
+import './index.less'
 
 const SOCIAL_MEDIA = [
   { icon: youtube, src: '' },
@@ -33,6 +35,7 @@ const Footer = () => {
           style={{ padding: 24 }}
           justify="center"
           align="middle"
+          className="wrap-footer"
         >
           <Col flex={!isMobile ? 'auto' : undefined}>
             <Space align="center">

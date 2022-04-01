@@ -7,6 +7,7 @@ type BlockProps = {
   description: string
   button: string
   floatRight?: boolean
+  disabled?: boolean
   onClick?: () => void
 } & RowProps
 const ELM_FLOAT = {
@@ -21,6 +22,7 @@ const BlockContainer = ({
   description,
   button,
   floatRight = false,
+  disabled = false,
   onClick = () => {},
   ...rest
 }: BlockProps) => {
@@ -56,7 +58,7 @@ const BlockContainer = ({
                   {description}
                 </Typography.Text>
               </Space>
-              <Button type="primary" onClick={onClick}>
+              <Button type="primary" onClick={onClick} disabled={disabled}>
                 {button}
               </Button>
             </Space>
