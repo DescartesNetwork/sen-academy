@@ -44,7 +44,7 @@ const Home = () => {
           description={devDesc}
           imgUrl={devSrc}
           button={devBtn}
-          onClick={() => history.push('/blogs?category=user')}
+          onClick={() => history.push('/blogs?category=dev')}
         />
       </Col>
       {/* Section user */}
@@ -56,7 +56,7 @@ const Home = () => {
           button={userBtn}
           floatRight
           disabled
-          onClick={() => history.push('/blogs?category=dev')}
+          onClick={() => history.push('/blogs?category=user')}
         />
       </Col>
     </Row>

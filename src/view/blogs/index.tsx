@@ -21,7 +21,6 @@ import PostCard from './postCard'
 
 import { coreData } from 'static/base/core'
 import { data } from 'static/base/blogs'
-import banner from 'static/images/system/banner-blogs.png'
 
 import './index.less'
 import MakeUpHtml from 'components/makeUpHtml'
@@ -77,13 +76,16 @@ const Blogs = () => {
               </span>
               <Space direction="vertical">
                 <Typography.Text type="secondary">
-                  {subDesc[blogCat as BlogCategory]}
+                  {subDesc[blogCat as BlogCategory]?.label}
                 </Typography.Text>
               </Space>
             </Space>
           </Col>
           <Col xs={24} md={12}>
-            <Image src={banner} preview={false} />
+            <Image
+              src={subDesc[blogCat as BlogCategory]?.src}
+              preview={false}
+            />
           </Col>
           <Col span={24} className="safe-space" /> {/* Safe space */}
           <Col span={24}>

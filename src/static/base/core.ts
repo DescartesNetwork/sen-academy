@@ -16,8 +16,16 @@ export const coreData = {
     desciption:
       'Nắm vững kiến thức cơ bản về DeFi cho nhà đầu tư và lập trình Solana cho developer.',
     subDesc: {
-      dev: 'Nắm bắt toàn cảnh về ngành blockchain và tự tay lập trình phần mềm Solana đơn giản',
-      user: 'DeFi khác biệt gì so với CeFi và cách tận dụng DeFi làm đòn bẩy tài chính của bạn.',
+      dev: {
+        label:
+          'Nắm bắt toàn cảnh về ngành blockchain và tự tay lập trình phần mềm Solana đơn giản',
+        src: require('../images/system/dev.png'),
+      },
+      user: {
+        label:
+          'DeFi khác biệt gì so với CeFi và cách tận dụng DeFi làm đòn bẩy tài chính của bạn.',
+        src: require('../images/system/user.png'),
+      },
     },
   },
   academyUser: {
