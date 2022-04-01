@@ -1,3 +1,28 @@
+.banner {
+  padding: 79px 240px 0 !important;
+  background: url(../../static/images/system/bg-light.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin: 24px 0 100px;
+  min-height: 600px !important;
+  text-align: center;
+  @media (max-width: 1200px) {
+    padding: 79px 120px 0 !important;
+    margin: 0;
+  }
+  @media (max-width: 992px) {
+    padding: 79px 60px 0 !important;
+    min-height: 500px !important;
+  }
+  @media (max-width: 575px) {
+    background-image: url(../../static/images/system/bg-mobile.png);
+    padding: 70px 24px !important;
+    min-height: unset !important;
+    margin-bottom: 50px;
+  }
+}
+
 .section-bg {
   padding: 100px 24px !important;
   &.bg-radial {
@@ -54,55 +79,5 @@
   @media (max-width: 575px) {
     font-size: 16px;
     line-height: 16px;
-  }
-}
-#dark {
-  .banner {
-    padding: 79px 240px 0 !important;
-    background: url(../../static/images/system/bg-dark.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top center;
-    margin: 24px 0 100px;
-    min-height: 600px !important;
-    text-align: center;
-    @media (max-width: 1200px) {
-      padding: 79px 120px 0 !important;
-      margin: 0;
-    }
-    @media (max-width: 992px) {
-      padding: 79px 60px 0 !important;
-      min-height: 500px !important;
-    }
-    @media (max-width: 575px) {
-      background: url(../../static/images/system/bg-mobile.png);
-      padding: 70px 24px !important;
-      min-height: unset !important;
-    }
-  }
-}
-#light {
-  .banner {
-    padding: 79px 240px 0 !important;
-    background: url(../../static/images/system/bg-light.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top center;
-    margin: 24px 0 100px;
-    min-height: 600px !important;
-    text-align: center;
-    @media (max-width: 1200px) {
-      padding: 79px 120px 0 !important;
-      margin: 0;
-    }
-    @media (max-width: 992px) {
-      padding: 79px 60px 0 !important;
-      min-height: 500px !important;
-    }
-    @media (max-width: 575px) {
-      background: url(../../static/images/system/bg-mobile.png);
-      padding: 70px 24px !important;
-      min-height: unset !important;
-    }
   }
 }
