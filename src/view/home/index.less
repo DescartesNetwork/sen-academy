@@ -1,0 +1,80 @@
+.banner {
+  padding: 79px 240px 0 !important;
+  background: url(../../static/images/system/bg-light.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin: 24px 0 100px;
+  min-height: 600px !important;
+  text-align: center;
+  @media (max-width: 1200px) {
+    padding: 79px 120px 0 !important;
+    margin: 0;
+  }
+  @media (max-width: 992px) {
+    padding: 79px 60px 0 !important;
+    min-height: 500px !important;
+  }
+  @media (max-width: 575px) {
+    padding: 70px 24px !important;
+    min-height: unset !important;
+  }
+}
+.section-bg {
+  padding: 100px 24px !important;
+  &.bg-radial {
+    background: #e5e5e5;
+    .bg {
+      &::after {
+        content: '';
+        position: absolute;
+        right: -110px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle 250px,
+          rgb(188 53 58 / 40%),
+          transparent
+        );
+        z-index: 0;
+      }
+      .sen-academy-col {
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.title {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 72px;
+  @media (max-width: 1200px) {
+    font-size: 48px;
+    line-height: 48px;
+  }
+  @media (max-width: 575px) {
+    font-size: 38px;
+    line-height: 38px;
+  }
+  & .primary,
+  & strong {
+    font-weight: 800;
+  }
+  & .primary {
+    color: #f9575e !important;
+  }
+}
+.sub-title {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 24px;
+  @media (max-width: 1200px) {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  @media (max-width: 575px) {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
