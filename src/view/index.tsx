@@ -8,6 +8,7 @@ import Home from './home'
 import Footer from './footer'
 import Blogs from './blogs'
 import Details from './blogs/details'
+import Watcher from './watcher'
 
 import { AppState } from 'store'
 import 'static/base/multilangData'
@@ -21,6 +22,7 @@ const App = () => {
   useEffect(() => {
     document.body.setAttribute('id', theme)
   }, [theme])
+
   return (
     <Layout className="root-bg">
       <Affix>
@@ -48,6 +50,7 @@ const App = () => {
       <Layout>
         <Footer />
       </Layout>
+      <Watcher />
     </Layout>
   )
 }

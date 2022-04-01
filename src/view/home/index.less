@@ -81,3 +81,17 @@
     line-height: 16px;
   }
 }
+
+#dark {
+  .banner {
+    background-image: url(../../static/images/system/bg-dark.png);
+    @media (max-width: 575px) {
+      background-image: url(../../static/images/system/bg-mobile.png);
+    }
+  }
+  .section-bg {
+    &.bg-radial {
+      background: #14182e;
+    }
+  }
+}
