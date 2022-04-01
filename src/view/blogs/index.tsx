@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import {
   Button,
@@ -34,7 +34,6 @@ const {
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
   const [postPerpage, setPostPerpage] = useState(DEFAULT_LIMIT_POST)
-  const history = useHistory()
   const location = useLocation()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
   const blogCat = query.get('category') || ''
