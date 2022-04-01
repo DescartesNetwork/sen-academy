@@ -7,7 +7,7 @@
   background: transparent !important;
   border: none !important;
   line-height: unset !important;
-  min-width: 500px;
+  min-width: 550px;
 }
 .menu-mobile {
   min-width: auto;
@@ -25,5 +25,30 @@
   &.active {
     display: block;
     right: 0;
+  }
+}
+.language-menu {
+  background: transparent !important;
+  border: none !important;
+  line-height: unset !important;
+  .sen-academy-menu-submenu-title {
+    background: unset !important;
+    height: auto !important;
+    padding: 0 !important;
+    line-height: unset !important;
+    margin: 0 !important;
+    img {
+      max-width: 30px;
+    }
+    & > *:not(.sen-academy-menu-item-icon) {
+      display: none;
+    }
+  }
+}
+.sen-academy-menu-sub {
+  .sen-academy-menu-item {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 }

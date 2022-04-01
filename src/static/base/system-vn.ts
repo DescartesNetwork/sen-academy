@@ -56,4 +56,8 @@ export const vnSystem = {
       },
     ],
   },
+  languages: {
+    en: 'Tiếng Anh',
+    vn: 'Tiếng Việt',
+  },
 }

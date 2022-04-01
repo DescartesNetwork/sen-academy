@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Col, Image, Row, Space, Typography } from 'antd'
 import PostTags from './postTags'
 import { PostsData } from 'constant'
+import MakeUpHtml from 'components/makeUpHtml'
 
 const Details = () => {
   const location = useLocation()
@@ -46,7 +47,7 @@ const Details = () => {
             </Row>
           </Col>
           <Col span={24}>
-            <Typography.Text>{postData?.content}</Typography.Text>
+            <MakeUpHtml>{postData?.content}</MakeUpHtml>
           </Col>
         </Row>
       </Col>
