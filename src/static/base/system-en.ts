@@ -58,7 +58,7 @@ export const enSystem = {
     ],
   },
   languages: {
-    en: 'Enlish',
+    en: 'English',
     vn: 'VietNamese',
   },
 }
