@@ -34,6 +34,7 @@ const {
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
   const [postPerpage, setPostPerpage] = useState(DEFAULT_LIMIT_POST)
+  const history = useHistory()
   const location = useLocation()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
   const blogCat = query.get('category') || ''
@@ -50,15 +51,15 @@ const Blogs = () => {
     return setPostPerpage(DEFAULT_LIMIT_POST)
   }
 
-  const filteredData = postData.filter(({ category }) =>
+  const filteredData = postData?.filter(({ category }) =>
     category.includes(seletecCat),
   )
   const renderData = useMemo(() => {
     const nextData = seletecCat === SelectedTabs.all ? postData : filteredData
-    return nextData.sort(compare)
+    return nextData?.sort(compare)
   }, [filteredData, postData, seletecCat])
   const limitPost =
-    postPerpage >= renderData.length ? renderData.length : postPerpage
+    postPerpage >= renderData?.length ? renderData?.length : postPerpage
 
   return (
     <Row gutter={[24, 24]} style={{ padding: '0 12px' }} justify="center">
@@ -104,9 +105,14 @@ const Blogs = () => {
           </Col>
           <Col span={24}>
             <Row gutter={[24, 24]}>
-              {renderData.slice(0, limitPost).map((data, idx) => (
+              {renderData?.slice(0, limitPost).map((data, idx) => (
                 <Col xs={24} md={12} lg={8} key={data.title + idx}>
-                  <PostCard data={data} />
+                  <PostCard
+                    data={data}
+                    onClick={(id) =>
+                      history.push(`/blogs/${id}?category=${blogCat}`)
+                    }
+                  />
                 </Col>
               ))}
             </Row>

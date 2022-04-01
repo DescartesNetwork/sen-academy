@@ -12,6 +12,7 @@ export enum SelectedTabs {
 }
 
 export type PostContent = {
+  id: string
   title: string
   description: string
   content: string
