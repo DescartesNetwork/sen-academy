@@ -1,11 +1,22 @@
 import { Card, Col, Image, Row, Space, Typography } from 'antd'
 import { PostContent } from 'constant'
 
-const PostCard = ({ data }: { data: PostContent }) => {
-  const { title, thumbnail, description, date } = data
+type ActionCard = {
+  onClick: (id: string) => void
+}
+
+const PostCard = ({
+  data,
+  onClick = () => {},
+}: { data: PostContent } & ActionCard) => {
+  const { id, title, thumbnail, description, date } = data
 
   return (
-    <Card bordered={false} bodyStyle={{ padding: 24, cursor: 'pointer' }}>
+    <Card
+      onClick={() => onClick(id)}
+      bordered={false}
+      bodyStyle={{ padding: 24, cursor: 'pointer' }}
+    >
       <Row gutter={[24, 24]}>
         <Col span={24}>
           <Card

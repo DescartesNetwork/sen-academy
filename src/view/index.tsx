@@ -7,6 +7,7 @@ import Header from './header'
 import Home from './home'
 import Footer from './footer'
 import Blogs from './blogs'
+import Details from './blogs/details'
 
 import { AppState } from 'store'
 
@@ -39,6 +40,7 @@ const App = () => {
         <Switch>
           <Route exact path="/home" component={Home} />
           <Route exact path="/blogs" component={Blogs} />
+          <Route exact path="/blogs/:postId" component={Details} />
           <Redirect exact from="*" to="/home" />
         </Switch>
       </Layout>
