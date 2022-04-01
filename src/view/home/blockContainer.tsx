@@ -13,6 +13,7 @@ const ELM_FLOAT = {
   first: 1,
   sec: 2,
 }
+const MAX_WIDTH_MOBILE = 768
 
 const BlockContainer = ({
   imgUrl,
@@ -24,11 +25,10 @@ const BlockContainer = ({
   ...rest
 }: BlockProps) => {
   const {
-    ui: { infix },
+    ui: { width },
   } = useUI()
 
-  const isMobile = infix === 'xs'
-  console.log(isMobile, 's', infix)
+  const isMobile = width < MAX_WIDTH_MOBILE
   const firstElm = floatRight ? 'first' : 'sec'
   const secElm = !floatRight ? 'first' : 'sec'
   const firstOrder = isMobile ? 1 : ELM_FLOAT[firstElm]
@@ -37,16 +37,25 @@ const BlockContainer = ({
   return (
     <Row gutter={[24, 24]} justify="center">
       <Col span={24} className="container">
-        <Row gutter={[24, 24]} justify="center" align="middle" {...rest}>
+        <Row gutter={[32, 32]} justify="center" align="middle" {...rest}>
           {/* image */}
           <Col xs={24} md={12} order={firstOrder}>
             <Image src={imgUrl} preview={false} />
           </Col>
           {/* content */}
-          <Col xs={24} md={12} order={secOrder}>
-            <Space direction="vertical">
-              <Typography.Title level={1}>{title}</Typography.Title>
-              <Typography.Text type="secondary">{description}</Typography.Text>
+          <Col
+            xs={24}
+            md={12}
+            style={{ textAlign: isMobile ? 'center' : undefined }}
+            order={secOrder}
+          >
+            <Space direction="vertical" size={24}>
+              <Space direction="vertical" size={16}>
+                <Typography.Title level={1}>{title}</Typography.Title>
+                <Typography.Text type="secondary">
+                  {description}
+                </Typography.Text>
+              </Space>
               <Button type="primary" onClick={onClick}>
                 {button}
               </Button>

@@ -62,7 +62,7 @@ const Blogs = () => {
     postPerpage >= renderData.length ? renderData.length : postPerpage
 
   return (
-    <Row gutter={[24, 24]} justify="center">
+    <Row gutter={[24, 24]} style={{ padding: '0 12px' }} justify="center">
       <Col span={24} className="container">
         <Row
           gutter={[40, 40]}
