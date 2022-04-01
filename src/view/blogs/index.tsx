@@ -34,7 +34,6 @@ const {
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
   const [postPerpage, setPostPerpage] = useState(DEFAULT_LIMIT_POST)
-  const history = useHistory()
   const location = useLocation()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
   const blogCat = query.get('category') || ''
