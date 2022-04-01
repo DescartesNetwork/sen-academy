@@ -6,11 +6,7 @@ export const coreData = {
     subMenu: [
       {
         label: 'Về chúng tôi',
-        data: ['Link đặt cơm trưa', 'Link đặt cơm chiều', 'Link nước'],
-      },
-      {
-        label: 'Về người ta',
-        data: ['Link đặt cơm sáng', 'Link đặt cơm nữa buổi', 'Link nước lọc'],
+        data: ['Comming soon'],
       },
     ],
   },
