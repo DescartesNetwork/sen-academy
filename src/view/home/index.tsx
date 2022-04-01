@@ -1,59 +1,49 @@
+import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+
 import { Row, Col, Typography, Space } from 'antd'
 import MakeUpHtml from 'components/makeUpHtml'
-import { useHistory } from 'react-router-dom'
 
-import { coreData } from 'static/base/core'
 import BlockContainer from './blockContainer'
 
 import './index.less'
 
-const {
-  banner: { title, desciption },
-  academyUser: {
-    title: userTitle,
-    description: userDesc,
-    button: userBtn,
-    src: userSrc,
-  },
-  academyDev: {
-    title: devTitle,
-    description: devDesc,
-    button: devBtn,
-    src: devSrc,
-  },
-} = coreData
-
 const Home = () => {
   const history = useHistory()
+  const { t } = useTranslation()
 
   return (
     <Row gutter={[24, 24]} justify="center">
       <Col xs={24} md={18} lg={20} xl={22} className="container banner">
         <Space direction="vertical" size={24} align="center">
           <span className="title">
-            <MakeUpHtml>{title}</MakeUpHtml>
+            <MakeUpHtml>
+              {t('banner.title', { returnObjects: true })}
+            </MakeUpHtml>
           </span>
-          <Typography.Text className="sub-title">{desciption}</Typography.Text>
+          <Typography.Text className="sub-title">
+            {t('banner.desciption', { returnObjects: true })}
+          </Typography.Text>
         </Space>
       </Col>
       {/* Section dev */}
       <Col span={24} className="section-bg bg-radial">
         <BlockContainer
           className="bg"
-          title={devTitle}
-          description={devDesc}
-          imgUrl={devSrc}
-          button={devBtn}
+          title={t('academyDev.title', { returnObjects: true })}
+          description={t('academyDev.description', { returnObjects: true })}
+          imgUrl={t('academyDev.src', { returnObjects: true })}
+          button={t('academyDev.button', { returnObjects: true })}
           onClick={() => history.push('/blogs?category=dev')}
         />
       </Col>
       {/* Section user */}
       <Col span={24} className="section-bg">
         <BlockContainer
-          title={userTitle}
-          description={userDesc}
-          imgUrl={userSrc}
-          button={userBtn}
+          title={t('academyUser.title', { returnObjects: true })}
+          description={t('academyUser.description', { returnObjects: true })}
+          imgUrl={t('academyUser.src', { returnObjects: true })}
+          button={t('academyUser.button', { returnObjects: true })}
           floatRight
           disabled
           onClick={() => history.push('/blogs?category=user')}

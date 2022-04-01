@@ -1,19 +1,22 @@
 import { useMemo } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import { Col, Image, Row, Space, Typography } from 'antd'
-import { BlogCategory } from 'constant'
 import PostTags from './postTags'
-
-import { data } from 'static/base/blogs'
+import { PostsData } from 'constant'
 
 const Details = () => {
   const location = useLocation()
+  const { t } = useTranslation()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
-  const blogCat = query.get('category') || ''
 
-  let { postId } = useParams<{ postId: string }>() || ''
-  const postsData = data[blogCat as BlogCategory]
+  const blogCat = query.get('category') || ''
+  const { postId } = useParams<{ postId: string }>() || ''
+
+  const postsData: PostsData[] = t(`postsData.${blogCat}`, {
+    returnObjects: true,
+  })
   const postData = postsData.find(({ id }) => id === postId)
 
   return (

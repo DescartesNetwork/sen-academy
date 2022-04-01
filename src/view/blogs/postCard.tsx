@@ -1,5 +1,5 @@
 import { Card, Col, Image, Row, Space, Typography } from 'antd'
-import { PostContent } from 'constant'
+import { PostsData } from 'constant'
 
 type ActionCard = {
   onClick: (id: string) => void
@@ -8,7 +8,7 @@ type ActionCard = {
 const PostCard = ({
   data,
   onClick = () => {},
-}: { data: PostContent } & ActionCard) => {
+}: { data: PostsData } & ActionCard) => {
   const { id, title, thumbnail, description, date } = data
 
   return (

@@ -10,6 +10,7 @@ import Blogs from './blogs'
 import Details from './blogs/details'
 
 import { AppState } from 'store'
+import 'static/base/multilangData'
 
 const App = () => {
   const {
