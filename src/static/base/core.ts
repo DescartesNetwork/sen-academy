@@ -16,23 +16,21 @@ export const coreData = {
     desciption:
       'Nắm vững kiến thức cơ bản về DeFi cho nhà đầu tư và lập trình Solana cho developer.',
     subDesc: [
-      'Grab ahold of',
-      '-DeFi basics for users.',
-      '-Solana coding for devs',
+      'Nắm bắt toàn cảnh về ngành blockchain và tự tay lập trình phần mềm Solana đơn giản',
     ],
   },
   academyUser: {
-    title: ' Lập trình Solana từ A đến À',
+    title: 'Đầu tư bền vững với DeFi',
     description:
-      ' Nắm bắt toàn cảnh về ngành blockchain và tự tay lập trình phần mềm Solana đơn giản',
-    button: 'Get started for free',
+      'DeFi khác biệt gì so với CeFi và cách tận dụng DeFi làm đòn bẩy tài chính của bạn.',
+    button: 'Khám phá ngay',
     src: require('../images/system/user.png'),
   },
   academyDev: {
-    title: ' Lập trình Solana từ A đến À',
+    title: 'Lập trình Solana từ A đến À',
     description:
-      ' Nắm bắt toàn cảnh về ngành blockchain và tự tay lập trình phần mềm Solana đơn giản',
-    button: 'Get started for free',
+      'Nắm bắt toàn cảnh về ngành blockchain và tự tay lập trình phần mềm Solana đơn giản',
+    button: 'Khám phá ngay',
     src: require('../images/system/dev.png'),
   },
   blogs: {
@@ -44,10 +42,6 @@ export const coreData = {
       {
         label: 'Blockchain',
         key: 'blockchain',
-      },
-      {
-        label: 'Thanh khoản',
-        key: 'liquidity',
       },
     ],
   },

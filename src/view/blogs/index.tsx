@@ -70,7 +70,7 @@ const Blogs = () => {
           align="middle"
           justify="center"
         >
-          <Col span={12}>
+          <Col xs={24} md={12}>
             <Space direction="vertical" size={32}>
               <span className="title">
                 <MakeUpHtml>{title}</MakeUpHtml>
@@ -84,7 +84,7 @@ const Blogs = () => {
               </Space>
             </Space>
           </Col>
-          <Col span={12}>
+          <Col xs={24} md={12}>
             <Image src={banner} preview={false} />
           </Col>
           <Col span={24} style={{ height: 150 }} /> {/* Safe space */}
