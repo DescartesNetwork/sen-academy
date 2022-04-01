@@ -41,7 +41,7 @@ const Header = () => {
   const onHandleMenu = (key: string) => {
     setSelectedMenu(key)
     setVisible(false)
-    if (key === 'home') return history.push(key)
+    if (key === 'home') return history.push(`/${key}`)
     return history.push(`/blogs?category=${key}`)
   }
 
