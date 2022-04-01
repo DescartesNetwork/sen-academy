@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
@@ -7,10 +8,14 @@ import { HEADER_MENU, LanguageType, SubMenu } from 'constant'
 import IonIcon from 'components/ionicon'
 
 import { useUI } from 'providerd'
+import { setTheme } from 'store/ui.reducer'
+import { AppDispatch } from 'store'
 
 import logo from 'static/images/logo/logo.svg'
+import logoDark from 'static/images/logo/logo-dark.svg'
 import { coreData } from 'static/base/core'
 import iconMoon from 'static/images/system/moon.svg'
+import iconSun from 'static/images/system/sun.svg'
 import flagEn from 'static/images/system/flag-en.svg'
 import flagVn from 'static/images/system/flag-vn.svg'
 
@@ -26,9 +31,10 @@ const ICON_LANG = {
 const Header = () => {
   const [visible, setVisible] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState('home')
+  const dispatch = useDispatch<AppDispatch>()
   const history = useHistory()
   const {
-    ui: { width },
+    ui: { width, theme },
   } = useUI()
   const { t, i18n } = useTranslation()
   const location = useLocation()
@@ -46,13 +52,19 @@ const Header = () => {
     return history.push(`/blogs?category=${key}`)
   }
 
-  const isMobile = width < 768
-  const curLang = i18n.language
+  const onChangeTheme = (theme: string) => {
+    dispatch(setTheme(theme !== 'dark' ? 'dark' : 'light'))
+  }
 
   useEffect(() => {
     if (blogCat) return setSelectedMenu(blogCat)
     return setSelectedMenu('home')
   }, [blogCat])
+
+  const isMobile = width < 768
+  const curLang = i18n.language
+  const themeIcon = theme === 'dark' ? iconSun : iconMoon
+  const themeLogo = theme === 'dark' ? logoDark : logo
 
   return (
     <Row justify="center">
@@ -62,7 +74,7 @@ const Header = () => {
             <Space align="center" style={{ height: '100%' }}>
               <Image
                 style={{ cursor: 'pointer' }}
-                src={logo}
+                src={themeLogo}
                 onClick={() => history.push('/home')}
                 preview={false}
               />
@@ -145,8 +157,8 @@ const Header = () => {
               <Button
                 type="text"
                 size="small"
-                icon={<Image src={iconMoon} preview={false} />}
-                disabled
+                icon={<Image src={themeIcon} preview={false} />}
+                onClick={() => onChangeTheme(theme)}
               />
               <Menu
                 className="language-menu"
