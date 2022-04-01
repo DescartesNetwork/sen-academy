@@ -7,6 +7,7 @@ import twitter from 'static/images/social/tw.svg'
 import telegram from 'static/images/social/te.svg'
 import medium from 'static/images/social/me.svg'
 import footerLogo from 'static/images/logo/ft-logo.svg'
+import { useUI } from 'providerd'
 
 const SOCIAL_MEDIA = [
   { icon: youtube, src: '' },
@@ -18,6 +19,12 @@ const SOCIAL_MEDIA = [
 ]
 
 const Footer = () => {
+  const {
+    ui: { width },
+  } = useUI()
+
+  const isMobile = width < 768
+
   return (
     <Row gutter={[16, 16]} justify="center">
       <Col span={24} className="container">
@@ -27,7 +34,7 @@ const Footer = () => {
           justify="center"
           align="middle"
         >
-          <Col flex="auto">
+          <Col flex={!isMobile ? 'auto' : undefined}>
             <Space align="center">
               <Image src={footerLogo} preview={false} />
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>

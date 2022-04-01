@@ -15,7 +15,7 @@ import 'static/styles/dark.less'
 
 ReactDOM.render(
   <Provider store={store}>
-    <UIProvider>
+    <UIProvider antd>
       <HashRouter>
         <ConfigProvider prefixCls={'sen-academy'}>
           <App />
