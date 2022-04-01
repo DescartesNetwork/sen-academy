@@ -47,7 +47,7 @@ const Header = () => {
             </Space>
           </Col>
           <Col flex={!isMobile ? 'auto' : undefined}>
-            <Space>
+            <Space align="center" style={{ height: '100%' }}>
               <Space
                 className={`${isMobile && 'menu-mobile'} ${
                   visible && 'active'
