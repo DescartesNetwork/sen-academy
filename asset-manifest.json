@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7f781551.css",
-    "main.js": "/static/js/main.37a3370c.js",
+    "main.js": "/static/js/main.7b2a780a.js",
     "static/js/255.9c7fdf56.chunk.js": "/static/js/255.9c7fdf56.chunk.js",
     "static/media/post_1.png": "/static/media/post_1.39b6d96f7d471ef3eabb.png",
     "static/media/banner-blogs.png": "/static/media/banner-blogs.197bc55e279b0eba1bed.png",
@@ -10,6 +10,7 @@
     "static/media/user.png": "/static/media/user.0f9f9f8aa7abfcdad6a9.png",
     "static/media/dev.png": "/static/media/dev.88a1519dc639cf47c745.png",
     "static/media/logo.svg": "/static/media/logo.7a7033c7f7cd52d4418df051f42b6118.svg",
+    "static/media/ft-logo.svg": "/static/media/ft-logo.2480d7a4179c746a8c6c8b194491a3b7.svg",
     "static/media/flag.svg": "/static/media/flag.2c3be3596cbc49603adb2910b3d2af5e.svg",
     "static/media/dc.svg": "/static/media/dc.02ed1a707a45ecc3232ac052e9c2b802.svg",
     "static/media/tw.svg": "/static/media/tw.1c76c4ef3995147ac5ebe1e54f73c5aa.svg",
@@ -20,11 +21,11 @@
     "static/media/fb.svg": "/static/media/fb.c61c4b187b7a443a71e1bf3333a5603c.svg",
     "static/media/te.svg": "/static/media/te.4d9458eb0eacfbcd76e9a8babd2fc4e5.svg",
     "main.7f781551.css.map": "/static/css/main.7f781551.css.map",
-    "main.37a3370c.js.map": "/static/js/main.37a3370c.js.map",
+    "main.7b2a780a.js.map": "/static/js/main.7b2a780a.js.map",
     "255.9c7fdf56.chunk.js.map": "/static/js/255.9c7fdf56.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7f781551.css",
-    "static/js/main.37a3370c.js"
+    "static/js/main.7b2a780a.js"
   ]
 }
