@@ -12,7 +12,7 @@ export const enSystem = {
   },
   banner: {
     title:
-      '<strong>DeFi</strong> make easy with <span class="primary">Sen Academy.</span>',
+      '<strong>DeFi</strong> made easy with <span class="primary">Sen Academy.</span>',
     desciption:
       'Grab ahold of DeFi basics for investors and Solana coding for developers.',
     subDesc: {
@@ -33,9 +33,9 @@ export const enSystem = {
     },
   },
   academyUser: {
-    title: 'Grab ahold of DeFi basics for investors',
+    title: 'Sustainable investing with DeFi',
     description:
-      'DeFi khác biệt gì so với CeFi và cách tận dụng DeFi làm đòn bẩy tài chính của bạn.',
+      'What makes DeFi different from CeFi, and how to leverage your finance with it.',
     button: 'Get started for free',
     src: require('../images/system/user.png'),
   },
@@ -56,5 +56,9 @@ export const enSystem = {
         key: 'blockchain',
       },
     ],
+  },
+  languages: {
+    en: 'Enlish',
+    vn: 'VietNamese',
   },
 }

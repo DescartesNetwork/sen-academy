@@ -2,8 +2,8 @@ import { Fragment, useEffect, useMemo, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import { Col, Image, Row, Menu, Space, Button } from 'antd'
-import { HEADER_MENU, SubMenu } from 'constant'
+import { Col, Image, Row, Menu, Space, Button, Typography } from 'antd'
+import { HEADER_MENU, LanguageType, SubMenu } from 'constant'
 import IonIcon from 'components/ionicon'
 
 import { useUI } from 'providerd'
@@ -18,9 +18,13 @@ import './index.less'
 
 const { menu } = coreData
 
+const ICON_LANG = {
+  en: { label: 'En', icon: flagEn },
+  vn: { label: 'Vi', icon: flagVn },
+}
+
 const Header = () => {
   const [visible, setVisible] = useState(false)
-  const [isVnLang, setIsVnLang] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState('home')
   const history = useHistory()
   const {
@@ -31,11 +35,8 @@ const Header = () => {
   const query = useMemo(() => new URLSearchParams(location.search), [location])
   const blogCat = query.get('category') || ''
 
-  const onHandleLanguage = () => {
-    const condition = !isVnLang
-    setIsVnLang(condition)
-    if (condition) return i18n.changeLanguage('en')
-    return i18n.changeLanguage('vn')
+  const onHandleLanguage = (key: string) => {
+    return i18n.changeLanguage(key)
   }
 
   const onHandleMenu = (key: string) => {
@@ -46,7 +47,7 @@ const Header = () => {
   }
 
   const isMobile = width < 768
-  const iconFlag = !isVnLang ? flagEn : flagVn
+  const curLang = i18n.language
 
   useEffect(() => {
     if (blogCat) return setSelectedMenu(blogCat)
@@ -100,13 +101,14 @@ const Header = () => {
                         {data.map((item, idx) => (
                           <Menu.SubMenu
                             key={`subMenu-${idx}`}
+                            style={{ fontSize: 16 }}
                             title={t(`menu.${key}.${idx}.label`, {
                               returnObjects: true,
                             })}
                             disabled
                           >
                             {item.data.map((subMenu) => (
-                              <Menu.Item key={subMenu} style={{ fontSize: 16 }}>
+                              <Menu.Item key={subMenu}>
                                 {t(`menu.${key}.${subMenu}`, {
                                   returnObjects: true,
                                 })}
@@ -146,12 +148,53 @@ const Header = () => {
                 icon={<Image src={iconMoon} preview={false} />}
                 disabled
               />
-              <Button
-                type="text"
-                size="small"
-                icon={<Image src={iconFlag} preview={false} />}
-                onClick={onHandleLanguage}
-              />
+              <Menu
+                className="language-menu"
+                selectedKeys={[curLang]}
+                onClick={(e) => onHandleLanguage(e.key)}
+              >
+                <Menu.SubMenu
+                  key="language"
+                  icon={
+                    <Space align="center">
+                      <Image
+                        src={ICON_LANG[curLang as LanguageType].icon}
+                        preview={false}
+                      />
+                      <Typography.Text>
+                        {ICON_LANG[curLang as LanguageType].label}
+                      </Typography.Text>
+                    </Space>
+                  }
+                >
+                  <Menu.Item
+                    key="vn"
+                    icon={
+                      <Image
+                        style={{ width: 32 }}
+                        src={flagVn}
+                        preview={false}
+                      />
+                    }
+                    style={{ marginRight: 8 }}
+                  >
+                    <span>{t('languages.vn', { returnObjects: true })}</span>
+                  </Menu.Item>
+                  <Menu.Item
+                    key="en"
+                    icon={
+                      <Image
+                        style={{ width: 32 }}
+                        src={flagEn}
+                        preview={false}
+                      />
+                    }
+                    style={{ marginRight: 8 }}
+                  >
+                    <span>{t('languages.en', { returnObjects: true })}</span>
+                  </Menu.Item>
+                </Menu.SubMenu>
+              </Menu>
             </Space>
           </Col>
         </Row>

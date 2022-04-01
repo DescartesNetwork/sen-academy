@@ -24,3 +24,4 @@ export type PostsData = {
 export const DEFAULT_LIMIT_POST = 3
 export type BlogCategory = 'user' | 'dev'
 export type BlogTabs = { label: string; key: string }
+export type LanguageType = 'en' | 'vn'
