@@ -66,7 +66,7 @@ const Blogs = () => {
       <Col span={24} className="container">
         <Row
           gutter={[40, 40]}
-          style={{ paddingTop: 100, paddingBottom: 100 }}
+          className="blog-banner"
           align="middle"
           justify="center"
         >
@@ -87,7 +87,7 @@ const Blogs = () => {
           <Col xs={24} md={12}>
             <Image src={banner} preview={false} />
           </Col>
-          <Col span={24} style={{ height: 150 }} /> {/* Safe space */}
+          <Col span={24} className="safe-space" /> {/* Safe space */}
           <Col span={24}>
             <Radio.Group
               onChange={onSelectCategory}
