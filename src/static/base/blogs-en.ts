@@ -2,7 +2,7 @@ export const enData = {
   dev: [
     {
       id: 'what-is-blockchain',
-      title: 'What is Blockchian?',
+      title: 'What is Blockchain?',
       description: 'Get to know Blockchain and its career opportunities.',
       content: `<i><p style="font-weight: 400;">Get to know Blockchain and its career opportunities</p></i>
 
