@@ -127,7 +127,7 @@ const Blogs = () => {
               className="blogs-btn"
               onClick={() => setPostPerpage(postPerpage + 3)}
             >
-              View more
+              {t('viewMore', { returnObjects: true })}
             </Button>
           </Col>
         </Row>

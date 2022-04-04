@@ -25,7 +25,7 @@ const Details = () => {
 
   useEffect(() => {
     ;(async () => {
-      await asyncWait(800)
+      await asyncWait(200)
       if (!postData) return history.push('/home')
     })()
   }, [history, postData])

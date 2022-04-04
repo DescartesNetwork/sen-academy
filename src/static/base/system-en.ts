@@ -65,4 +65,5 @@ export const enSystem = {
   quiz: {
     button: 'Exercise',
   },
+  viewMore: 'View more',
 }

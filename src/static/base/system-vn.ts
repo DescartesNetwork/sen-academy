@@ -64,4 +64,5 @@ export const vnSystem = {
   quiz: {
     button: 'Làm bài tập',
   },
+  viewMore: 'Xem thêm',
 }
