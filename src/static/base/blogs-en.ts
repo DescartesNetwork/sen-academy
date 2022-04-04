@@ -2,7 +2,7 @@ export const enData = {
   dev: [
     {
       id: 'what-is-blockchain',
-      title: 'What is Blockchian?',
+      title: 'What is Blockchain?',
       description: 'Get to know Blockchain and its career opportunities.',
       content: `<p style="font-weight: 400;">Blockchain has been and continues to be a hot topic of discussion among developers and investors globally in general, and in Vietnam in general. Thousands of projects revolve around products of blockchain technology such as cryptocurrency (crypto), decentralized finance (DeFi), or play-to-earn games (GameFi) are drawing in huge investments up to tens of millions of dollars.</p>
       

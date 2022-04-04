@@ -43,7 +43,7 @@ const Footer = () => {
           className="wrap-footer"
         >
           <Col flex={!isMobile ? 'auto' : undefined}>
-            <Space align="center">
+            <Space align="end">
               <Image src={themeLogo} preview={false} />
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>
                 © 2022, All Rights Reserved
