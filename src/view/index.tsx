@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import { Affix, Card, Layout } from 'antd'
 import Header from './header'
@@ -12,19 +13,25 @@ import Watcher from './watcher'
 
 import { AppState } from 'store'
 import 'static/base/multilangData'
+import { useTranslation } from 'react-i18next'
 
 const App = () => {
   const {
     ui: { theme },
   } = useSelector((state: AppState) => state)
-  // Load theme
+  const { t } = useTranslation()
 
+  // Load theme
   useEffect(() => {
     document.body.setAttribute('id', theme)
   }, [theme])
 
   return (
     <Layout className="root-bg">
+      {/* Translate site description */}
+      <Helmet>
+        <title>{t('siteDesc', { returnObjects: true })}</title>
+      </Helmet>
       <Affix>
         <Card
           className="glass"

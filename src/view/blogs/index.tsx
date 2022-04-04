@@ -76,7 +76,7 @@ const Blogs = () => {
                 </MakeUpHtml>
               </span>
               <Space direction="vertical">
-                <Typography.Text type="secondary">
+                <Typography.Text style={{ fontSize: 20 }} type="secondary">
                   {t(`banner.subDesc.${blogCat}.label`, {
                     returnObjects: true,
                   })}

@@ -39,8 +39,8 @@
 
 // Card
 @card-radius: @border-radius-base * 2;
-@card-actions-background: @NEUTRAL05;
-@card-background: @NEUTRAL05;
+@card-actions-background: @WHITE;
+@card-background: @WHITE;
 @card-shadow: @LIGHT_SHADOW2;
 
 // Modal
@@ -77,9 +77,8 @@
 }
 
 .@{ant-prefix}-card {
-  box-shadow: @LIGHT_SHADOW1;
   &.glass {
-    background-color: color(~`('@{card-background}99') `);
+    background-color: color(~`('@{NEUTRAL05}99') `);
     backdrop-filter: blur(14px);
   }
 }

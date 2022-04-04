@@ -46,7 +46,7 @@ const Details = () => {
               </Col>
             </Row>
           </Col>
-          <Col span={24}>
+          <Col span={24} className="post-content">
             <MakeUpHtml>{postData?.content}</MakeUpHtml>
           </Col>
         </Row>
