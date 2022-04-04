@@ -21,6 +21,9 @@
     height: auto;
     object-fit: cover;
   }
+  iframe {
+    width: 100%;
+  }
 }
 .blog-banner {
   padding-top: 100px;
@@ -40,11 +43,29 @@
   }
 }
 .post-content {
-  & *:not(h1, h1 *) {
+  & *:not(h1, h1 *, pre, pre *, i, i *) {
     font-size: 20px;
   }
   h1,
   h1 * {
     font-size: 24px;
+  }
+  pre,
+  pre * {
+    font-size: 14px;
+  }
+  i,
+  i * {
+    color: #7a7b85;
+    font-size: 18px;
+    font-weight: 300;
+  }
+}
+#dark {
+  .post-content {
+    i,
+    i * {
+      color: #a6a7ad;
+    }
   }
 }

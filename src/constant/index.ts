@@ -16,15 +16,26 @@ type EmbedData = {
   embedCode: string
 }
 
+export enum PostContentType {
+  nomarl = 'normal',
+  special = 'special',
+}
+
+type PostContent = {
+  type: PostContentType
+  text: string
+}
+
 export type PostsData = {
   id: string
   title: string
   description: string
-  content: string
+  content: PostContent[]
   thumbnail: string
   date: string
   category: string[]
   quizButton?: EmbedData
+  video?: string
 }
 
 export const DEFAULT_LIMIT_POST = 3

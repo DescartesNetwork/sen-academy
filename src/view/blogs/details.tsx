@@ -1,19 +1,29 @@
 import { useEffect, useMemo } from 'react'
 import { useLocation, useParams, useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import {
+  atelierCaveDark,
+  atelierCaveLight,
+} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 import { Col, Image, Row, Space, Typography } from 'antd'
 import PostTags from './postTags'
-import { PostsData } from 'constant'
+import { PostContentType, PostsData } from 'constant'
 import MakeUpHtml from 'components/makeUpHtml'
 import ButtonExercise from 'components/buttonExercise'
 import { asyncWait } from 'helper'
+import { useSelector } from 'react-redux'
+import { AppState } from 'store'
 
 const Details = () => {
   const location = useLocation()
   const history = useHistory()
   const { t } = useTranslation()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
+  const {
+    ui: { theme },
+  } = useSelector((state: AppState) => state)
 
   const blogCat = query.get('category') || ''
   const { postId } = useParams<{ postId: string }>() || ''
@@ -22,6 +32,7 @@ const Details = () => {
     returnObjects: true,
   })
   const postData = postsData.find(({ id }) => id === postId)
+  const syntaxStyle = theme === 'dark' ? atelierCaveLight : atelierCaveDark
 
   useEffect(() => {
     ;(async () => {
@@ -39,7 +50,11 @@ const Details = () => {
           justify="center"
         >
           <Col span={24} className="post-img">
-            <Image src={postData?.thumbnail} preview={false} />
+            {postData?.video ? (
+              <MakeUpHtml>{postData.video}</MakeUpHtml>
+            ) : (
+              <Image src={postData?.thumbnail} preview={false} />
+            )}
           </Col>
           <Col span={24}>
             <Row gutter={[12, 12]}>
@@ -57,7 +72,22 @@ const Details = () => {
             </Row>
           </Col>
           <Col span={24} className="post-content">
-            <MakeUpHtml>{postData?.content}</MakeUpHtml>
+            {postData?.content?.map((content, idx) => {
+              const { type, text } = content
+              if (type === PostContentType.special)
+                // Return react high light for code content
+                return (
+                  <SyntaxHighlighter
+                    key={idx}
+                    language="react"
+                    style={syntaxStyle}
+                  >
+                    {text}
+                  </SyntaxHighlighter>
+                )
+
+              return <MakeUpHtml key={idx}>{text}</MakeUpHtml>
+            })}
           </Col>
           {/* Button Quiz */}
           <ButtonExercise
