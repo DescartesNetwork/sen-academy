@@ -13,3 +13,12 @@ export const randomColor = (seed?: string, opacity?: string | number) => {
   }
   return `rgba(${rgb[0]}, 100, ${rgb[1]},${opacity || 1})`
 }
+
+/**
+ * Delay by async/await
+ * @param ms - milisenconds
+ * @returns
+ */
+export const asyncWait = (ms: number): Promise<void> => {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}

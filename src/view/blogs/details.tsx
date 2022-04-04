@@ -1,14 +1,17 @@
-import { useMemo } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useEffect, useMemo } from 'react'
+import { useLocation, useParams, useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import { Col, Image, Row, Space, Typography } from 'antd'
 import PostTags from './postTags'
 import { PostsData } from 'constant'
 import MakeUpHtml from 'components/makeUpHtml'
+import ButtonExercise from 'components/buttonExercise'
+import { asyncWait } from 'helper'
 
 const Details = () => {
   const location = useLocation()
+  const history = useHistory()
   const { t } = useTranslation()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
 
@@ -19,6 +22,13 @@ const Details = () => {
     returnObjects: true,
   })
   const postData = postsData.find(({ id }) => id === postId)
+
+  useEffect(() => {
+    ;(async () => {
+      await asyncWait(800)
+      if (!postData) return history.push('/home')
+    })()
+  }, [history, postData])
 
   return (
     <Row gutter={[24, 24]} justify="center" style={{ padding: '0 12px' }}>
@@ -49,6 +59,11 @@ const Details = () => {
           <Col span={24} className="post-content">
             <MakeUpHtml>{postData?.content}</MakeUpHtml>
           </Col>
+          {/* Button Quiz */}
+          <ButtonExercise
+            embedCode={postData?.quizButton?.embedCode}
+            title={postData?.quizButton?.title}
+          />
         </Row>
       </Col>
     </Row>

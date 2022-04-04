@@ -61,4 +61,7 @@ export const vnSystem = {
     en: 'Tiếng Anh',
     vn: 'Tiếng Việt',
   },
+  quiz: {
+    button: 'Làm bài tập',
+  },
 }

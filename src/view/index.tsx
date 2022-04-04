@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import { Affix, Card, Layout } from 'antd'
 import Header from './header'
@@ -13,7 +14,6 @@ import Watcher from './watcher'
 
 import { AppState } from 'store'
 import 'static/base/multilangData'
-import { useTranslation } from 'react-i18next'
 
 const App = () => {
   const {
@@ -40,7 +40,7 @@ const App = () => {
             boxShadow: 'unset',
             zIndex: 999,
           }}
-          bodyStyle={{ padding: 8 }}
+          bodyStyle={{ padding: 16 }}
           bordered={false}
         >
           <Header />
