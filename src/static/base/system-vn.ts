@@ -1,4 +1,5 @@
 export const vnSystem = {
+  siteDesc: 'Giải mã DeFi cùng Sen Academy',
   menu: {
     home: 'Trang chủ',
     user: 'Người dùng',

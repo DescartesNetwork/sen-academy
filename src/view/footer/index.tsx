@@ -13,12 +13,15 @@ import footerLogoDark from 'static/images/logo/ft-logo-dark.svg'
 import './index.less'
 
 const SOCIAL_MEDIA = [
-  { icon: youtube, src: '' },
-  { icon: facebook, src: '' },
-  { icon: discord, src: '' },
-  { icon: twitter, src: '' },
-  { icon: telegram, src: '' },
-  { icon: medium, src: '' },
+  {
+    icon: youtube,
+    src: 'https://www.youtube.com/channel/UC7P7lwc-6sLEr0yLzWfFUyg',
+  },
+  { icon: facebook, src: 'https://www.facebook.com/groups/1106045156850673' },
+  { icon: discord, src: 'https://discord.gg/EXFntyCRzJ' },
+  { icon: twitter, src: 'https://twitter.com/SentreProtocol' },
+  { icon: telegram, src: 'https://t.me/SolanaDevVN' },
+  { icon: medium, src: 'https://sentre.medium.com' },
 ]
 
 const Footer = () => {

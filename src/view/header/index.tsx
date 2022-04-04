@@ -13,15 +13,12 @@ import { AppDispatch } from 'store'
 
 import logo from 'static/images/logo/logo.svg'
 import logoDark from 'static/images/logo/logo-dark.svg'
-import { coreData } from 'static/base/core'
 import iconMoon from 'static/images/system/moon.svg'
 import iconSun from 'static/images/system/sun.svg'
 import flagEn from 'static/images/system/flag-en.svg'
 import flagVn from 'static/images/system/flag-vn.svg'
 
 import './index.less'
-
-const { menu } = coreData
 
 const ICON_LANG = {
   en: { label: 'En', icon: flagEn },
@@ -107,7 +104,9 @@ const Header = () => {
                       )
 
                     // Render sub menu if is existed
-                    const data: SubMenu[] = menu[key]
+                    const data: SubMenu[] = t(`menu.${key}`, {
+                      returnObjects: true,
+                    })
                     return (
                       <Fragment key={key}>
                         {data.map((item, idx) => (
@@ -153,7 +152,7 @@ const Header = () => {
             </Space>
           </Col>
           <Col>
-            <Space>
+            <Space align="center">
               <Button
                 type="text"
                 size="small"

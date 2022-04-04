@@ -1,4 +1,5 @@
 export const enSystem = {
+  siteDesc: 'DeFi made easy with Sen Academy',
   menu: {
     home: 'Home',
     user: 'User',

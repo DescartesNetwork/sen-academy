@@ -54,11 +54,16 @@ const BlockContainer = ({
             <Space direction="vertical" size={24}>
               <Space direction="vertical" size={16}>
                 <Typography.Title level={1}>{title}</Typography.Title>
-                <Typography.Text type="secondary">
+                <Typography.Text style={{ fontSize: 20 }} type="secondary">
                   {description}
                 </Typography.Text>
               </Space>
-              <Button type="primary" onClick={onClick} disabled={disabled}>
+              <Button
+                size="large"
+                type="primary"
+                onClick={onClick}
+                disabled={disabled}
+              >
                 {button}
               </Button>
             </Space>
