@@ -11,6 +11,11 @@ export enum SelectedTabs {
   liquidity = 'liquidity',
 }
 
+type EmbedData = {
+  title: string
+  embedCode: string
+}
+
 export type PostsData = {
   id: string
   title: string
@@ -19,6 +24,7 @@ export type PostsData = {
   thumbnail: string
   date: string
   category: string[]
+  quizButton?: EmbedData
 }
 
 export const DEFAULT_LIMIT_POST = 3

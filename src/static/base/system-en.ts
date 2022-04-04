@@ -62,4 +62,7 @@ export const enSystem = {
     en: 'English',
     vn: 'VietNamese',
   },
+  quiz: {
+    button: 'Exercise',
+  },
 }
