@@ -514,7 +514,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<i><span >pluginscraco-wasm.js</span></i>`,
+          text: `<i><span >plugin/scraco-wasm.js</span></i>`,
         },
         {
           type: 'special',
