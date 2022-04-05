@@ -11,14 +11,14 @@ export const enData = {
       
       <p>As of November 2021, the Library of Congress has counted 103 countries where the government has directed the development of regulations and priorities for cryptocurrencies and financial institutions related. Though Vietnam banned the use of cryptocurrencies as means of payment, other products related to blockchain technology are still actively developed.</p>
 
-      <p style="max-width: 500px; margin: 24px auto; overflow: hidden;"><img style="width: 100%; object-fit: contain;" src="https://cdn.statcdn.com/Infographic/images/normal/27069.jpeg" alt="blockchain" /></p>
+      <p class="content-img" style="max-width: 500px; margin: 24px auto; overflow: hidden;"><img style="width: 100%; object-fit: contain;" src="https://cdn.statcdn.com/Infographic/images/normal/27069.jpeg" alt="blockchain" /></p>
       
       <p>Along with surges from global “big players” such as eBay allowing NFT sellers on its platform, or in Vietnam, Tiki launched a membership classification system with Astra, blockchain technology has the potential in leading the “Web 3.0 revolution” soon. With an industry as complex and disruptive as blockchain, many employers thirsts for talent. Developers in this field can expect a salary of thousands of dollars. Many businesses are even ready to hunt talented developers simply “interested in blockchain technology.”</p>
       
       <p>So, what is blockchain, and how to develop a career in this challenging industry?</p>
       <h1 style="font-size: 32px"><strong>Blockchain Definition For Developers</strong></h1>
 
-      <p style="max-width: 500px; margin: 24px auto; overflow: hidden;"><img style="width: 100%; object-fit: contain;" src="https://images.unsplash.com/photo-1632425422722-672c726e3763?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" alt="blockchain" /></p>
+      <p class="content-img"><img style="width: 100%; object-fit: contain;" src="https://images.unsplash.com/photo-1632425422722-672c726e3763?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" alt="blockchain" /></p>
 
       <p>Blockchain is a distributed (decentralized) database system formed as blocks linked together using cryptography. Similar to traditional databases: MySQL, MongoDB, etc. We can use blockchain to store data. However, the following characteristics are what set blockchain apart from the rest:</p>
       <ul>
