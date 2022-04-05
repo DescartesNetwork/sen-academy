@@ -23,6 +23,10 @@
   }
   iframe {
     width: 100%;
+    height: calc(100vw * 1.5 / 4);
+    @media (max-width: 1200px) {
+      height: calc(100vw * 2.03 / 4);
+    }
   }
 }
 .blog-banner {
@@ -40,6 +44,15 @@
   }
   @media (max-width: 575px) {
     height: 0;
+  }
+}
+.post-card {
+  .sen-academy-image {
+    height: 220px;
+    img {
+      height: 100% !important;
+      object-fit: cover;
+    }
   }
 }
 .post-content {
