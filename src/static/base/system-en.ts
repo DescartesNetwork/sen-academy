@@ -19,7 +19,7 @@ export const enSystem = {
     subDesc: {
       dev: {
         title:
-          'Develop <span class="primary">Solana</span> from zero to <span class="primary">Hero</span>',
+          '<span class="primary">Solana</span> programming: From Zero to <span class="primary">Hero</span>',
         label:
           'Grab ahold of DeFi basics for investors and Solana coding for developers.',
         src: require('../images/system/dev.png'),
@@ -41,8 +41,8 @@ export const enSystem = {
     src: require('../images/system/user.png'),
   },
   academyDev: {
-    title: 'Develop Solana from zero to Hero',
-    description: 'Empowering DeFi Users & Developers',
+    title: 'Solana programming: From Zero to Hero',
+    description: 'Get to know blockchain and write a basic Solana program',
     button: 'Get started for free',
     src: require('../images/system/dev.png'),
   },
