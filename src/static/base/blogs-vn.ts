@@ -7,49 +7,52 @@ export const vnData = {
       content: [
         {
           type: 'normal',
-          text: `<p style="font-weight: 400;">Blockchain đã và đang tiếp tục là chủ đề bàn luận nóng bỏng của giới lập trình và các nhà đầu tư trên toàn thế giới nói chung và Việt Nam nói riêng. Hàng ngàn dự án xoay quanh những sản phẩm của công nghệ blockchain như tiền điện tử (cryptocurrency, gọi tắt là crypto), giải pháp tài chính phi tập trung (decentralized finance, gọi tắt là DeFi), hay game play-to-earn (GameFi) đang thu hút nguồn vốn đầu tư “khủng” lên tới hàng chục triệu đô.</p>
+          text: `<p >Blockchain đã và đang tiếp tục là chủ đề bàn luận nóng bỏng của giới lập trình và các nhà đầu tư trên toàn thế giới nói chung và Việt Nam nói riêng. Hàng ngàn dự án xoay quanh những sản phẩm của công nghệ blockchain như tiền điện tử (cryptocurrency, gọi tắt là crypto), giải pháp tài chính phi tập trung (decentralized finance, gọi tắt là DeFi), hay game play-to-earn (GameFi) đang thu hút nguồn vốn đầu tư “khủng” lên tới hàng chục triệu đô.</p>
 
-        <p style="font-weight: 400;">Tính tới tháng 11/2021, Thư viện Quốc hội Mỹ đã thống kê được 103 quốc gia nơi chính phủ ra chỉ đạo phát triển các quy định và ưu tiên cho các tổ chức tài chính liên quan đến tiền điện tử, và việc sử dụng tiền điện tử nói chung. Tại Việt Nam, tuy tiền điện tử không được áp dụng như phương tiện thanh toán nhưng các ứng dụng khác liên quan tới công nghệ blockchain lại vô cùng phát triển.</p>
+        <p >Tính tới tháng 11/2021, Thư viện Quốc hội Mỹ đã thống kê được 103 quốc gia nơi chính phủ ra chỉ đạo phát triển các quy định và ưu tiên cho các tổ chức tài chính liên quan đến tiền điện tử, và việc sử dụng tiền điện tử nói chung. Tại Việt Nam, tuy tiền điện tử không được áp dụng như phương tiện thanh toán nhưng các ứng dụng khác liên quan tới công nghệ blockchain lại vô cùng phát triển.</p>
         <p style="max-width: 500px; margin: 24px auto; overflow: hidden;"><img style="width: 100%; object-fit: contain;" src="https://cdn.statcdn.com/Infographic/images/normal/27069.jpeg" alt="blockchain" /></p>
-        <p style="font-weight: 400;">Cùng những động thái mạnh mẽ từ các “ông lớn” toàn cầu như eBay cho phép đăng bán NFT trên nền tảng của mình, hay tại Việt Nam, Tiki ra mắt hệ thống phân loại hội viên với đồng Astra, có thể thấy tiềm năng to lớn của công nghệ blockchain trong việc dẫn đầu cuộc “cách mạng web 3.0” trong tương lai không xa. Với một ngành phức tạp và mang tính đột phá như blockchain, các nhà tuyển dụng đang vô cùng “khát” nhân tài. Mức lương ngàn đô không hề xa tầm với, nhiều doanh nghiệp sẵn sàng săn đón các lập trình viên tài năng ngay từ khi họ chỉ vừa “hứng thú, quan tâm” tới công nghệ blockchain.</p>
+        <p >Cùng những động thái mạnh mẽ từ các “ông lớn” toàn cầu như eBay cho phép đăng bán NFT trên nền tảng của mình, hay tại Việt Nam, Tiki ra mắt hệ thống phân loại hội viên với đồng Astra, có thể thấy tiềm năng to lớn của công nghệ blockchain trong việc dẫn đầu cuộc “cách mạng web 3.0” trong tương lai không xa. Với một ngành phức tạp và mang tính đột phá như blockchain, các nhà tuyển dụng đang vô cùng “khát” nhân tài. Mức lương ngàn đô không hề xa tầm với, nhiều doanh nghiệp sẵn sàng săn đón các lập trình viên tài năng ngay từ khi họ chỉ vừa “hứng thú, quan tâm” tới công nghệ blockchain.</p>
         
-        <p style="font-weight: 400;">Vậy, blockchain là gì, và làm thế nào để phát triển sự nghiệp trong ngành công nghệ non trẻ, mới lạ và đầy thách thức này?</p>
+        <p >Vậy, blockchain là gì, và làm thế nào để phát triển sự nghiệp trong ngành công nghệ non trẻ, mới lạ và đầy thách thức này?</p>
         <h1 style="font-size: 32px"><strong>Định nghĩa Blockchain dễ hiểu cho lập trình viên</strong></h1>
-        <p style="font-weight: 400;">Blockchain là hệ thống cơ sở dữ liệu phân tán (phi tập trung) được hình thành dưới dạng các khối kết nối với nhau bằng mật mã học (cryptography). Cũng như những cơ sở dữ liệu truyền thống: MySQL, MongoDB,... Blockchain có thể dùng để lưu trữ dữ liệu, tuy nhiên, những đặc điểm sau mới tạo nên sự khác biệt và mở ra thời đại mới của thế giới công nghệ:</p>
+
+        <p style="max-width: 500px; margin: 24px auto; overflow: hidden;"><img style="width: 100%; object-fit: contain;" src="https://images.unsplash.com/photo-1632425422722-672c726e3763?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" alt="blockchain" /></p>
+
+        <p >Blockchain là hệ thống cơ sở dữ liệu phân tán (phi tập trung) được hình thành dưới dạng các khối kết nối với nhau bằng mật mã học (cryptography). Cũng như những cơ sở dữ liệu truyền thống: MySQL, MongoDB,... Blockchain có thể dùng để lưu trữ dữ liệu, tuy nhiên, những đặc điểm sau mới tạo nên sự khác biệt và mở ra thời đại mới của thế giới công nghệ:</p>
         <ul>
-           <li style="font-weight: 400;" aria-level="1"><b>Tính bất biến:</b><span style="font-weight: 400;"> Dữ liệu trong blockchain không thể sửa đổi. Vì dữ liệu được lưu trữ trên nhiều máy tính khắp toàn cầu nên không thể xoá cũng như phá huỷ.</span></li>
-           <li style="font-weight: 400;" aria-level="1"><b>Tính minh bạch:</b><span style="font-weight: 400;"> Ai cũng có thể theo dõi dữ liệu trên Blockchain.</span></li>
-           <li style="font-weight: 400;" aria-level="1"><b>Tính bảo mật:</b><span style="font-weight: 400;"> Với việc áp dụng công nghệ mật mã học, mạng ngang hàng (dữ liệu lưu trữ phân tán có quyền như nhau) và lý thuyết trò chơi (độ tin cậy, chính xác dữ liệu được quyết định theo số đông), dữ liệu trên Blockchain không thể bị làm giả.</span></li>
+           <li  aria-level="1"><b>Tính bất biến:</b><span > Dữ liệu trong blockchain không thể sửa đổi. Vì dữ liệu được lưu trữ trên nhiều máy tính khắp toàn cầu nên không thể xoá cũng như phá huỷ.</span></li>
+           <li  aria-level="1"><b>Tính minh bạch:</b><span > Ai cũng có thể theo dõi dữ liệu trên Blockchain.</span></li>
+           <li  aria-level="1"><b>Tính bảo mật:</b><span > Với việc áp dụng công nghệ mật mã học, mạng ngang hàng (dữ liệu lưu trữ phân tán có quyền như nhau) và lý thuyết trò chơi (độ tin cậy, chính xác dữ liệu được quyết định theo số đông), dữ liệu trên Blockchain không thể bị làm giả.</span></li>
         </ul>
-        <p style="font-weight: 400;">Ví dụ sau đây thể hiện vai trò không thể thiếu cũng như khẳng định xu hướng tương lai của Blockchain:</p>
+        <p >Ví dụ sau đây thể hiện vai trò không thể thiếu cũng như khẳng định xu hướng tương lai của Blockchain:</p>
         <ul>
-           <li style="font-weight: 400;" aria-level="1"><p style="font-weight: 400;">Công nghệ ngày càng phát triển, nhu cầu về các ứng dụng mang tính toàn cầu ngày càng cao. Đối với các ứng dụng mang tính toàn cầu thì tiêu chí an toàn và minh bạch cần đặt lên hàng đầu.</p></li>
-           <li style="font-weight: 400;" aria-level="1"><p style="font-weight: 400;">Một ví dụ rõ nhất là hệ thống quản trị tài sản: Người quản trị có thể dễ dàng thay đổi thông tin để tăng tiền của mình, hay lấy tiền của người khác. Hoặc nếu hệ thống quản trị tài sản bị hư hỏng mà chưa kịp sao lưu (backup) thì tiền của bạn cũng biến mất theo. Blockchain có thể giải quyết tốt tất cả những vấn đề này.</p></li>
+           <li  aria-level="1"><p >Công nghệ ngày càng phát triển, nhu cầu về các ứng dụng mang tính toàn cầu ngày càng cao. Đối với các ứng dụng mang tính toàn cầu thì tiêu chí an toàn và minh bạch cần đặt lên hàng đầu.</p></li>
+           <li  aria-level="1"><p >Một ví dụ rõ nhất là hệ thống quản trị tài sản: Người quản trị có thể dễ dàng thay đổi thông tin để tăng tiền của mình, hay lấy tiền của người khác. Hoặc nếu hệ thống quản trị tài sản bị hư hỏng mà chưa kịp sao lưu (backup) thì tiền của bạn cũng biến mất theo. Blockchain có thể giải quyết tốt tất cả những vấn đề này.</p></li>
         </ul>
         <h1 style="font-size: 32px"><strong>Các nền tảng blockchain hàng đầu</strong></h1>
         <h2><strong>Bitcoin - Ứng dụng đầu tiên của công nghệ Blockchain</strong></h2>
-        <b>Bitcoin </b><span style="font-weight: 400;">là một trong những mạng lưới blockchain đầu tiên được phát triển với mục đích duy nhất là cho phép gửi và nhận tiền. Tuy nhiên, để có thể phát triển các ứng dụng toàn cầu thì chỉ gửi và nhận là chưa đủ. Chính vì vậy, các mạng lưới blockchain sau này dần cho phép lập trình viên phát triển trên nền tảng của mình.</p>
-        <h2><p style="font-weight: 400;"><strong>Ethereum và Solana - Các nền tảng blockchain cho phép lập trình</strong> </span></h2>
+        <b>Bitcoin </b><span >là một trong những mạng lưới blockchain đầu tiên được phát triển với mục đích duy nhất là cho phép gửi và nhận tiền. Tuy nhiên, để có thể phát triển các ứng dụng toàn cầu thì chỉ gửi và nhận là chưa đủ. Chính vì vậy, các mạng lưới blockchain sau này dần cho phép lập trình viên phát triển trên nền tảng của mình.</p>
+        <h2><p ><strong>Ethereum và Solana - Các nền tảng blockchain cho phép lập trình</strong> </span></h2>
         <ul>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Không chỉ là đồng tiền điện tử đơn thuần như Bitcoin, </span><b>Ethereum</b><span style="font-weight: 400;"> còn giúp </span><b>tạo ra các thị trường online</b><span style="font-weight: 400;"> với những giao dịch có thể được lập trình, hay còn được biết đến với cái tên hợp đồng thông minh (Smart contract).</span></li>
+           <li  aria-level="1"><span >Không chỉ là đồng tiền điện tử đơn thuần như Bitcoin, </span><b>Ethereum</b><span > còn giúp </span><b>tạo ra các thị trường online</b><span > với những giao dịch có thể được lập trình, hay còn được biết đến với cái tên hợp đồng thông minh (Smart contract).</span></li>
         </ul>
         <ul>
-           <li style="font-weight: 400;" aria-level="1"><b>Solana</b><span style="font-weight: 400;"> là một nền tảng blockchain với </span><b>mã nguồn mở hoàn toàn phi tập trung</b><span style="font-weight: 400;">. Tương tự như Ethereum, Solana được thiết kế để phục vụ cho các giao dịch ngang hàng, tạo smart contract, thiết kế các DApps và các NFT.</span></li>
+           <li  aria-level="1"><b>Solana</b><span > là một nền tảng blockchain với </span><b>mã nguồn mở hoàn toàn phi tập trung</b><span >. Tương tự như Ethereum, Solana được thiết kế để phục vụ cho các giao dịch ngang hàng, tạo smart contract, thiết kế các DApps và các NFT.</span></li>
         </ul>
         <h2><strong>Chọn Ethereum hay Solana để lập trình?</strong></h2>
-        <p style="font-weight: 400;">Solana và Ethereum đều là các blockchain mã nguồn mở có chức năng hợp đồng thông minh, cho phép lưu trữ các ứng dụng phi tập trung (Decentralized App, gọi tắt là DApp). Các DApp này cung cấp dịch vụ và sản phẩm trong nhiều lĩnh vực như tài chính, trò chơi, vân vân.</p>
+        <p >Solana và Ethereum đều là các blockchain mã nguồn mở có chức năng hợp đồng thông minh, cho phép lưu trữ các ứng dụng phi tập trung (Decentralized App, gọi tắt là DApp). Các DApp này cung cấp dịch vụ và sản phẩm trong nhiều lĩnh vực như tài chính, trò chơi, vân vân.</p>
         
-        <span style="font-weight: 400;">Tuy nhiên, </span><b>Solana xử lý giao dịch nhanh và tiết kiệm hơn Ethereum</b><span style="font-weight: 400;"> một cách rõ rệt.</span>
+        <span >Tuy nhiên, </span><b>Solana xử lý giao dịch nhanh và tiết kiệm hơn Ethereum</b><span > một cách rõ rệt.</span>
         
-        <p style="font-weight: 400;">Tại sao lại có sự khác biệt này? Hãy tìm hiểu kiến trúc state của hai nền tảng blockchain:</p>
+        <p >Tại sao lại có sự khác biệt này? Hãy tìm hiểu kiến trúc state của hai nền tảng blockchain:</p>
         
-        <b>Ethereum có kiến trúc “stateful”</b><span style="font-weight: 400;">, có khả năng lưu trữ dữ liệu, trạng thái của mình. Mọi giao dịch trên mạng lưới đều được ghi lại ở cùng một trạng thái, như vậy toàn bộ mạng lưới sẽ phải cập nhật lại bản sao mỗi khi có giao dịch mới xảy ra.</span>
+        <b>Ethereum có kiến trúc “stateful”</b><span >, có khả năng lưu trữ dữ liệu, trạng thái của mình. Mọi giao dịch trên mạng lưới đều được ghi lại ở cùng một trạng thái, như vậy toàn bộ mạng lưới sẽ phải cập nhật lại bản sao mỗi khi có giao dịch mới xảy ra.</span>
         
-        <p style="font-weight: 400;">Ví dụ: Nếu bạn gửi cho một người nào đó 10 đô la qua Ethereum, toàn bộ mạng lưới Ethereum sẽ phải cập nhật lại trạng thái để thêm giao dịch của bạn lên hệ thống.</p>
+        <p >Ví dụ: Nếu bạn gửi cho một người nào đó 10 đô la qua Ethereum, toàn bộ mạng lưới Ethereum sẽ phải cập nhật lại trạng thái để thêm giao dịch của bạn lên hệ thống.</p>
         
-        <b>Solana có kiến trúc “stateless”</b><span style="font-weight: 400;">, giống với thế hệ máy tính đầu tiên sử dụng thẻ bấm lỗ (punch card). Dữ liệu được nhập vào máy thông qua các tấm thẻ được người viết chương trình bấm lỗ sẵn, giúp giảm mức tiêu thụ bộ nhớ tổng thể. Nhờ vậy, mạng lưới không cần cập nhật mới toàn bộ mỗi khi có giao dịch, từ đó giúp thời gian xử lý của Solana được rút ngắn đáng kể và gia tăng khả năng mở rộng so với người anh em Ethereum.</span>
+        <b>Solana có kiến trúc “stateless”</b><span >, giống với thế hệ máy tính đầu tiên sử dụng thẻ bấm lỗ (punch card). Dữ liệu được nhập vào máy thông qua các tấm thẻ được người viết chương trình bấm lỗ sẵn, giúp giảm mức tiêu thụ bộ nhớ tổng thể. Nhờ vậy, mạng lưới không cần cập nhật mới toàn bộ mỗi khi có giao dịch, từ đó giúp thời gian xử lý của Solana được rút ngắn đáng kể và gia tăng khả năng mở rộng so với người anh em Ethereum.</span>
         
-        <p style="font-weight: 400;">Để từng bước nghiên cứu và bắt tay vào lập trình trên Solana, hãy theo dõi 9 video tiếp theo của Sen Academy, và thoải mái đặt câu hỏi cho chúng tôi qua mục bình luận nhé!</p>`,
+        <p >Để từng bước nghiên cứu và bắt tay vào lập trình trên Solana, hãy theo dõi 9 video tiếp theo của Sen Academy, và thoải mái đặt câu hỏi cho chúng tôi qua mục bình luận nhé!</p>`,
         },
         {
           id: 'dev-guildeline-exc-1',
@@ -58,30 +61,30 @@ export const vnData = {
           content: [
             {
               type: 'normal',
-              text: `<span style="font-weight: 400;">Các Bước Thiết Kế Giao Diện DApp Cơ Bản Với React Và Ant Design</span>
+              text: `<span >Các Bước Thiết Kế Giao Diện DApp Cơ Bản Với React Và Ant Design</span>
     
-            <span style="font-weight: 400;">Ấn tượng đầu tiên luôn là quan trọng nhất. Để xây dựng một DApp hoàn chỉnh, được nhiều người dùng lựa chọn sử dụng, bạn cần chú ý tới “bộ mặt” - giao diện của DApp.</span>
+            <span >Ấn tượng đầu tiên luôn là quan trọng nhất. Để xây dựng một DApp hoàn chỉnh, được nhiều người dùng lựa chọn sử dụng, bạn cần chú ý tới “bộ mặt” - giao diện của DApp.</span>
             
-            <span style="font-weight: 400;">Vậy, làm thế nào để thiết kế giao diện cơ bản cho DApp? Hãy cùng tìm hiểu về ReactJS và Ant Design - các thư viện UI đang được những ứng dụng toàn cầu như Facebook, Shopee, Lazada,… sử dụng cho giao diện của họ.</span>
-            <h1><span style="font-weight: 400;">Xây dựng giao diện bằng ReactJS</span></h1>
-            <span style="font-weight: 400;">Hiện nay, hầu hết lập trình viên Frontend đều biết đến hoặc đã từng nghe qua về ReactJS. ReactJS là một thư viện Javascript được phát triển tại Facebook nhằm tăng tốc và giảm bug trong quá trình xây dựng giao diện, đồng thời giúp việc phát triển và bảo trì mã nguồn trở nên dễ dàng hơn.</span>
-            <h2><span style="font-weight: 400;">Các khái niệm cơ bản</span></h2>
-            <span style="font-weight: 400;">Trước khi học cách sử dụng ReactJS, bạn cần nắm một số khái niệm cơ bản gồm:</span>
+            <span >Vậy, làm thế nào để thiết kế giao diện cơ bản cho DApp? Hãy cùng tìm hiểu về ReactJS và Ant Design - các thư viện UI đang được những ứng dụng toàn cầu như Facebook, Shopee, Lazada,… sử dụng cho giao diện của họ.</span>
+            <h1><span >Xây dựng giao diện bằng ReactJS</span></h1>
+            <span >Hiện nay, hầu hết lập trình viên Frontend đều biết đến hoặc đã từng nghe qua về ReactJS. ReactJS là một thư viện Javascript được phát triển tại Facebook nhằm tăng tốc và giảm bug trong quá trình xây dựng giao diện, đồng thời giúp việc phát triển và bảo trì mã nguồn trở nên dễ dàng hơn.</span>
+            <h2><span >Các khái niệm cơ bản</span></h2>
+            <span >Trước khi học cách sử dụng ReactJS, bạn cần nắm một số khái niệm cơ bản gồm:</span>
             <ul>
-               <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Virtual DOM: Ở DOM tree truyền thống, khi một node thay đổi, toàn bộ node sẽ tái cấu trúc. Như vậy đồng nghĩa với việc DOM tree cũng sẽ phải thay đổi một phần, điều này sẽ ảnh hưởng đến tốc độ xử lý. ReactJS sử dụng Virtual DOM (DOM ảo) để cải thiện vấn đề này. Công nghệ DOM ảo giúp tăng hiệu năng cho ứng dụng bằng cách tính toán tối ưu hoá việc re-render DOM tree thật khi dữ liệu thay đổi.</span></li>
-               <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">JSX: Một dạng ngôn ngữ cho phép viết các mã HTML trong Javascript.</span></li>
-               <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Components: ReactJS được xây dựng xung quanh các component, chúng ta có thể tái sử dụng component ở nhiều nơi. Việc này giúp dễ dàng bảo trì mã code. </span></li>
-               <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Props: Input của Component nhận gọi là props, props được truyền vào và không thể thay đổi.</span></li>
-               <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">State: thể hiện trạng thái của component, khi state thay đổi bằng các phương thức setState thì component đồng thời render lại để cập nhật UI.</span></li>
+               <li  aria-level="1"><span >Virtual DOM: Ở DOM tree truyền thống, khi một node thay đổi, toàn bộ node sẽ tái cấu trúc. Như vậy đồng nghĩa với việc DOM tree cũng sẽ phải thay đổi một phần, điều này sẽ ảnh hưởng đến tốc độ xử lý. ReactJS sử dụng Virtual DOM (DOM ảo) để cải thiện vấn đề này. Công nghệ DOM ảo giúp tăng hiệu năng cho ứng dụng bằng cách tính toán tối ưu hoá việc re-render DOM tree thật khi dữ liệu thay đổi.</span></li>
+               <li  aria-level="1"><span >JSX: Một dạng ngôn ngữ cho phép viết các mã HTML trong Javascript.</span></li>
+               <li  aria-level="1"><span >Components: ReactJS được xây dựng xung quanh các component, chúng ta có thể tái sử dụng component ở nhiều nơi. Việc này giúp dễ dàng bảo trì mã code. </span></li>
+               <li  aria-level="1"><span >Props: Input của Component nhận gọi là props, props được truyền vào và không thể thay đổi.</span></li>
+               <li  aria-level="1"><span >State: thể hiện trạng thái của component, khi state thay đổi bằng các phương thức setState thì component đồng thời render lại để cập nhật UI.</span></li>
             </ul>
-            <h2><span style="font-weight: 400;">Các bước cài đặt và khởi chạy ReactJS</span></h2>
-            <h3><span style="font-weight: 400;">Bước 1. Cài đặt NodeJS và NPM</span></h3>
-            <span style="font-weight: 400;">Để cài đặt môi trường chạy ReactJS, trước tiên bạn phải cài đặt NodeJS và NPM - đây là nền tảng bắt buộc.</span>
+            <h2><span >Các bước cài đặt và khởi chạy ReactJS</span></h2>
+            <h3><span >Bước 1. Cài đặt NodeJS và NPM</span></h3>
+            <span >Để cài đặt môi trường chạy ReactJS, trước tiên bạn phải cài đặt NodeJS và NPM - đây là nền tảng bắt buộc.</span>
             <ol>
-               <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Truy cập </span><a href="https://nodejs.org/en/download/"><span style="font-weight: 400;">https://nodejs.org/en/download/</span></a><span style="font-weight: 400;">, chọn và tải phiên bản phù hợp với hệ điều hành của bạn. Tiến hành cài đặt theo mặc định.</span></li>
+               <li  aria-level="1"><span >Truy cập </span><a href="https://nodejs.org/en/download/"><span >https://nodejs.org/en/download/</span></a><span >, chọn và tải phiên bản phù hợp với hệ điều hành của bạn. Tiến hành cài đặt theo mặc định.</span></li>
             </ol>
             <ol>
-               <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Hãy kiểm tra lại phiên bản để xác nhận đã cài thành công bằng cách mở Terminal và gõ dòng lệnh sau:</span></li>
+               <li  aria-level="1"><span >Hãy kiểm tra lại phiên bản để xác nhận đã cài thành công bằng cách mở Terminal và gõ dòng lệnh sau:</span></li>
             </ol>`,
             },
             {
@@ -90,8 +93,8 @@ export const vnData = {
             },
             {
               type: 'normal',
-              text: `<h3><span style="font-weight: 400;">Bước 2. Khởi tạo ReactJS App</span></h3>
-              <span style="font-weight: 400;">Để khởi tạo một dự án sử dụng ReactJS vào trong thư mục chứa dự án, bạn hãy mở Terminal và gõ dòng lệnh sau:</span>`,
+              text: `<h3><span >Bước 2. Khởi tạo ReactJS App</span></h3>
+              <span >Để khởi tạo một dự án sử dụng ReactJS vào trong thư mục chứa dự án, bạn hãy mở Terminal và gõ dòng lệnh sau:</span>`,
             },
             {
               type: 'special',
@@ -99,9 +102,9 @@ export const vnData = {
             },
             {
               type: 'normal',
-              text: `<span style="font-weight: 300;font-style: i">Trong đó, </span><span style="font-weight: 400;">my-app</span><span style="font-weight: 400;"> là tên thư mục chứa dự án của bạn.</span>
-            <h3><span style="font-weight: 400;">Bước 3. Cài đặt package + webpack</span></h3>
-            <span style="font-weight: 400;">Cập nhật nội dung file </span><i><span style="font-weight: 400;">package.json</span></i><span style="font-weight: 400;"> như sau:</span>`,
+              text: `<span style="font-weight: 300;font-style: i">Trong đó, </span><span >my-app</span><span > là tên thư mục chứa dự án của bạn.</span>
+            <h3><span >Bước 3. Cài đặt package + webpack</span></h3>
+            <span >Cập nhật nội dung file </span><i><span >package.json</span></i><span > như sau:</span>`,
             },
             {
               type: 'special',
@@ -159,8 +162,8 @@ export const vnData = {
             },
             {
               type: 'nomarl',
-              text: `<span style="font-weight: 400;">2. Tạo folder plugins và tạo mới 3 file với nội dung như sau:</span>
-    <i><span style="font-weight: 400;">plugins/craco-compatibility.js</span></i>`,
+              text: `<span >2. Tạo folder plugins và tạo mới 3 file với nội dung như sau:</span>
+    <i><span >plugins/craco-compatibility.js</span></i>`,
             },
             {
               type: 'special',
@@ -203,7 +206,7 @@ export const vnData = {
             },
             {
               type: 'normal',
-              text: `<i><span style="font-weight: 400;">plugins/craco-silence.js</span></i>`,
+              text: `<i><span >plugins/craco-silence.js</span></i>`,
             },
             {
               type: 'special',
@@ -243,7 +246,7 @@ export const vnData = {
             },
             {
               type: 'normal',
-              text: `<i><span style="font-weight: 400;">pluginscraco-wasm.js</span></i>`,
+              text: `<i><span >pluginscraco-wasm.js</span></i>`,
             },
             {
               type: 'special',
@@ -282,7 +285,7 @@ export const vnData = {
             },
             {
               type: 'normal',
-              text: `<span style="font-weight: 400;">3. Tạo file </span><i><span style="font-weight: 400;">craco.config.js</span></i><span style="font-weight: 400;"> với nội dung:</span>`,
+              text: `<span >3. Tạo file </span><i><span >craco.config.js</span></i><span > với nội dung:</span>`,
             },
             {
               type: 'special',
@@ -305,22 +308,22 @@ export const vnData = {
             },
             {
               type: 'normal',
-              text: `<h3><span style="font-weight: 400;">Bước 4. Khởi chạy ứng dụng</span></h3>
-            <span style="font-weight: 400;">Sau khi cài đặt cấu hình package + webpack, bạn cần install lại để project cài lại node-module. Hãy chạy dòng lệnh sau:</span>`,
+              text: `<h3><span >Bước 4. Khởi chạy ứng dụng</span></h3>
+            <span >Sau khi cài đặt cấu hình package + webpack, bạn cần install lại để project cài lại node-module. Hãy chạy dòng lệnh sau:</span>`,
             },
             { type: 'special', text: `npm install --force` },
             {
               type: 'normal',
-              text: `<span style="font-weight: 400;">Sau khi install thành công, bạn hãy khởi động ứng dụng bằng câu lệnh sau:</span>`,
+              text: `<span >Sau khi install thành công, bạn hãy khởi động ứng dụng bằng câu lệnh sau:</span>`,
             },
             { type: 'special', text: `npm start` },
             {
               type: 'normal',
-              text: `<span style="font-weight: 400;">Lúc này, ReactJS sẽ khởi chạy dự án mặc định ở port 3000, chúng ta có thể mở trình duyệt và truy cập đường dẫn </span><a href="http://localhost:3000"><span style="font-weight: 400;">http://localhost:3000</span></a>
+              text: `<span >Lúc này, ReactJS sẽ khởi chạy dự án mặc định ở port 3000, chúng ta có thể mở trình duyệt và truy cập đường dẫn </span><a href="http://localhost:3000"><span >http://localhost:3000</span></a>
     
             <p><img style="width: 100%; object-fit: contain" src="https://lh5.googleusercontent.com/5JcA9mGHU8PxMm6r3wQwGWGuaoKpSt__jebheyKeddPopjkxwANF7IlCoyo4mwH0D2fHFp-p5xjaS7Ku7kkGhS0Rbzuh2GytVDGWVUIOVqjiM49YBxnCVVBi7wfgDHA1slRU11sU" alt="react app"/></p>
             
-            <span style="font-weight: 400;">Để xây dựng ứng dụng ReactJS đầu tiên, bạn hãy truy cập vào thư mục </span><span style="font-weight: 400;">src</span><span style="font-weight: 400;"> trong dự án, tìm đến file </span><span style="font-weight: 400;">src/App.tsx</span><span style="font-weight: 400;"> và sửa thành:</span>`,
+            <span >Để xây dựng ứng dụng ReactJS đầu tiên, bạn hãy truy cập vào thư mục </span><span >src</span><span > trong dự án, tìm đến file </span><span >src/App.tsx</span><span > và sửa thành:</span>`,
             },
             {
               type: 'special',
@@ -340,7 +343,7 @@ export const vnData = {
         embedCode: 'IpnYx0FH',
       },
       video:
-        '<iframe width="560" height="315" src="https://www.youtube.com/embed/bNthRRKkUUo?&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/vsYaz6_bwug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
     {
       id: 'dev-guildeline-exc-1',
@@ -350,30 +353,32 @@ export const vnData = {
       content: [
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Các Bước Thiết Kế Giao Diện DApp Cơ Bản Với React Và Ant Design</span>
+          text: `<p>Các Bước Thiết Kế Giao Diện DApp Cơ Bản Với React Và Ant Design</p>
 
-        <span style="font-weight: 400;">Ấn tượng đầu tiên luôn là quan trọng nhất. Để xây dựng một DApp hoàn chỉnh, được nhiều người dùng lựa chọn sử dụng, bạn cần chú ý tới “bộ mặt” - giao diện của DApp.</span>
-        
-        <span style="font-weight: 400;">Vậy, làm thế nào để thiết kế giao diện cơ bản cho DApp? Hãy cùng tìm hiểu về ReactJS và Ant Design - các thư viện UI đang được những ứng dụng toàn cầu như Facebook, Shopee, Lazada,… sử dụng cho giao diện của họ.</span>
-        <h1><span style="font-weight: 400;">Xây dựng giao diện bằng ReactJS</span></h1>
-        <span style="font-weight: 400;">Hiện nay, hầu hết lập trình viên Frontend đều biết đến hoặc đã từng nghe qua về ReactJS. ReactJS là một thư viện Javascript được phát triển tại Facebook nhằm tăng tốc và giảm bug trong quá trình xây dựng giao diện, đồng thời giúp việc phát triển và bảo trì mã nguồn trở nên dễ dàng hơn.</span>
-        <h2><span style="font-weight: 400;">Các khái niệm cơ bản</span></h2>
-        <span style="font-weight: 400;">Trước khi học cách sử dụng ReactJS, bạn cần nắm một số khái niệm cơ bản gồm:</span>
+        <span>Ấn tượng đầu tiên luôn là quan trọng nhất. Để xây dựng một DApp hoàn chỉnh, được nhiều người dùng lựa chọn sử dụng, bạn cần chú ý tới “bộ mặt” - giao diện của DApp.</span><span>Vậy, làm thế nào để thiết kế giao diện cơ bản cho DApp? Hãy cùng tìm hiểu về ReactJS và Ant Design - các thư viện UI đang được những ứng dụng toàn cầu như Facebook, Shopee, Lazada,… sử dụng cho giao diện của họ.</span>
+        <p/></br>
+        <h1><strong>Xây dựng giao diện bằng ReactJS</strong></h1>
+        <span >Hiện nay, hầu hết lập trình viên Frontend đều biết đến hoặc đã từng nghe qua về ReactJS. ReactJS là một thư viện Javascript được phát triển tại Facebook nhằm tăng tốc và giảm bug trong quá trình xây dựng giao diện, đồng thời giúp việc phát triển và bảo trì mã nguồn trở nên dễ dàng hơn.</span>
+        <p/>
+        <h2><strong>Các khái niệm cơ bản</strong></h2>
+        <p>Trước khi học cách sử dụng ReactJS, bạn cần nắm một số khái niệm cơ bản gồm:</p>
         <ul>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Virtual DOM: Ở DOM tree truyền thống, khi một node thay đổi, toàn bộ node sẽ tái cấu trúc. Như vậy đồng nghĩa với việc DOM tree cũng sẽ phải thay đổi một phần, điều này sẽ ảnh hưởng đến tốc độ xử lý. ReactJS sử dụng Virtual DOM (DOM ảo) để cải thiện vấn đề này. Công nghệ DOM ảo giúp tăng hiệu năng cho ứng dụng bằng cách tính toán tối ưu hoá việc re-render DOM tree thật khi dữ liệu thay đổi.</span></li>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">JSX: Một dạng ngôn ngữ cho phép viết các mã HTML trong Javascript.</span></li>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Components: ReactJS được xây dựng xung quanh các component, chúng ta có thể tái sử dụng component ở nhiều nơi. Việc này giúp dễ dàng bảo trì mã code. </span></li>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Props: Input của Component nhận gọi là props, props được truyền vào và không thể thay đổi.</span></li>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">State: thể hiện trạng thái của component, khi state thay đổi bằng các phương thức setState thì component đồng thời render lại để cập nhật UI.</span></li>
+           <li  aria-level="1"><span>Virtual DOM: Ở DOM tree truyền thống, khi một node thay đổi, toàn bộ node sẽ tái cấu trúc. Như vậy đồng nghĩa với việc DOM tree cũng sẽ phải thay đổi một phần, điều này sẽ ảnh hưởng đến tốc độ xử lý. ReactJS sử dụng Virtual DOM (DOM ảo) để cải thiện vấn đề này. Công nghệ DOM ảo giúp tăng hiệu năng cho ứng dụng bằng cách tính toán tối ưu hoá việc re-render DOM tree thật khi dữ liệu thay đổi.</span></li>
+           <li  aria-level="1"><span >JSX: Một dạng ngôn ngữ cho phép viết các mã HTML trong Javascript.</span></li>
+           <li  aria-level="1"><span >Components: ReactJS được xây dựng xung quanh các component, chúng ta có thể tái sử dụng component ở nhiều nơi. Việc này giúp dễ dàng bảo trì mã code. </span></li>
+           <li  aria-level="1"><span >Props: Input của Component nhận gọi là props, props được truyền vào và không thể thay đổi.</span></li>
+           <li  aria-level="1"><span >State: thể hiện trạng thái của component, khi state thay đổi bằng các phương thức setState thì component đồng thời render lại để cập nhật UI.</span></li>
         </ul>
-        <h2><span style="font-weight: 400;">Các bước cài đặt và khởi chạy ReactJS</span></h2>
-        <h3><span style="font-weight: 400;">Bước 1. Cài đặt NodeJS và NPM</span></h3>
-        <span style="font-weight: 400;">Để cài đặt môi trường chạy ReactJS, trước tiên bạn phải cài đặt NodeJS và NPM - đây là nền tảng bắt buộc.</span>
+        <h2><strong>Các bước cài đặt và khởi chạy ReactJS</strong></h2>
+        <p/>
+        <h3><strong>Bước 1. Cài đặt NodeJS và NPM</strong></h3>
+        <p>Để cài đặt môi trường chạy ReactJS, trước tiên bạn phải cài đặt NodeJS và NPM - đây là nền tảng bắt buộc.</p>
         <ol>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Truy cập </span><a href="https://nodejs.org/en/download/"><span style="font-weight: 400;">https://nodejs.org/en/download/</span></a><span style="font-weight: 400;">, chọn và tải phiên bản phù hợp với hệ điều hành của bạn. Tiến hành cài đặt theo mặc định.</span></li>
+           <li  aria-level="1"><span >Truy cập </span><a href="https://nodejs.org/en/download/"><span >https://nodejs.org/en/download/</span></a><span >, chọn và tải phiên bản phù hợp với hệ điều hành của bạn. Tiến hành cài đặt theo mặc định.</span></li>
         </ol>
+        <p style="width: 100%"><img style="width: 100%;object-fit: contain" src="https://lh6.googleusercontent.com/aSOxskWyHXgt-t8XNzoPIbOXm2xn3JKPZeKSVSzbBHfdCN-TKAa8cWrsRRWTmu2x7smxwYXymUXoxC4nALL6UeAqutKyCSrkrlBBkCH2eeZzQnoGEFn0tQUlYWsEibrabQcEqhIG" atl="node" /></p>
         <ol>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Hãy kiểm tra lại phiên bản để xác nhận đã cài thành công bằng cách mở Terminal và gõ dòng lệnh sau:</span></li>
+           <li  aria-level="1"><span >Hãy kiểm tra lại phiên bản để xác nhận đã cài thành công bằng cách mở Terminal và gõ dòng lệnh sau:</span></li>
         </ol>`,
         },
         {
@@ -382,8 +387,13 @@ export const vnData = {
         },
         {
           type: 'normal',
-          text: `<h3><span style="font-weight: 400;">Bước 2. Khởi tạo ReactJS App</span></h3>
-          <span style="font-weight: 400;">Để khởi tạo một dự án sử dụng ReactJS vào trong thư mục chứa dự án, bạn hãy mở Terminal và gõ dòng lệnh sau:</span>`,
+          text: `<p> Tham khảo thêm tại:</p>
+          </br>
+          <i><a href="https://create-react-app.dev/docs/getting-started"><span >https://create-react-app.dev/docs/getting-started</span></a></i></br>
+          <i><a href="https://create-react-app.dev/docs/adding-typescript/"><span >https://create-react-app.dev/docs/adding-typescript/</span></a></i>
+          <p /></br>
+          <h3><span >Bước 2. Khởi tạo ReactJS App</span></h3>
+          <span >Để khởi tạo một dự án sử dụng ReactJS vào trong thư mục chứa dự án, bạn hãy mở Terminal và gõ dòng lệnh sau:</span>`,
         },
         {
           type: 'special',
@@ -391,9 +401,9 @@ export const vnData = {
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 300;font-style: i">Trong đó, </span><span style="font-weight: 400;">my-app</span><span style="font-weight: 400;"> là tên thư mục chứa dự án của bạn.</span>
-        <h3><span style="font-weight: 400;">Bước 3. Cài đặt package + webpack</span></h3>
-        <span style="font-weight: 400;">Cập nhật nội dung file </span><i><span style="font-weight: 400;">package.json</span></i><span style="font-weight: 400;"> như sau:</span>`,
+          text: `<span style="font-weight: 300;font-style: i">Trong đó, </span><span >my-app</span><span > là tên thư mục chứa dự án của bạn.</span>
+        <h3><span >Bước 3. Cài đặt package + webpack</span></h3>
+        <span >Cập nhật nội dung file </span><i><span >package.json</span></i><span > như sau:</span>`,
         },
         {
           type: 'special',
@@ -451,8 +461,8 @@ export const vnData = {
         },
         {
           type: 'nomarl',
-          text: `<span style="font-weight: 400;">2. Tạo folder plugins và tạo mới 3 file với nội dung như sau:</span>
-<i><span style="font-weight: 400;">plugins/craco-compatibility.js</span></i>`,
+          text: `<span >2. Tạo folder plugins và tạo mới 3 file với nội dung như sau:</span>
+<i><span >plugins/craco-compatibility.js</span></i>`,
         },
         {
           type: 'special',
@@ -495,7 +505,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<i><span style="font-weight: 400;">plugins/craco-silence.js</span></i>`,
+          text: `<i><span >plugins/craco-silence.js</span></i>`,
         },
         {
           type: 'special',
@@ -504,7 +514,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<i><span style="font-weight: 400;">pluginscraco-wasm.js</span></i>`,
+          text: `<i><span >pluginscraco-wasm.js</span></i>`,
         },
         {
           type: 'special',
@@ -512,7 +522,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">3. Tạo file </span><i><span style="font-weight: 400;">craco.config.js</span></i><span style="font-weight: 400;"> với nội dung:</span>`,
+          text: `<span >3. Tạo file </span><i><span >craco.config.js</span></i><span > với nội dung:</span>`,
         },
         {
           type: 'special',
@@ -520,22 +530,22 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<h3><span style="font-weight: 400;">Bước 4. Khởi chạy ứng dụng</span></h3>
-        <span style="font-weight: 400;">Sau khi cài đặt cấu hình package + webpack, bạn cần install lại để project cài lại node-module. Hãy chạy dòng lệnh sau:</span>`,
+          text: `<h3><span >Bước 4. Khởi chạy ứng dụng</span></h3>
+        <span >Sau khi cài đặt cấu hình package + webpack, bạn cần install lại để project cài lại node-module. Hãy chạy dòng lệnh sau:</span>`,
         },
         { type: 'special', text: `npm install --force` },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Sau khi install thành công, bạn hãy khởi động ứng dụng bằng câu lệnh sau:</span>`,
+          text: `<span >Sau khi install thành công, bạn hãy khởi động ứng dụng bằng câu lệnh sau:</span>`,
         },
         { type: 'special', text: `npm start` },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Lúc này, ReactJS sẽ khởi chạy dự án mặc định ở port 3000, chúng ta có thể mở trình duyệt và truy cập đường dẫn </span><a href="http://localhost:3000"><span style="font-weight: 400;">http://localhost:3000</span></a>
+          text: `<span >Lúc này, ReactJS sẽ khởi chạy dự án mặc định ở port 3000, chúng ta có thể mở trình duyệt và truy cập đường dẫn </span><a href="http://localhost:3000"><span >http://localhost:3000</span></a>
 
         <p><img style="width: 100%; object-fit: contain" src="https://lh5.googleusercontent.com/5JcA9mGHU8PxMm6r3wQwGWGuaoKpSt__jebheyKeddPopjkxwANF7IlCoyo4mwH0D2fHFp-p5xjaS7Ku7kkGhS0Rbzuh2GytVDGWVUIOVqjiM49YBxnCVVBi7wfgDHA1slRU11sU" alt="react app"/></p>
         
-        <span style="font-weight: 400;">Để xây dựng ứng dụng ReactJS đầu tiên, bạn hãy truy cập vào thư mục </span><span style="font-weight: 400;">src</span><span style="font-weight: 400;"> trong dự án, tìm đến file </span><span style="font-weight: 400;">src/App.tsx</span><span style="font-weight: 400;"> và sửa thành:</span>`,
+        <span >Để xây dựng ứng dụng ReactJS đầu tiên, bạn hãy truy cập vào thư mục </span><span >src</span><span > trong dự án, tìm đến file </span><span >src/App.tsx</span><span > và sửa thành:</span>`,
         },
         {
           type: 'special',
@@ -543,16 +553,19 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<p style="font-weight: 400;">Chúng ta sẽ thấy kết quả thay đổi trên giao diện.</p><p style="font-weight: 400;">Lưu ý: Sau khi khởi chạy dự án thành công, nếu bạn sửa đổi các file thì ReactJS sẽ tự động reload các thay đổi đó. Bạn không cần phải khởi động lại server bằng cách thủ công nữa.</p>`,
+          text: `<p >Chúng ta sẽ thấy kết quả thay đổi trên giao diện.</p><p >Lưu ý: Sau khi khởi chạy dự án thành công, nếu bạn sửa đổi các file thì ReactJS sẽ tự động reload các thay đổi đó. Bạn không cần phải khởi động lại server bằng cách thủ công nữa.</p>
+          <p style="width: 100%"><img style="width: 100%;object-fit: contain" src="https://lh5.googleusercontent.com/DRbY4iCBqrY3Mha4W3CJ2w5PDnKkV_OK4jAZe-ENuvmFrFIdxVvI5qerHkExubHlQiU_1jHJz-tBjeFQ5tJVfK_hrvAbEMX5Pr9PZFFlg21JNnGDiXJJoI8LxCAzPUxL9mZ_mOPK" atl="node" /></p>
+          <p/></br>`,
         },
         {
           type: 'normal',
-          text: `<h2><span style="font-weight: 400;">Xây dựng giao diện bằng Ant Design</span></h2>
-        <span style="font-weight: 400;">Ant Design (AntD) là thư viện tập hợp các component của React. AntD cung cấp hầu hết các component thông dụng trong ứng dụng web hiện đại như Layout, Button, Icon, DatePicker, vân vân.</span>
+          text: `<h2><strong>Xây dựng giao diện bằng Ant Design</strong></h2>
+        <span >Ant Design (AntD) là thư viện tập hợp các component của React. AntD cung cấp hầu hết các component thông dụng trong ứng dụng web hiện đại như Layout, Button, Icon, DatePicker, vân vân.</span>
         
-        <span style="font-weight: 400;">Bạn có thể tham khảo và học cách sử dụng các component của AntD tại đây: </span><a href="https://ant.design/components/overview/"><span style="font-weight: 400;">https://ant.design/components/overview/</span></a>
-        <h3><span style="font-weight: 400;">Ứng dụng đầu tiên</span></h3>
-        <span style="font-weight: 400;">Bước 1. Cập nhật file </span><span style="font-weight: 400;">src/App.css</span>`,
+        <span >Bạn có thể tham khảo và học cách sử dụng các component của AntD tại đây: </span><a href="https://ant.design/components/overview/"><span >https://ant.design/components/overview/</span></a>
+        <p/></br>
+        <h3><strong>Ứng dụng đầu tiên</strong></h3>
+        <span >Bước 1. Cập nhật file </span><span >src/App.css</span>`,
         },
         { type: 'special', text: `@import "~antd/dist/antd.css";` },
         { type: 'normal', text: `Bước 2. Cập nhật file src/App.tsx` },
@@ -573,18 +586,20 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Khi đã khởi chạy,  ứng dụng ReactJS sẽ tự động cập nhật khi có thay đổi. Đây là kết quả:</span>
+          text: `<span >Khi đã khởi chạy,  ứng dụng ReactJS sẽ tự động cập nhật khi có thay đổi. Đây là kết quả:</span>
 
-          <span style="font-weight: 400;">Đoạn code ở file </span><span style="font-weight: 400;">src/App.tsx</span><span style="font-weight: 400;"> có sử dụng Button được import từ AntD. Đây được gọi là component. Component có thể dễ dàng được tái sử dụng ở  nhiều nơibất kì đâu.</span>`,
+          <p style="max-width: 500px; margin: auto"><img style="width: 100%" src="https://lh5.googleusercontent.com/9SZrRSToNGn1o8amJibqZ-JdrYuCHUFjlKhdAvUi8iVJnXnBET5OvfdAChn4oAwnBSqaMxv5RXr3ORY5q56tKhX8W5JukjVEdIROPcSKAofuIHsnBlC9RQV0rs5JkCANRZNQRRgu" alt="localhost"/></p>
+          <p/></br>
+          <span >Đoạn code ở file </span><span >src/App.tsx</span><span > có sử dụng Button được import từ AntD. Đây được gọi là component. Component có thể dễ dàng được tái sử dụng ở  nhiều nơibất kì đâu.</span>`,
         },
         { type: 'special', text: `<Button type="primary">Button</Button>` },
         {
           type: 'normal',
-          text: `<b>Button</b><span style="font-weight: 400;"> là một component. </span><b>Type</b><span style="font-weight: 400;"> là </span><b>props</b><span style="font-weight: 400;"> mà </span><b>component</b><span style="font-weight: 400;"> nhận vào với giá trị là “</span><b>primary</b><span style="font-weight: 400;">”.</span>
-        <h3><span style="font-weight: 400;">Xây dựng component</span></h3>
-        <span style="font-weight: 400;">Tiếp theo, chúng ta sẽ xây dựng một component.</span>
+          text: `<b>Button</b><span > là một component. </span><b>Type</b><span > là </span><b>props</b><span > mà </span><b>component</b><span > nhận vào với giá trị là “</span><b>primary</b><span >”.</span>
+        <h3><span >Xây dựng component</span></h3>
+        <span >Tiếp theo, chúng ta sẽ xây dựng một component.</span>
         
-        <span style="font-weight: 400;">Bước 1. Tạo file </span><span style="font-weight: 400;">src/components/walletInfo.tsx</span>`,
+        <p style="font-weight: 600;">Bước 1. Tạo file <i style="font-weight: 600;">src/components/walletInfo.tsx</i></p>`,
         },
         {
           type: 'special',
@@ -615,11 +630,11 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Component Wallet Info sẽ hiển thị thông tin address (địa chỉ) và balance (số dư) của ví. Component này sẽ nhận vào 2 props là: </span><b>address</b><span style="font-weight: 400;"> với kiểu dữ liệu </span><b><i>string</i></b><span style="font-weight: 400;">, và </span><b>balance</b><span style="font-weight: 400;"> với kiểu dữ liệu </span><b><i>number</i></b><span style="font-weight: 400;">.</span>
+          text: `<p/></br><span >Component Wallet Info sẽ hiển thị thông tin address (địa chỉ) và balance (số dư) của ví. Component này sẽ nhận vào 2 props là: </span><b>address</b><span > với kiểu dữ liệu </span><b><i>string</i></b><span >, và </span><b>balance</b><span > với kiểu dữ liệu </span><b><i>number</i></b><span >.</span>
 
-        <span style="font-weight: 400;">Lưu ý: Trong một component, bạn có thể sử dụng một component khác.</span>
+        <span >Lưu ý: Trong một component, bạn có thể sử dụng một component khác.</span>
         
-        <span style="font-weight: 400;">Bước 2. Sử dụng component vừa tạo, cập nhật nội dung file </span><span style="font-weight: 400;">src/App.tsx</span>`,
+        <p style="font-weight: 600;">Bước 2. Sử dụng component vừa tạo, cập nhật nội dung file <i style="font-weight:600;">src/App.tsx<i></p>`,
         },
         {
           type: 'special',
@@ -645,12 +660,15 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Bước 3. Quay lại trang </span><a href="http://localhost:3000"><span style="font-weight: 400;">http://localhost:3000</span></a><span style="font-weight: 400;"> để xem kết quả:</span><h3><span style="font-weight: 400;">Tìm hiểu về State</span></h3>
-        <span style="font-weight: 400;">State được dùng để lưu trữ trạng thái dữ liệu hiện tại.</span>
+          text: `<p/></br><p style="font-weight: 600;">Bước 3. Quay lại trang <a href="http://localhost:3000"><span >http://localhost:3000</span></a> để xem kết quả:</p>
+          <p><img style="width: 100%" src="https://lh6.googleusercontent.com/mHwVMn0TOObdS8HfpfkQ7T-bJpt_cEtdaRFZCU-TliEJxMacCcyHHECZYov0CIYqH00DGrMhWKG8nSIt90-p774ThR67s_LufIje1KX4QM-HOnM6ENRKTVDA_m-zamIWom8iP8Ll" alt="localhost" /></p>
+          </br>
+          <h3><strong>Tìm hiểu về State</strong></h3>
+        <span >State được dùng để lưu trữ trạng thái dữ liệu hiện tại.</span>
         
-        <span style="font-weight: 400;">Để hiểu rõ hơn, chúng ta hãy cùng tìm hiểu qua ví dụ sau: Khi click vào button “Kết nối ví”, hành động được thực hiện là lấy địa chỉ ví từ một bên thứ 3, sau đó lưu địa chỉ ví lại để hiển thị lên giao diện (state).</span>
+        <span >Để hiểu rõ hơn, chúng ta hãy cùng tìm hiểu qua ví dụ sau: Khi click vào button “Kết nối ví”, hành động được thực hiện là lấy địa chỉ ví từ một bên thứ 3, sau đó lưu địa chỉ ví lại để hiển thị lên giao diện (state).</span>
         
-        <span style="font-weight: 400;">Để thực thi ví dụ trên, hãy cập nhật file </span><span style="font-weight: 400;">src/App.tsx</span><span style="font-weight: 400;"> như sau:</span>`,
+        <span >Để thực thi ví dụ trên, hãy cập nhật file </span><span >src/App.tsx</span><span > như sau:</span>`,
         },
         {
           type: 'special',
@@ -697,16 +715,18 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Sau khi đã hoàn thành, bạn hãy quay lại trang </span><a href="http://localhost:3000"><span style="font-weight: 400;">http://localhost:3000</span></a><span style="font-weight: 400;">, click vào button và xem kết quả:</span>
-        <h3><span style="font-weight: 400;">Tìm hiểu về UseEffect và UseCallback</span></h3>
-        <span style="font-weight: 400;">UseEffect được dùng để quản lý vòng đời của component.</span>
+          text: `<p/></br><span >Sau khi đã hoàn thành, bạn hãy quay lại trang </span><a href="http://localhost:3000"><span >http://localhost:3000</span></a><span >, click vào button và xem kết quả:</span>
+          <p style="display: flex; flex: auto;"><img style="width: 50%" src="https://lh4.googleusercontent.com/YZ_agDioq6sAcKQWZFUEk_Fj19rPF_BpYgkcWhB1SCgfuY0b3yp5-g9ryGWdW1SGqamg02LK7NFUSG1rOZe-27wX8XjvsoasMWyu-9kNYhys_B7kKT0J1dEt-NMHXjW0sD9oejnt" alt="wallet"/><img style="width: 50%;border-left: 4px solid #eef1fb" src="https://lh5.googleusercontent.com/_a1MTOj4G6rmJUki99884BN_aGJJuGqGVvmvv1oN4tEHYb2XCdeNKb27mIKswPRl8T0SaMlURUCuplfOeRUWxQAaejpnWvKXznotCGPSKxlKHpG3TQEEB_MebVKtj-9Ln5Bt1odn" /></p>
+          <p/></br>
+        <h3><strong>Tìm hiểu về UseEffect và UseCallback</strong></h3>
+        <span >UseEffect được dùng để quản lý vòng đời của component.</span>
         
-        <span style="font-weight: 400;">UseEffect thường được sử dụng để thực hiện một số hành động như: khi khởi tạo component, các giá trị phụ thuộc (được khai báo ở ngoặc vuông cuối hàm, có thể là Props và State) thay đổi. Ngoài ra, UseEffect có thể được sử dụng cho một vài trường hợp khác nhưng mình sẽ không đề cập ở đây.</span>
+        <span >UseEffect thường được sử dụng để thực hiện một số hành động như: khi khởi tạo component, các giá trị phụ thuộc (được khai báo ở ngoặc vuông cuối hàm, có thể là Props và State) thay đổi. Ngoài ra, UseEffect có thể được sử dụng cho một vài trường hợp khác nhưng mình sẽ không đề cập ở đây.</span>
         
-        <span style="font-weight: 400;">UseCallback được sử dụng để tối ưu quá trình render, ngăn hàm bị tạo lại. </span>
+        <span >UseCallback được sử dụng để tối ưu quá trình render, ngăn hàm bị tạo lại. </span>
         
-        <span style="font-weight: 400;">Để hiểu rõ hơn về UseEffect, chúng ta sẽ cùng đi đến ví dụ tiếp theo: Khi walletAddress thay đổi, App tự động lấy balance của walletAddress đó và cập nhật vào state để hiển thị lên giao diện.</span>
-        <h3><span style="font-weight: 400;">Để thực thi ví dụ trên, hãy cập nhật file </span><span style="font-weight: 400;">src/App.tsx</span><span style="font-weight: 400;"> như sau:</span></h3>`,
+        <span >Để hiểu rõ hơn về UseEffect, chúng ta sẽ cùng đi đến ví dụ tiếp theo: Khi walletAddress thay đổi, App tự động lấy balance của walletAddress đó và cập nhật vào state để hiển thị lên giao diện.</span>
+        <h3><span >Để thực thi ví dụ trên, hãy cập nhật file </span><span >src/App.tsx</span><span > như sau:</span></h3>`,
         },
         {
           type: 'special',
@@ -763,37 +783,39 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Sau khi đã hoàn thành, bạn hãy quay lại trang </span><a href="http://localhost:3000"><span style="font-weight: 400;">http://localhost:3000</span></a><span style="font-weight: 400;"> và xem kết quả:</span>
-
-        <span style="font-weight: 400;">Vậy là chúng ta đã tìm hiểu qua các khái niệm căn bản, cách tạo và sử dụng Component, Props, State, UseEffect, và UseCallback. Các bạn có thể tham khảo thêm ở trang chủ của ReactJS tại: </span><a href="https://reactjs.org/docs/hooks-intro.html"><span style="font-weight: 400;">https://reactjs.org/docs/hooks-intro.html</span></a>
-        <h1><span style="font-weight: 400;">Các bước tạo và kết nối ví tiền điện tử lên DApp</span></h1>
-        <h2><span style="font-weight: 400;">Crypto Wallet (Ví tiền điện tử)</span></h2>
-        <span style="font-weight: 400;">Để tham gia sử dụng và phát triển trên mạng lưới blockchain Solana, bạn cần sở hữu một </span><b>crypto wallet</b><span style="font-weight: 400;"> (ví tiền điện tử) để quản lý tiền điện tử. Đó có thể là ví C98, Phantom, hay Slope…</span>
+          text: `<p/></br><p >Sau khi đã hoàn thành, bạn hãy quay lại trang <a href="http://localhost:3000">http://localhost:3000</a> và xem kết quả:</p>
+          <p style="max-width: 500px;margin: auto"><img style="width: 100%" src="https://lh3.googleusercontent.com/WwLNY6dT7gzoOrX9HJ7yjhrFMXlVfFoi4JcRb5wz2f4cCjQhNjUy_KKRezoJY8mS53lhzthRYBJmJCjoIJCds5h_JBGPz5KJSfK2emzPrdWEhK2436ALQfiwkbnrN6vbSKgvq2TQ" atl="wallet" /></p>
+          <p/></br>
+        <p>Vậy là chúng ta đã tìm hiểu qua các khái niệm căn bản, cách tạo và sử dụng Component, Props, State, UseEffect, và UseCallback. Các bạn có thể tham khảo thêm ở trang chủ của ReactJS tại: <a href="https://reactjs.org/docs/hooks-intro.html">https://reactjs.org/docs/hooks-intro.html</a>
+        <h1><strong>Các bước tạo và kết nối ví tiền điện tử lên DApp</strong></h1>
+        <h2><strong>Crypto Wallet (Ví tiền điện tử)</strong></h2>
+        <p>Để tham gia sử dụng và phát triển trên mạng lưới blockchain Solana, bạn cần sở hữu một </span><b>crypto wallet</b> (ví tiền điện tử) để quản lý tiền điện tử. Đó có thể là ví C98, Phantom, hay Slope…</p>
         
-        <span style="font-weight: 400;">Để nhận và chuyển tiền, người gửi và người nhận sẽ được định danh bằng </span><b>wallet address</b><span style="font-weight: 400;"> (địa chỉ ví).</span>
+        <p>Để nhận và chuyển tiền, người gửi và người nhận sẽ được định danh bằng </span><b>wallet address</b> (địa chỉ ví).</p>
         
-        <b>PublicKey</b><span style="font-weight: 400;"> là một cách hiển thị khác của Address, tương tự với cách Momo cho phép nhận và chuyển tiền bằng số điện thoại của khách hàng.</span>
+        <b>PublicKey</b><span> là một cách hiển thị khác của Address, tương tự với cách Momo cho phép nhận và chuyển tiền bằng số điện thoại của khách hàng.</span>
         
-        <b>Balance</b><span style="font-weight: 400;"> là số dư của các loại tiền (Token, Coin) hiện có trong ví.</span>
-        <h2><span style="font-weight: 400;">Goki - Hỗ trợ kết nối ví điện tử</span></h2>
-        <span style="font-weight: 400;">Cùng sự phát triển của công nghệ, ngày càng nhiều loại ví ra đời phục vụ nhu cầu của người dùng. Goki được xây dựng để giúp developer hỗ trợ nhiều ví nhất trên DApp.</span>
+        <b>Balance</b><span> là số dư của các loại tiền (Token, Coin) hiện có trong ví.</span>
+        <h2><strong>Goki - Hỗ trợ kết nối ví điện tử</strong></h2>
+        <span>Cùng sự phát triển của công nghệ, ngày càng nhiều loại ví ra đời phục vụ nhu cầu của người dùng. Goki được xây dựng để giúp developer hỗ trợ nhiều ví nhất trên DApp.</span>
         
-        <span style="font-weight: 400;">Sau đây, chúng ta sẽ học cách cài đặt và kết nối ví Phantom.</span>
-        <h3><span style="font-weight: 400;">Cài đặt ví Phantom</span></h3>
-        <span style="font-weight: 400;">Bước 1: Đầu tiên, bạn hãy tìm tiện ích Phantom trên Chrome tại </span><a href="https://chrome.google.com/webstore/detail/phantom/bfnaelmomeimhlpmgjnjophhpkkoljpa?hl=vi"><span style="font-weight: 400;">Đây</span></a><span style="font-weight: 400;"> và chọn “Thêm vào Chrome”.</span>
+        <p>Sau đây, chúng ta sẽ học cách cài đặt và kết nối ví Phantom.</p>
+        <h3><strong>Cài đặt ví Phantom</strong></h3>
+        <span >Bước 1: Đầu tiên, bạn hãy tìm tiện ích Phantom trên Chrome tại </span><a href="https://chrome.google.com/webstore/detail/phantom/bfnaelmomeimhlpmgjnjophhpkkoljpa?hl=vi"><span >Đây</span></a><span > và chọn “Thêm vào Chrome”.</span>
         
-        <span style="font-weight: 400;">Bước 2: Bạn hãy chọn Pin để ghim ứng dụng lên góc trên bên trái trang trình duyệt.</span>
+        <p>Bước 2: Bạn hãy chọn Pin để ghim ứng dụng lên góc trên bên trái trang trình duyệt.</p>
         
-        <span style="font-weight: 400;">Bước 3: Giờ chúng ta sẽ tiến hành tạo ví.</span>
+        <p>Bước 3: Giờ chúng ta sẽ tiến hành tạo ví.</p>
         <ul>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Chọn biểu tượng Phantom trên trình duyệt, bạn sẽ thấy giao diện như hình dưới.</span></li>
-           <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Chọn “Create a new wallet” để tạo ví mới. </span></li>
+           <li  aria-level="1"><span>Chọn biểu tượng Phantom trên trình duyệt, bạn sẽ thấy giao diện như hình dưới.</span></li>
+           <li  aria-level="1"><span>Chọn “Create a new wallet” để tạo ví mới. </span></li>
         </ul>
-        <span style="font-weight: 400;">Bước 4: Bạn sẽ được cấp 12 từ khóa. Đây là cụm từ khóa bí mật để khôi phục ví trên thiết bị khác. Hãy nhấn “Copy” để sao chép và lưu lại cụm từ khóa này sang một file khác, hoặc viết ra giấy để lưu giữ.</span>
+        <p>Bước 4: Bạn sẽ được cấp 12 từ khóa. Đây là cụm từ khóa bí mật để khôi phục ví trên thiết bị khác. Hãy nhấn “Copy” để sao chép và lưu lại cụm từ khóa này sang một file khác, hoặc viết ra giấy để lưu giữ.</p>
         
-        <span style="font-weight: 400;">Bước 5: Khi đã lưu trữ cụm từ khoá xong, chọn “I saved my Secret Recovery Phrase” → Continue → Finish. Tới đây, bạn đã tạo thành công ví Phantom cho bản thân rồi đấy!</span>
-        <h3><span style="font-weight: 400;">Kết nối ví Phantom bằng Goki</span></h3>
-        <span style="font-weight: 400;">Bước 1. Cập nhật file </span><i><span style="font-weight: 400;">src/App.tsx</span></i><span style="font-weight: 400;"> như sau:</span>`,
+        <p>Bước 5: Khi đã lưu trữ cụm từ khoá xong, chọn “I saved my Secret Recovery Phrase” → Continue → Finish. Tới đây, bạn đã tạo thành công ví Phantom cho bản thân rồi đấy!</p>
+        <p/></br>
+        <h3><strong>Kết nối ví Phantom bằng Goki</strong></h3>
+        <p>Bước 1. Cập nhật file <i><span >src/App.tsx</span></i> như sau:</p>`,
         },
         {
           type: 'special',
@@ -852,7 +874,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Bước 2. Cập nhật </span><i><span style="font-weight: 400;">src/index.tsx</span></i>`,
+          text: `<p>Bước 2. Cập nhật <i><span >src/index.tsx</span></i></p>`,
         },
         {
           type: 'special',
@@ -879,16 +901,17 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<span style="font-weight: 400;">Bước 3. Quay lại trang </span><a href="http://localhost:3000"><span style="font-weight: 400;">http://localhost:3000</span></a><span style="font-weight: 400;"> và click vào Button “Connect Wallet”. Module kết nối ví sẽ hiện lên như hình dưới. Bạn chọn Continue, sau đó chọn loại ví đã cài đặt (ở đây là Phantom).</span>
+          text: `<p>Bước 3. Quay lại trang <a href="http://localhost:3000"><span >http://localhost:3000</span></a> và click vào Button “Connect Wallet”. Module kết nối ví sẽ hiện lên như hình dưới. Bạn chọn Continue, sau đó chọn loại ví đã cài đặt (ở đây là Phantom).</p>
 
-        <span style="font-weight: 400;">Sau khi kết nối ví thành công. Thông tin địa chỉ ví và số dư sẽ tự động được cập nhật.</span>
+        <p>Sau khi kết nối ví thành công. Thông tin địa chỉ ví và số dư sẽ tự động được cập nhật.</p>
         
-        <span style="font-weight: 400;">Tham khảo project mẫu tại:</span>
+        <p>Tham khảo project mẫu tại:</p>
         
-        <a href="https://github.com/DescartesNetwork/solana-academy/tree/init-dapp-ui"><span style="font-weight: 400;">https://github.com/DescartesNetwork/solana-academy/tree/init-dapp-ui</span></a>`,
+        <a href="https://github.com/DescartesNetwork/solana-academy/tree/init-dapp-ui"><span >https://github.com/DescartesNetwork/solana-academy/tree/init-dapp-ui</span></a>`,
         },
       ],
-      thumbnail: '',
+      thumbnail:
+        'https://img.freepik.com/free-vector/flat-design-ui-ux-background_23-2149093996.jpg?w=2000&t=st=1649125694~exp=1649126294~hmac=72cfc1548808ae7076ae97f1b9b930ed252d1870430f609b44dfbbb323430920',
       category: ['blockchain', 'solana'],
     },
   ],
