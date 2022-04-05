@@ -343,7 +343,7 @@ export const vnData = {
         embedCode: 'IpnYx0FH',
       },
       video:
-        '<iframe width="560" height="315" src="https://www.youtube.com/embed/vsYaz6_bwug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/oWfRBEcNT68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
     {
       id: 'dev-guildeline-exc-1',
