@@ -577,18 +577,7 @@ module.exports = { overrideWebpackConfig }`,
         { type: 'normal', text: `Bước 2. Cập nhật file src/App.tsx` },
         {
           type: 'special',
-          text: `import { Button } from "antd";
-        import "./App.css";
-        
-        function App() {
-         return (
-           <div className="App">
-             <Button type="primary">Button</Button>
-           </div>
-         );
-        }
-        
-        export default App;`,
+          text: `import { Button } from "antd";\nimport "./App.css";\n\nfunction App() {\n  return (\n    <div className="App">\n      <Button type="primary">Button</Button>\n    </div>\n  );\n}\nexport default App;`,
         },
         {
           type: 'normal',
@@ -609,30 +598,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'special',
-          text: `import { Col, Row } from "antd";
-
-        const WalletInfo = ({ address, balance }: { address: string; balance: number }) => {
-         return (
-           <Row gutter={[24, 24]}>
-             {/* Wallet address */}
-             <Col span={24}>
-               <Row gutter={[12, 12]}>
-                 <Col>Wallet Address:</Col>
-                 <Col>{address}</Col>
-               </Row>
-             </Col>
-             {/* Wallet balance */}
-             <Col span={24}>
-               <Row gutter={[12, 12]}>
-                 <Col>Balance:</Col>
-                 <Col>{balance}</Col>
-               </Row>
-             </Col>
-           </Row>
-         );
-        };
-        
-        export default WalletInfo;`,
+          text: `import { Col, Row } from "antd";\nconst WalletInfo = ({ address, balance }: { address: string; balance: number }) => {\n  return (\n    <Row gutter={[24, 24]}>\n      {/* Wallet address */}\n      <Col span={24}>\n        <Row gutter={[12, 12]}>\n           <Col>Wallet Address:</Col>\n          <Col>{address}</Col>\n         </Row>\n      </Col>\n      {/* Wallet balance */}\n      <Col span={24}>\n       <Row gutter={[12, 12]}>\n          <Col>Balance:</Col>\n          <Col>{balance}</Col>\n        </Row>\n      </Col>\n    </Row>\n  );\n};\n\nexport default WalletInfo;`,
         },
         {
           type: 'normal',
@@ -644,25 +610,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'special',
-          text: `import { Button, Col, Row } from "antd";
-        import WalletInfo from "components/walletInfo";
-        import "./App.css";
-        
-        function App() {
-         return (
-           <Row justify="center">
-             <Col>
-               <WalletInfo address="Đây là wallet address" balance={0} />
-             </Col>
-             {/* Button connect wallet */}
-             <Col span={24} style={{ textAlign: "center" }}>
-               <Button type="primary">Kết nối ví</Button>
-             </Col>
-           </Row>
-         );
-        }
-        
-        export default App;`,
+          text: `import { Button, Col, Row } from "antd";\nimport WalletInfo from "components/walletInfo";\n\nimport "./App.css";\n\nfunction App() {\n  return (\n    <Row justify="center">\n      <Col>\n        <WalletInfo address="Đây là wallet address" balance={0} />\n      </Col>\n      {/* Button connect wallet */}\n      <Col span={24} style={{ textAlign: "center" }}>\n        <Button type="primary">Kết nối ví</Button>\n      </Col>\n    </Row>\n  );\n}\n\nexport default App;`,
         },
         {
           type: 'normal',
@@ -678,46 +626,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'special',
-          text: `import { useState } from "react";
-
-          import { Button, Col, Row } from "antd";
-          import WalletInfo from "components/walletInfo";
-          
-          import "./App.css";
-          
-          function App() {
-           // state: wallet address (type = string, default value = '')
-           const [walletAddress, setWalletAddress] = useState<string>("");
-          
-           const connectWallet = async () => {
-             // TODO: fetch wallet address
-             const newWalletAddress = "1234567890";
-             setWalletAddress(newWalletAddress);
-           };
-          
-           return (
-             <Row justify="center">
-               <Col>
-                 <WalletInfo address={walletAddress} balance={0} />
-               </Col>
-               {/* Button connect wallet */}
-               <Col span={24} style={{ textAlign: "center" }}>
-                 {walletAddress !== "" ? (
-                   <Button type="primary" disabled>
-                     Đã kết nối
-                   </Button>
-                 ) : (
-                   // Call connectWallet function when click Button
-                   <Button type="primary" onClick={connectWallet}>
-                     Kết nối ví
-                   </Button>
-                 )}
-               </Col>
-             </Row>
-           );
-          }
-          
-          export default App;`,
+          text: `import { useState } from "react";\n\nimport { Button, Col, Row } from "antd";\nimport WalletInfo from "components/walletInfo";\n\nimport "./App.css";\n\nfunction App() {\n  // state: wallet address (type = string, default value = '')\n  const [walletAddress, setWalletAddress] = useState<string>("");\n\n  const connectWallet = async () => {\n    // TODO: fetch wallet address\n    const newWalletAddress = "1234567890";\n    setWalletAddress(newWalletAddress);\n  };\n\n  return (\n    <Row justify="center">\n      <Col>\n        <WalletInfo address={walletAddress} balance={0} />\n      </Col>\n      {/* Button connect wallet */}\n      <Col span={24} style={{ textAlign: "center" }}>\n        {walletAddress !== "" ? (\n          <Button type="primary" disabled>Đã kết nối</Button>\n        ) : (\n          // Call connectWallet function when click Button\n          <Button type="primary" onClick={connectWallet}>Kết nối ví</Button>\n        )}\n      </Col>\n    </Row>\n  );\n}\n\nexport default App;`,
         },
         {
           type: 'normal',
@@ -736,56 +645,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'special',
-          text: `import { useCallback, useEffect, useState } from "react";
-
-        import { Button, Col, Row } from "antd";
-        import WalletInfo from "components/walletInfo";
-        
-        import "./App.css";\nfunction App() {
-          // state: wallet address (type = string, default value = '')
-          const [walletAddress, setWalletAddress] = useState<string>("");
-          // state: balance (type = number, default value = 0)
-          const [balance, setBalance] = useState<number>(0);
-         
-          const connectWallet = async () => {
-            // TODO: fetch wallet address
-            const newWalletAddress = "1234567890";
-            setWalletAddress(newWalletAddress);
-          };
-         
-          const fetchBalance = useCallback(async () => {
-            // TODO: fetch balance
-            let balance = walletAddress.length;
-            setBalance(balance);
-          }, [walletAddress]);
-         
-          useEffect(() => {
-            fetchBalance();
-          }, [fetchBalance]);
-         
-          return (
-            <Row justify="center">
-              <Col>
-                <WalletInfo address={walletAddress} balance={balance} />
-              </Col>
-              {/* Button connect wallet */}
-              <Col span={24} style={{ textAlign: "center" }}>
-                {walletAddress !== "" ? (
-                  <Button type="primary" disabled>
-                    Đã kết nối
-                  </Button>
-                ) : (
-                  // Call connectWallet function when click Button
-                  <Button type="primary" onClick={connectWallet}>
-                    Kết nối ví
-                  </Button>
-                )}
-              </Col>
-            </Row>
-          );
-         }
-         
-         export default App;`,
+          text: `import { useCallback, useEffect, useState } from "react";\n\nimport { Button, Col, Row } from "antd";\nimport WalletInfo from "components/walletInfo";\n\nimport "./App.css";\n\nfunction App() {\n  // state: wallet address (type = string, default value = '')\n  const [walletAddress, setWalletAddress] = useState<string>("");\n  // state: balance (type = number, default value = 0)\n  const [balance, setBalance] = useState<number>(0);\n\n  const connectWallet = async () => {\n    // TODO: fetch wallet address\n    const newWalletAddress = "1234567890";\n    setWalletAddress(newWalletAddress);\n  };\n\n  const fetchBalance = useCallback(async () => {\n    // TODO: fetch balance\n    let balance = walletAddress.length;\n    setBalance(balance);\n  }, [walletAddress]);\n\n  useEffect(() => {\n    fetchBalance();\n  }, [fetchBalance]);\n\n  return (\n    <Row justify="center">\n      <Col>\n        <WalletInfo address={walletAddress} balance={balance} />\n      </Col>\n      {/* Button connect wallet */}\n      <Col span={24} style={{ textAlign: "center" }}>\n        {walletAddress !== "" ? (\n          <Button type="primary" disabled>\n            Đã kết nối\n          </Button>\n        ) : (\n        // Call connectWallet function when click Button\n          <Button type="primary" onClick={connectWallet}>\n            Kết nối ví\n          </Button>\n        )}\n      </Col>\n    </Row>\n  );\n}\n\nexport default App;`,
         },
         {
           type: 'normal',
@@ -825,58 +685,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'special',
-          text: `import { useCallback, useEffect, useState } from "react";
-        import { useWalletKit, useSolana, useConnectedWallet } from "@gokiprotocol/walletkit";
-        
-        import { Button, Col, Row } from "antd";
-        import WalletInfo from "components/walletInfo";
-        
-        import "./App.css";
-        
-        function App() {
-         // State: balance (type = number, default value = 0)
-         const [balance, setBalance] = useState<number>(0);
-         // Goki hooks
-         const wallet = useConnectedWallet();
-         const { connect } = useWalletKit();
-         const { disconnect, providerMut } = useSolana();
-        
-         const fetchBalance = useCallback(async () => {
-           // TODO: fetch balance
-           if (wallet && providerMut) {
-             let balance = await providerMut.connection.getBalance(wallet.publicKey);
-             return setBalance(balance);
-           }
-           setBalance(0);
-         }, [providerMut, wallet]);
-        
-         useEffect(() => {
-           fetchBalance();
-         }, [fetchBalance]);
-        
-         return (
-           <Row justify="center">
-             <Col>
-               <WalletInfo address={wallet?.publicKey.toBase58() || ""} balance={balance} />
-             </Col>
-             {/* Button connect wallet */}
-             <Col span={24} style={{ textAlign: "center" }}>
-               {wallet ? (
-                 <Button type="primary" onClick={disconnect}>
-                   Disconnect
-                 </Button>
-               ) : (
-                 // Call connectWallet function when click Button
-                 <Button type="primary" onClick={connect}>
-                   Connect Wallet
-                 </Button>
-               )}
-             </Col>
-           </Row>
-         );
-        }
-        
-        export default App;`,
+          text: `import { useCallback, useEffect, useState } from "react";\nimport { useWalletKit, useSolana, useConnectedWallet } from "@gokiprotocol/walletkit";\n\nimport { Button, Col, Row } from "antd";\nimport WalletInfo from "components/walletInfo";\n\nimport "./App.css";\n\nfunction App() {\n  // State: balance (type = number, default value = 0)\n  const [balance, setBalance] = useState<number>(0);\n\n  // Goki hooks\n  const wallet = useConnectedWallet();\n  const { connect } = useWalletKit();\n  const { disconnect, providerMut } = useSolana();\n\n  const fetchBalance = useCallback(async () => {\n    // TODO: fetch balance\n      if (wallet && providerMut) {\n        let balance = await providerMut.connection.getBalance(wallet.publicKey);\n        return setBalance(balance);\n      }      setBalance(0);\n  }, [providerMut, wallet]);\n\n  useEffect(() => {\n    fetchBalance();\n  }, [fetchBalance]);\n\n  return (\n    <Row justify="center">\n      <Col>\n        <WalletInfo address={wallet?.publicKey.toBase58() || ""} balance={balance} />\n      </Col>\n      {/* Button connect wallet */}\n        <Col span={24} style={{ textAlign: "center" }}>\n          {wallet ? (\n            <Button type="primary" onClick={disconnect}>Disconnect\n          </Button>\n        ) : (\n        // Call connectWallet function when click Button\n        <Button type="primary" onClick={connect}>\n          Connect Wallet\n        </Button>\n        )}\n      </Col>\n    </Row>\n . );\n}\nexport default App;`,
         },
         {
           type: 'normal',
@@ -884,26 +693,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'special',
-          text: `import React from "react";
-        import ReactDOM from "react-dom";
-        import { WalletKitProvider } from "@gokiprotocol/walletkit";
-        
-        import App from "./App";
-        import "./index.css";
-        
-        ReactDOM.render(
-         <React.StrictMode>
-           <WalletKitProvider
-             defaultNetwork="devnet"
-             app={{
-               name: "My App",
-             }}
-           >
-             <App />
-           </WalletKitProvider>
-         </React.StrictMode>,
-         document.getElementById("root")
-        );`,
+          text: `import React from "react";\nimport ReactDOM from "react-dom";\nimport { WalletKitProvider } from "@gokiprotocol/walletkit";\n\nimport App from "./App";\n\nimport "./index.css";\n\nReactDOM.render(\n  <React.StrictMode>\n    <WalletKitProvider\n      defaultNetwork="devnet"\n      app={{\n        name: "My App",\n      }}\n    >\n      <App />\n    </WalletKitProvider>\n  </React.StrictMode>,\n  document.getElementById("root")\n);`,
         },
         {
           type: 'normal',
