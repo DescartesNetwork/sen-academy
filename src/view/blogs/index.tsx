@@ -84,8 +84,9 @@ const Blogs = () => {
               </Space>
             </Space>
           </Col>
-          <Col xs={24} md={12}>
+          <Col xs={24} md={12} className={blogCat === 'dev' ? 'bg-circle' : ''}>
             <Image
+              style={{ position: 'relative', zIndex: 9 }}
               src={t(`banner.subDesc.${blogCat}.src`, {
                 returnObjects: true,
               })}
