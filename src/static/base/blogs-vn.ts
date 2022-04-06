@@ -345,7 +345,7 @@ export const vnData = {
       date: 'Fri 01, Mar 2022',
       category: ['blockchain'],
       quizButton: {
-        title: 'Bài tập',
+        title: 'Làm bài tập tại đây',
         embedCode: 'IpnYx0FH',
       },
       video:
