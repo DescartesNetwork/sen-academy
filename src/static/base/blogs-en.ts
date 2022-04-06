@@ -152,6 +152,12 @@ export const enData = {
   "build": "craco build",
   "test": "craco test"
 },
+"eslintConfig": {
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ]
+},
 "browserslist": {
   "production": [
     ">0.2%",
