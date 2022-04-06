@@ -352,16 +352,14 @@ export const vnData = {
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/oWfRBEcNT68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
     {
-      id: 'dev-guildeline-exc-1',
+      id: 'design-dapp-ui',
       title: 'Thiết kế giao diện DApp',
       description:
         'Hướng dẫn xây dựng UI DApp cơ bản với ReactJS và Ant Design',
       content: [
         {
           type: 'normal',
-          text: `<p>Các Bước Thiết Kế Giao Diện DApp Cơ Bản Với React Và Ant Design</p>
-
-        <span>Ấn tượng đầu tiên luôn là quan trọng nhất. Để xây dựng một DApp hoàn chỉnh, được nhiều người dùng lựa chọn sử dụng, bạn cần chú ý tới “bộ mặt” - giao diện của DApp.</span><span>Vậy, làm thế nào để thiết kế giao diện cơ bản cho DApp? Hãy cùng tìm hiểu về ReactJS và Ant Design - các thư viện UI đang được những ứng dụng toàn cầu như Facebook, Shopee, Lazada,… sử dụng cho giao diện của họ.</span>
+          text: `<span>Ấn tượng đầu tiên luôn là quan trọng nhất. Để xây dựng một DApp hoàn chỉnh, được nhiều người dùng lựa chọn sử dụng, bạn cần chú ý tới “bộ mặt” - giao diện của DApp.</span></br><span>Vậy, làm thế nào để thiết kế giao diện cơ bản cho DApp? Hãy cùng tìm hiểu về ReactJS và Ant Design - các thư viện UI đang được những ứng dụng toàn cầu như Facebook, Shopee, Lazada,… sử dụng cho giao diện của họ.</span>
         <p/></br>
         <h1><strong>Xây dựng giao diện bằng ReactJS</strong></h1>
         <span >Hiện nay, hầu hết lập trình viên Frontend đều biết đến hoặc đã từng nghe qua về ReactJS. ReactJS là một thư viện Javascript được phát triển tại Facebook nhằm tăng tốc và giảm bug trong quá trình xây dựng giao diện, đồng thời giúp việc phát triển và bảo trì mã nguồn trở nên dễ dàng hơn.</span>
@@ -375,17 +373,13 @@ export const vnData = {
            <li  aria-level="1"><span >Props: Input của Component nhận gọi là props, props được truyền vào và không thể thay đổi.</span></li>
            <li  aria-level="1"><span >State: thể hiện trạng thái của component, khi state thay đổi bằng các phương thức setState thì component đồng thời render lại để cập nhật UI.</span></li>
         </ul>
+        </br>
         <h2><strong>Các bước cài đặt và khởi chạy ReactJS</strong></h2>
-        <p/>
         <h3><strong>Bước 1. Cài đặt NodeJS và NPM</strong></h3>
         <p>Để cài đặt môi trường chạy ReactJS, trước tiên bạn phải cài đặt NodeJS và NPM - đây là nền tảng bắt buộc.</p>
-        <ol>
-           <li  aria-level="1"><span >Truy cập </span><a href="https://nodejs.org/en/download/"><span >https://nodejs.org/en/download/</span></a><span >, chọn và tải phiên bản phù hợp với hệ điều hành của bạn. Tiến hành cài đặt theo mặc định.</span></li>
-        </ol>
-        <p style="width: 100%"><img style="width: 100%;object-fit: contain" src="https://lh6.googleusercontent.com/aSOxskWyHXgt-t8XNzoPIbOXm2xn3JKPZeKSVSzbBHfdCN-TKAa8cWrsRRWTmu2x7smxwYXymUXoxC4nALL6UeAqutKyCSrkrlBBkCH2eeZzQnoGEFn0tQUlYWsEibrabQcEqhIG" atl="node" /></p>
-        <ol>
-           <li  aria-level="1"><span >Hãy kiểm tra lại phiên bản để xác nhận đã cài thành công bằng cách mở Terminal và gõ dòng lệnh sau:</span></li>
-        </ol>`,
+        <p>1. Truy cập </span><a href="https://nodejs.org/en/download/"><span >https://nodejs.org/en/download/</span></a><span >, chọn và tải phiên bản phù hợp với hệ điều hành của bạn. Tiến hành cài đặt theo mặc định.</span></p>
+        <p><img style="width: 100%;object-fit: contain" src="https://lh6.googleusercontent.com/aSOxskWyHXgt-t8XNzoPIbOXm2xn3JKPZeKSVSzbBHfdCN-TKAa8cWrsRRWTmu2x7smxwYXymUXoxC4nALL6UeAqutKyCSrkrlBBkCH2eeZzQnoGEFn0tQUlYWsEibrabQcEqhIG" atl="node" /></p>
+           <p  aria-level="1"><span >2. Hãy kiểm tra lại phiên bản để xác nhận đã cài thành công bằng cách mở Terminal và gõ dòng lệnh sau:</span></p>`,
         },
         {
           type: 'special',
@@ -393,8 +387,7 @@ export const vnData = {
         },
         {
           type: 'normal',
-          text: `<p> Tham khảo thêm tại:</p>
-          </br>
+          text: `<span> Tham khảo thêm tại:</span></br>
           <i><a href="https://create-react-app.dev/docs/getting-started"><span >https://create-react-app.dev/docs/getting-started</span></a></i></br>
           <i><a href="https://create-react-app.dev/docs/adding-typescript/"><span >https://create-react-app.dev/docs/adding-typescript/</span></a></i>
           <p /></br>
@@ -408,6 +401,7 @@ export const vnData = {
         {
           type: 'normal',
           text: `<span style="font-weight: 300;font-style: i">Trong đó, </span><span >my-app</span><span > là tên thư mục chứa dự án của bạn.</span>
+          <p/></br>
         <h3><span >Bước 3. Cài đặt package + webpack</span></h3>
         <span >Cập nhật nội dung file </span><i><span >package.json</span></i><span > như sau:</span>`,
         },
@@ -467,7 +461,7 @@ export const vnData = {
         },
         {
           type: 'nomarl',
-          text: `<span >2. Tạo folder plugins và tạo mới 3 file với nội dung như sau:</span>
+          text: `<span >2. Tạo folder plugins và tạo mới 3 file với nội dung như sau:</span></br>
 <i><span >plugins/craco-compatibility.js</span></i>`,
         },
         {
@@ -536,7 +530,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<h3><span >Bước 4. Khởi chạy ứng dụng</span></h3>
+          text: `<p></br><h3><span >Bước 4. Khởi chạy ứng dụng</span></h3>
         <span >Sau khi cài đặt cấu hình package + webpack, bạn cần install lại để project cài lại node-module. Hãy chạy dòng lệnh sau:</span>`,
         },
         { type: 'special', text: `npm install --force` },
@@ -570,11 +564,11 @@ module.exports = { overrideWebpackConfig }`,
         
         <span >Bạn có thể tham khảo và học cách sử dụng các component của AntD tại đây: </span><a href="https://ant.design/components/overview/"><span >https://ant.design/components/overview/</span></a>
         <p/></br>
-        <h3><strong>Ứng dụng đầu tiên</strong></h3>
-        <span >Bước 1. Cập nhật file </span><span >src/App.css</span>`,
+        <h3><strong>Xây dựng ứng dụng đầu tiên</strong></h3>
+        <span >Bước 1. Cập nhật file </span><i><span >src/App.css</span></i>`,
         },
         { type: 'special', text: `@import "~antd/dist/antd.css";` },
-        { type: 'normal', text: `Bước 2. Cập nhật file src/App.tsx` },
+        { type: 'normal', text: `Bước 2. Cập nhật file <i>src/App.tsx</i>` },
         {
           type: 'special',
           text: `import { Button } from "antd";\nimport "./App.css";\n\nfunction App() {\n  return (\n    <div className="App">\n      <Button type="primary">Button</Button>\n    </div>\n  );\n}\nexport default App;`,
@@ -585,16 +579,17 @@ module.exports = { overrideWebpackConfig }`,
 
           <p style="max-width: 500px; margin: auto"><img style="width: 100%" src="https://lh5.googleusercontent.com/9SZrRSToNGn1o8amJibqZ-JdrYuCHUFjlKhdAvUi8iVJnXnBET5OvfdAChn4oAwnBSqaMxv5RXr3ORY5q56tKhX8W5JukjVEdIROPcSKAofuIHsnBlC9RQV0rs5JkCANRZNQRRgu" alt="localhost"/></p>
           <p/></br>
-          <span >Đoạn code ở file </span><span >src/App.tsx</span><span > có sử dụng Button được import từ AntD. Đây được gọi là component. Component có thể dễ dàng được tái sử dụng ở  nhiều nơibất kì đâu.</span>`,
+          <span >Đoạn code ở file </span><i><span >src/App.tsx</span></i><span > có sử dụng Button được import từ AntD. Đây được gọi là component. Component có thể dễ dàng được tái sử dụng ở bất kì đâu.</span>`,
         },
         { type: 'special', text: `<Button type="primary">Button</Button>` },
         {
           type: 'normal',
           text: `<b>Button</b><span > là một component. </span><b>Type</b><span > là </span><b>props</b><span > mà </span><b>component</b><span > nhận vào với giá trị là “</span><b>primary</b><span >”.</span>
-        <h3><span >Xây dựng component</span></h3>
+          <p></br>
+        <h3><strong >Xây dựng component</strong></h3>
         <span >Tiếp theo, chúng ta sẽ xây dựng một component.</span>
-        
-        <p style="font-weight: 600;">Bước 1. Tạo file <i style="font-weight: 600;">src/components/walletInfo.tsx</i></p>`,
+        <p/>
+        <p>Bước 1. Tạo file <i>src/components/walletInfo.tsx</i></p>`,
         },
         {
           type: 'special',
@@ -606,7 +601,7 @@ module.exports = { overrideWebpackConfig }`,
 
         <span >Lưu ý: Trong một component, bạn có thể sử dụng một component khác.</span>
         
-        <p style="font-weight: 600;">Bước 2. Sử dụng component vừa tạo, cập nhật nội dung file <i style="font-weight:600;">src/App.tsx<i></p>`,
+        <p>Bước 2. Sử dụng component vừa tạo, cập nhật nội dung file <i>src/App.tsx<i></p>`,
         },
         {
           type: 'special',
@@ -614,15 +609,13 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'normal',
-          text: `<p/></br><p style="font-weight: 600;">Bước 3. Quay lại trang <a href="http://localhost:3000"><span >http://localhost:3000</span></a> để xem kết quả:</p>
+          text: `<p/></br><p>Bước 3. Quay lại trang <a href="http://localhost:3000"><span >http://localhost:3000</span></a> để xem kết quả:</p>
           <p><img style="width: 100%" src="https://lh6.googleusercontent.com/mHwVMn0TOObdS8HfpfkQ7T-bJpt_cEtdaRFZCU-TliEJxMacCcyHHECZYov0CIYqH00DGrMhWKG8nSIt90-p774ThR67s_LufIje1KX4QM-HOnM6ENRKTVDA_m-zamIWom8iP8Ll" alt="localhost" /></p>
           </br>
           <h3><strong>Tìm hiểu về State</strong></h3>
-        <span >State được dùng để lưu trữ trạng thái dữ liệu hiện tại.</span>
-        
-        <span >Để hiểu rõ hơn, chúng ta hãy cùng tìm hiểu qua ví dụ sau: Khi click vào button “Kết nối ví”, hành động được thực hiện là lấy địa chỉ ví từ một bên thứ 3, sau đó lưu địa chỉ ví lại để hiển thị lên giao diện (state).</span>
-        
-        <span >Để thực thi ví dụ trên, hãy cập nhật file </span><span >src/App.tsx</span><span > như sau:</span>`,
+        <p >State được dùng để lưu trữ trạng thái dữ liệu hiện tại.</p>
+        <p >Để hiểu rõ hơn, chúng ta hãy cùng tìm hiểu qua ví dụ sau: Khi click vào button “Kết nối ví”, hành động được thực hiện là lấy địa chỉ ví từ một bên thứ 3, sau đó lưu địa chỉ ví lại để hiển thị lên giao diện (state).</p>
+        <p >Để thực thi ví dụ trên, hãy cập nhật file <i>src/App.tsx</i> như sau:</p>`,
         },
         {
           type: 'special',
@@ -634,14 +627,14 @@ module.exports = { overrideWebpackConfig }`,
           <p style="display: flex; flex: auto;"><img style="width: 50%" src="https://lh4.googleusercontent.com/YZ_agDioq6sAcKQWZFUEk_Fj19rPF_BpYgkcWhB1SCgfuY0b3yp5-g9ryGWdW1SGqamg02LK7NFUSG1rOZe-27wX8XjvsoasMWyu-9kNYhys_B7kKT0J1dEt-NMHXjW0sD9oejnt" alt="wallet"/><img style="width: 50%;border-left: 4px solid #eef1fb" src="https://lh5.googleusercontent.com/_a1MTOj4G6rmJUki99884BN_aGJJuGqGVvmvv1oN4tEHYb2XCdeNKb27mIKswPRl8T0SaMlURUCuplfOeRUWxQAaejpnWvKXznotCGPSKxlKHpG3TQEEB_MebVKtj-9Ln5Bt1odn" /></p>
           <p/></br>
         <h3><strong>Tìm hiểu về UseEffect và UseCallback</strong></h3>
-        <span >UseEffect được dùng để quản lý vòng đời của component.</span>
+        <p>UseEffect được dùng để quản lý vòng đời của component.</p>
         
-        <span >UseEffect thường được sử dụng để thực hiện một số hành động như: khi khởi tạo component, các giá trị phụ thuộc (được khai báo ở ngoặc vuông cuối hàm, có thể là Props và State) thay đổi. Ngoài ra, UseEffect có thể được sử dụng cho một vài trường hợp khác nhưng mình sẽ không đề cập ở đây.</span>
+        <p>UseEffect thường được sử dụng để thực hiện một số hành động như: khi khởi tạo component, các giá trị phụ thuộc (được khai báo ở ngoặc vuông cuối hàm, có thể là Props và State) thay đổi. Ngoài ra, UseEffect có thể được sử dụng cho một vài trường hợp khác nhưng mình sẽ không đề cập ở đây.</p>
         
-        <span >UseCallback được sử dụng để tối ưu quá trình render, ngăn hàm bị tạo lại. </span>
+        <p>UseCallback được sử dụng để tối ưu quá trình render, ngăn hàm bị tạo lại. </p>
         
-        <span >Để hiểu rõ hơn về UseEffect, chúng ta sẽ cùng đi đến ví dụ tiếp theo: Khi walletAddress thay đổi, App tự động lấy balance của walletAddress đó và cập nhật vào state để hiển thị lên giao diện.</span>
-        <h3><span >Để thực thi ví dụ trên, hãy cập nhật file </span><span >src/App.tsx</span><span > như sau:</span></h3>`,
+        <p>Để hiểu rõ hơn về UseEffect, chúng ta sẽ cùng đi đến ví dụ tiếp theo: Khi walletAddress thay đổi, App tự động lấy balance của walletAddress đó và cập nhật vào state để hiển thị lên giao diện.</p>
+        <p>Để thực thi ví dụ trên, hãy cập nhật file <i>src/App.tsx</i> như sau:</p>`,
         },
         {
           type: 'special',
@@ -653,19 +646,17 @@ module.exports = { overrideWebpackConfig }`,
           <p style="max-width: 500px;margin: auto"><img style="width: 100%" src="https://lh3.googleusercontent.com/WwLNY6dT7gzoOrX9HJ7yjhrFMXlVfFoi4JcRb5wz2f4cCjQhNjUy_KKRezoJY8mS53lhzthRYBJmJCjoIJCds5h_JBGPz5KJSfK2emzPrdWEhK2436ALQfiwkbnrN6vbSKgvq2TQ" atl="wallet" /></p>
           <p/></br>
         <p>Vậy là chúng ta đã tìm hiểu qua các khái niệm căn bản, cách tạo và sử dụng Component, Props, State, UseEffect, và UseCallback. Các bạn có thể tham khảo thêm ở trang chủ của ReactJS tại: <a href="https://reactjs.org/docs/hooks-intro.html">https://reactjs.org/docs/hooks-intro.html</a>
+        <p/></br>
         <h1><strong>Các bước tạo và kết nối ví tiền điện tử lên DApp</strong></h1>
         <h2><strong>Crypto Wallet (Ví tiền điện tử)</strong></h2>
         <p>Để tham gia sử dụng và phát triển trên mạng lưới blockchain Solana, bạn cần sở hữu một </span><b>crypto wallet</b> (ví tiền điện tử) để quản lý tiền điện tử. Đó có thể là ví C98, Phantom, hay Slope…</p>
-        
         <p>Để nhận và chuyển tiền, người gửi và người nhận sẽ được định danh bằng </span><b>wallet address</b> (địa chỉ ví).</p>
-        
         <b>PublicKey</b><span> là một cách hiển thị khác của Address, tương tự với cách Momo cho phép nhận và chuyển tiền bằng số điện thoại của khách hàng.</span>
-        
-        <b>Balance</b><span> là số dư của các loại tiền (Token, Coin) hiện có trong ví.</span>
+        <p><b>Balance</b> là số dư của các loại tiền (Token, Coin) hiện có trong ví.</p><p/></br>
         <h2><strong>Goki - Hỗ trợ kết nối ví điện tử</strong></h2>
         <span>Cùng sự phát triển của công nghệ, ngày càng nhiều loại ví ra đời phục vụ nhu cầu của người dùng. Goki được xây dựng để giúp developer hỗ trợ nhiều ví nhất trên DApp.</span>
         
-        <p>Sau đây, chúng ta sẽ học cách cài đặt và kết nối ví Phantom.</p>
+        <p>Sau đây, chúng ta sẽ học cách cài đặt và kết nối ví Phantom.</p><p/></br>
         <h3><strong>Cài đặt ví Phantom</strong></h3>
         <span >Bước 1: Đầu tiên, bạn hãy tìm tiện ích Phantom trên Chrome tại </span><a href="https://chrome.google.com/webstore/detail/phantom/bfnaelmomeimhlpmgjnjophhpkkoljpa?hl=vi"><span >Đây</span></a><span > và chọn “Thêm vào Chrome”.</span>
         
@@ -706,8 +697,7 @@ module.exports = { overrideWebpackConfig }`,
         <a href="https://github.com/DescartesNetwork/solana-academy/tree/init-dapp-ui"><span >https://github.com/DescartesNetwork/solana-academy/tree/init-dapp-ui</span></a>`,
         },
       ],
-      thumbnail:
-        'https://img.freepik.com/free-vector/flat-design-ui-ux-background_23-2149093996.jpg?w=2000&t=st=1649125694~exp=1649126294~hmac=72cfc1548808ae7076ae97f1b9b930ed252d1870430f609b44dfbbb323430920',
+      thumbnail: require('../images/posts/ddu-thumbnail.png'),
       category: ['blockchain', 'solana'],
     },
   ],
