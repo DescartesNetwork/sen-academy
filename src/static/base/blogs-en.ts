@@ -60,7 +60,7 @@ export const enData = {
       date: 'Fri 01, Mar 2022',
       category: ['blockchain'],
       quizButton: {
-        title: 'Exercise',
+        title: 'Take the quiz here',
         embedCode: 'IpnYx0FH',
       },
       video:
