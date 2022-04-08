@@ -18,7 +18,7 @@ export const enData = {
       <p>So, what is blockchain, and how to develop a career in this challenging industry?</p>
       <h1 style="font-size: 32px"><strong>Blockchain Definition For Developers</strong></h1>
 
-      <p class="content-img"><img style="width: 100%; object-fit: contain;" src="https://images.unsplash.com/photo-1632425422722-672c726e3763?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" alt="blockchain" /></p>
+      <p class="content-img"><img style="width: 100%; object-fit: contain;" src="${require('../images/posts/thumbnail_wib.png')}" alt="blockchain" /></p>
 
       <p>Blockchain is a distributed (decentralized) database system formed as blocks linked together using cryptography. Similar to traditional databases: MySQL, MongoDB, etc. We can use blockchain to store data. However, the following characteristics are what set blockchain apart from the rest:</p>
       <ul>
@@ -55,8 +55,7 @@ export const enData = {
       <p>To learn developing on Solana step-by-step, follow Sen Academy's next nine videos, and feel free to ask us questions in the comments!</p>`,
         },
       ],
-      thumbnail:
-        'https://images.unsplash.com/photo-1632425422722-672c726e3763?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80',
+      thumbnail: require('../images/posts/thumbnail_wib.png'),
       date: 'Fri 01, Mar 2022',
       category: ['blockchain'],
       quizButton: {
@@ -418,6 +417,8 @@ module.exports = { overrideWebpackConfig }`,
         title: 'Take the quiz here',
         embedCode: 'GlrLQzlL',
       },
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/hxk9-Pyxm2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
   ],
   user: [
