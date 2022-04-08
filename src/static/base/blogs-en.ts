@@ -414,6 +414,10 @@ module.exports = { overrideWebpackConfig }`,
       ],
       thumbnail: require('../images/posts/ddu-thumbnail.png'),
       category: ['blockchain', 'solana'],
+      quizButton: {
+        title: 'Take the quiz here',
+        embedCode: 'GlrLQzlL',
+      },
     },
   ],
   user: [

@@ -699,6 +699,10 @@ module.exports = { overrideWebpackConfig }`,
       ],
       thumbnail: require('../images/posts/ddu-thumbnail.png'),
       category: ['blockchain', 'solana'],
+      quizButton: {
+        title: 'Làm bài tập tại đây',
+        embedCode: 'GlrLQzlL',
+      },
     },
   ],
   user: [
