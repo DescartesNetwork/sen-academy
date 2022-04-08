@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import { Affix, Card, Layout } from 'antd'
 import Header from './header'
@@ -17,14 +19,19 @@ const App = () => {
   const {
     ui: { theme },
   } = useSelector((state: AppState) => state)
-  // Load theme
+  const { t } = useTranslation()
 
+  // Load theme
   useEffect(() => {
     document.body.setAttribute('id', theme)
   }, [theme])
 
   return (
     <Layout className="root-bg">
+      {/* Translate site description */}
+      <Helmet>
+        <title>{t('siteDesc', { returnObjects: true })}</title>
+      </Helmet>
       <Affix>
         <Card
           className="glass"
@@ -33,7 +40,7 @@ const App = () => {
             boxShadow: 'unset',
             zIndex: 999,
           }}
-          bodyStyle={{ padding: 8 }}
+          bodyStyle={{ padding: 16 }}
           bordered={false}
         >
           <Header />

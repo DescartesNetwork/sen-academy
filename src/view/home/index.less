@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&display=swap');
+
 .banner {
   padding: 79px 240px 0 !important;
   background: url(../../static/images/system/bg-light.png);
@@ -26,39 +28,40 @@
 .section-bg {
   padding: 100px 24px !important;
   &.bg-radial {
-    background: #e5e5e5;
-    .bg {
-      &::after {
-        content: '';
-        position: absolute;
-        right: -110px;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(
-          circle 250px,
-          rgb(188 53 58 / 40%),
-          transparent
-        );
-        z-index: 0;
-      }
-      .sen-academy-col {
-        z-index: 1;
-      }
-    }
+    background: #e6e9f5;
+  }
+}
+.bg-circle {
+  &::after {
+    content: '';
+    position: absolute;
+    right: -110px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(
+      circle 250px,
+      rgb(188 53 58 / 40%),
+      transparent
+    );
+    z-index: 0;
+  }
+  .sen-academy-col {
+    z-index: 1;
   }
 }
 
 .title {
+  font-family: 'Barlow', sans-serif;
   font-size: 72px;
   font-weight: 600;
-  line-height: 72px;
+  line-height: 120%;
   @media (max-width: 1200px) {
     font-size: 48px;
-    line-height: 48px;
+    // line-height: 48px;
   }
   @media (max-width: 575px) {
     font-size: 38px;
-    line-height: 38px;
+    // line-height: 38px;
   }
   & .primary,
   & strong {

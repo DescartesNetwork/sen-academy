@@ -29,7 +29,7 @@ const Home = () => {
       {/* Section dev */}
       <Col span={24} className="section-bg bg-radial">
         <BlockContainer
-          className="bg"
+          className="bg-circle"
           title={t('academyDev.title', { returnObjects: true })}
           description={t('academyDev.description', { returnObjects: true })}
           imgUrl={t('academyDev.src', { returnObjects: true })}

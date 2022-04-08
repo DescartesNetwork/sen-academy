@@ -1,9 +1,10 @@
 .blogs-btn {
   &.sen-academy-btn-default,
   .sen-academy-radio-button-wrapper {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
+    font-weight: 600;
+    font-size: 16px !important;
+    border: none !important;
+    background-color: transparent !important;
     &:active,
     &:focus,
     &.sen-academy-radio-button-wrapper-checked {
@@ -20,6 +21,17 @@
     height: auto;
     object-fit: cover;
   }
+  iframe {
+    width: 100%;
+    height: calc(100vw * 1.5 / 4);
+    @media (max-width: 1200px) {
+      height: calc(100vw * 2.03 / 4);
+    }
+  }
+}
+.content-img {
+  border-radius: 8px;
+  overflow: hidden;
 }
 .blog-banner {
   padding-top: 100px;
@@ -36,5 +48,44 @@
   }
   @media (max-width: 575px) {
     height: 0;
+  }
+}
+.post-card {
+  .sen-academy-image {
+    height: 220px;
+    img {
+      height: 100% !important;
+      object-fit: cover;
+    }
+  }
+}
+.post-content {
+  & *:not(h1, h1 *, h2, h2 *, h3, h3 *, pre, pre *, i, i *) {
+    font-size: 20px;
+  }
+  h1,
+  h1 * {
+    font-size: 34px;
+  }
+  pre,
+  pre * {
+    font-size: 14px;
+  }
+  i,
+  i * {
+    color: #7a7b85;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  p {
+    margin-bottom: 6px !important;
+  }
+}
+#dark {
+  .post-content {
+    i,
+    i * {
+      color: #a6a7ad;
+    }
   }
 }

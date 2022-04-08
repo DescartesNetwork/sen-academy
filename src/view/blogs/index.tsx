@@ -76,7 +76,7 @@ const Blogs = () => {
                 </MakeUpHtml>
               </span>
               <Space direction="vertical">
-                <Typography.Text type="secondary">
+                <Typography.Text style={{ fontSize: 20 }} type="secondary">
                   {t(`banner.subDesc.${blogCat}.label`, {
                     returnObjects: true,
                   })}
@@ -84,8 +84,9 @@ const Blogs = () => {
               </Space>
             </Space>
           </Col>
-          <Col xs={24} md={12}>
+          <Col xs={24} md={12} className={blogCat === 'dev' ? 'bg-circle' : ''}>
             <Image
+              style={{ position: 'relative', zIndex: 9 }}
               src={t(`banner.subDesc.${blogCat}.src`, {
                 returnObjects: true,
               })}
@@ -127,7 +128,7 @@ const Blogs = () => {
               className="blogs-btn"
               onClick={() => setPostPerpage(postPerpage + 3)}
             >
-              View more
+              {t('viewMore', { returnObjects: true })}
             </Button>
           </Col>
         </Row>

@@ -23,6 +23,7 @@ const PostCard = ({
             style={{ borderRadius: 8, overflow: 'hidden' }}
             bodyStyle={{ padding: 0 }}
             bordered={false}
+            className="post-card"
           >
             <Image src={thumbnail} preview={false} />
           </Card>
