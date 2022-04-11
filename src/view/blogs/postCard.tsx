@@ -63,7 +63,9 @@ const PostCard = ({
               {date}
             </Typography.Text>
             <Typography.Title level={3}>{title}</Typography.Title>
-            <Typography.Text>{description}</Typography.Text>
+            <Typography.Text className="post-description">
+              {description}
+            </Typography.Text>
           </Space>
         </Col>
       </Row>

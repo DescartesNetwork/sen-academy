@@ -28,8 +28,10 @@ const Blogs = () => {
   const blogCat = query.get('category') || ''
 
   const compare = (a: PostsData, b: PostsData) => {
-    if (a.date > b.date) return -1
-    if (a.date < b.date) return 1
+    const aDate = new Date(a.date)
+    const bDate = new Date(b.date)
+    if (aDate > bDate) return -1
+    if (aDate < bDate) return 1
     return 0
   }
 
