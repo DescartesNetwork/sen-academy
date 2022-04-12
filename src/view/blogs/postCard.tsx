@@ -57,13 +57,15 @@ const PostCard = ({
             />
           </Card>
         </Col>
-        <Col span={24}>
+        <Col span={24} className="warp-post-card">
           <Space direction="vertical">
             <Typography.Text type="secondary" style={{ fontSize: 12 }}>
               {date}
             </Typography.Text>
-            <Typography.Title level={3}>{title}</Typography.Title>
-            <Typography.Text className="post-description">
+            <Typography.Title level={3} className="warp-post-card-title">
+              {title}
+            </Typography.Title>
+            <Typography.Text className="warp-post-card-description">
               {description}
             </Typography.Text>
           </Space>

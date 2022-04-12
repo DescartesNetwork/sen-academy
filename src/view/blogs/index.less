@@ -58,13 +58,26 @@
     }
   }
 }
-.post-description {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.warp-post-card {
+  min-height: 170px !important;
+  &-title,
+  &-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  &-title {
+    -webkit-line-clamp: 2;
+  }
+  &-description {
+    -webkit-line-clamp: 3;
+  }
 }
+
 .post-content {
+  img {
+    border-radius: 8px;
+  }
   & *:not(h1, h1 *, h2, h2 *, h3, h3 *, pre, pre *, i, i *) {
     font-size: 20px;
   }
