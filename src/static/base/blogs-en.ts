@@ -419,7 +419,7 @@ module.exports = { overrideWebpackConfig }`,
         embedCode: 'GlrLQzlL',
       },
       video:
-        '<iframe width="560" height="315" src="https://www.youtube.com/embed/hxk9-Pyxm2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/hxk9-Pyxm2M" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
     {
       id: 'manage-dapp-state',
@@ -563,7 +563,8 @@ module.exports = { overrideWebpackConfig }`,
       //   title: 'Làm bài tập tại đây',
       //   embedCode: 'GlrLQzlL',
       // },
-      // video:'',
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/Cn8G0FQ-n4I" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
   ],
   user: [
