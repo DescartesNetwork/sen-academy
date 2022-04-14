@@ -1057,15 +1057,15 @@ module.exports = { overrideWebpackConfig }`,
         </ol>`,
         },
       ],
-      thumbnail:
-        'https://lh4.googleusercontent.com/M1KXv9oONNHvX07IKsft8EsSQ8eYqtxgUhr-tJm8Prbt51uECTCylKEXCqJs67fLWN1Rhn1JKHnSsEkWyRTHq5R0WC3t0jaRiITBD8Zkqpy5TiKAcQyfCyydCrtGNCRmR41HghXz',
-      date: 'Mon 14, Apr 2022',
+      thumbnail: require('../images/posts/fsp-thumbnail.png'),
+      date: 'Thu 14, Apr 2022',
       category: ['blockchain', 'solana'],
       // quizButton: {
       //   title: 'Làm bài tập tại đây',
       //   embedCode: '',
       // },
-      // video:'',
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/S_FjCrSEEHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
   ],
   user: [
