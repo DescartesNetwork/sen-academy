@@ -429,7 +429,7 @@ module.exports = { overrideWebpackConfig }`,
       content: [
         {
           type: 'normal',
-          text: `<p>Sau khi đã thiết kế giao diện và kết nối ví điện tử trên DApp của mình (tham khảo bài 2: Thiết kế giao diện DApp), bạn sẽ cần phải quản lý các dữ liệu liên quan tới DApp đó như: Wallet, Account, Balance, vân vân. Công cụ giúp bạn làm được việc này chính là Redux.</p>
+          text: `<p>Sau khi đã thiết kế giao diện và kết nối ví điện tử trên DApp của mình (tham khảo bài 2: <a href="/#/blogs/design-dapp-ui?category=dev">Thiết kế giao diện DApp</a>), bạn sẽ cần phải quản lý các dữ liệu liên quan tới DApp đó như: Wallet, Account, Balance, vân vân. Công cụ giúp bạn làm được việc này chính là Redux.</p>
           <p/></br><h1><strong>Redux là gì?</strong></h1>
           <p>Redux là một thư viện Javascript để quản lý state của ứng dụng, thường được sử dụng chung với ReactJS. Redux Toolkit là một thư viện giúp lập trình viên viết Redux dễ dàng và đơn giản hơn.</p>
           <p>Ở bài viết này, chúng ta sẽ cùng tìm hiểu nhanh về redux-toolkit và ứng dụng nhanh vào project của mình với một ví dụ đơn giản là tăng hoặc giảm một biến đếm counter.</p>
@@ -564,6 +564,223 @@ module.exports = { overrideWebpackConfig }`,
       },
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/XBagOm8tJ-Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    },
+    {
+      id: 'first-solana-program',
+      title: 'Viết phần mềm Solana đầu tiên',
+      description:
+        'Hướng dẫn lập trình phần mềm trên Solana blockchain bằng Anchor',
+      content: [
+        {
+          type: 'nomal',
+          text: `<p>Đối với lập trình viên, quá trình đi từ ý tưởng đến sản phẩm thực tiễn là một con đường gian nan với vô số rào cản, trong đó phần lập trình thô gây nhàm chán nhất.</p>
+        <p>Anchor ra đời với các bản soạn sẵn phong phú và cơ số bước kiểm tra bảo mật, giúp developer rút ngắn thời gian lập trình thô và tập trung vào công đoạn quan trọng nhất - phát triển sản phẩm của chính mình.</p>
+        </p></br>
+        <h2><strong>Tìm hiểu về Anchor</strong></h2>
+        <h3><strong>Anchor là gì?</strong></h3>
+        <p>Anchor(1) là một framework giúp các developer phát triển Smart Contract trên Solana nhanh chóng, dễ dàng và an toàn hơn.</p>
+        <p>Anchor có cách đặc điểm sau:</p>
+        <ul>
+           <li><span>Sử dụng ngôn ngữ Rust(2)</span></li>
+           <li><span>IDL để chỉ rõ cách hoạt động, sử dụng chương trình</span></li>
+           <li><span>Tự động tạo TypeScript Package từ IDL</span></li>
+           <li><span>Hỗ trợ nhiều câu lệnh, CLI ngắn gọn dễ dùng</span></li>
+        </ul>
+        <p/>
+        <h3><strong>Cài đặt môi trường</strong></h3>
+        <p>Tìm hiểu thêm thông tin tại <a href="/#/blogs/manage-dapp-state?category=dev">(3)</a>.</p>
+        <p><strong>Bước 1. Cài đặt Rust</strong></p>`,
+        },
+        {
+          type: 'special',
+          text: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\nsource $HOME/.cargo/env\nrustup component add rustfmt`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p><strong>Bước 2. Cài đặt Solana</strong></p>`,
+        },
+        {
+          type: 'special',
+          text: `sh -c "$(curl -sSfL https://release.solana.com/v1.9.1/install)"`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p><strong>Bước 3. Cài đặt Yarn</strong></p>`,
+        },
+        { type: 'special', text: `npm install -g yarn` },
+        {
+          type: 'normal',
+          text: '</br><p><strong>Bước 4. Cài đặt Anchor</strong></p>',
+        },
+        { type: 'special', text: `npm i -g @project-serum/anchor-cli` },
+        {
+          type: 'normal',
+          text: `</br><h2><strong>Tạo ứng dụng đầu tiên</strong></h2>
+        <p>Để khởi tạo một project mới, bạn hãy chạy lệnh sau:</p}`,
+        },
+        {
+          type: 'special',
+          text: `anchor init my_program\ncd my_program
+        `,
+        },
+        {
+          type: 'normal',
+          text: `<p>Trong đó <b>my_app</b> là tên project của bạn.</p>
+          <p>Sau khi tạo thành công, cấu trúc project sẽ như sau:</p>
+          <ul>
+            <li><b>programs/my_program/src/lib.rs</b><span>: Nơi định nghĩa, lập trình Smart Contract</span></li>
+            <li><b>programs/my_program/Cargo.toml</b><span>: Nơi cài đặt các thư viện sử dụng</span></li>
+            <li><b>target</b><span>: Nơi chứa dữ liệu sau khi build. Bao gồm IDL</span></li>
+            <li><b>test</b><span>: Viết test cho Smart Contract</span></li>
+          </ul><p class="content-img"><img src="https://lh4.googleusercontent.com/d5WchPxQgZgavXRJnc01rXXDuxK7j9s3kL-XIWbXfOfn57mtwrV9Z_uWn7X3j5MVYXeCvhjlBRr1GvzD5CzZmxbobcAuSYhYUr2bZ544-QCJtOFMgqan2TlLlgukgB1V1cjWWXiR" alt="code"/></p></br><p>Chạy test chương trình bằng dòng lệnh:</p>`,
+        },
+        { type: 'special', text: 'anchor test' },
+        {
+          type: 'normal',
+          text: `<p>Hệ thống sẽ tự động thực thi các bước sau và cho ra kết quả:</p>
+        <ul>
+           <li><span>Build smart contract từ file </span><b>src/lib.rs</b></li>
+           <li><span>Tự động Deploy </span><b>localhost</b></li>
+           <li><span>Ghi kết quả vào thư mục target</span></li>
+           <li><span>Chạy file </span><b>test/my_program.ts</b><span> → phân tích cấu trúc Smart Contract được build từ </span><b>target/idl/my_program.json</b><span> → tạo data phù hợp gọi lên Program đã được tự động deploy ở bước 2</span></li>
+           <li><span>Trả về kết quả</span></li>
+        </ul>
+        <p>Khi chạy<b>anchor test</b>, hệ thống đã tự build giúp mình. Nếu muốn build thủ công, bạn có thể dùng câu lệnh: <b>anchor build</b></p>
+        <p>Sau khi build IDL được tạo ra ở thư mục <b>target/idl/my_program.json</b></p>
+        <p>Một instruction cũng giống như một hàm thông thường, bao gồm ba thông tin quan trọng là:</p>
+        <ul>
+           <li><span>name: Tên hàm, dùng programe.rpc để gọi</span></li>
+           <li><span>accounts: Danh sách tài khoản sẽ tương tác</span></li>
+           <li><span>arg: tham số truyền vào hàm</span></li>
+        </ul>
+        <p>Để hiểu rõ hơn, chúng ta sẽ cùng thực hành một ví dụ: Viết một chương trình tính tổng bao gồm:</p>
+        <table>
+        <tbody>
+        <tr>
+        <th><b>Tên hàm</b></th>
+        <th><b>Logic thực thi</b></th>
+        <th><b>Tham số</b></th>
+        <th><b>Accounts</b></th>
+        </tr>
+        <tr>
+        <td><p>InitializeSum</p></td>
+        <td><p>Thuê tài khoản để lưu kết quả tính tổng</p></td>
+        <td><p>sum_init: Giá trị ban đầu của tổng</p></td>
+        <td><p><b>sumAccount</b>: địa chỉ lưu kết quả tính tổng</p>
+        <p><b>user</b>: Người trả phí thuê tài khoản</p>
+        <p><b>systemProgram</b>: địa chỉ chương trình giúp thuê tài khoản </p></td>
+        </tr>
+        <tr>
+        <td><span>updateSum</span></td>
+        <td><span>Cập nhật mới tổng</span></td>
+        <td><span>number:  giá trị cộng thêm vào.</span></td>
+        <td><b>sumAccount</b><span>: địa chỉ lưu kết quả tính tổng</span></td>
+        </tr>
+        </tbody>
+        </table>
+        </br>
+        <p>Một hàm như vậy còn được gọi là instruction. Để viết và sử dụng một instruction, chúng ta cần đi qua các bước sau:</p>
+        <ul>
+           <li><span>Khai báo cấu trúc dữ liệu cho trường hợp tạo mới</span></li>
+           <li><span>Khai báo các tài khoản tương tác</span></li>
+           <li><span>Khai bao instruction trong main</span></li>
+        </ul>
+        <h3><strong>Bước 1. Khởi tạo</strong></h3>
+           <p>1. Khai báo cấu trúc dữ liệu</p>`,
+        },
+        {
+          type: 'special',
+          text: `#[account]\npub struct SumAccount {\n  pub sum: u64,\n}`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>2. Khai báo các tài khoản sẽ tương tác</p>`,
+        },
+        {
+          type: 'special',
+          text: `#[derive(Accounts)]/npub struct Initialize<'info> {\n   // địa chỉ thuê\n  #[account(init, payer = user, space = 8 + 8)]\n  pub my_account: Account<'info, MyAccount>,\n\n  // người trả phí giao dịch\n   #[account(mut)]\n  pub user: Signer<'info>,\n\n  // địa chỉ chương trình giúp thuê tài khoản\n   pub system_program: Program<'info, System>,\n}`,
+        },
+        { type: 'normal', text: `</br><p>3. Khai báo hàm thực thi</p>` },
+        {
+          type: 'special',
+          text: `pub fn initialize(ctx: Context<Initialize>, sum_init: u64) -> Result<()> {\n  let my_account = &mut ctx.accounts.my_account;\n  my_account.sum = sum_init;\n  Ok(())\n}`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Chương trình của chúng ta sẽ trông như thế này:</p>`,
+        },
+        {
+          type: 'special',
+          text: `use anchor_lang::prelude::*;\n\ndeclare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");\n\n#[program]\npub mod my_program {\n  use super::*;\n  pub fn initialize_sum(ctx: Context<InitializeSum>, sum_init: u64) -> Result<()> {\n    ctx.accounts.sum_account.sum = sum_init;\n    Ok(())\n  }\n}\n\n#[derive(Accounts)]\n  pub struct InitializeSum<'info> {\n  #[account(init, payer = user, space = 8 + 8)]\n  pub sum_account: Account<'info, SumAccount>,\n  #[account(mut)]\n  pub user: Signer<'info>,\n  pub system_program: Program<'info, System>,\n}\n\n#[account]\npub struct SumAccount {\n  pub sum: u64,\n}`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>4. Chạy anchor build để chương trình tạo IDL</p>`,
+        },
+        {
+          type: 'special',
+          text: `"instructions": [\n  {\n    "name": "initializeSum",\n    "accounts": [\n      {\n        "name": "sumAccount",\n        "isMut": true,\n        "isSigner": true\n      },\n      {\n        "name": "user",\n        "isMut": true,\n        "isSigner": true\n      },\n      {\n        "name": "systemProgram",\n        "isMut": false,\n        "isSigner": false\n      }\n    ],\n    "args": [\n      {\n        "name": "sumInit",\n        "type": "u64"\n      }\n    ]\n  }\n],`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Dựa vào IDL, chúng ta biết được cách sử dụng hàm này từ client bằng typescript. Cập nhật file test như sau: </p>`,
+        },
+        {
+          type: 'special',
+          text: `import { Program, setProvider, web3, Provider, workspace, BN } from "@project-serum/anchor";\nimport { SystemProgram } from "@solana/web3.js";\nimport { MyProgram } from "../target/types/my_program";\n\ndescribe("my_program", () => {\n  setProvider(Provider.env());\n  const program = workspace.MyProgram as Program<MyProgram>;\n\n  // Tạo địa chỉ thuê\n  const sumAccount = web3.Keypair.generate();\n  it("Is initialized!", async () => {\n    await program.rpc.initializeSum(new BN(1), {\n      accounts: {\n        sumAccount: sumAccount.publicKey,\n        user: program.provider.wallet.publicKey,\n        systemProgram: SystemProgram.programId,\n      },\n      signers: [sumAccount],\n    });\n\n    let sumAccountData = await program.account.sumAccount.fetch(sumAccount.publicKey);\n    console.log("sumAccountData", sumAccountData.sum);\n  }\n);`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Chạy anchor test cho ra kết quả:</p>
+        <p class="content-img"><img src="https://lh5.googleusercontent.com/pb6D0IIKmMDPdg4tth8B6ijlQXAShQj0-R-GdInGHc4PBe3inniwwurJKt-BrdJfoaqFJ832k3IaVw_0kp_0iLBo9eOcJRNB9x49HNEPpfl83qqaPonYlwxs0i1nb3MRZMMgTtEN" alt="program" /></p></br>
+        <p>Vậy là chúng ta đã thuê thành công một tài khoản để chứa dữ liệu tính tổng.</p></br>
+        <h3><strong>Bước 2. Cập nhật dữ liệu</strong></h3>
+        <p>Lúc này, account chứa dữ liệu đã được tạo nên không cần khai báo cấu trúc SumAccount nữa. Cập nhật các tài khoản tương tác và khai báo intruction:</p>`,
+        },
+        {
+          type: 'special',
+          text: `#[derive(Accounts)]\npub struct UpdateSum<'info> {\n  #[account(mut)]\n  pub sum_account: Account<'info, SumAccount>,\n}`,
+        },
+        {
+          type: 'special',
+          text: `pub fn update_sum(ctx: Context<UpdateSum>, number: u64) -> Result<()> {\n  ctx.accounts.sum_account.sum += number;\n  Ok(())\n}`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Chương trình sẽ trông như thế này:</p>`,
+        },
+        {
+          type: 'special',
+          text: `use anchor_lang::prelude::*;\n\ndeclare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");\n\n#[program]\npub mod my_program {\n  use super::*;\n  pub fn initialize_sum(ctx: Context<InitializeSum>, sum_init: u64) -> Result<()> {\n    ctx.accounts.sum_account.sum = sum_init;\n    Ok(())\n  }\n\npub fn update_sum(ctx: Context<UpdateSum>, number: u64) -> Result<()> {\n  ctx.accounts.sum_account.sum += number;\n  Ok(())\n  }\n}\n\n#[derive(Accounts)]\npub struct InitializeSum<'info> {\n   #[account(init, payer = user, space = 8 + 8)]\n  pub sum_account: Account<'info, SumAccount>,\n  #[account(mut)]\n  pub user: Signer<'info>,\n  pub system_program: Program<'info, System>,\n}\n\n#[derive(Accounts)]\npub struct UpdateSum<'info> {\n  #[account(mut)]\n  pub sum_account: Account<'info, SumAccount>,\n}\n\n#[account]\npub struct SumAccount {\n  pub sum: u64,\n}`,
+        },
+        { type: 'normal', text: `</br><p>Gọi từ client:</p>` },
+        {
+          type: 'special',
+          text: `it("Update sum!", async () => {\n  await program.rpc.updateSum(new BN(2), {\n    accounts: {\n      sumAccount: sumAccount.publicKey,\n    },\n  });\n\n  let sumAccountData = await program.account.sumAccount.fetch(sumAccount.publicKey);\n  console.log("sumAccountData", sumAccountData.sum);\n});`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Chạy anchor test và cho ra kết quả:</p>
+        <p>Sum đã được cập nhật từ 1 lên 3.</p>
+        <p>Vậy là chúng ta vừa đi qua 2 ví dụ cơ bản của lập trình trên blockchain. Hãy xem video để thực hành và bình luận nếu có thắc mắc nhé!</p>
+        </br>
+        <h1><strong>Các tài liệu tham khảo</strong></h1>
+        <ol>
+           <li aria-level="1"><a href="https://project-serum.github.io/anchor/getting-started/introduction.html" target="_blank"><span>https://project-serum.github.io/anchor/getting-started/introduction.html</span></a></li>
+           <li aria-level="1"><a href="https://doc.rust-lang.org/book/"" target="_blank"><span>https://doc.rust-lang.org/book/</span></a></li>
+           <li aria-level="1"><a href="https://project-serum.github.io/anchor/getting-started/installation.html"" target="_blank"><span>https://project-serum.github.io/anchor/getting-started/installation.html</span></a></li>
+        </ol>`,
+        },
+      ],
+      thumbnail:
+        'https://lh4.googleusercontent.com/M1KXv9oONNHvX07IKsft8EsSQ8eYqtxgUhr-tJm8Prbt51uECTCylKEXCqJs67fLWN1Rhn1JKHnSsEkWyRTHq5R0WC3t0jaRiITBD8Zkqpy5TiKAcQyfCyydCrtGNCRmR41HghXz',
+      date: 'Mon 14, Apr 2022',
+      category: ['blockchain', 'solana'],
+      // quizButton: {
+      //   title: 'Làm bài tập tại đây',
+      //   embedCode: '',
+      // },
+      // video:'',
     },
   ],
   user: [

@@ -32,6 +32,10 @@
 .content-img {
   border-radius: 8px;
   overflow: hidden;
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
 }
 .blog-banner {
   padding-top: 100px;
@@ -97,6 +101,18 @@
   }
   p {
     margin-bottom: 6px !important;
+  }
+  table {
+    tbody, td,th {
+      border: 1px solid; padding: 4px 12px;
+    }
+    tr {
+      border-bottom: 1px solid;
+      vertical-align: baseline;
+    }
+    th {
+      text-align: center;
+    }
   }
 }
 #dark {
