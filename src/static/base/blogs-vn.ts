@@ -1020,7 +1020,7 @@ module.exports = { overrideWebpackConfig }`,
         <p class="content-img"><img src="https://lh5.googleusercontent.com/pb6D0IIKmMDPdg4tth8B6ijlQXAShQj0-R-GdInGHc4PBe3inniwwurJKt-BrdJfoaqFJ832k3IaVw_0kp_0iLBo9eOcJRNB9x49HNEPpfl83qqaPonYlwxs0i1nb3MRZMMgTtEN" alt="program" /></p></br>
         <p>Vậy là chúng ta đã thuê thành công một tài khoản để chứa dữ liệu tính tổng.</p></br>
         <h3><strong>Bước 2. Cập nhật dữ liệu</strong></h3>
-        <p>Lúc này, account chứa dữ liệu đã được tạo nên không cần khai báo cấu trúc SumAccount nữa. Cập nhật các tài khoản tương tác và khai báo intruction:</p>`,
+        <p>Lúc này, account chứa dữ liệu đã được tạo nên không cần khai báo cấu trúc SumAccount nữa. Cập nhật các tài khoản tương tác và khai báo instruction:</p>`,
         },
         {
           type: 'special',
@@ -1065,7 +1065,7 @@ module.exports = { overrideWebpackConfig }`,
       //   embedCode: '',
       // },
       video:
-        '<iframe width="560" height="315" src="https://www.youtube.com/embed/ze_ULW6pd48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/SeYL4MpUV4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
   ],
   user: [
