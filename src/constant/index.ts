@@ -38,7 +38,7 @@ export type PostsData = {
   video?: string
 }
 
-export const DEFAULT_LIMIT_POST = 3
+export const DEFAULT_LIMIT_POST = 9
 export type BlogCategory = 'user' | 'dev'
 export type BlogTabs = { label: string; key: string }
 export type LanguageType = 'en' | 'vn'
