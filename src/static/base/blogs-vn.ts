@@ -873,7 +873,7 @@ module.exports = { overrideWebpackConfig }`,
         </ul>
         <p/>
         <h3><strong>Cài đặt môi trường</strong></h3>
-        <p>Tìm hiểu thêm thông tin tại <a href="/#/blogs/manage-dapp-state?category=dev">(3)</a>.</p>
+        <p>Tìm hiểu thêm thông tin tại (3).</p>
         <p><strong>Bước 1. Cài đặt Rust</strong></p>`,
         },
         {
