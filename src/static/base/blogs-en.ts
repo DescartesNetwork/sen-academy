@@ -775,10 +775,10 @@ module.exports = { overrideWebpackConfig }`,
       thumbnail: require('../images/posts/fsp-thumbnail.png'),
       date: 'Thu 14, Apr 2022',
       category: ['blockchain', 'solana'],
-      // quizButton: {
-      //   title: 'Làm bài tập tại đây',
-      //   embedCode: '',
-      // },
+      quizButton: {
+        title: 'Làm bài tập tại đây',
+        embedCode: 'BHszX11M',
+      },
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/SeYL4MpUV4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
