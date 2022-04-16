@@ -45,7 +45,6 @@ const Home = () => {
           imgUrl={t('academyUser.src', { returnObjects: true })}
           button={t('academyUser.button', { returnObjects: true })}
           floatRight
-          disabled
           onClick={() => history.push('/blogs?category=user')}
         />
       </Col>

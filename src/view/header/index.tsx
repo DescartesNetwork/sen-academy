@@ -97,7 +97,6 @@ const Header = () => {
                         <Menu.Item
                           key={key}
                           style={{ fontSize: 16 }}
-                          disabled={key === 'user'}
                         >
                           {t(`menu.${key}`, { returnObjects: true })}
                         </Menu.Item>
