@@ -1426,10 +1426,10 @@ describe("demo_spl", async () => {
       thumbnail: require('../images/posts/pss-thumbnail.png'),
       date: 'Sat 16, Apr 2022',
       category: ['blockchain', 'solana'],
-      // quizButton: {
-      //   title: 'Làm bài tập tại đây',
-      //   embedCode: '',
-      // },
+      quizButton: {
+        title: 'Làm bài tập tại đây',
+        embedCode: 'lN4GELeA',
+      },
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/x2-t4OD4jU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
