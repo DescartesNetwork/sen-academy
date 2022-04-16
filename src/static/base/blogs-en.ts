@@ -1152,7 +1152,7 @@ describe("demo_spl", async () => {
   ],
   user: [
     {
-      id: 'pda-and-splt-on-solana',
+      id: 'sentre-solana-coin98',
       title: 'PDA và chuẩn SPLT trong lập trình Solana',
       description:
         'Tìm hiểu về PDA, chuẩn SPLT và ứng dụng trong lập trình Solana',

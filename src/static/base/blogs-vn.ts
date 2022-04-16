@@ -1436,7 +1436,7 @@ describe("demo_spl", async () => {
   ],
   user: [  
     {
-      id: 'pda-and-splt-on-solana',
+      id: 'sentre-solana-coin98',
       title: 'Sentre x Solana x Coin98 hợp tác với “Coding Camp: Phá Băng Web3 Với Solana”',
       description:
         'Chuỗi Learn-to-Earn camp về lập trình Solana với giải thưởng lên đến hơn 100,000 USD',
