@@ -1148,15 +1148,120 @@ describe("demo_spl", async () => {
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/x2-t4OD4jU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
+
   ],
   user: [
     {
-      id: '',
-      title: '',
-      description: '',
-      content: ``,
-      thumbnail: '',
-      category: [''],
+      id: 'pda-and-splt-on-solana',
+      title: 'PDA và chuẩn SPLT trong lập trình Solana',
+      description:
+        'Tìm hiểu về PDA, chuẩn SPLT và ứng dụng trong lập trình Solana',
+      content: [`<p id="4513" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">We’re back with a boom: Sentre Protocol, Coin98, and Solana Foundation are joining hands in hosting your one and only <strong class="bn mm">Coding Camp: Break The Web3 Ice With Solana</strong>. This is your golden opportunity to learn the basics of Solana coding, earn quiz prizes, get official graduation NFT, bring home up to 15,000 USD for your DApp, receive a “Web3 Builder” monthly scholarship, and potentially get a blockchain job with Solana’s esteemed partners!</p>
+      <p id="3dfd" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Jump right in, the train’s about to depart — Here’s our official timeline for the camp.</p>
+      
+      <h1 id="8b03" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong><a class="au ro" href="https://airtable.com/shrHcq9e0plqg0rIX" target="_blank" rel="noopener ugc nofollow">REGISTER HERE</a></strong></h1>
+      <p id="e164" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Apply before 25th April.</strong></p>
+      
+      <h1 id="8bc9" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>The Timeline</strong></h1>
+      <h1 id="5a98" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Phase I: From Zero</strong></h1>
+      <p id="b9a7" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">This phase is a week-long program focusing on blockchain basics and your must-learn tools to start developing on Solana. It’s open to anyone!</p>
+      <p id="1335" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Here’s what the curriculum will look like:</p>
+      
+      <ol class="">
+         <li id="f613" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zb zc zd ze iz" data-selectable-paragraph="">Blockchain and career opportunities | <a class="au ro" href="https://academy.sentre.io/#/blogs/what-is-blockchain?category=dev" target="_blank" rel="noopener ugc nofollow">5th Apr</a></li>
+         <li id="edb0" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Building your DApp UI | <a class="au ro" href="https://academy.sentre.io/#/blogs/design-dapp-ui?category=dev" target="_blank" rel="noopener ugc nofollow">8th Apr</a></li>
+         <li id="c2e2" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Managing your DApp state | <a class="au ro" href="https://academy.sentre.io/#/blogs/manage-dapp-state?category=dev" target="_blank" rel="noopener ugc nofollow">11th Apr</a></li>
+         <li id="ac3f" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Your first Solana program | <a class="au ro" href="https://academy.sentre.io/#/blogs/first-solana-program?category=dev" target="_blank" rel="noopener ugc nofollow">14th Apr</a></li>
+         <li id="b864" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Using an SPL token program | 17th Apr</li>
+      </ol>
+      <p id="9d4d" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Learn in the future with our Web3 experience, provided by Rove. Check out the tutorial videos, educational blogs, and quizzes, and get our exclusive <strong class="bn mm">attendance NFT</strong> (for everyone joining the space) → <a class="au ro" href="https://rove.to/solana-vietnam-web3-camp" target="_blank" rel="noopener ugc nofollow">rove.to/solana-vietnam-web3-camp</a></p>
+      <p id="5e20" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">See the instruction video from Rove <a class="au ro" href="https://youtu.be/abgSFal3Ovo" target="_blank" rel="noopener ugc nofollow">here</a>.</p>
+      
+      <h1 id="0d66" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Phase II: To Hero</strong></h1>
+      <p id="3a74" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">This phase is a four-week series of 5 workshops focusing on building your first Solana app and analyzing best practices from DeFi, NFT, GameFi, and PriFi (Privacy Finance).</p>
+      <p id="e48b" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">To provide the best learning experience to our ability, <strong class="bn mm">Solana Foundation and Partners will choose 100 participants to join our Coding Camp</strong> (calendar invites will be sent prior to the workshops’ dates). These participants can pre-submit their questions and get answers from our workshop mentors during the live session. Make sure you’ve polished your CVs!</p>
+      <p id="09c8" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Note that you must go through all 5 lessons in the first phase to join the second phase.</strong> Here’s the timeline:</p>
+      
+      <ol class="">
+         <li id="6d67" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zb zc zd ze iz" data-selectable-paragraph="">Let’s build your first Solana application (part 1) | Live on <strong class="bn mm">25th April</strong></li>
+         <li id="5ce3" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Let’s build your first Solana application (part 2) | Live on <strong class="bn mm">28th April</strong></li>
+         <li id="f2bd" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Best practice in DeFi | Live on <strong class="bn mm">4th May</strong></li>
+         <li id="91ba" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Best practice in GameFi | Live on <strong class="bn mm">10th May</strong></li>
+         <li id="03ba" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Best practice in PriFi | Live on <strong class="bn mm">16th May</strong></li>
+      </ol>
+      <p id="909f" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">However, if you can’t access the live workshops — we’ve got you covered! You can wait until the live stream is over — video recordings will be uploaded <a class="au ro" href="https://academy.sentre.io/#/blogs?category=dev" target="_blank" rel="noopener ugc nofollow">here</a>, along with the quizzes.</p>
+      
+      <h1 id="7eb0" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Phase III: Welcome to the Web3 World</strong></h1>
+      <p id="650b" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">You’ve learned the basics of Solana, and now it’s time to put your knowledge to practice. Form your team and build your own DApp with us!</p>
+      <p id="323b" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Start finding the team members and preparing for your final assignment: Building your own DApp. The timeline will look like this:</p>
+      
+      <ul class="">
+         <li id="cdd8" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">DApp building period: 17–28th May</li>
+         <li id="9b82" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">Demo Day — Present your DApp: 30th May</li>
+         <li id="a59b" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">Winner announcement: 2nd June</li>
+      </ul>
+      <p id="24ec" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">The following rules will be applied:</p>
+      
+      <ul class="">
+         <li id="460d" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">You can submit a new DApp, or previous work (if any).</li>
+         <li id="e0d5" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">You can participate as an independent participant, or as a team.</li>
+         <li id="e88b" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">You have to go through our 10-lesson course to participate in the Demo Day.</li>
+         <li id="9024" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph=""><strong class="bn mm">Knowledge of both Vietnamese (native) and English (basic) is required</strong> — International judges will be present on Demo Day!</li>
+      </ul>
+      <p id="e133" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Submissions are due on 28th May, 23:59 GMT+7 → Submit </strong><a class="au ro" href="https://g9c7s73vd7n.typeform.com/to/qZoT3Mg9" target="_blank" rel="noopener ugc nofollow"><strong class="bn mm">here</strong></a><strong class="bn mm">.</strong></p>
+      <p id="4aee" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">We will also be hosting a series of non-technical workshops. Details will be provided via email and our <a class="au ro" href="https://t.me/+xG3yLK_wqlplMzY1" target="_blank" rel="noopener ugc nofollow">Telegram channel</a> to all the individuals that registered for the Coding Camp.</p>
+      
+      <h1 id="af2d" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>The Prizes and Rewards</strong></h1>
+      <p id="f3ed" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">We believe that Web3 is a world full of learn-to-earn opportunities, and we want to make sure our participants get to experience it first-hand.</p>
+      <p id="aa6c" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">There will be prizes and rewards for every selected participant:</p>
+      
+      <h1 id="aa5f" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Quiz Prizes</strong></h1>
+      <p id="f116" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Of our 100 camp participants</strong>, those who take part in the quizzes and get 100% correct answers will earn quiz prizes from us! Each participant will be eligible to win up to $100 as quiz prizes.</p>
+      
+      <h1 id="7a72" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Credits, Certificates, and Scholarships</strong></h1>
+      <p id="20c9" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Of our 100 camp participants</strong>, those who join in at least 3 live workshops, take part in all quizzes, and participate in the Demo Day will be awarded Solana Foundation’s exclusive certificate NFTs.</p>
+      <p id="19dd" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">10 outstanding learners with extraordinary results will be hand-picked by the Solana Foundation and Partners to grant:</p>
+      
+      <ul class="">
+         <li id="ff89" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">An honorary scholarship worth $1,000 USD per month for three consecutive months from Solana Foundation</li>
+         <li id="b047" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">5,000 credits from Amazon Web Services (AWS)</li>
+      </ul>
+      <h1 id="5d75" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Camp Hero Rewards</strong></h1>
+      <p id="bab1" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">From the participants of the Demo Day, three camp heroes will be selected by our panel of Judges to receive the following rewards:</p>
+      
+      <ul class="">
+         <li id="8307" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">The Golden Hero: $15,000 USD from Solana Foundation &amp; 10,000 credits from AWS</li>
+         <li id="e36d" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">The Silver Hero: $10,000 USD from Solana Foundation &amp; 10,000 credits from AWS</li>
+         <li id="836e" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">The Bronze Hero: $5,000 USD from Solana Foundation &amp; 10,000 credits from AWS</li>
+      </ul>
+      <h1 id="c31a" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Registration Link</strong></h1>
+      <p id="a727" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><a class="au ro" href="https://airtable.com/shrHcq9e0plqg0rIX" target="_blank" rel="noopener ugc nofollow">Sign up</a> for updates about our workshop series — Phase II. Apply before 25th April.</p>
+      <p id="9637" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph=""><a class="au ro" href="https://g9c7s73vd7n.typeform.com/to/qZoT3Mg9" target="_blank" rel="noopener ugc nofollow">Apply and submit your DApp</a> for our final assignment — Phase III. Deadline to apply: 28th May, 23:59 (GMT+7).</p>
+      
+      <h1 id="3fb6" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Questions</strong></h1>
+      <p id="1c2c" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">If you have any questions, please email: <a class="au ro" href="mailto:hi@sentre.io" target="_blank" rel="noopener ugc nofollow">hi@sentre.io</a> or reach us through our <a class="au ro" href="https://t.me/+xG3yLK_wqlplMzY1" target="_blank" rel="noopener ugc nofollow">Telegram channel</a>.</p>
+      
+      <h1 id="70b8" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>About Solana</strong></h1>
+      <p id="b328" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Solana is an open-source project implementing a new, high-performance, permissionless blockchain. It’s built to enable scalable, user-friendly apps for the world. <a class="au ro" href="https://solana.com/" target="_blank" rel="noopener ugc nofollow">Read more about Solana.</a></p>
+      
+      <h1 id="c0aa" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>About Sentre Protocol</strong></h1>
+      <p id="fb4a" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><a class="au ro" href="https://sentre.io/#/home" target="_blank" rel="noopener ugc nofollow">Sentre Protocol</a> is an <strong class="bn mm">All-in-One Solana Open Platform</strong> with a DApp Store and Universal Protocol for Liquidity, where:</p>
+      
+      <ul class="">
+         <li id="dbc3" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">Users can install their favorite DApps and experience the entire DeFi world on a single platform;</li>
+         <li id="cf7c" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">Developers and partners can deliver DApps through Sen Store, fully use available resources and contribute to the platform with no restrictions.</li>
+      </ul>
+      <h1 id="f1f6" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>About Coin98</strong></h1>
+      <p id="f30c" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Coin98 is the #1 crypto super-app designed to seamlessly connect a billion users to the crypto world safely and securely.</p>
+      <p id="82d7" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">We offer users a comprehensive and trusted ecosystem of essential services across the globe, including a non-custodial, multi-chain NFT &amp; cryptocurrency wallet, built-in DEXs, Cross-chain Bridge &amp; DApp Browser, a powerful Terminal, attractive Earn, Gift &amp; Campaign, and Others.</p>
+      
+      <h1 id="568b" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>About Rove</strong></h1>
+      <p id="522e" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Rove empowers anyone to build a presence in the new 3D web — a network of 3D websites that are immersive, real-time, and persistent. Creating interactive 3D/VR environments is as simple as applying a website template. Every template can be customized to the creator’s liking — all drag and drop, no code required.</p>
+      <p id="7b68" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Rove is tomorrow’s Shopify — it takes just a few minutes to build a 3D store for your customers. Rove is Behance for the future — build a 3D gallery for clients and level up your portfolio. Rove is WordPress for Web3. Turn your personal website into a 3D home where people can meet with you in person.</p>
+      <p id="7f6d" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Rove is for anyone with a vision! Go to <a class="au ro" href="https://rove.to/" target="_blank" rel="noopener ugc nofollow">rove.to</a> to create your own 3D space and invite your friends!</p>`],
+      thumbnail: require('../images/posts/pss-thumbnail.png'),
+      date: 'Sat 16, Apr 2022',
+      category: ['blockchain', 'solana'],
     },
   ],
 }

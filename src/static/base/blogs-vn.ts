@@ -1434,15 +1434,119 @@ describe("demo_spl", async () => {
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/x2-t4OD4jU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
   ],
-  user: [
+  user: [  
     {
-      id: '',
-      title: '',
-      description: '',
-      content: '',
-      thumbnail: '',
-      date: '',
-      category: [''],
+      id: 'pda-and-splt-on-solana',
+      title: 'PDA và chuẩn SPLT trong lập trình Solana',
+      description:
+        'Tìm hiểu về PDA, chuẩn SPLT và ứng dụng trong lập trình Solana',
+      content: [`<h1 id="43c4" class="yi yj wg bn yk qh zq qi hm qj zr qk hq kc zs kd hu kg zt kh hy kk zu kl ic yq iz" data-selectable-paragraph=""><strong>Sentre x Solana x Coin98 hợp tác với “Coding Camp: Phá Băng Web3 Với Solana”</strong></h1>
+      <p id="7551" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Tin nóng: Sentre Protocol, Coin98 và Solana Foundation đã quyết định hợp tác đồng tổ chức chương trình <strong class="bn mm">Coding Camp: Phá Băng Web3 Với Solana</strong>! Đây là cơ hội ngàn vàng để bạn nắm vững những kiến thức cơ bản về lập trình trên Solana, kiếm thưởng trên mỗi bài tập, nhận chứng chỉ bằng NFT chính thức, mang về giải thưởng lên đến 15,000 đô cho DApp của mình, giành học bổng “Web3 Builder” hàng tháng, và có cơ hội làm việc trong thị trường Blockchain với các đối tác hàng đầu của Solana!</p>
+      <p id="b4e0" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Lên đường thôi — Timeline của chương trình đây rồi:</p>
+      
+      <h1 id="87b2" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong><a class="au ro" href="https://airtable.com/shrHcq9e0plqg0rIX" target="_blank" rel="noopener ugc nofollow">ĐĂNG KÝ NGAY</a></strong></h1>
+      <p id="e034" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Vui lòng nộp đơn trước 25/4/2022</strong></p>
+      
+      <h1 id="9caf" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Timeline chương trình</strong></h1>
+      <h1 id="6258" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Phần I: From Zero</strong></h1>
+      <p id="6be9" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Đây là một chương trình 7 ngày tập trung vào việc truyền tải các kiến thức cơ bản về blockchain, và các công cụ bạn cần nắm vững để bắt đầu lập trình trên Solana. Ai cũng có thể tham gia!</p>
+      <p id="705f" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Các nội dung của chương trình bao gồm:</p>
+      
+      <ol class="">
+         <li id="ce3e" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zb zc zd ze iz" data-selectable-paragraph="">Blockchain và cơ hội ngành | <a class="au ro" href="https://academy.sentre.io/#/blogs/what-is-blockchain?category=dev" target="_blank" rel="noopener ugc nofollow">5/4</a></li>
+         <li id="3d9c" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Thiết kế UI DApp cơ bản | <a class="au ro" href="https://academy.sentre.io/#/blogs/design-dapp-ui?category=dev" target="_blank" rel="noopener ugc nofollow">8/4</a></li>
+         <li id="1cb0" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Quản lý State của DApp | <a class="au ro" href="https://academy.sentre.io/#/blogs/manage-dapp-state?category=dev" target="_blank" rel="noopener ugc nofollow">11/4</a></li>
+         <li id="950c" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Viết phần mềm Solana đầu tiên | <a class="au ro" href="https://academy.sentre.io/#/blogs/first-solana-program?category=dev" target="_blank" rel="noopener ugc nofollow">14/4</a></li>
+         <li id="ae45" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">SPL token program | 17/4</li>
+      </ol>
+      <p id="7acc" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Trải nghiệm học tập trong thế giới tương lai ngay từ bây giờ với không gian Web3 do Rove cung cấp. Xem video hướng dẫn, các bài viết giáo dục, bộ câu hỏi bài tập, và lấy <strong class="bn mm">chứng nhận tham gia bằng NFT</strong> độc quyền từ chúng tôi (dành cho những ai tới thăm không gian học tập này) → <a class="au ro" href="https://rove.to/solana-vietnam-web3-camp" target="_blank" rel="noopener ugc nofollow">rove.to/solana-vietnam-web3-camp</a></p>
+      <p id="b274" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Xem video hướng dẫn từ Rove <a class="au ro" href="https://youtu.be/abgSFal3Ovo" target="_blank" rel="noopener ugc nofollow">tại đây</a>.</p>
+      
+      <h1 id="b7fc" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Phần II: To Hero</strong></h1>
+      <p id="7934" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Đây là một chuỗi 5 workshop kéo dài 4 tuần, tập trung vào việc hướng dẫn thực hành xây dựng DApp trên Solana và phân tích các cơ chế liên quan đến DeFi, NFT, GameFi, và PriFi (Privacy Finance).</p>
+      <p id="d1b5" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Để mang lại trải nghiệm học tập tốt nhất cho các bạn trong khả năng của mình, <strong class="bn mm">Solana Foundation và các Đối tác</strong> sẽ lựa chọn 100 cá nhân tham dự Coding Camp (đường link tham gia các buổi workshop sẽ được gửi tới email của từng người trước ngày tổ chức). Những cá nhân này sẽ được gửi câu hỏi tới ban tổ chức trước khi tham dự, và nhận câu trả lời từ các mentor của chương trình trong buổi workshop. Hãy chuẩn bị CV thật chỉn chu bạn nhé!</p>
+      <p id="4c26" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Lưu ý rằng bạn phải hoàn thành cả 5 bài thuộc Phần 1 để đủ điều kiện tham gia Phần 2.</strong> Dưới đây là nội dung của phần 2:</p>
+      
+      <ol class="">
+         <li id="3a3c" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zb zc zd ze iz" data-selectable-paragraph="">Bắt tay xây dựng DApp đầu tiên trên Solana (phần 1) | Ngày <strong class="bn mm">25/4</strong></li>
+         <li id="8c85" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Bắt tay xây dựng DApp đầu tiên trên Solana (phần 2) | Ngày <strong class="bn mm">28/4</strong></li>
+         <li id="fd00" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Phân tích ví dụ tiêu biểu về DeFi | Ngày <strong class="bn mm">4/5</strong></li>
+         <li id="65f9" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Phân tích ví dụ tiêu biểu về GameFi | Ngày <strong class="bn mm">10/5</strong></li>
+         <li id="d976" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Phân tích ví dụ tiêu biểu về PriFi | Ngày <strong class="bn mm">16/5</strong></li>
+      </ol>
+      <p id="3505" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Tuy nhiên, nếu bạn không thể xem được các buổi live workshop này — đừng lo! Bạn có thể đợi đến khi live stream kết thúc — các bản ghi lại sẽ được tải lên tại đây, cùng với phần bài tập.</p>
+      
+      <h1 id="d17f" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Phần III: Chào mừng đến thế giới Web3</strong></h1>
+      <p id="39a2" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Bạn đã nắm được căn bản về lập trình trên Solana, và giờ là lúc để thực hành những kiến thức đã học. Lập nhóm và xây dựng DApp thôi!</p>
+      <p id="5da2" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Hãy bắt tay vào tìm kiếm đồng đội và chuẩn bị cho bài tập cuối chương trình: Xây dựng DApp riêng của bạn. Timeline chương trình như sau:</p>
+      
+      <ul class="">
+         <li id="5477" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">Thời gian xây dựng DApp: 17–28/5</li>
+         <li id="d802" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">Demo Day — Thuyết trình về DApp của bạn: 30/5</li>
+         <li id="601c" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">Thông báo kết quả chung cuộc: 2/6</li>
+      </ul>
+      <p id="cf5c" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Quy định chung:</p>
+      
+      <ul class="">
+         <li id="e090" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">Bạn có thể nộp một DApp hoàn toàn mới, hoặc một sản phẩm đã thực hiện từ trước (nếu có).</li>
+         <li id="e169" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">Bạn có thể tham gia theo hình thức cá nhân hoặc theo nhóm.</li>
+         <li id="ad35" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">Bạn phải tham gia đủ 10 nội dung bài học để đạt điều kiện tham gia Demo Day.</li>
+         <li id="36f6" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph=""><strong class="bn mm">Trình độ tiếng Việt (bản ngữ) và tiếng Anh (cơ bản) là yêu cầu bắt buộc</strong>. Sẽ có các giám khảo ngoại quốc tham gia trong Demo Day!</li>
+      </ul>
+      <p id="368b" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Bài dự thi cần được nộp không muộn hơn ngày 28/5/2022, 23:59 GMT+7 → Nộp bài </strong><a class="au ro" href="https://g9c7s73vd7n.typeform.com/to/qZoT3Mg9" target="_blank" rel="noopener ugc nofollow"><strong class="bn mm">tại đây</strong></a><strong class="bn mm">.</strong></p>
+      <p id="a898" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Chúng tôi cũng sẽ tổ chức một series workshop không đi sâu vào kỹ thuật. Chi tiết sẽ được gửi qua email và <a class="au ro" href="https://t.me/+xG3yLK_wqlplMzY1" target="_blank" rel="noopener ugc nofollow">Telegram channel</a> của chúng tôi, tới tất cả các cá nhân đã đăng ký tham gia Coding Camp.</p>
+      
+      <h1 id="fd8e" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Phần quà và Giải thưởng</strong></h1>
+      <p id="9e63" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Chúng tôi tin rằng Web3 là một thế giới tràn đầy những cơ hội để learn-to-earn, và chúng tôi muốn đảm bảo rằng các cá nhân tham gia sẽ được trải nghiệm thế giới này trước tiên.</p>
+      <p id="6b3b" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Tất cả những ai được lựa chọn tham gia chương trình đều sẽ có quà tặng và giải thưởng:</p>
+      
+      <h1 id="4e22" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Thưởng Trên Bài Tập</strong></h1>
+      <p id="20de" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Trong số 100 cá nhân tham gia chương trình</strong>, những bạn làm bài tập và đạt 100% câu trả lời đúng sẽ nhận được phần thưởng trên mỗi bài tập từ chúng tôi! Mỗi cá nhân có thể nhận tổng cộng lên tới 100 đô!</p>
+      
+      <h1 id="b08d" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Credit, Chứng chỉ, và Học bổng</strong></h1>
+      <p id="8765" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><strong class="bn mm">Trong số 100 cá nhân tham gia chương trình</strong>, những bạn tham gia ít nhất 3 buổi workshop, hoàn thành tất cả các bài tập, và tham gia vào buổi Demo Day sẽ được trao tặng Chứng chỉ bằng NFT độc quyền từ Solana Foundation.</p>
+      <p id="0b2f" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">10 cá nhân xuất sắc với kết quả học tập tốt nhất sẽ được Solana Foundation và Đối tác lựa chọn để trao tặng:</p>
+      
+      <ul class="">
+         <li id="d4f8" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">Học bổng trị giá 1000 đô mỗi tháng trong vòng 3 tháng liên tiếp từ Solana Foundation</li>
+         <li id="ad91" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">5000 credit từ Amazon Web Services (AWS)</li>
+      </ul>
+      <h1 id="0173" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Giải Thưởng Camp Hero</strong></h1>
+      <p id="614b" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Từ các đội nhóm và cá nhân tham gia Demo Day, ba Camp Hero sẽ được hội đồng giám khảo lựa chọn để trao tặng các giải thưởng sau:</p>
+      
+      <ul class="">
+         <li id="7fd5" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">The Golden Hero: 15000 đô từ Solana Foundation &amp; 10000 credit từ AWS</li>
+         <li id="3b7e" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">The Silver Hero: 10000 đô từ Solana Foundation &amp; 10000 credit từ AWS</li>
+         <li id="96b7" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">The Bronze Hero: 5000 đô từ Solana Foundation &amp; 10000 credit từ AWS</li>
+      </ul>
+      <h1 id="1a4d" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Đường link đăng ký</strong></h1>
+      <p id="4697" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><a class="au ro" href="https://airtable.com/shrHcq9e0plqg0rIX" target="_blank" rel="noopener ugc nofollow">Đăng ký</a> để nhận thông tin về Phần II của chương trình. Vui lòng nộp đơn trước 25/4/2022.</p>
+      <p id="4684" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph=""><a class="au ro" href="https://g9c7s73vd7n.typeform.com/to/qZoT3Mg9" target="_blank" rel="noopener ugc nofollow">Đăng ký và nộp dự án</a> DApp của bạn cho bài tập cuối chương trình (Phần III). Thời hạn nộp bài: 28/5/2022, 23:59 (GMT+7).</p>
+      
+      <h1 id="357d" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Ý kiến và thắc mắc</strong></h1>
+      <p id="0b9c" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Nếu có câu hỏi dành cho chúng tôi, vui lòng gửi tới email: <a class="au ro" href="mailto:hi@sentre.io" target="_blank" rel="noopener ugc nofollow">hi@sentre.io</a> hoặc liên hệ với chúng tôi thông qua <a class="au ro" href="https://t.me/+xG3yLK_wqlplMzY1" target="_blank" rel="noopener ugc nofollow">Telegram channel</a>.</p>
+      
+      <h1 id="cc59" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Về Solana</strong></h1>
+      <p id="7aa5" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Solana là một dự án mã nguồn mở áp dụng công nghệ blockchain mới, hiệu suất cao và không cần cho phép (permissionless). Solana ra đời để giúp các ứng dụng thân thiện với người dùng, có thể mở rộng được áp dụng trên toàn cầu. Đọc thêm về <a class="au ro" href="https://solana.com/" target="_blank" rel="noopener ugc nofollow">Solana.</a></p>
+      
+      <h1 id="e9c8" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Về Sentre Protocol</strong></h1>
+      <p id="f917" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph=""><a class="au ro" href="https://sentre.io/#/home" target="_blank" rel="noopener ugc nofollow">Sentre Protocol</a> là nền tảng mở All-in-One hoạt động trên mạng lưới Solana, cung cấp DApp Store và giao thức mở giúp tích lũy thanh khoản. Với Sentre:</p>
+      
+      <ul class="">
+         <li id="7aad" class="yw yx wg bn b xe xf xh xi xk yy xo yz xs za xw zk zc zd ze iz" data-selectable-paragraph="">Người dùng có thể cài đặt các DApp yêu thích của mình và trải nghiệm thế giới DeFi trên một nền tảng duy nhất;</li>
+         <li id="3ae9" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zk zc zd ze iz" data-selectable-paragraph="">Lập trình viên và đối tác có thể phát hành DApp thông qua Sen Store, tận dụng tài nguyên có sẵn và tự do đóng góp cho nền tảng.</li>
+      </ul>
+      <h1 id="bea7" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Về Coin98</strong></h1>
+      <p id="219b" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Coin98 là siêu ứng dụng tiền điện tử số 1, được thiết kế để kết nối liền mạch hàng tỷ người dùng với thế giới tiền điện tử một cách an toàn và bảo mật.</p>
+      <p id="2109" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Chúng tôi cung cấp cho người dùng một hệ sinh thái toàn diện và đáng tin cậy với các dịch vụ thiết yếu trên toàn cầu, bao gồm ví NFT &amp; tiền điện tử trên multi-chain và không bị giám sát, tích hợp DEX, Cross-chain Bridge &amp; DApp Browser, một Terminal mạnh mẽ, các Phần thưởng, Quà tặng, Chiến dịch hấp dẫn, và hơn thế nữa.</p>
+      
+      <h1 id="45ed" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>Về Rove</strong></h1>
+      <p id="5141" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Rove giúp mọi người tạo ra một trang web 3D/VR dễ dàng bằng cách sử dụng các template khác nhau. Chỉ với một cú click, người dùng có thể tùy chỉnh, trang trí trang web 3D theo sở thích của mình bằng thao tác kéo — thả mà không cần phải biết lập trình.</p>
+      <p id="bdd4" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Rove là một phiên bản nâng cấp của Shopify — chỉ mất vài phút để xây dựng một gian hàng online 3D, một phòng triển lãm tranh 3D hoặc đơn giản chỉ là một trang web cá nhân của bạn trên môi trường 3D, nơi mà bất cứ ai cũng có thể ghé thăm và trò chuyện cùng bạn.</p>
+      <p id="a345" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Truy cập <a class="au ro" href="https://rove.to/" target="_blank" rel="noopener ugc nofollow">rove.to</a> để tạo không gian 3D cho riêng mình và mời bạn bè ngay!</p>`],
+      thumbnail: require('../images/posts/pss-thumbnail.png'),
+      date: 'Sat 16, Apr 2022',
+      category: ['blockchain', 'solana'],
     },
   ],
 }
