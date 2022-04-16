@@ -1437,9 +1437,9 @@ describe("demo_spl", async () => {
   user: [  
     {
       id: 'pda-and-splt-on-solana',
-      title: 'PDA và chuẩn SPLT trong lập trình Solana',
+      title: 'Sentre x Solana x Coin98 hợp tác với “Coding Camp: Phá Băng Web3 Với Solana”',
       description:
-        'Tìm hiểu về PDA, chuẩn SPLT và ứng dụng trong lập trình Solana',
+        'Chuỗi Learn-to-Earn camp về lập trình Solana với giải thưởng lên đến hơn 100,000 USD',
       content: [`<h1 id="43c4" class="yi yj wg bn yk qh zq qi hm qj zr qk hq kc zs kd hu kg zt kh hy kk zu kl ic yq iz" data-selectable-paragraph=""><strong>Sentre x Solana x Coin98 hợp tác với “Coding Camp: Phá Băng Web3 Với Solana”</strong></h1>
       <p id="7551" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Tin nóng: Sentre Protocol, Coin98 và Solana Foundation đã quyết định hợp tác đồng tổ chức chương trình <strong class="bn mm">Coding Camp: Phá Băng Web3 Với Solana</strong>! Đây là cơ hội ngàn vàng để bạn nắm vững những kiến thức cơ bản về lập trình trên Solana, kiếm thưởng trên mỗi bài tập, nhận chứng chỉ bằng NFT chính thức, mang về giải thưởng lên đến 15,000 đô cho DApp của mình, giành học bổng “Web3 Builder” hàng tháng, và có cơ hội làm việc trong thị trường Blockchain với các đối tác hàng đầu của Solana!</p>
       <p id="b4e0" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Lên đường thôi — Timeline của chương trình đây rồi:</p>
@@ -1545,8 +1545,8 @@ describe("demo_spl", async () => {
       <p id="bdd4" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Rove là một phiên bản nâng cấp của Shopify — chỉ mất vài phút để xây dựng một gian hàng online 3D, một phòng triển lãm tranh 3D hoặc đơn giản chỉ là một trang web cá nhân của bạn trên môi trường 3D, nơi mà bất cứ ai cũng có thể ghé thăm và trò chuyện cùng bạn.</p>
       <p id="a345" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Truy cập <a class="au ro" href="https://rove.to/" target="_blank" rel="noopener ugc nofollow">rove.to</a> để tạo không gian 3D cho riêng mình và mời bạn bè ngay!</p>`],
       thumbnail: require('../images/posts/pss-thumbnail.png'),
-      date: 'Sat 16, Apr 2022',
-      category: ['blockchain', 'solana'],
+      date: 'Fri 15, Apr 2022',
+      category: ['news', 'solana'],
     },
   ],
 }
