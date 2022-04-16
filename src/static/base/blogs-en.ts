@@ -782,6 +782,372 @@ module.exports = { overrideWebpackConfig }`,
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/SeYL4MpUV4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
+    {
+      id: 'pda-and-splt-on-solana',
+      title: 'PDA và chuẩn SPLT trong lập trình Solana',
+      description:
+        'Tìm hiểu về PDA, chuẩn SPLT và ứng dụng trong lập trình Solana',
+      content: [
+        {
+          type: 'nomal',
+          text: `<p>Khi tạo dựng một DApp trên Solana, bạn sẽ cần tạo SPL token tương ứng cũng như cài đặt một tài khoản/địa chỉ do chương trình quản lý (Program Derived Account/Address - PDA) nhằm tránh rủi ro cho nguồn thanh khoản của DApp. Bài viết này sẽ giúp các bạn hiểu rõ hơn về chuẩn SPLT khi tạo token, cách PDA hoạt động, cách thuê tài khoản, tạo PDA và cập nhật dữ liệu trên đó.</p>
+          <h2><strong>SPLT Program là gì?</strong></h2>
+          <b>SPL Token là fungible token</b><p> (token có thể thay thế được) trên mạng lưới blockchain Solana. Các token này được tạo ra dựa trên Solana Program Library (SPL) và được lưu trong các ví tương thích với Solana, ví dụ như ví Phantom chứa SOL, SNTR, vân vân.</p>
+          
+          <p>Fungible token là một tập hợp các token chứa tất cả các thuộc tính giống hệt nhau và có thể trao đổi cho nhau. Chúng có thể phân chia được và không phải là duy nhất. Ví dụ như đồng đô la chẳng hạn: Tờ 1 đô la ở New York có giá trị tương đương với tờ 1 đô la ở Việt Nam. Một fungible token cũng có thể là một loại tiền điện tử như SOL: 1 SOL có giá trị bằng 1 SOL, bất kể nó được phát hành ở đâu.</p>
+          
+          <b>SPL (Solana Program Library)</b><p> là tập hợp các chương trình Solana mà đội ngũ lập trình viên Solana đã triển khai trên blockchain. SPL cũng là tiêu chuẩn kỹ thuật được sử dụng cho các Smart Contract trên mạng lưới Solana, bao gồm cả SPL Token Program.</p>
+          
+          <p>SPL Token Program được sử dụng để tạo và quản lý SPL Token bằng cách sử dụng Token Program. Điều này giúp dev đơn giản hóa việc quản lý các token, bởi tất cả những gì bạn cần làm chỉ là gửi lệnh hướng dẫn đến Token Program để mint/transfer/burn tokens.</p>
+          <h2><strong>PDA (Program Derived Address/Account) là gì?</strong></h2>
+          <p>Program Derived Address (PDA) cho phép các chương trình điều khiển một số địa chỉ nhất định và đảm bảo không một người dùng bên ngoài nào có thể tạo các giao dịch hợp lệ có chữ ký với các địa chỉ đó. Có thể hiểu rằng với PDA, các chương trình có thể ký cho các địa chỉ nhất định này mà không cần private key.</p>
+          
+          <p>Khi sử dụng một PDA, một chương trình có thể được cấp quyền cho một tài khoản và sau đó chuyển quyền này cho một tài khoản khác. Điều này khả thi vì chương trình có thể đóng vai trò là “người ký” trong giao dịch cung cấp quyền hạn.</p>
+          
+          <p>Chúng ta cùng làm rõ định nghĩa trên nhé:</p>
+          <ul>
+             <li><span>Ở Solana, các chương trình là stateless: Bất kỳ dữ liệu nào chúng ta cần làm việc phải được chuyển vào bằng cách tham chiếu từ bên ngoài (giống như máy tính đục lỗ) và thuê account (thuê vùng nhớ giống như đưa vào tấm bìa đục lỗ) để lưu trữ các dữ liệu.</span></li>
+             <li><span>Account là một nơi chứa dữ liệu (ví dụ: số token bạn đang giữ) - khi đó được gọi là “data account”, hoặc là một chương trình thực thi (ví dụ: một smart contract) - khi đó được gọi là “program account". Tất cả trạng thái sẽ được lưu trong data account. Mỗi account là một địa chỉ duy nhất và địa chỉ đó là khóa công khai (Public Key) của một cặp khóa (Keypair) được sở hữu bởi một chương trình. Chỉ chủ sở hữu tài khoản mới có thể sửa đổi nó.</span></li>
+             <li><span>Khi bạn có một token thuê account như trên và đưa cho contract, nó sẽ ghi vào vị trí tương ứng và token đó sẽ thuộc quyền sở hữu của bạn. Chương trình PDA có thể giúp bạn thực hiện việc đó. Chương trình PDA không chứa Private Key, bởi nếu user nào nắm giữ Private Key này sẽ có toàn quyền sửa đổi data của account.</span></li>
+             <li><span>Ví dụ 1: User chỉ sở hữu 10 đồng, nhưng lại có thể tự update thành 100, 1000…</span></li>
+             <li><span>Ví dụ 2: Vào một ngày đẹp trời, công ty của bạn muốn biểu quyết xem nên mua pizza hay hamburger cho buổi tiệc sắp tới. Bạn cần tạo chương trình để mọi người có thể tham gia bỏ phiếu. Muốn bỏ phiếu chọn pizza hay hamburger thì cần cập nhật dữ liệu số lượng phiếu, và cần Private Key để lưu thông tin bỏ phiếu. Như vậy, chỉ người tạo ra account đó mới cập nhật được số lượng vote, và nếu công ty lưu Private Key ở đâu đó thì người có thông tin này sẽ có thể thay đổi tùy ý số phiếu bầu, như ví dụ trên. PDA sẽ giúp loại bỏ rủi ro trong trường hợp này.</span></li>
+          </ul>
+          <h2><strong>Cơ chế hoạt động của PDA</strong></h2>
+          <p>Program address được xác định từ một tập hợp các seeds và program ID bằng cách sử dụng hàm băm SHA-256.</p>
+          
+          <p>Program address không được nằm trên đường cong ed25519 để đảm bảo không có khoá cá nhân nào liên quan. Trong quá trình tạo, nếu địa chỉ được tìm thấy nằm trên đường cong, chương trình sẽ báo lỗi. Có khoảng 50% khả năng xảy ra lỗi này đối với một tập hợp seeds và program ID nhất định.</p>
+          
+          <p>Nếu điều này xảy ra, có thể dùng một tập hợp khác của seeds hoặc seed bump (seed 8 bit bổ sung) để tìm programs address hợp lệ ngoài đường cong.</p>
+          
+          <p>Vì không có khóa riêng được liên kết, người dùng bên ngoài không thể tạo chữ ký hợp lệ cho PDA.</p>
+          
+          <p class="content-img"><img src="https://lh3.googleusercontent.com/LC-KSgoBprEUveCqmQnx8nhyVZBo4d2GkC9R6U7CTXgXXrjNUli7eajRWa7bY4hdG3EhMW569AT760wnFZxGRA4WJAsKG42s98AfMKCUFHSzw3d3ncdNSvb4duOGQvcazilvQU16"alt="solana" /></p></br>
+          <h2><strong>Viết chương trình demo</strong></h2>
+          <p>Giờ chúng ta cùng thử tạo chương trình vote ăn pizza hay hamburger nhé!</p>
+          <h3><strong>Bước 1. Tạo project</strong></h3>`,
+        },
+        {
+          type: 'special',
+          text: `anchor init demo_spl\ncd demo_spl`,
+        },
+        {
+          type: 'normal',
+          text: `</br><h3><strong>Bước 2. Định nghĩa cấu trúc dữ liệu</strong></h3>
+          <ul>
+             <li><span>Chúng ta xác định trạng thái của “vote_account” trông như thế nào.</span></li>
+             <li><span>VotingState là một cấu trúc có ba thuộc tính: pizza, hamburger và bump.</span></li>
+             <li><span>Thuộc tính “pizza” và “hamburger” sẽ theo dõi các phiếu vote tương ứng của chúng dưới dạng số nguyên dương 64-bit.</span></li>
+             <li><span>“bump” sẽ lưu trữ “vote_account_bump” mà chúng ta sẽ truyền vào khi khởi chạy chương trình của mình.</span></li>
+             <li><span>“bump” này kết hợp với “seed” tĩnh sẽ giúp mọi người dễ dàng lấy được cùng một PDA sử dụng để theo dõi trạng thái của chúng ta.</span></li>
+          </ul>
+          <p>Folder: <i>demo_spl/programs/demo_spl/src/lib.rs</i></p>`,
+        },
+        {
+          type: 'special',
+          text: `#[account]\npub struct VotingState {\n pub pizza: u64,n . pub hamburger: u64,\n pub bump: u8,n}`,
+        },
+        {
+          type: 'normal',
+          text: `</br><h3><strong>Bước 3. Khai báo các tài khoản tương tác</strong></h3>
+          <p>#[derive(Accounts)] chỉ định tất cả các tài khoản được yêu cầu cho một instruction nhất định. Ở đây, chúng ta xác định hai cấu trúc: Initialize và Vote.</p>`,
+        },
+        {
+          type: 'special',
+          text: `#[derive(Accounts)]
+pub struct Initialize<'info> {
+    #[account(init, seeds = [b"seed".as_ref()], bump, payer = user, space = 8 + 16 + 1)]
+    pub vote_account: Account<'info, VotingState>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct Vote<'info> {
+    #[account(mut, seeds = [b"seed".as_ref()], bump = vote_account.bump)]
+    vote_account: Account<'info, VotingState>,
+}`,
+        },
+        {
+          type: 'normal',
+          text: '</br><h3><strong>Bước 4. Khai báo các hàm thực thi</strong></h3>',
+        },
+        {
+          type: 'special',
+          text: `pub fn initialize(ctx: Context<Initialize>, vote_account_bump: u8) -> Result<()> {
+    ctx.accounts.vote_account.bump = vote_account_bump;
+    Ok(())
+}
+
+pub fn vote_pizza(ctx: Context<Vote>) -> Result<()> {
+    ctx.accounts.vote_account.pizza += 1;
+    Ok(())
+}
+
+pub fn vote_hamburger(ctx: Context<Vote>) -> Result<()> {
+    ctx.accounts.vote_account.hamburger += 1;
+    Ok(())
+}
+   `,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Chương trình của chúng ta sẽ trông như sau:</p>}`,
+        },
+        {
+          type: 'special',
+          text: `use anchor_lang::prelude::*;
+
+declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+
+#[program]
+pub mod demo_spl {
+    use super::*;
+
+    pub fn initialize(ctx: Context<Initialize>, vote_account_bump: u8) -> Result<()> {
+        ctx.accounts.vote_account.bump = vote_account_bump;
+        Ok(())
+    }
+
+    pub fn vote_pizza(ctx: Context<Vote>) -> Result<()> {
+        ctx.accounts.vote_account.pizza += 1;
+        Ok(())
+    }
+
+    pub fn vote_hamburger(ctx: Context<Vote>) -> Result<()> {
+        ctx.accounts.vote_account.hamburger += 1;
+        Ok(())
+    }
+}
+
+#[derive(Accounts)]
+pub struct Initialize<'info> {
+    #[account(init, seeds = [b"seed".as_ref()], bump, payer = user, space = 8 + 16 + 1)]
+    pub vote_account: Account<'info, VotingState>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct Vote<'info> {
+    #[account(mut, seeds = [b"seed".as_ref()], bump = vote_account.bump)]
+    vote_account: Account<'info, VotingState>,
+}
+
+#[account]
+pub struct VotingState {
+    pub pizza: u64,
+    pub hamburger: u64,
+    pub bump: u8,
+}`,
+        },
+        {
+          type: 'normal',
+          text: `<h3><strong>Bước 4. Khai báo các hàm thực thi</strong></h3>`,
+        },
+        { type: 'special', text: 'anchor build' },
+        {
+          type: 'normal',
+          text: `<p>IDL:</p>
+          <ul>
+             <li><span>Thông tin chương trình có thể xem trong /target/idl/demo_spl.json</span></li>
+             <li><span>Đây là nơi xác định chương trình của chúng ta.</span></li>
+             <li><span>Mỗi phương thức bên trong xác định một trình xử lý yêu cầu RPC và có thể được gọi bởi client.</span></li>
+          </ul>`,
+        },
+        {
+          type: 'special',
+          text: `{
+"version": "0.1.0",
+"name": "demo_spl",
+"instructions": [
+  {
+    "name": "initialize",
+    "accounts": [
+      {
+        "name": "voteAccount",
+        "isMut": true,
+        "isSigner": false
+      },
+      {
+        "name": "user",
+        "isMut": true,
+        "isSigner": true
+      },
+      {
+        "name": "systemProgram",
+        "isMut": false,
+        "isSigner": false
+      }
+    ],
+    "args": [
+      {
+        "name": "voteAccountBump",
+        "type": "u8"
+      }
+    ]
+  },
+  {
+    "name": "votePizza",
+    "accounts": [
+      {
+        "name": "voteAccount",
+        "isMut": true,
+        "isSigner": false
+      }
+    ],
+    "args": []
+  },
+  {
+    "name": "voteHamburger",
+    "accounts": [
+      {
+        "name": "voteAccount",
+        "isMut": true,
+        "isSigner": false
+      }
+    ],
+    "args": []
+  }
+],
+"accounts": [
+  {
+    "name": "VotingState",
+    "type": {
+      "kind": "struct",
+      "fields": [
+        {
+          "name": "pizza",
+          "type": "u64"
+        },
+        {
+          "name": "hamburger",
+          "type": "u64"
+        },
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
+    }
+  }
+]
+}`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Với IDL chúng ta sẽ update lại test chương trình:</p>
+
+          <p>demo_spl.ts</p>`,
+        },
+        {
+          type: 'special',
+          text: `import * as anchor from "@project-serum/anchor";
+import { Program } from "@project-serum/anchor";
+import { DemoSpl } from "../target/types/demo_spl";
+const { SystemProgram } = anchor.web3;
+
+describe("demo_spl", async () => {
+  // Use a local provider.
+  const provider = anchor.Provider.local();
+
+  // Configure the client to use the local cluster.
+  anchor.setProvider(provider);
+
+  const program = anchor.workspace.DemoSpl as Program<DemoSpl>;
+
+
+  //Client muốn read/write account vote
+  //Bằng cách sử dụng findProgramAddress, bạn không cần phải lưu trữ Public key
+  //thay vào đó, bạn có thể dễ dàng tìm được một địa chỉ PDA nhờ vào seed, programId để thuê nó 
+  //hoặc đọc và cập nhật dữ liệu
+  const [account, accountBump] = await anchor.web3.PublicKey.findProgramAddress(
+    [Buffer.from("seed")],
+    program.programId
+  );
+
+  it("Is initialized!", async () => {
+    await program.rpc.initialize(new anchor.BN(accountBump), {
+      accounts: {
+        voteAccount: account,
+        user: provider.wallet.publicKey,
+        systemProgram: SystemProgram.programId
+      }
+    });
+    const accountInfo = await program.account.votingState.fetch(account);
+    console.log(
+      "accountInfo:",
+      Number(accountInfo.bump),
+      Number(accountInfo.pizza),
+      Number(accountInfo.hamburger)
+    );
+  });
+  it("Vote pizza!!!", async () => {
+    await program.rpc.votePizza({
+      accounts: {
+        voteAccount: account
+      }
+    });
+    const accountInfo = await program.account.votingState.fetch(account);
+    console.log(
+      "accountInfo:",
+      Number(accountInfo.pizza),
+      Number(accountInfo.hamburger)
+    );
+  });
+
+  it("Vote hamburger!!!", async () => {
+    await program.rpc.voteHamburger({
+      accounts: {
+        voteAccount: account
+      }
+    });
+    const accountInfo = await program.account.votingState.fetch(account);
+    console.log(
+      "accountInfo:",
+      Number(accountInfo.pizza),
+      Number(accountInfo.hamburger)
+    );
+  });
+});`,
+        },
+        {
+          type: 'normal',
+          text: `</br><h3><strong>Bước 6. Chạy anchor test và xem kết quả</strong></h3>`,
+        },
+        {
+          type: 'special',
+          text: `anchor test`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p class="content-img"><img src="https://lh4.googleusercontent.com/y3DR7GxiOi25HXTJ9ROvTvoHekDgL8z010_vq70kV2Fm4T_tG5Q8KKrG_TZs5wkcbfkXprm4u9bKcxrfVjASKsV_-8POqlZqjsMxK5V-umvHTJrny6NewnOlpENGAHz1rMjCYXJ9" alt="program"</p></br><p>Khi khởi tạo “Is initialized!”, dữ liệu bump, vote cho pizza và hamburger lần lượt là 253 0 0.</p>
+
+          <p>Khi vote pizza “Vote pizza!!!”, dữ liệu vote cho pizza tăng lên là 1 và hamburger là 0.</p>
+          
+          <p>Khi vote hamburger “Vote hamburger!!!”, dữ liệu vote cho pizza giữ nguyên là 1 và hamburger tăng lên là 1.</p>
+          
+          <p>Vậy là các bạn đã hoàn thành việc tìm hiểu về PDA, cách thuê account, tạo PDA và update dữ liệu trên PDA. Hãy xem video hướng dẫn từng bước và để lại bình luận nếu có thắc mắc nhé!</p>
+          <h2><strong>Tài liệu tham khảo</strong></h2>
+          <ol>
+             <li aria-level="1"><a href="https://spl.solana.com/"><span>https://spl.solana.com/</span></a></li>
+             <li aria-level="1"><a href="https://solanacookbook.com/core-concepts/pdas.html"><span>https://solanacookbook.com/core-concepts/pdas.html</span></a></li>
+             <li aria-level="1"><span>​​</span><a href="https://solana.wiki/zh-cn/docs/account-model/#account-storage"><span>https://solana.wiki/zh-cn/docs/account-model/#account-storage</span></a></li>
+             <li aria-level="1"><a href="https://www.brianfriel.xyz/understanding-program-derived-addresses/"><span>https://www.brianfriel.xyz/understanding-program-derived-addresses/</span></a></li>
+          </ol>`,
+        },
+      ],
+      thumbnail: require('../images/posts/pss-thumbnail.png'),
+      date: 'Sat 16, Apr 2022',
+      category: ['blockchain', 'solana'],
+      // quizButton: {
+      //   title: 'Làm bài tập tại đây',
+      //   embedCode: '',
+      // },
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/x2-t4OD4jU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    },
   ],
   user: [
     {
