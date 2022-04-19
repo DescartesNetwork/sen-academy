@@ -1148,7 +1148,6 @@ describe("demo_spl", async () => {
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/x2-t4OD4jU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
-
   ],
   user: [
     {
@@ -1156,7 +1155,10 @@ describe("demo_spl", async () => {
       title: 'PDA và chuẩn SPLT trong lập trình Solana',
       description:
         'Tìm hiểu về PDA, chuẩn SPLT và ứng dụng trong lập trình Solana',
-      content: [{type: 'normal', text: `<p id="4513" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">We’re back with a boom: Sentre Protocol, Coin98, and Solana Foundation are joining hands in hosting your one and only <strong class="bn mm">Coding Camp: Break The Web3 Ice With Solana</strong>. This is your golden opportunity to learn the basics of Solana coding, earn quiz prizes, get official graduation NFT, bring home up to 15,000 USD for your DApp, receive a “Web3 Builder” monthly scholarship, and potentially get a blockchain job with Solana’s esteemed partners!</p>
+      content: [
+        {
+          type: 'normal',
+          text: `<p id="4513" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">We’re back with a boom: Sentre Protocol, Coin98, and Solana Foundation are joining hands in hosting your one and only <strong class="bn mm">Coding Camp: Break The Web3 Ice With Solana</strong>. This is your golden opportunity to learn the basics of Solana coding, earn quiz prizes, get official graduation NFT, bring home up to 15,000 USD for your DApp, receive a “Web3 Builder” monthly scholarship, and potentially get a blockchain job with Solana’s esteemed partners!</p>
       <p id="3dfd" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Jump right in, the train’s about to depart — Here’s our official timeline for the camp.</p>
       
       <h1 id="8b03" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong><a class="au ro" href="https://airtable.com/shrHcq9e0plqg0rIX" target="_blank" rel="noopener ugc nofollow">REGISTER HERE</a></strong></h1>
@@ -1172,7 +1174,7 @@ describe("demo_spl", async () => {
          <li id="edb0" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Building your DApp UI | <a class="au ro" href="https://academy.sentre.io/#/blogs/design-dapp-ui?category=dev" target="_blank" rel="noopener ugc nofollow">8th Apr</a></li>
          <li id="c2e2" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Managing your DApp state | <a class="au ro" href="https://academy.sentre.io/#/blogs/manage-dapp-state?category=dev" target="_blank" rel="noopener ugc nofollow">11th Apr</a></li>
          <li id="ac3f" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Your first Solana program | <a class="au ro" href="https://academy.sentre.io/#/blogs/first-solana-program?category=dev" target="_blank" rel="noopener ugc nofollow">14th Apr</a></li>
-         <li id="b864" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Using an SPL token program | <a class="au ro" href="https://academy.sentre.io/#/blogs/pda-and-splt-on-solana?category=dev" target="_blank" rel="noopener ugc nofollow">17/4</a>17th Apr</a></li>
+         <li id="b864" class="yw yx wg bn b xe zf xh zg xk zh xo zi xs zj xw zb zc zd ze iz" data-selectable-paragraph="">Using an SPL token program | <a class="au ro" href="https://academy.sentre.io/#/blogs/pda-and-splt-on-solana?category=dev" target="_blank" rel="noopener ugc nofollow">17th Apr</a></li>
       </ol>
       <p id="9d4d" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Learn in the future with our Web3 experience, provided by Rove. Check out the tutorial videos, educational blogs, and quizzes, and get our exclusive <strong class="bn mm">attendance NFT</strong> (for everyone joining the space) → <a class="au ro" href="https://rove.to/solana-vietnam-web3-camp" target="_blank" rel="noopener ugc nofollow">rove.to/solana-vietnam-web3-camp</a></p>
       <p id="5e20" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">See the instruction video from Rove <a class="au ro" href="https://youtu.be/abgSFal3Ovo" target="_blank" rel="noopener ugc nofollow">here</a>.</p>
@@ -1258,8 +1260,11 @@ describe("demo_spl", async () => {
       <h1 id="568b" class="yi yj wg bn yk qh yl qi hm qj ym qk hq kc yn kd hu kg yo kh hy kk yp kl ic yq iz" data-selectable-paragraph=""><strong>About Rove</strong></h1>
       <p id="522e" class="pw-post-body-paragraph xc xd wg bn b xe yr hk xg xh ys ho xj xk yt xm xn xo yu xq xr xs yv xu xv xw jo iz" data-selectable-paragraph="">Rove empowers anyone to build a presence in the new 3D web — a network of 3D websites that are immersive, real-time, and persistent. Creating interactive 3D/VR environments is as simple as applying a website template. Every template can be customized to the creator’s liking — all drag and drop, no code required.</p>
       <p id="7b68" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Rove is tomorrow’s Shopify — it takes just a few minutes to build a 3D store for your customers. Rove is Behance for the future — build a 3D gallery for clients and level up your portfolio. Rove is WordPress for Web3. Turn your personal website into a 3D home where people can meet with you in person.</p>
-      <p id="7f6d" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Rove is for anyone with a vision! Go to <a class="au ro" href="https://rove.to/" target="_blank" rel="noopener ugc nofollow">rove.to</a> to create your own 3D space and invite your friends!</p>`}],
-      thumbnail: 'https://miro.medium.com/max/1400/1*mtGogBDMwwQeue4opWrz-g.png',
+      <p id="7f6d" class="pw-post-body-paragraph xc xd wg bn b xe xf hk xg xh xi ho xj xk xl xm xn xo xp xq xr xs xt xu xv xw jo iz" data-selectable-paragraph="">Rove is for anyone with a vision! Go to <a class="au ro" href="https://rove.to/" target="_blank" rel="noopener ugc nofollow">rove.to</a> to create your own 3D space and invite your friends!</p>`,
+        },
+      ],
+      thumbnail:
+        'https://miro.medium.com/max/1400/1*mtGogBDMwwQeue4opWrz-g.png',
       date: 'Sat 16, Apr 2022',
       category: ['blockchain', 'solana'],
     },
