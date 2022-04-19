@@ -43,7 +43,7 @@ const Details = () => {
 
   return (
     <Row gutter={[24, 24]} justify="center" style={{ padding: '0 12px' }}>
-      <Col span={24} className="container">
+      <Col span={24} style={{ maxWidth: 800 }} className="container">
         <Row
           gutter={[24, 24]}
           style={{ paddingTop: 70, paddingBottom: 70 }}

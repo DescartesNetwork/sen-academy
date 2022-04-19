@@ -892,7 +892,7 @@ pub fn vote_hamburger(ctx: Context<Vote>) -> Result<()> {
         },
         {
           type: 'normal',
-          text: `</br><p>Chương trình của chúng ta sẽ trông như sau:</p>}`,
+          text: `</br><p>Chương trình của chúng ta sẽ trông như sau:</p>`,
         },
         {
           type: 'special',
@@ -1152,7 +1152,8 @@ describe("demo_spl", async () => {
   user: [
     {
       id: 'sentre-solana-coin98',
-      title: 'Sentre x Solana x Coin98 Collab On “Coding Camp: Break The Web3 Ice With Solana”',
+      title:
+        'Sentre x Solana x Coin98 Collab On “Coding Camp: Break The Web3 Ice With Solana”',
       description:
         'This Learn-to-Earn camp is bringing a total prize of over 100,000 USD to its participants. Read more to find out.',
       content: [
