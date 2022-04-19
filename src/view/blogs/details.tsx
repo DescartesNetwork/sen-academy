@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
+import { useSelector } from 'react-redux'
 import { useLocation, useParams, useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import SyntaxHighlighter from 'react-syntax-highlighter'
@@ -9,13 +10,14 @@ import {
 
 import { Col, Image, Row, Space, Typography } from 'antd'
 import PostTags from './postTags'
-import { PostContentType, PostsData } from 'constant'
-import MakeUpHtml from 'components/makeUpHtml'
 import ButtonExercise from 'components/buttonExercise'
+import MakeUpHtml from 'components/makeUpHtml'
+
+import { PostContentType, PostsData } from 'constant'
 import { asyncWait } from 'helper'
-import { useSelector } from 'react-redux'
 import { AppState } from 'store'
-import { Helmet } from 'react-helmet'
+
+const META_PROPERTY = 'og:image'
 
 const Details = () => {
   const location = useLocation()
@@ -35,6 +37,24 @@ const Details = () => {
   const postData = postsData.find(({ id }) => id === postId)
   const syntaxStyle = theme === 'dark' ? atelierCaveLight : atelierCaveDark
 
+  const importDependency = useCallback(() => {
+    if (!document) return
+    let meta = document.querySelector(`meta[property="${META_PROPERTY}"]`)
+
+    if (!meta) {
+      meta = document.createElement('meta')
+      meta.setAttribute('property', META_PROPERTY)
+    }
+
+    if (postData?.thumbnail) meta.setAttribute('content', postData?.thumbnail)
+
+    return document.head.prepend(meta)
+  }, [postData?.thumbnail])
+
+  useEffect(() => {
+    importDependency()
+  }, [importDependency])
+
   useEffect(() => {
     ;(async () => {
       await asyncWait(200)
@@ -44,10 +64,6 @@ const Details = () => {
 
   return (
     <Row gutter={[24, 24]} justify="center" style={{ padding: '0 12px' }}>
-      {/* add image to meta tag for sharing post */}
-      <Helmet>
-        <meta name="image" property="og:image" content={postData?.thumbnail} />
-      </Helmet>
       <Col span={24} style={{ maxWidth: 800 }} className="container">
         <Row
           gutter={[24, 24]}
