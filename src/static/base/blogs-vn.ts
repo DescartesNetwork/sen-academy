@@ -1129,7 +1129,7 @@ module.exports = { overrideWebpackConfig }`,
         },
         {
           type: 'special',
-          text: `#[account]\npub struct VotingState {\n pub pizza: u64,n . pub hamburger: u64,\n pub bump: u8,n}`,
+          text: `#[account]\npub struct VotingState {\n pub pizza: u64,\n pub hamburger: u64,\n pub bump: u8,\n}`,
         },
         {
           type: 'normal',
@@ -1177,7 +1177,7 @@ pub fn vote_hamburger(ctx: Context<Vote>) -> Result<()> {
         },
         {
           type: 'normal',
-          text: `</br><p>Chương trình của chúng ta sẽ trông như sau:</p>}`,
+          text: `</br><p>Chương trình của chúng ta sẽ trông như sau:</p>`,
         },
         {
           type: 'special',
