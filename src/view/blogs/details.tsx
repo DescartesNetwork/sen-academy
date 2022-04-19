@@ -15,6 +15,7 @@ import ButtonExercise from 'components/buttonExercise'
 import { asyncWait } from 'helper'
 import { useSelector } from 'react-redux'
 import { AppState } from 'store'
+import { Helmet } from 'react-helmet'
 
 const Details = () => {
   const location = useLocation()
@@ -43,6 +44,10 @@ const Details = () => {
 
   return (
     <Row gutter={[24, 24]} justify="center" style={{ padding: '0 12px' }}>
+      {/* add image to meta tag for sharing post */}
+      <Helmet>
+        <meta name="image" property="og:image" content={postData?.thumbnail} />
+      </Helmet>
       <Col span={24} style={{ maxWidth: 800 }} className="container">
         <Row
           gutter={[24, 24]}
