@@ -18,7 +18,7 @@ export const enData = {
       <p>So, what is blockchain, and how to develop a career in this challenging industry?</p>
       <h1 style="font-size: 32px"><strong>Blockchain Definition For Developers</strong></h1>
 
-      <p class="content-img"><img style="width: 100%; object-fit: contain;" src="${require('../images/posts/thumbnail_wib.png')}" alt="blockchain" role="presentation" /></p>
+      <p class="content-img"><img style="width: 100%; object-fit: contain;" src="${require('../images/posts/thumbnail_wib.png')}" alt="blockchain" rel="image_src" /></p>
 
       <p>Blockchain is a distributed (decentralized) database system formed as blocks linked together using cryptography. Similar to traditional databases: MySQL, MongoDB, etc. We can use blockchain to store data. However, the following characteristics are what set blockchain apart from the rest:</p>
       <ul>
