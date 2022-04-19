@@ -1152,9 +1152,9 @@ describe("demo_spl", async () => {
   user: [
     {
       id: 'sentre-solana-coin98',
-      title: 'PDA và chuẩn SPLT trong lập trình Solana',
+      title: 'Sentre x Solana x Coin98 Collab On “Coding Camp: Break The Web3 Ice With Solana”',
       description:
-        'Tìm hiểu về PDA, chuẩn SPLT và ứng dụng trong lập trình Solana',
+        'This Learn-to-Earn camp is bringing a total prize of over 100,000 USD to its participants. Read more to find out.',
       content: [
         {
           type: 'normal',
