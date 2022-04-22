@@ -1,0 +1,29 @@
+@import '/src/static/styles/common/vars.less';
+
+.editor {
+  height: calc(100vh - 216px);
+  .textbox {
+    border-radius: 0px 16px 16px 0px;
+    margin-top: -12px;
+    margin-bottom: -12px;
+    padding: 12px !important;
+    height: calc(100% + 24px);
+    overflow: auto;
+  }
+}
+
+#light {
+  .editor {
+    .textbox {
+      background-color: @NEUTRAL10;
+    }
+  }
+}
+
+#dark {
+  .editor {
+    .textbox {
+      background-color: @NEUTRAL90;
+    }
+  }
+}

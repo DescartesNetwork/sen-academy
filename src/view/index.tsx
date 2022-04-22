@@ -4,12 +4,13 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
-import { Affix, Card, Layout } from 'antd'
+import { Row, Col, Affix, Card, Layout } from 'antd'
 import Header from './header'
 import Home from './home'
 import Footer from './footer'
 import Blogs from './blogs'
 import Details from './blogs/details'
+import Markdown from './markdown'
 import Watcher from './watcher'
 
 import { AppState } from 'store'
@@ -46,16 +47,21 @@ const App = () => {
           <Header />
         </Card>
       </Affix>
-      <Layout>
-        <Switch>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/blogs" component={Blogs} />
-          <Route exact path="/blogs/:postId" component={Details} />
-          <Redirect exact from="*" to="/home" />
-        </Switch>
-      </Layout>
-      <Layout>
-        <Footer />
+      <Layout style={{ padding: '24px 12px 0px 12px' }}>
+        <Row gutter={[24, 24]}>
+          <Col span={24}>
+            <Switch>
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/blogs" component={Blogs} />
+              <Route exact path="/blogs/:postId" component={Details} />
+              <Route exact path="/edit" component={Markdown} />
+              <Redirect exact from="*" to="/home" />
+            </Switch>
+          </Col>
+          <Col span={24}>
+            <Footer />
+          </Col>
+        </Row>
       </Layout>
       <Watcher />
     </Layout>

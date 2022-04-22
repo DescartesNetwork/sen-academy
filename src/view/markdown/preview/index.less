@@ -1,0 +1,57 @@
+.preview {
+  img {
+    border-radius: 8px;
+  }
+  & *:not(h1, h1 *, h2, h2 *, h3, h3 *, pre, pre *, i, i *) {
+    font-size: 20px;
+  }
+  h1,
+  h1 * {
+    font-size: 34px;
+  }
+  i,
+  i * {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  pre,
+  pre * {
+    font-size: 14px;
+  }
+  p {
+    margin-bottom: 6px !important;
+  }
+  table {
+    tbody,
+    td,
+    th {
+      border: 1px solid;
+      padding: 4px 12px;
+    }
+    tr {
+      border-bottom: 1px solid;
+      vertical-align: baseline;
+    }
+    th {
+      text-align: center;
+    }
+  }
+}
+
+#light {
+  .preview {
+    i,
+    i * {
+      color: #7a7b85;
+    }
+  }
+}
+
+#dark {
+  .preview {
+    i,
+    i * {
+      color: #a6a7ad;
+    }
+  }
+}

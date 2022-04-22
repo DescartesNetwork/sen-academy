@@ -94,10 +94,7 @@ const Header = () => {
                   {HEADER_MENU.map((key) => {
                     if (key !== 'subMenu')
                       return (
-                        <Menu.Item
-                          key={key}
-                          style={{ fontSize: 16 }}
-                        >
+                        <Menu.Item key={key} style={{ fontSize: 16 }}>
                           {t(`menu.${key}`, { returnObjects: true })}
                         </Menu.Item>
                       )
@@ -151,7 +148,7 @@ const Header = () => {
             </Space>
           </Col>
           <Col>
-            <Space align="center">
+            <Space align="center" size={16}>
               <Button
                 type="text"
                 size="small"
