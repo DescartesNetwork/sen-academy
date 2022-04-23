@@ -2,7 +2,9 @@ import { useLayoutEffect, useRef, useState } from 'react'
 
 import EasyMDE from 'easymde'
 
-import './index.less'
+import 'easymde/dist/easymde.min.css'
+
+const HEIGHT = 'calc(100vh - 276px)'
 
 export type EditorProps = {
   value?: string
@@ -22,14 +24,18 @@ const Editor = ({
     const element = ref?.current || undefined
     setEasyMDE(
       new EasyMDE({
+        initialValue,
         element,
         autofocus: true,
         forceSync: true,
-        hideIcons: ['preview', 'side-by-side'],
+        sideBySideFullscreen: false,
         showIcons: ['code', 'table'],
-        minHeight: 'calc(100vh - 260px)',
-        maxHeight: 'calc(100vh - 260px)',
-        initialValue,
+        hideIcons: ['side-by-side', 'preview'],
+        minHeight: HEIGHT,
+        maxHeight: HEIGHT,
+        shortcuts: {
+          toggleFullScreen: 'esc',
+        },
       }),
     )
   }, [ref, initialValue])
@@ -38,7 +44,7 @@ const Editor = ({
     onChange(easyMDE.value())
   })
 
-  return <textarea className="easy-mde" ref={ref} value={value} />
+  return <textarea ref={ref} defaultValue={value} />
 }
 
 export default Editor

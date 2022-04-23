@@ -16,9 +16,9 @@ export type PreviewProps = {
 const Preview = ({ value = '' }: PreviewProps) => {
   return (
     <Row gutter={[24, 24]}>
-      <Col span={24}>
+      <Col span={24} className="textbox">
         <ReactMarkdown
-          className="preview"
+          className="markdown-preview"
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
         >
