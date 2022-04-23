@@ -4,16 +4,24 @@ import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
 
 import { Col, Row } from 'antd'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 import ReactMarkdown from 'react-markdown'
 
 import './index.less'
 import 'katex/dist/katex.min.css'
+import {
+  atelierCaveDark,
+  atelierCaveLight,
+} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 export type PreviewProps = {
   value?: string
+  theme?: 'light' | 'dark'
 }
 
-const Preview = ({ value = '' }: PreviewProps) => {
+const Preview = ({ value = '', theme = 'light' }: PreviewProps) => {
+  const syntaxStyle = theme === 'light' ? atelierCaveLight : atelierCaveDark
+
   return (
     <Row gutter={[24, 24]}>
       <Col span={24} className="textbox">
@@ -21,6 +29,25 @@ const Preview = ({ value = '' }: PreviewProps) => {
           className="markdown-preview"
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
+          components={{
+            code({ node, inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || '')
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  children={String(children).replace(/\n$/, '')}
+                  style={syntaxStyle}
+                  language={match[1]}
+                  PreTag="div"
+                  showLineNumbers
+                  {...props}
+                />
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              )
+            },
+          }}
         >
           {value}
         </ReactMarkdown>

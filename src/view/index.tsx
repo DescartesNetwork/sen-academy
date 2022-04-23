@@ -39,7 +39,6 @@ const App = () => {
           style={{
             borderRadius: '0 0 16px 16px',
             boxShadow: 'unset',
-            zIndex: 999,
           }}
           bodyStyle={{ padding: 16 }}
           bordered={false}
