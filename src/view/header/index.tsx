@@ -1,11 +1,13 @@
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import { Col, Image, Row, Button, Space } from 'antd'
 import { NavigationButton, NavigationMenu } from './navigation'
-import Language from './language'
+import Language from '../../components/language'
 import IonIcon from 'components/ionicon'
 
+import { LanguageType } from 'constant'
 import { useUI } from 'providerd'
 import { setTheme } from 'store/ui.reducer'
 import { AppDispatch } from 'store'
@@ -20,6 +22,7 @@ const Header = () => {
   const {
     ui: { width, theme },
   } = useUI()
+  const { i18n } = useTranslation()
 
   const onChangeTheme = (theme: string) => {
     dispatch(setTheme(theme !== 'dark' ? 'dark' : 'light'))
@@ -27,6 +30,7 @@ const Header = () => {
 
   const isMobile = width < 768
   const themeLogo = theme === 'dark' ? logoDark : logo
+  const curLang = i18n.language as LanguageType
 
   return (
     <Row justify="center">
@@ -58,7 +62,7 @@ const Header = () => {
             </Space>
           </Col>
           <Col>
-            <Language />
+            <Language value={curLang} onChange={i18n.changeLanguage} />
           </Col>
         </Row>
       </Col>

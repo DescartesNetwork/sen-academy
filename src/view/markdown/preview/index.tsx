@@ -1,9 +1,10 @@
+import { ReactNode } from 'react'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
 
-import { Col, Row } from 'antd'
+import { Row, Col } from 'antd'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import ReactMarkdown from 'react-markdown'
 
@@ -15,16 +16,24 @@ import {
 } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 export type PreviewProps = {
+  header?: ReactNode
   value?: string
   theme?: 'light' | 'dark'
+  className?: string
 }
 
-const Preview = ({ value = '', theme = 'light' }: PreviewProps) => {
+const Preview = ({
+  header,
+  value = '',
+  theme = 'light',
+  className = '',
+}: PreviewProps) => {
   const syntaxStyle = theme === 'light' ? atelierCaveLight : atelierCaveDark
 
   return (
-    <Row gutter={[24, 24]}>
-      <Col span={24} className="textbox">
+    <Row gutter={[8, 8]}>
+      {header ? <Col span={24}>{header}</Col> : null}
+      <Col span={24} className={className}>
         <ReactMarkdown
           className="markdown-preview"
           remarkPlugins={[remarkGfm, remarkMath]}

@@ -53,7 +53,7 @@ const App = () => {
               <Route exact path="/home" component={Home} />
               <Route exact path="/blogs" component={Blogs} />
               <Route exact path="/blogs/:postId" component={Details} />
-              <Route exact path="/edit" component={Markdown} />
+              <Route exact path="/edit/:postId" component={Markdown} />
               <Redirect exact from="*" to="/home" />
             </Switch>
           </Col>

@@ -7,14 +7,14 @@ import 'easymde/dist/easymde.min.css'
 const HEIGHT = 'calc(100vh - 276px)'
 
 export type EditorProps = {
-  id: string
   value?: string
   initialValue?: string
   onChange?: (value: string) => void
 }
 
+let easyMDE: EasyMDE | null
+
 const Editor = ({
-  id,
   value = '',
   initialValue = '',
   onChange = (value: string) => {},
@@ -22,7 +22,8 @@ const Editor = ({
   const ref = useRef(null)
 
   useEffect(() => {
-    const easyMDE = new EasyMDE({
+    if (easyMDE) easyMDE.toTextArea() // Unmount in case
+    easyMDE = new EasyMDE({
       initialValue,
       element: ref.current || undefined,
       lineNumbers: true,
@@ -30,16 +31,9 @@ const Editor = ({
       hideIcons: ['side-by-side', 'preview'],
       minHeight: HEIGHT,
       maxHeight: HEIGHT,
-      shortcuts: {
-        toggleFullScreen: 'Esc',
-      },
-      autosave: {
-        enabled: true,
-        uniqueId: id,
-      },
     })
-    easyMDE.codemirror.on('change', () => onChange(easyMDE.value()))
-  }, [ref, id, initialValue, onChange])
+    easyMDE.codemirror.on('change', () => onChange(easyMDE?.value() || ''))
+  }, [ref, initialValue, onChange])
 
   return <textarea ref={ref} defaultValue={value} style={{ display: 'none' }} />
 }

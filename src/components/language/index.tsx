@@ -12,30 +12,24 @@ const ICON_LANG = {
   vn: { label: 'Vi', icon: flagVn },
 }
 
-const Language = () => {
-  const { t, i18n } = useTranslation()
+export type LanguageProps = {
+  value?: LanguageType
+  onChange: (value: LanguageType) => void
+}
 
-  const onHandleLanguage = (key: string) => {
-    return i18n.changeLanguage(key)
-  }
-
-  const curLang = i18n.language
+const Language = ({ value = 'en', onChange = () => {} }: LanguageProps) => {
+  const { t } = useTranslation()
 
   return (
     <Menu
       className="language-menu"
-      selectedKeys={[curLang]}
-      onClick={(e) => onHandleLanguage(e.key)}
+      selectedKeys={[value]}
+      onClick={(e) => onChange(e.key as LanguageType)}
       triggerSubMenuAction="click"
     >
       <Menu.SubMenu
         key="language"
-        icon={
-          <Image
-            src={ICON_LANG[curLang as LanguageType].icon}
-            preview={false}
-          />
-        }
+        icon={<Image src={ICON_LANG[value].icon} preview={false} />}
       >
         <Menu.Item
           key="vn"
