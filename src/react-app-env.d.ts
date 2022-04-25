@@ -17,3 +17,7 @@ declare namespace JSX {
     'ion-icon': any
   }
 }
+
+interface Window {
+  fs: import('@isomorphic-git/lightning-fs')
+}

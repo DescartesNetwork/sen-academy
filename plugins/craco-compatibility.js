@@ -12,6 +12,10 @@ const overrideWebpackConfig = ({ context, webpackConfig }) => {
       Buffer: ['buffer', 'Buffer'],
     }),
   )
+  // Add polyfill libraries
+  webpackConfig.resolve.fallback = {
+    buffer: require.resolve('buffer/'),
+  }
   // Fix unrecognized change / caching problem
   webpackConfig.cache.buildDependencies.config.push(
     path.join(context.paths.appPath, './craco.config.js'),

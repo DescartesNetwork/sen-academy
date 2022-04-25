@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import git from 'isomorphic-git'
+import http from 'isomorphic-git/http/web'
+import LightningFS from '@isomorphic-git/lightning-fs'
 
 import { Button, Card, Col, Divider, Row, Typography } from 'antd'
 import IonIcon from 'components/ionicon'
@@ -64,6 +67,23 @@ const Markdown = () => {
     return history.push('/publisher')
   }, [autosave, history])
 
+  const onPublish = useCallback(async () => {
+    const dir = '/temp'
+    window.fs = new LightningFS('fs')
+    await git.clone({
+      fs: window.fs,
+      http,
+      dir,
+      corsProxy: 'https://cors.isomorphic-git.org',
+      url: 'https://github.com/isomorphic-git/isomorphic-git',
+      ref: 'main',
+      singleBranch: true,
+      depth: 10,
+    })
+    const x = await window.fs.promises.readdir(dir)
+    console.log(x)
+  }, [])
+
   return (
     <Card bordered={false} bodyStyle={{ padding: 12, height: '100%' }}>
       <Row gutter={[24, 24]}>
@@ -100,7 +120,11 @@ const Markdown = () => {
                   </Button>
                 </Col>
                 <Col>
-                  <Button type="primary" icon={<IonIcon name="arrow-redo" />}>
+                  <Button
+                    type="primary"
+                    icon={<IonIcon name="arrow-redo" />}
+                    onClick={onPublish}
+                  >
                     Publish
                   </Button>
                 </Col>
