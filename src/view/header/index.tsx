@@ -52,7 +52,7 @@ const Header = () => {
               <Button
                 type="text"
                 icon={<IonIcon name="create" />}
-                onClick={() => history.push('/edit')}
+                onClick={() => history.push('/publisher')}
               />
               <Button
                 type="text"

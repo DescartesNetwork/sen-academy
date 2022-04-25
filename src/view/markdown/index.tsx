@@ -1,14 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 
-import { Button, Card, Col, Row, Typography } from 'antd'
+import { Button, Card, Col, Divider, Row, Typography } from 'antd'
 import IonIcon from 'components/ionicon'
 import Language from 'components/language'
 import Editor from './editor'
-import Preview from './preview'
+import Preview from './markdownPreview'
 
-import { AppState } from 'store'
 import Autosave, { ArticleData, SingleArticleData } from './autosave'
 import { LanguageType } from 'constant'
 
@@ -16,6 +14,7 @@ let savingId: NodeJS.Timeout
 const DEFAULT_SINGLE_ARTICLE: SingleArticleData = {
   title: '',
   thumbnail: '',
+  category: [],
   contents: '',
 }
 const DEFAULT_ARTICLE: ArticleData = {
@@ -25,9 +24,6 @@ const DEFAULT_ARTICLE: ArticleData = {
 
 const Markdown = () => {
   const [saving, setSaving] = useState(false)
-  const {
-    ui: { theme },
-  } = useSelector((state: AppState) => state)
   const { postId } = useParams<{ postId: string }>()
   const autosave = useMemo(() => new Autosave(postId), [postId])
   const [language, setLanguage] = useState<LanguageType>('en')
@@ -40,7 +36,13 @@ const Markdown = () => {
     return autosave.get()?.[language].contents || ''
   }, [autosave, language])
   const data: ArticleData = useMemo(() => {
-    return { ...DEFAULT_ARTICLE, ...autosave.get(), [language]: contents }
+    const article: SingleArticleData = {
+      title: '',
+      thumbnail: '',
+      category: [],
+      contents,
+    }
+    return { ...DEFAULT_ARTICLE, ...autosave.get(), [language]: article }
   }, [autosave, language, contents])
 
   useEffect(() => {
@@ -59,11 +61,11 @@ const Markdown = () => {
 
   const onClear = useCallback(() => {
     autosave.clear()
-    return history.push('/edit')
+    return history.push('/publisher')
   }, [autosave, history])
 
   return (
-    <Card bordered={false} bodyStyle={{ padding: 12 }}>
+    <Card bordered={false} bodyStyle={{ padding: 12, height: '100%' }}>
       <Row gutter={[24, 24]}>
         <Col xs={24} md={12}>
           <Editor
@@ -102,10 +104,13 @@ const Markdown = () => {
                     Publish
                   </Button>
                 </Col>
+                <Col span={24}>
+                  <Divider style={{ margin: 0 }} />
+                </Col>
               </Row>
             }
             value={contents}
-            theme={theme}
+            style={{ height: 'calc(100vh - 268px)', overflow: 'auto' }}
           />
         </Col>
       </Row>

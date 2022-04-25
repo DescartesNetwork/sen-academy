@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
+import { useSelector } from 'react-redux'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -14,26 +15,24 @@ import {
   atelierCaveDark,
   atelierCaveLight,
 } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { AppState } from 'store'
 
 export type PreviewProps = {
   header?: ReactNode
   value?: string
-  theme?: 'light' | 'dark'
-  className?: string
+  style?: CSSProperties
 }
 
-const Preview = ({
-  header,
-  value = '',
-  theme = 'light',
-  className = '',
-}: PreviewProps) => {
+const MarkdownPreview = ({ header, value = '', style = {} }: PreviewProps) => {
+  const {
+    ui: { theme },
+  } = useSelector((state: AppState) => state)
   const syntaxStyle = theme === 'light' ? atelierCaveLight : atelierCaveDark
 
   return (
     <Row gutter={[8, 8]}>
       {header ? <Col span={24}>{header}</Col> : null}
-      <Col span={24} className={className}>
+      <Col span={24} style={style}>
         <ReactMarkdown
           className="markdown-preview"
           remarkPlugins={[remarkGfm, remarkMath]}
@@ -65,4 +64,4 @@ const Preview = ({
   )
 }
 
-export default Preview
+export default MarkdownPreview

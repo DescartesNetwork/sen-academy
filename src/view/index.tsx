@@ -10,6 +10,7 @@ import Home from './home'
 import Footer from './footer'
 import Blogs from './blogs'
 import Details from './blogs/details'
+import Publisher from './publisher'
 import Markdown from './markdown'
 import Watcher from './watcher'
 
@@ -53,6 +54,7 @@ const App = () => {
               <Route exact path="/home" component={Home} />
               <Route exact path="/blogs" component={Blogs} />
               <Route exact path="/blogs/:postId" component={Details} />
+              <Route exact path="/publisher" component={Publisher} />
               <Route exact path="/edit/:postId" component={Markdown} />
               <Redirect exact from="*" to="/home" />
             </Switch>
