@@ -4,12 +4,7 @@ export const vnSystem = {
     home: 'Trang chủ',
     user: 'Người dùng',
     dev: 'Lập trình viên',
-    subMenu: [
-      {
-        label: 'Về chúng tôi',
-        data: ['Comming soon'],
-      },
-    ],
+    aboutUs: 'Về chúng tôi',
   },
   banner: {
     title:
@@ -58,7 +53,7 @@ export const vnSystem = {
     ],
   },
   languages: {
-    en: 'Tiếng Anh',
+    en: 'English',
     vn: 'Tiếng Việt',
   },
   quiz: {

@@ -1,9 +1,9 @@
-type HeaderMenu = 'home' | 'user' | 'dev' | 'subMenu'
+type HeaderMenu = 'home' | 'user' | 'dev'
 export type SubMenu = {
   label: string
   data: string[]
 }
-export const HEADER_MENU: HeaderMenu[] = ['home', 'dev', 'user', 'subMenu']
+export const HEADER_MENU: HeaderMenu[] = ['home', 'dev', 'user']
 
 export enum SelectedTabs {
   all = 'all',

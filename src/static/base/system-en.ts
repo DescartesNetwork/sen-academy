@@ -3,13 +3,8 @@ export const enSystem = {
   menu: {
     home: 'Home',
     user: 'User',
-    dev: 'Dev',
-    subMenu: [
-      {
-        label: 'About Us',
-        data: ['Comming soon'],
-      },
-    ],
+    dev: 'Developer',
+    aboutUs: 'About Us',
   },
   banner: {
     title:
@@ -58,7 +53,7 @@ export const enSystem = {
   },
   languages: {
     en: 'English',
-    vn: 'VietNamese',
+    vn: 'Tiếng Việt',
   },
   quiz: {
     button: 'Exercise',
