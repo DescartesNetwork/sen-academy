@@ -68,15 +68,15 @@ const Markdown = () => {
   }, [autosave, history])
 
   const onPublish = useCallback(async () => {
-    const dir = '/temp'
+    const dir = '/sen-academy'
     window.fs = new LightningFS('fs')
     await git.clone({
       fs: window.fs,
       http,
       dir,
       corsProxy: 'https://cors.isomorphic-git.org',
-      url: 'https://github.com/isomorphic-git/isomorphic-git',
-      ref: 'main',
+      url: 'https://github.com/DescartesNetwork/sen-academy',
+      ref: 'master',
       singleBranch: true,
       depth: 10,
     })
