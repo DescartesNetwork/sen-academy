@@ -1432,7 +1432,7 @@ describe("demo_spl", async () => {
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/x2-t4OD4jU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
     {
-      id: 'dapp-on-solana',
+      id: 'dapp-on-solana-1',
       title: 'Bắt tay xây dựng DApp đầu tiên trên Solana (Phần 1)',
       description: 'Vietnam Web3 Coding Camp',
       content: [
