@@ -17,7 +17,8 @@ const GithubLogin = () => {
 
   const login = useCallback(() => {
     if (disabled) return console.warn('Invalid credential')
-    return setCredential({ name, email, token })
+    setCredential({ name, email, token })
+    return window.location.reload()
   }, [disabled, name, email, token])
 
   return (

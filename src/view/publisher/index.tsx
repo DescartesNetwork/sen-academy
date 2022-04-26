@@ -18,7 +18,10 @@ const Publisher = () => {
     return history.push(`/edit/${postId}`)
   }, [history])
 
-  const logout = clearCredential
+  const logout = () => {
+    clearCredential()
+    return window.location.reload()
+  }
 
   if (!isLoggedIn())
     return (
