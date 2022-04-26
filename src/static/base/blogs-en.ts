@@ -1148,6 +1148,361 @@ describe("demo_spl", async () => {
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/x2-t4OD4jU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
+    {
+      id: 'dapp-on-solana',
+      title: 'Bắt tay xây dựng DApp đầu tiên trên Solana (Phần 1)',
+      description: 'Vietnam Web3 Coding Camp',
+      content: [
+        {
+          type: 'normal',
+          text: `<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span></span>Sau khi hoàn thành 5 bài đầu tiên trong chuỗi 10 bài, chúng ta đã được trang bị các kiến thức cơ bản nhất để xây dựng một DApp hoàn chỉnh. Để giúp bạn đọc có thể hệ thống lại kiến thức, bài viết xin nhắc lại các kiến thức đã học gồm:</p>
+
+        <ul class="ul1">
+           <li class="li2">ReactJS - giúp phát triển ứng dụng nền Web.</li>
+        </ul>
+        <ul class="ul1">
+           <li class="li1">Ant Design - giúp xây dựng nhanh chóng giao diện người dùng bằng các thành phần dựng sẵn.</li>
+        </li>
+        </ul>
+        <ul class="ul1">
+           <li class="li1">Redux Toolkit - giúp quản lý trạng thái của ứng dụng với số lượng dữ liệu và trạng thái phức tạp.</li>
+           <li class="li4">Anchor - giúp phát triển chương trình chạy được trên chuỗi khối. Solana dùng thuật ngữ program, hoặc Ethereum dùng thuật ngữ smart contract để ám chỉ chương trình này.</li>
+        </ul>
+        <p class="p1">Trong bài này chúng ta sẽ kết hợp tất cả chúng lại để xây dựng một ứng dụng bỏ phiếu một cách hoàn chỉnh nhất.</p>
+        
+        <h2 class="p6"><strong>Hệ thống bỏ phiếu điện tử có trọng số (Weighted eVoting System)</strong></h2>
+        <p class="p1">Trong phần này chúng ta sẽ đi phân tích xem để hiểu được hệ thống bỏ phiếu điện tử có trọng số (sau đây sẽ gọi ngắn gọn là hệ thống) có những đặc tính cơ bản nào.</p>
+        
+        <h3 class="p9"><strong>Phiếu bầu có trọng số</strong></h3>
+        <p class="p4">Đối với các hệ thống bỏ phiếu phổ biến, đa số chúng đều là không trọng số. Nghĩa là mọi người bỏ phiếu (voter) đều có “sức mạnh” như nhau và bằng chính xác 1 lá phiếu. Dù bạn rất nổi tiếng, hay bạn là một sinh viên, thì lá phiếu của bạn đều chỉ được tính là 1. Ngược lại, trong hệ thống có trọng số, yếu tố “sức mạnh” được xem xét đến trong quá trình kiểm phiếu. Cụ thể hơn,</p>
+        <p class="p1">trên môi trường blockchain, số lượng một token cụ thể bạn đang nắm sẽ đại diện cho sức mạnh lá phiếu của bạn.</p>
+        
+        <ul class="ul1">
+           <li class="li1">hình 1, người bỏ phiếu có 10 tokens và anh ấy có thể dùng 10 tokens đó để đại diện cho “sức mạnh” lá phiếu bầu. Ví dụ, anh ấy bỏ phiếu cho Candidate #1, thì hệ thống sẽ ghi nhận Cadidate #1 được cộng thêm 10 điểm.</li>
+        </ul>
+        <p class="content-img" style="max-width: 500px"><img src="${require('../images/posts/post-5-weight.png')}"/></p></br><h3 class="p1"><strong>Double Spend</strong></h3>
+        <p class="p3">Double Spend hay “Dùng hai lần” là một hình thức gian lận giúp người dùng có thể sử dụng nhiều hơn một lần bằng 1 số lượng tokens cụ thể. Trong phạm vi hệ thống, sử dụng được hiểu theo nghĩa là bỏ phiếu. Giả sử như sau khi bỏ phiếu bằng ví số 1, người dùng cố tình chuyển số tokens ban đầu sang một ví số 2 nhằm thực hiện lại hành vi bỏ phiếu không hợp lệ. Tiếp tục như vậy, với chỉ 10 tokens, người dùng có thể bỏ phiếu vô số lần.</p>
+        <p class="p3">Để đảm bảo được tính công bằng, với mỗi lượt bỏ phiếu, số token của người dùng phải được khoá trong thời gian bỏ phiếu. Cơ chế khoá được hiện thực đơn giản bằng cách chuyển token người dùng vào một ví tạm thời và chỉ hệ thống mới có thể kiểm soát ví đó. Hết thời hạn bỏ phiếu, số token sẽ được trả lại chính xác cho người bỏ phiếu.</p>
+        <p class="p3"><span class="Apple-converted-space"> </span></p>
+        <p class="content-img" style="max-width: 500px"><img src="${require('../images/posts/post-5-weight-2.png')}" /></p>
+        <p class="p7"><i>Hình 2. Token người dùng sẽ được khoá tạm thời trong thời gian bỏ phiếu. Số token này sẽ đc hoàn trả khi kết thúc bỏ phiếu.</i></p>
+        
+        <h2 class="p9"><strong>Hiện thực hệ thống</strong></h2>
+        <h3 class="p1"><strong>Khai báo Schema</strong></h3>
+        <p class="p12"><strong>Candidate</strong></p>
+        <p class="p3">Mỗi ứng viên sẽ được tạo một tài khoản trên chuỗi khối nhằm ghi nhận số lượng người bỏ phiếu cũng như quản lý các thông tin cần thiết cho việc bỏ phiếu. Để cho đơn giản, ở đây bài viết lược bỏ đi khá nhiều thông tin và chỉ giữ lại các thông tin cơ bản nhất.</p>
+        <p class="p14"><span class="Apple-converted-space"> </span></p><p class="content-img" style="max-width: 180px"><img src="${require('../images/posts/post-5-weight-3.png')}" /></p>
+        <p class="p17"><i>Hình 3. Thông tin ứng viên (Candidate schema)</i></p>
+        <p class="p17"></p>
+        
+        <ul class="ul1">
+           <li class="li18">mint: Loại token được dùng để bỏ phiếu.</li>
+        </ul>
+        <ul class="ul1">
+           <li class="li18">amount: số lượng token bầu cho ứng viên.</li>
+        </ul>
+        <ul class="ul1">
+           <li class="li18">start_date: Thời gian bắt đầu cho phép bỏ phiếu</li>
+        </ul>
+        <ul class="ul1">
+           <li class="li18">end_date: Thời gian kết thúc bỏ phiếu.</li>
+        </ul>
+        <p class="p12"><strong>Ballot</strong></p>
+        <p class="p3">Phiếu bầu dùng để lưu trữ thông tin bỏ phiếu của từng người tham gia hệ thống. Lá phiếu sẽ dùng để xác thực việc hoàn trả token sau này.</p>
+        <p class="p14"><span class="Apple-converted-space"> </span></p><p class="content-img" style="max-width: 180px"><img src="${require('../images/posts/post-5-weight-4.png')}" /></p>
+        <p class="p17"><i>Hình 4: Thông tin phiếu bầu (Ballot schema)</i></p>
+        
+        <h2 class="p1"><strong>Khai báo Instructions</strong></h2>
+        <h3 class="p12"><strong>Hàm initialize_candidate:</strong></h3>
+        <p class="p3">Đây là hàm giúp khởi tạo ứng viên mới. Khi muốn tạo mới ứng viên cho việc bầu cử cần gọi hàm <b>initialize_candidate</b>. Ứng viên sẽ được tạo mới với các dữ liệu mặc định.</p>
+        <p><i>Khai báo Context</i></p>`,
+        },
+        {
+          type: 'special',
+          text: `#[derive(Accounts)]
+
+pub struct InitializeCandidate<'info> {
+
+  #[account(mut)]
+
+  pub authority: Signer<'info>,
+
+  #[account(
+
+    init,
+
+    payer = authority,
+
+    space = Candidate::SIZE,
+
+  )]
+
+  pub candidate: Account<'info, Candidate>,
+  
+  #[account(seeds = [b"treasurer".as_ref(), &candidate.key().to_bytes()], bump)]
+
+  CHECK: Just a pure account
+
+  pub treasurer: AccountInfo<'info>,
+
+  pub mint: Box<Account<'info, token::Mint>>, #[account(
+
+    init,
+
+    payer = authority,
+
+    associated_token::mint = mint, associated_token::authority = treasurer
+  )]
+
+  pub candidate_token_account: Account<'info, token::TokenAccount>, // System Program Address
+
+  pub system_program: Program<'info, System>,
+
+  pub token_program: Program<'info, token::Token>,
+
+  pub associated_token_program: Program<'info, associated_token::AssociatedToken>,
+
+  pub rent: Sysvar<'info, Rent>,
+
+}`,
+        },
+        {
+          type: 'normal',
+          text: `<ul class="ul1">
+        <li class="li1"><b>authority</b>: Địa chỉ ví thực hiện và trả phí giao dịch</li>
+        <li class="li1"><b>candidate</b>: Địa chỉ ứng viên. Mỗi ứng viên khác nhau có địa chỉ candidate khác nhau.</li>
+        <li class="li1"><b>treasurer</b>: Địa chỉ PDA quản lý candidate token account. Được tạo thành với seeds là <b>“treasurer”</b> và địa chỉ của <b>candidate</b>. Vậy nên <b>candidate</b> khác nhau có <b>treasurer</b> khác nhau.</p></li>
+        <li class="li1">Đối với những loại account không có kiểu dữ liệu cụ thể, cần thêm:<span class="s1"> /// CHECK:</span></li> Just a pure account</p>
+     
+        <li class="li1"><b>mint</b>: Loại token được dùng để bỏ phiếu</li>
+     </ul>
+     <ul class="ul1">
+        <li class="li8"><b>candidate_token_account</b>: Địa chỉ Token Account dùng để khoá tạm thời token để ngăn tấn công Double Spend.</li>
+     </ul>
+     <p><i>Viết hàm thực thi</i></p>`,
+        },
+        {
+          type: 'special',
+          text: `pub fn exec(ctx: Context<InitializeCandidate>, start_date: i64, end_date: i64) -> Result<()>
+{
+
+  let candidate = &mut ctx.accounts.candidate;
+
+  candidate.start_date = start_date;
+
+  candidate.end_date = end_date;
+
+  candidate.amount = 0;
+
+  candidate.mint = ctx.accounts.mint.key();
+  
+  Ok(())
+
+}`,
+        },
+        {
+          type: 'normal',
+          text: `<p>Khi hàm thực thi initialize_candidate được gọi, chương trình sẽ khởi tạo một Candidate mới với:</p>
+        <ul>
+           <li> start_date và end_date được truyền ở thông số đầu vào.</li>
+           <li> Giá trị amount ban đầu bằng 0.</li>
+           <li> Loại token dùng để bầu được định nghĩa trong Context.
+        </ul>
+        <h3><strong>Hàm vote</strong></h3>
+        <p>Đây là hàm bầu cử cho ứng viên được lựa chọn. Sau khi gọi hàm vote, ứng viên được bầu sẽ tăng số lượng phiếu bầu tương ứng với số token chỉ định. Token dùng để bầu sẽ được khoá tạm thời nhằm ngăn chặn Double Spend.</p>
+        
+        <p><i>Khai báo Context</i></p>`,
+        },
+        {
+          type: 'special',
+          text: `#[derive(Accounts)]
+pub struct Vote<'info> {
+  // TODO: Customize account address
+  #[account(mut)]
+  pub authority: Signer<'info>,
+  #[account(mut, has_one = mint)]
+  // Candidate accounts
+  pub candidate: Account<'info, Candidate>,
+  #[account(seeds = [b"treasurer".as_ref(), &candidate.key().to_bytes()], bump)]
+  /// CHECK: Just a pure account
+  pub treasurer: AccountInfo<'info>,
+  pub mint: Box<Account<'info, token::Mint>>,
+  #[account(
+    mut,
+    associated_token::mint = mint,
+    associated_token::authority = treasurer
+)]
+  pub candidate_token_account: Account<'info, token::TokenAccount>,
+  #[account(
+    init_if_needed,
+    payer = authority,
+    space = Ballot::SIZE,
+    seeds = [b"ballot".as_ref(), &candidate.key().to_bytes(), &authority.key().to_bytes()],
+    bump
+  )]
+  pub ballot: Account<'info, Ballot>,
+  #[account(
+    mut,
+    associated_token::mint = mint,
+    associated_token::authority = authority
+)]
+  pub voter_token_account: Account<'info, token::TokenAccount>,
+  // System Program Address
+  pub system_program: Program<'info, System>,
+  pub token_program: Program<'info, token::Token>,
+  pub associated_token_program: Program<'info, associated_token::AssociatedToken>,
+  pub rent: Sysvar<'info, Rent>,
+}`,
+        },
+        {
+          type: 'normal',
+          text: `
+        <ul>
+           <li>authority, candidate, treasurer, mint, candidate_token_account: có ý nghĩa tương tự hàm initialize_candidate.</li>
+           <li>  ballot: Địa chỉ phiếu bầu của người đi bầu và cũng là một PDA. Lần đầu bầu, phiếu bầu này sẽ được tạo mới. Những lần bầu tiếp theo chỉ cần cập nhật dữ liệu trên địa chỉ đã tạo.</li>
+           <li>  voter_token_account: Địa chỉ ví của cử tri chứa loại token dùng để bầu cử (tương ứng với mint trong thông tin ứng viên).</li>
+        </ul>
+        <i>Viết hàm thực thi</i>`,
+        },
+        {
+          type: 'special',
+          text: `pub fn exec(ctx: Context<Vote>, amount: u64) -> Result<()> {
+  let candidate = &mut ctx.accounts.candidate;
+  let ballot = &mut ctx.accounts.ballot;
+  let now = Clock::get().unwrap().unix_timestamp;
+  if now < candidate.start_date || now > candidate.end_date {
+    return err!(ErrorCode::NotActiveCandidate);
+  }
+  let transfer_ctx = CpiContext::new(
+    ctx.accounts.token_program.to_account_info(),
+    token::Transfer {
+      from: ctx.accounts.voter_token_account.to_account_info(),
+      to: ctx.accounts.candidate_token_account.to_account_info(),
+      authority: ctx.accounts.authority.to_account_info(),
+  }, );
+  token::transfer(transfer_ctx, amount)?;
+  candidate.amount += amount;
+  ballot.authority = ctx.accounts.authority.key();
+  ballot.candidate = candidate.key();
+  ballot.amount += amount;
+  Ok(())
+}`,
+        },
+        {
+          type: 'normal',
+          text: `
+        <p>Khi hàm thực thi hàm Vote được gọi, chương trình sẽ khởi tạo một Ballot mới nếu cần thiết. Sau đó kiểm tra xem còn trong thời hạn được phép bầu hay không. Nếu chưa đến hoặc quá thời gian bầu thì báo lỗi, còn không sẽ thực hiện bầu cho ứng viên. Chuyển số token tương ứng với số lượng bầu cho ứng viên vào kho chứa token của Candidate để khoá tạm thời. Sau đó cập nhật lại số lượng bầu cho ứng viên và phiếu bầu.</p>
+        <h3><strong>Hàm close:</strong></h3>
+        <p>Đây là hàm để lấy lại token đã bầu sau khi thời gian bầu cử kết thúc. Nếu thời gian bầu cử chưa kết thúc không cho phép close. Token đã dùng để bầu cử sẽ được hoàn trả cho cử tri và xoá bỏ phiếu bầu.</p>
+        
+        <p><i>Khai báo context</i></p>`,
+        },
+        {
+          type: 'special',
+          text: `#[derive(Accounts)]
+  pub struct Close<'info> {
+  // TODO: Customize account address
+  #[account(mut)]
+  pub authority: Signer<'info>,
+  #[account(mut, has_one = mint)]
+  // Candidate accounts
+  pub candidate: Account<'info, Candidate>,
+  #[account(seeds = [b"treasurer", &candidate.key().to_bytes()], bump)]
+  /// CHECK: Just a pure account
+  pub treasurer: AccountInfo<'info>,
+  pub mint: Box<Account<'info, token::Mint>>,
+  #[account(
+    mut,
+    associated_token::mint = mint,
+    associated_token::authority = treasurer
+  )]
+  pub candidate_token_account: Account<'info, token::TokenAccount>,
+  // Wallet accounts
+  #[account(
+    mut,
+    close = authority,
+    seeds = [b"ballot".as_ref(), &candidate.key().to_bytes(), &authority.key().to_bytes()],
+    bump
+  )]
+  pub ballot: Account<'info, Ballot>,
+  #[account(
+    mut,
+    associated_token::mint = mint,
+    associated_token::authority = authority
+  )]
+  pub voter_token_account: Account<'info, token::TokenAccount>,
+  // System Program Address
+  pub system_program: Program<'info, System>,
+  pub token_program: Program<'info, token::Token>,
+  pub associated_token_program: Program<'info, associated_token::AssociatedToken>,
+  pub rent: Sysvar<'info, Rent>,
+}`,
+        },
+        {
+          type: 'normal',
+          text: `<ul>
+        <li>authority, candidate, treasurer, mint, candidate_token_account: có ý nghĩa tương tự hàm initialize_candidate.</li>
+        <li> ballot, voter_token_account: có ý nghĩa tương tự hàm vote. Tuy nhiên Ballot sẽ được thu hồi sau khi thực hiện hàm close.</li>
+     </ul>
+     <p><i>Viết hàm thực thi</i></p>`,
+        },
+        {
+          type: 'special',
+          text: `pub fn exec(ctx: Context<Close>) -> Result<()> {
+  let candidate = &mut ctx.accounts.candidate;
+  let ballot = &mut ctx.accounts.ballot;
+  let now = Clock::get().unwrap().unix_timestamp;
+  if now < candidate.end_date {
+  return err!(ErrorCode::EndedCandidate);
+}
+
+let seeds: &[&[&[u8]]] = &[&[
+  "treasurer".as_ref(),
+  &candidate.key().to_bytes(),
+  &[*ctx.bumps.get("treasurer").unwrap()],
+]];
+
+let transfer_ctx = CpiContext::new_with_signer(
+  ctx.accounts.token_program.to_account_info(),
+  token::Transfer {
+    from: ctx.accounts.candidate_token_account.to_account_info(),
+    to: ctx.accounts.voter_token_account.to_account_info(),
+    authority: ctx.accounts.authority.to_account_info(),
+  },
+  seeds,
+);
+
+token::transfer(transfer_ctx, ballot.amount)?;
+ballot.amount = 0;
+Ok(()) }`,
+        },
+        {
+          type: 'normal',
+          text: `Khi hàm thực thi close được gọi, chương trình sẽ kiểm tra xem đã hết thời hạn bầu hay chưa.
+        <ul>
+           <li>Nếu chưa thì báo lỗi.</li>
+           <li>Nếu đã hết thời hạn bầu, hệ thống sẽ hoàn trả số token tương ứng với số lượng đã bầu. Sau đó thu hồi lại phiếu bầu.</li>
+        </ul>
+        <h2><strong>References</strong></h2>
+        <ul>
+         <li>Example repository: <a href="https://github.com/tuphan-dn/evoting-system" target="_blank">https://github.com/tuphan-dn/evoting-system</a></li>
+         <li>Blockchain là gì?: <a href="https://academy.sentre.io/#/blogs/what-is-blockchain?category=dev" target="_blank">https://academy.sentre.io/#/blogs/what-is-blockchain?category=dev</a></li>
+         <li>Thiết kế giao diện DApp: <a href="https://academy.sentre.io/#/blogs/design-dapp-ui?category=dev" target="_blank">https://academy.sentre.io/#/blogs/design-dapp-ui?category=dev</a></li>
+         <li>Quản lý State của Dapp: <a href="https://academy.sentre.io/#/blogs/manage-dapp-state?category=dev" target="_blank">https://academy.sentre.io/#/blogs/manage-dapp-state?category=dev</a></li>
+         <li>Viết phần mềm Solana đầu tiên: <a href="https://academy.sentre.io/#/blogs/first-solana-program?category=dev" target="_blank">https://academy.sentre.io/#/blogs/first-solana-program?category=dev</a></li>
+        </ul>`,
+        },
+      ],
+      thumbnail: require('../images/posts/pss-thumbnail.png'),
+      date: 'Tue 26, Apr 2022',
+      category: ['blockchain', 'solana'],
+      quizButton: {
+        title: 'Làm bài tập tại đây',
+        embedCode: 'qRUQALed',
+      },
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/ISt9W7tYyq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    },
   ],
   user: [
     {
