@@ -4,7 +4,13 @@ export const vnSystem = {
     home: 'Trang chủ',
     user: 'Người dùng',
     dev: 'Lập trình viên',
+    admin: 'Quản trị viên',
     aboutUs: 'Về chúng tôi',
+  },
+  login: {
+    title: 'Đăng nhập',
+    loginWithGithub: 'Đăng nhập với GitHub',
+    adminOnly: '(Chỉ dành cho quản lý)',
   },
   banner: {
     title:

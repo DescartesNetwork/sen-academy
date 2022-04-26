@@ -15,11 +15,14 @@ export const allPostIds = (): string[] =>
 
 export type SingleArticleData = {
   title: string
-  thumbnail: string
   contents: string
+}
+export type ArticleData = Record<LanguageType, SingleArticleData> & {
+  createdAt: number
+  updatedAt: number
+  thumbnail: string
   category: string[]
 }
-export type ArticleData = Record<LanguageType, SingleArticleData>
 
 class Autosave {
   private id: string

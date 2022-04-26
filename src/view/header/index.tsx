@@ -2,13 +2,13 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import { Col, Image, Row, Button, Space } from 'antd'
+import { Row, Col, Image, Button } from 'antd'
 import { NavigationButton, NavigationMenu } from './navigation'
-import Language from '../../components/language'
+import Language from 'components/language'
 import IonIcon from 'components/ionicon'
 
 import { LanguageType } from 'constant'
-import { useUI } from 'providerd'
+import { useUI } from 'providers'
 import { setTheme } from 'store/ui.reducer'
 import { AppDispatch } from 'store'
 
@@ -48,18 +48,11 @@ const Header = () => {
             {isMobile ? <NavigationButton /> : <NavigationMenu />}
           </Col>
           <Col>
-            <Space>
-              <Button
-                type="text"
-                icon={<IonIcon name="create" />}
-                onClick={() => history.push('/publisher')}
-              />
-              <Button
-                type="text"
-                icon={<IonIcon name={theme === 'light' ? 'moon' : 'sunny'} />}
-                onClick={() => onChangeTheme(theme)}
-              />
-            </Space>
+            <Button
+              type="text"
+              icon={<IonIcon name={theme === 'light' ? 'moon' : 'sunny'} />}
+              onClick={() => onChangeTheme(theme)}
+            />
           </Col>
           <Col>
             <Language value={curLang} onChange={i18n.changeLanguage} />

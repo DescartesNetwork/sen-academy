@@ -1,8 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import git from 'isomorphic-git'
-import http from 'isomorphic-git/http/web'
-import LightningFS from '@isomorphic-git/lightning-fs'
 
 import { Button, Card, Col, Divider, Row, Typography } from 'antd'
 import IonIcon from 'components/ionicon'
@@ -12,21 +9,26 @@ import Preview from './markdownPreview'
 
 import Autosave, { ArticleData, SingleArticleData } from './autosave'
 import { LanguageType } from 'constant'
+import { getCredential } from 'components/githubLogin/utils'
+import { newPost } from 'view/publisher/utils'
 
 let savingId: NodeJS.Timeout
 const DEFAULT_SINGLE_ARTICLE: SingleArticleData = {
   title: '',
-  thumbnail: '',
-  category: [],
   contents: '',
 }
 const DEFAULT_ARTICLE: ArticleData = {
+  createdAt: Number(new Date()),
+  updatedAt: Number(new Date()),
+  thumbnail: '',
+  category: [],
   en: { ...DEFAULT_SINGLE_ARTICLE },
   vn: { ...DEFAULT_SINGLE_ARTICLE },
 }
 
 const Markdown = () => {
   const [saving, setSaving] = useState(false)
+  const [loading, setLoading] = useState(false)
   const { postId } = useParams<{ postId: string }>()
   const autosave = useMemo(() => new Autosave(postId), [postId])
   const [language, setLanguage] = useState<LanguageType>('en')
@@ -39,12 +41,7 @@ const Markdown = () => {
     return autosave.get()?.[language].contents || ''
   }, [autosave, language])
   const data: ArticleData = useMemo(() => {
-    const article: SingleArticleData = {
-      title: '',
-      thumbnail: '',
-      category: [],
-      contents,
-    }
+    const article: SingleArticleData = { title: '', contents }
     return { ...DEFAULT_ARTICLE, ...autosave.get(), [language]: article }
   }, [autosave, language, contents])
 
@@ -68,21 +65,19 @@ const Markdown = () => {
   }, [autosave, history])
 
   const onPublish = useCallback(async () => {
-    const dir = '/sen-academy'
-    window.fs = new LightningFS('fs')
-    await git.clone({
-      fs: window.fs,
-      http,
-      dir,
-      corsProxy: 'https://cors.isomorphic-git.org',
-      url: 'https://github.com/DescartesNetwork/sen-academy',
-      ref: 'master',
-      singleBranch: true,
-      depth: 10,
-    })
-    const x = await window.fs.promises.readdir(dir)
-    console.log(x)
-  }, [])
+    setLoading(true)
+    try {
+      await newPost(postId, data, getCredential())
+      await window.notify({
+        type: 'success',
+        description: 'The article has been posted.',
+      })
+    } catch (er: any) {
+      return window.notify({ type: 'error', description: er.message })
+    } finally {
+      return setLoading(false)
+    }
+  }, [postId, data])
 
   return (
     <Card bordered={false} bodyStyle={{ padding: 12, height: '100%' }}>
@@ -124,6 +119,7 @@ const Markdown = () => {
                     type="primary"
                     icon={<IonIcon name="arrow-redo" />}
                     onClick={onPublish}
+                    loading={loading}
                   >
                     Publish
                   </Button>

@@ -59,7 +59,6 @@ export const resize = createAsyncThunk(`${NAME}/resize`, async () => {
   const infix = getInfix()
   return { width, infix }
 })
-
 /**
  * Usual procedure
  */

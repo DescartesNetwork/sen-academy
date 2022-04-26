@@ -11,7 +11,7 @@ export const AboutUs = () => {
   const { t } = useTranslation()
 
   return (
-    <Popover trigger="click" content={'Comming soon'}>
+    <Popover content={'Coming soon'} trigger="click">
       <Button type="text" disabled>
         <Space>
           <span>{t('menu.aboutUs', { returnObjects: true })}</span>
@@ -57,6 +57,7 @@ export const NavigationMenu = ({
   const onNavigate = useCallback(
     (key: string) => {
       if (key === 'home') return history.push('/home')
+      if (key === 'admin') return history.push('/publisher')
       return history.push(`/blogs?category=${key}`)
     },
     [history],

@@ -1,5 +1,5 @@
 import { Button, Col, Image, Row, Space, Typography } from 'antd'
-import { useUI } from 'providerd'
+import { useUI } from 'providers'
 
 import youtube from 'static/images/social/yt.svg'
 import facebook from 'static/images/social/fb.svg'

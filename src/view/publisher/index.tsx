@@ -3,9 +3,11 @@ import { useHistory } from 'react-router-dom'
 
 import { Button, Col, Row, Typography } from 'antd'
 import IonIcon from 'components/ionicon'
+import GithubLogin from 'components/githubLogin'
 
 import { allPostIds, randId } from 'view/markdown/autosave'
 import ArticlePreview from './articlePreview'
+import { clearCredential, isLoggedIn } from 'components/githubLogin/utils'
 
 const Publisher = () => {
   const history = useHistory()
@@ -16,10 +18,29 @@ const Publisher = () => {
     return history.push(`/edit/${postId}`)
   }, [history])
 
+  const logout = clearCredential
+
+  if (!isLoggedIn())
+    return (
+      <Row gutter={[24, 24]} justify="center">
+        <Col xs={24} md={12} lg={8}>
+          <GithubLogin />
+        </Col>
+      </Row>
+    )
   return (
     <Row gutter={[24, 24]}>
       <Col span={24}>
-        <Row gutter={[24, 24]} justify="end">
+        <Row gutter={[8, 8]} justify="end">
+          <Col>
+            <Button
+              type="text"
+              icon={<IonIcon name="log-out-outline" />}
+              onClick={logout}
+            >
+              Logout
+            </Button>
+          </Col>
           <Col>
             <Button
               type="primary"

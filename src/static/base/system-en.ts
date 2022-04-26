@@ -4,7 +4,13 @@ export const enSystem = {
     home: 'Home',
     user: 'User',
     dev: 'Developer',
+    admin: 'Admin',
     aboutUs: 'About Us',
+  },
+  login: {
+    title: 'Login',
+    loginWithGithub: 'Login with GitHub',
+    adminOnly: '(Admin Only)',
   },
   banner: {
     title:
