@@ -4,7 +4,7 @@ import LightningFS from '@isomorphic-git/lightning-fs'
 
 import configs from 'configs'
 import { GithubCredential } from 'components/githubLogin/utils'
-import { ArticleData } from 'view/markdown/autosave'
+import { ArticleData } from 'store/warehouse.reducer'
 
 const {
   github: { proxy, warehouseRepoUrl, branch },

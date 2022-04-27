@@ -65,4 +65,10 @@ export const enSystem = {
     button: 'Exercise',
   },
   viewMore: 'View more',
+  markdown: {
+    title: 'Title',
+    publish: 'Publish',
+    delete: 'Delete',
+    saving: 'Saving',
+  },
 }

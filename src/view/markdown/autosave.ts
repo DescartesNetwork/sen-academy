@@ -1,4 +1,4 @@
-import { LanguageType } from 'constant'
+import { ArticleData } from 'store/warehouse.reducer'
 
 const DRIVER = window.localStorage
 const PREFIX = 'sen-academy-post-'
@@ -12,17 +12,6 @@ export const allPostIds = (): string[] =>
   Object.keys(DRIVER)
     .filter((key) => key.startsWith(PREFIX))
     .map((key) => key.replace(PREFIX, ''))
-
-export type SingleArticleData = {
-  title: string
-  contents: string
-}
-export type ArticleData = Record<LanguageType, SingleArticleData> & {
-  createdAt: number
-  updatedAt: number
-  thumbnail: string
-  category: string[]
-}
 
 class Autosave {
   private id: string

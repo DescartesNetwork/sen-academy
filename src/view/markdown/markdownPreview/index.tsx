@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react'
+import { CSSProperties } from 'react'
 import { useSelector } from 'react-redux'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
@@ -18,12 +18,11 @@ import {
 import { AppState } from 'store'
 
 export type PreviewProps = {
-  header?: ReactNode
   value?: string
   style?: CSSProperties
 }
 
-const MarkdownPreview = ({ header, value = '', style = {} }: PreviewProps) => {
+const MarkdownPreview = ({ value = '', style = {} }: PreviewProps) => {
   const {
     ui: { theme },
   } = useSelector((state: AppState) => state)
@@ -31,7 +30,6 @@ const MarkdownPreview = ({ header, value = '', style = {} }: PreviewProps) => {
 
   return (
     <Row gutter={[8, 8]}>
-      {header ? <Col span={24}>{header}</Col> : null}
       <Col span={24} style={style}>
         <ReactMarkdown
           className="markdown-preview"

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
@@ -14,14 +14,20 @@ import Publisher from './publisher'
 import Markdown from './markdown'
 import Watcher from './watcher'
 
-import { AppState } from 'store'
+import { AppDispatch, AppState } from 'store'
+import { loadWarehouse } from 'store/warehouse.reducer'
 import 'static/base/multilangData'
 
 const App = () => {
   const {
     ui: { theme },
   } = useSelector((state: AppState) => state)
+  const dispatch = useDispatch<AppDispatch>()
   const { t } = useTranslation()
+
+  useEffect(() => {
+    dispatch(loadWarehouse())
+  }, [dispatch])
 
   // Load theme
   useEffect(() => {

@@ -66,4 +66,10 @@ export const vnSystem = {
     button: 'Làm bài tập',
   },
   viewMore: 'Xem thêm',
+  markdown: {
+    title: 'Tiêu đề',
+    publish: 'Xuất bản',
+    delete: 'Xoá',
+    saving: 'Đang lưu',
+  },
 }
