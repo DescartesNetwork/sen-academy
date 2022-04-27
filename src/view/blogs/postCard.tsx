@@ -1,9 +1,14 @@
-import { Card, Col, Image, Row, Space, Typography } from 'antd'
-import { PostsData } from 'constant'
 import { useSelector } from 'react-redux'
+
+import { Card, Col, Image, Row, Space, Typography } from 'antd'
+import PostActions from './postActions'
+
+import { isLoggedIn } from 'components/githubLogin/utils'
+import { PostsData } from 'constant'
 import { AppState } from 'store'
 
-type ActionCard = {
+export type PostCardProps = {
+  data: PostsData
   onClick: (id: string) => void
 }
 
@@ -11,10 +16,7 @@ const PAGE_PADDING = 24
 const ELEMENT_PADDING = 24
 const HEIGHT_RATIO = 1.777777
 
-const PostCard = ({
-  data,
-  onClick = () => {},
-}: { data: PostsData } & ActionCard) => {
+const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
   const {
     ui: { width },
   } = useSelector((state: AppState) => state)
@@ -70,6 +72,11 @@ const PostCard = ({
             </Typography.Text>
           </Space>
         </Col>
+        {isLoggedIn() ? (
+          <Col span={24}>
+            <PostActions />
+          </Col>
+        ) : null}
       </Row>
     </Card>
   )

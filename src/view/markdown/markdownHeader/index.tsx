@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Button, Col, Input, Modal, Row, Space, Typography } from 'antd'
 import IonIcon from 'components/ionicon'
 import Language from 'components/language'
-import Category from './category'
+import Category from '../../../components/category'
 
 import { LanguageType } from 'constant'
 import { AppState } from 'store'
@@ -108,7 +108,7 @@ const MarkdownHeader = ({
               <Input
                 placeholder="Add category & Enter to add"
                 prefix={
-                  <Space size={4} style={{ marginLeft: -8 }}>
+                  <Space size={4} style={{ marginLeft: -8 }} wrap>
                     {category.map((tag, i) => (
                       <Category
                         key={tag}

@@ -8,7 +8,7 @@ export type CategoryProps = {
   onDelete?: () => void
 }
 
-const Category = ({ tag, onDelete = () => {} }: CategoryProps) => {
+const Category = ({ tag, onDelete }: CategoryProps) => {
   return (
     <Tag
       style={{
@@ -19,7 +19,7 @@ const Category = ({ tag, onDelete = () => {} }: CategoryProps) => {
       closeIcon={<IonIcon style={{ color: randomColor(tag) }} name="close" />}
       color={randomColor(tag, 0.2)}
       onClose={onDelete}
-      closable
+      closable={Boolean(onDelete)}
     >
       {tag}
     </Tag>

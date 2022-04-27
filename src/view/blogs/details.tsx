@@ -9,9 +9,9 @@ import {
 } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 import { Col, Image, Row, Space, Typography } from 'antd'
-import PostTags from './postTags'
 import ButtonExercise from 'components/buttonExercise'
 import MakeUpHtml from 'components/makeUpHtml'
+import Category from 'components/category'
 
 import { PostContentType, PostsData } from 'constant'
 import { asyncWait } from 'helper'
@@ -84,7 +84,9 @@ const Details = () => {
               </Col>
               <Col>
                 <Space>
-                  <PostTags tags={postData?.category} />
+                  {postData?.category.map((tag) => (
+                    <Category key={tag} tag={tag} />
+                  ))}
                   <Typography.Text type="secondary">
                     {postData?.date}
                   </Typography.Text>
