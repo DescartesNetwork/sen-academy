@@ -38,22 +38,26 @@ const Markdown = () => {
   const [language, setLanguage] = useState<LanguageType>('en')
   const { postId } = useParams<{ postId: string }>()
   const autosave = useMemo(() => new Autosave(postId), [postId])
-
-  const initialData = useMemo(
-    () => DEFAULT_ARTICLE(autosave.get())[language],
-    [autosave, language],
-  )
-  const [title, setTitle] = useState(initialData.title)
-  const [defaultContents, setDefaultContents] = useState(initialData.contents)
-  const [contents, setContents] = useState(initialData.contents)
   const history = useHistory()
+
+  const initialData = useMemo(() => DEFAULT_ARTICLE(autosave.get()), [autosave])
+  const [title, setTitle] = useState(initialData[language].title)
+  const [defaultContents, setDefaultContents] = useState(
+    initialData[language].contents,
+  )
+  const [contents, setContents] = useState(initialData[language].contents)
+  const [category, setCategory] = useState<string[]>(initialData.category)
+  const [thumbnail, setThumbnail] = useState(initialData.thumbnail)
 
   const data = useMemo(() => {
     return DEFAULT_ARTICLE({
       ...autosave.get(),
+      updatedAt: Number(new Date()),
+      thumbnail,
+      category,
       [language]: { contents, title },
     })
-  }, [autosave, language, contents, title])
+  }, [autosave, language, contents, title, thumbnail, category])
 
   const onLanguage = useCallback(
     async (language: LanguageType) => {
@@ -109,6 +113,10 @@ const Markdown = () => {
             onLanguage={onLanguage}
             title={title}
             onTitle={setTitle}
+            category={category}
+            onCategory={setCategory}
+            thumbnail={thumbnail}
+            onThumbnail={setThumbnail}
             loading={loading}
             saving={saving}
           />
