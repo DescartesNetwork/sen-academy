@@ -74,7 +74,7 @@ const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
         </Col>
         {isLoggedIn() ? (
           <Col span={24}>
-            <PostActions />
+            <PostActions postId={id} />
           </Col>
         ) : null}
       </Row>

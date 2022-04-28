@@ -64,3 +64,17 @@ export const newPost = async (
   await git.commit({ fs, dir, author: { name, email }, message })
   await push(token)
 }
+
+export const deletePost = async (
+  postId: string,
+  { name, email, token }: GithubCredential,
+) => {
+  const filepath = `src/${postId}.json`
+  const message = `Add ${filepath}`
+  await clone()
+  await pull()
+  await fs.promises.unlink(`${dir}/${filepath}`)
+  await git.add({ fs, dir, filepath })
+  await git.commit({ fs, dir, author: { name, email }, message })
+  await push(token)
+}
