@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Row, Col, Button, Typography, Card, Input, Space } from 'antd'
 import IonIcon from 'components/ionicon'
-import { setCredential } from './utils'
+import { setCredential } from 'helper/credential'
 
 const GithubLogin = () => {
   const [name, setName] = useState('')

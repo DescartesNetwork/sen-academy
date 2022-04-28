@@ -8,8 +8,8 @@ import Editor from './editor'
 
 import Autosave from './autosave'
 import { LanguageType } from 'constant'
-import { getCredential } from 'components/githubLogin/utils'
-import { newPost } from 'view/publisher/utils'
+import { getCredential } from 'helper/credential'
+import { newPost } from 'helper/warehouse'
 import { ArticleData, SingleArticleData } from 'store/warehouse.reducer'
 
 let savingId: NodeJS.Timeout

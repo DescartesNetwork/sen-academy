@@ -3,7 +3,7 @@ import http from 'isomorphic-git/http/web'
 import LightningFS from '@isomorphic-git/lightning-fs'
 
 import configs from 'configs'
-import { GithubCredential } from 'components/githubLogin/utils'
+import { GithubCredential } from 'helper/credential'
 import { ArticleData } from 'store/warehouse.reducer'
 
 const {

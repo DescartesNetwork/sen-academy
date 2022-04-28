@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Card, Col, Image, Row, Space, Typography } from 'antd'
 import PostActions from './postActions'
 
-import { isLoggedIn } from 'components/githubLogin/utils'
+import { isLoggedIn } from 'helper/credential'
 import { PostsData } from 'constant'
 import { AppState } from 'store'
 

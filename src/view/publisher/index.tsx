@@ -7,7 +7,7 @@ import GithubLogin from 'components/githubLogin'
 
 import { allPostIds, randId } from 'view/markdown/autosave'
 import ArticlePreview from './articlePreview'
-import { clearCredential, isLoggedIn } from 'components/githubLogin/utils'
+import { clearCredential, isLoggedIn } from 'helper/credential'
 
 const Publisher = () => {
   const history = useHistory()
