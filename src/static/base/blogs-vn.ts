@@ -1434,7 +1434,7 @@ describe("demo_spl", async () => {
     {
       id: 'dapp-on-solana-1',
       title: 'Bắt tay xây dựng DApp đầu tiên trên Solana (Phần 1)',
-      description: 'Vietnam Web3 Coding Camp',
+      description: 'Xây dựng Solana program cho ứng dụng bỏ phiếu mẫu.',
       content: [
         {
           type: 'normal',
@@ -1776,7 +1776,7 @@ Ok(()) }`,
         </ul>`,
         },
       ],
-      thumbnail: require('../images/posts/pss-thumbnail.png'),
+      thumbnail: require('../images/posts/ds-thumbnail.png'),
       date: 'Tue 26, Apr 2022',
       category: ['blockchain', 'solana'],
       quizButton: {
@@ -1785,6 +1785,254 @@ Ok(()) }`,
       },
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/ISt9W7tYyq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    },
+    {
+      id: 'dapp-on-solana-2',
+      title: 'Bắt tay xây dựng DApp đầu tiên trên Solana (Phần 2)',
+      description:
+        'Phát triển giao diện và kết nối với Solana program cho ứng dụng bỏ phiếu mẫu.',
+      content: [
+        {
+          type: 'normal',
+          text: `<p>Trong <a href="https://academy.sentre.io/#/blogs/dapp-on-solana-1?category=dev">Workshop 1</a>, chúng ta đã hoàn thành Solana program cho hệ thống bỏ phiếu có trọng số. Trong bài này, chúng ta sẽ cùng nhau phát triển giao diện đơn giản cũng như kết nối giao diện đó với Solana program để thực hiện việc giao tiếp cho hệ thống.</p></br>
+        <h2><strong>Building the React App</strong></h2>
+        <p>Trong thư mục gốc của dự án Anchor, tạo một React app mới để ghi đè lên thư mục app hiện có:</p>`,
+        },
+        {
+          type: 'special',
+          text: `npx create-react-app app --template typescript
+cd app`,
+        },
+        {
+          type: 'normal',
+          text: `<p>Tham khảo <a href="https://academy.sentre.io/#/blogs/design-dapp-ui?category=dev">bài số 2</a>và <a href="https://academy.sentre.io/#/blogs/manage-dapp-state?category=dev">bài số 3</a> để cài đặt ứng dụng cũng như các dependencies.</p></br>
+        <h3><strong>Kết nối đến ví</strong></h3>
+        <p>Ở các bài trước, chúng ta đã tìm hiểu về Goki, cách kết nối ví và lưu thông tin ví vào Redux để có thể sử dụng, quản lý một cách hiệu quả. Tương tự như vậy, chúng ta ứng dụng lại vào chương trình và tạo kết nối đến ví người dùng.</p>`,
+        },
+        {
+          type: 'special',
+          text: `// view/app/index.tsx
+import { useCallback, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { useWalletKit, useSolana, useConnectedWallet } from '@gokiprotocol/walletkit'
+
+import { Button, Col, Layout, Row, Typography } from 'antd'
+import ListCandidates from 'view/listCandidates'
+import CandidateCreate from 'view/candidateCreate'
+
+import { setWalletInfo, WalletState } from 'store/wallet.reducer'
+import { AppDispatch } from 'store'
+
+const { Header, Content } = Layout
+
+function App() {
+  const dispatch = useDispatch<AppDispatch>()
+  const wallet = useConnectedWallet()
+  const { connect } = useWalletKit()
+  const { providerMut } = useSolana()
+
+  const fetchWalletInfo = useCallback(async () => {
+    if (!wallet || !providerMut) return
+    // TODO: fetch SOL balance
+    const lamports = await providerMut.connection.getBalance(wallet.publicKey)
+    let walletInfo: WalletState = {
+      walletAddress: wallet.publicKey.toBase58(),
+      balance: lamports,
+    }
+    dispatch(setWalletInfo(walletInfo))
+  }, [providerMut, wallet])
+
+  useEffect(() => {
+    fetchWalletInfo()
+  }, [fetchWalletInfo])
+
+  return (
+    <Layout style={{ height: '100vh' }}>
+      <Header>
+        <Col span={24}>
+          {wallet ? (
+            <Col span={24} style={{ color: 'white' }}>
+              {wallet.publicKey.toBase58()}
+            </Col>
+          ) : (
+            <Button type="primary" style={{ borderRadius: 40 }} onClick={connect}>
+              Connect Wallet
+            </Button>
+          )}
+        </Col>
+      </Header>
+      <Content style={{ padding: 40 }}>
+        <Row gutter={[24, 24]}>
+          <Col span={24}>
+            <Row gutter={[24, 24]}>
+              <Col flex="auto">
+                <Typography.Title>List Candidates</Typography.Title>
+              </Col>
+              <Col>
+                <CandidateCreate />
+              </Col>
+            </Row>
+          </Col>
+          <Col span={24}>
+            <ListCandidates />
+          </Col>
+        </Row>
+      </Content>
+    </Layout>
+  )
+}
+
+export default App`,
+        },
+        {
+          type: 'normal',
+          text: `</br><h3><strong>Giao diện bỏ phiếu</strong></h3>
+    <h4><strong>Danh sách Candidate</strong></h4>
+    <p>Giao diện List candidates thể hiện cách thông tin: <b>candidate</b>, <b>start_date</b>, <b>end_date</b>, …</p>
+    <p class="content-img"><img src="${require('../images/posts/post-6-h1.png')}" /></p>
+    <i>Hình 1. Danh sách các ứng viên vào thông tin bỏ phiếu.</i>
+    <p/></br>
+    <h4><strong>Hàm khởi tạo ứng viên (New candidate)</strong></h4>
+    <p>Giao diện khởi tạo candidate cần các thông tin cơ bản như địa chỉ token để bỏ phiếu, ngày bắt đầu, ngày kết thúc bỏ phiếu.</p>
+    <p class="content-img" style="max-width: 500px"><img src="${require('../images/posts/post-6-h2.png')}" /></p>
+    <i>Hình 2. Giao diện khởi tạo thông tin cho ứng viên.</i><p/></br>
+    <p><strong>Hàm bỏ phiếu (Vote)</strong></p>
+    <p class="content-img" style="max-width: 500px"><img src="${require('../images/posts/post-6-h3.png')}" /></p>
+    <i>Hình 3. Cử tri nhập số lượng tokens để bầu cho ứng viên.</i>
+    <p/></br>
+    <h3><strong>Kết nối đến Solana Program (Smart Contract)</strong></h3>
+    <p>Sao chép tệp <b>target/types/l6.ts</b> vào thư mục <b>app/config</b> và đặt tên <b>idl.ts</b>. Tệp này giúp định nghĩa các giao diện (interface) của Solana program. Nó giúp các chương trình off-chain, có thể là frontend hoặc backend với các ngôn ngữ khác nhau, biết các để giao tiếp với chương trình chạy on-chain. Nếu các bạn đã quen thuộc với Ethereum thì tệp IDL này có ý nghĩa tương đương với ABI.</p>
+    
+    <p>Tiếp đến chúng ta phải tạo file config để định nghĩa kết nối. Cụ thể là mạng <b>devnet</b>.</p>`,
+        },
+        {
+          type: 'special',
+          text: `// app/src/config/index.ts
+import * as anchor from '@project-serum/anchor'
+import { clusterApiUrl } from '@solana/web3.js'
+
+import { IDL } from './idl'
+
+export const DEFAULT_COMMITMENT = 'confirmed'
+export const DEFAULT_CLUSTER = 'devnet'
+export const PROGRAM_ADDRESS = new anchor.web3.PublicKey(
+  'HCoUastFpW7wB9Ue4o4YHy27VTuiJEo7h9hKmhnXDQhD',
+)
+export const NODE_URL = clusterApiUrl(DEFAULT_CLUSTER)
+
+export type CandidateData = {
+  address: string
+  mint: string
+  amount: number
+  startTime: number
+  endTime: number
+}
+
+// Function support
+export const getProvider = (wallet: any) => {
+  const connection = new anchor.web3.Connection(NODE_URL, DEFAULT_COMMITMENT)
+  return new anchor.Provider(connection, wallet, {
+    preflightCommitment: DEFAULT_COMMITMENT,
+  })
+}
+
+export const getProgram = (wallet: any) => {
+  const provider = getProvider(wallet)
+  return new anchor.Program(IDL, PROGRAM_ADDRESS, provider)
+}`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Viết hàm gọi và truyền vào các tham số định nghĩa ở IDL để tạo ứng viên
+        </p>`,
+        },
+        {
+          type: 'special',
+          text: `await program.rpc.initializeCandidate(new anchor.BN(startTime), new anchor.BN(endTime), {
+  accounts: {
+    authority: wallet.publicKey,
+    candidate: candidate.publicKey,
+    treasurer,
+    mint: new anchor.web3.PublicKey(mintAddress),
+    candidateTokenAccount,
+    tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
+    associatedTokenProgram: anchor.utils.token.ASSOCIATED_PROGRAM_ID,
+    systemProgram: anchor.web3.SystemProgram.programId,
+    rent: anchor.web3.SYSVAR_RENT_PUBKEY,
+  },
+  signers: [candidate],
+})
+`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Tạo hàm bỏ phiếu cho ứng viên</p>`,
+        },
+        {
+          type: 'special',
+          text: `await program.rpc.vote(new anchor.BN(amount), {
+    accounts: {
+    authority: wallet.publicKey,
+    candidate: candidatePublicKey,
+    treasurer,
+    mint: candidateData.mint,
+    candidateTokenAccount,
+    ballot,
+    voterTokenAccount: walletTokenAccount,
+    tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
+    associatedTokenProgram: anchor.utils.token.ASSOCIATED_PROGRAM_ID,
+    systemProgram: anchor.web3.SystemProgram.programId,
+    rent: anchor.web3.SYSVAR_RENT_PUBKEY,
+  },
+  signers: [],
+  })`,
+        },
+        {
+          type: 'normal',
+          text: `</br><p>Tạo hàm close vote</p>`,
+        },
+        {
+          type: 'special',
+          text: `await program.rpc.close({
+accounts: {
+  authority: wallet.publicKey,
+  candidate: candidatePublicKey,
+  treasurer,
+  mint: candidateData.mint,
+  candidateTokenAccount,
+  ballot,
+  voterTokenAccount: walletTokenAccount,
+  tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
+  associatedTokenProgram: anchor.utils.token.ASSOCIATED_PROGRAM_ID,
+  systemProgram: anchor.web3.SystemProgram.programId,
+  rent: anchor.web3.SYSVAR_RENT_PUBKEY,
+},
+signers: [],
+})`,
+        },
+        {
+          type: 'normal',
+          text: `</br><h2><strong>Tham khảo</strong></h2>
+        <ul>
+           <li><span>Example repository:<a href="https://github.com/tuphan-dn/evoting-system" target="_blank">https://github.com/tuphan-dn/evoting-system</a></li>
+           <li><span>Blockchain là gì?: <a href="https://academy.sentre.io/#/blogs/what-is-blockchain?category=dev" target="_blank">https://academy.sentre.io/#/blogs/what-is-blockchain?category=dev</a></li>
+           <li><span>Thiết kế giao diện DApp: <a href="https://academy.sentre.io/#/blogs/design-dapp-ui?category=dev" target="_blank">https://academy.sentre.io/#/blogs/design-dapp-ui?category=dev</a></li>
+           <li><span>Quản lý State của Dapp: <a href="https://academy.sentre.io/#/blogs/manage-dapp-state?category=dev" target="_blank">https://academy.sentre.io/#/blogs/manage-dapp-state?category=dev</a></li>
+           <li><span>Viết phần mềm Solana đầu tiên: <a href="https://academy.sentre.io/#/blogs/first-solana-program?category=dev" target="_blank">https://academy.sentre.io/#/blogs/first-solana-program?category=dev</a></li>
+           <li><span>PDA và chuẩn SPLT trong lập trình Solana: <a href="https://academy.sentre.io/#/blogs/pda-and-splt-on-solana?category=dev" target="_blank">https://academy.sentre.io/#/blogs/pda-and-splt-on-solana?category=dev</a></li>
+           <li><span>Xây dựng DApp đầu tiên trên Solana (phần 1): <a href="https://academy.sentre.io/#/blogs/dapp-on-solana-1?category=dev" target="_blank">https://academy.sentre.io/#/blogs/dapp-on-solana-1?category=dev</a></li>
+        </ul>`,
+        },
+      ],
+      thumbnail: require('../images/posts/ds2-thumbnail.png'),
+      date: 'Fri 29, Apr 2022',
+      category: ['blockchain', 'solana'],
+      // quizButton: {
+      //   title: 'Làm bài tập tại đây',
+      //   embedCode: 'qRUQALed',
+      // },
+      // video:
+      //   '<iframe width="560" height="315" src="https://www.youtube.com/embed/ISt9W7tYyq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
   ],
   user: [
