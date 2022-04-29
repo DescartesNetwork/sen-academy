@@ -1433,7 +1433,7 @@ describe("demo_spl", async () => {
     },
     {
       id: 'dapp-on-solana-1',
-      title: 'Bắt tay xây dựng DApp đầu tiên trên Solana (Phần 1)',
+      title: 'Xây dựng Solana DApp đầu tiên (P1)',
       description: 'Xây dựng Solana program cho ứng dụng bỏ phiếu mẫu.',
       content: [
         {
@@ -1788,7 +1788,7 @@ Ok(()) }`,
     },
     {
       id: 'dapp-on-solana-2',
-      title: 'Bắt tay xây dựng DApp đầu tiên trên Solana (Phần 2)',
+      title: 'Xây dựng Solana DApp đầu tiên (P2)',
       description:
         'Phát triển giao diện và kết nối với Solana program cho ứng dụng bỏ phiếu mẫu.',
       content: [
