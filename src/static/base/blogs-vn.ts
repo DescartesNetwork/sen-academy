@@ -2031,8 +2031,8 @@ signers: [],
         title: 'Làm bài tập tại đây',
         embedCode: 'PccTDJqV',
       },
-      // video:
-      //   '<iframe width="560" height="315" src="https://www.youtube.com/embed/ISt9W7tYyq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/RpToXF79OFA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
   ],
   user: [
