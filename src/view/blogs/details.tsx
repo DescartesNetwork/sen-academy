@@ -71,13 +71,13 @@ const Details = () => {
 
   const {
     id,
-    [lang]: { title, content },
+    [lang]: { title, contents },
     thumbnail,
     description,
     createdAt,
     video,
   } = postData
-  console.log(postData, 'post Dataa')
+  console.log(postData, contents, 'post Dataa')
 
   return (
     <Row gutter={[24, 24]} justify="center" style={{ padding: '0 12px' }}>
@@ -112,7 +112,7 @@ const Details = () => {
             </Row>
           </Col>
           <Col span={24} className="post-content">
-            <MarkdownPreview value={content} />
+            <MarkdownPreview value={contents} />
           </Col>
           {/* Button Quiz */}
           <ButtonExercise
