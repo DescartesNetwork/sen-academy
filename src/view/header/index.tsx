@@ -1,6 +1,5 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 
 import { Row, Col, Image, Button } from 'antd'
 import { NavigationButton, NavigationMenu } from './navigation'
@@ -10,19 +9,23 @@ import IonIcon from 'components/ionicon'
 import { LanguageType } from 'constant'
 import { useUI } from 'providers'
 import { setTheme } from 'store/ui.reducer'
-import { AppDispatch } from 'store'
+import { AppDispatch, AppState } from 'store'
 
 import logo from 'static/images/logo/logo.svg'
 import logoDark from 'static/images/logo/logo-dark.svg'
 import './index.less'
+import { setLang } from 'store/i18n.reducer'
+import useTranslations from 'hooks/useTranslations'
 
 const Header = () => {
+  const {
+    i18n: { lang },
+  } = useSelector((state: AppState) => state)
   const dispatch = useDispatch<AppDispatch>()
   const history = useHistory()
   const {
     ui: { width, theme },
   } = useUI()
-  const { i18n } = useTranslation()
 
   const onChangeTheme = (theme: string) => {
     dispatch(setTheme(theme !== 'dark' ? 'dark' : 'light'))
@@ -30,7 +33,7 @@ const Header = () => {
 
   const isMobile = width < 768
   const themeLogo = theme === 'dark' ? logoDark : logo
-  const curLang = i18n.language as LanguageType
+  const curLang = lang
 
   return (
     <Row justify="center">
@@ -55,7 +58,10 @@ const Header = () => {
             />
           </Col>
           <Col>
-            <Language value={curLang} onChange={i18n.changeLanguage} />
+            <Language
+              value={curLang}
+              onChange={(newLang) => dispatch(setLang(newLang))}
+            />
           </Col>
         </Row>
       </Col>

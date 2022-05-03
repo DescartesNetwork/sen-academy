@@ -1,15 +1,15 @@
 import { useCallback, useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 import { Row, Col, Button, Typography, Card, Input, Space } from 'antd'
 import IonIcon from 'components/ionicon'
 import { setCredential } from 'helper/credential'
+import useTranslations from 'hooks/useTranslations'
 
 const GithubLogin = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [token, setToken] = useState('')
-  const { t } = useTranslation()
+  const { t } = useTranslations()
 
   const disabled = useMemo(() => {
     return !name || !email || !token
@@ -28,7 +28,7 @@ const GithubLogin = () => {
           <Space>
             <IonIcon name="person-circle-outline" />
             <Typography.Title level={4}>
-              {t('login.title', { returnObjects: true })}
+              {t.system.login.title}
             </Typography.Title>
           </Space>
         </Col>
@@ -62,12 +62,12 @@ const GithubLogin = () => {
                 onClick={login}
                 block
               >
-                {t('login.loginWithGithub', { returnObjects: true })}
+                {t.system.login.loginWithGithub}
               </Button>
             </Col>
             <Col>
               <Typography.Text style={{ fontSize: 12, color: 'gray' }}>
-                {t('login.adminOnly', { returnObjects: true })}
+                {t.system.login.adminOnly}
               </Typography.Text>
             </Col>
           </Row>

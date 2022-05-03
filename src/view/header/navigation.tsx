@@ -1,20 +1,21 @@
 import { Fragment, useCallback, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 
 import { Button, Drawer, Popover, Space } from 'antd'
 import IonIcon from 'components/ionicon'
 
 import { HEADER_MENU } from 'constant'
+import useTranslations from 'hooks/useTranslations'
 
 export const AboutUs = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslations()
+  if (!t) return null
 
   return (
     <Popover content={'Coming soon'} trigger="click">
       <Button type="text" disabled>
         <Space>
-          <span>{t('menu.aboutUs', { returnObjects: true })}</span>
+          <span>{t.system.menu.aboutUs}</span>
           <IonIcon name="chevron-down" />
         </Space>
       </Button>
@@ -52,7 +53,7 @@ export const NavigationMenu = ({
   direction = 'horizontal',
 }: NavigationMenuProps) => {
   const history = useHistory()
-  const { t } = useTranslation()
+  const { t } = useTranslations()
 
   const onNavigate = useCallback(
     (key: string) => {
@@ -67,7 +68,7 @@ export const NavigationMenu = ({
     <Space direction={direction}>
       {HEADER_MENU.map((key) => (
         <Button type="text" onClick={() => onNavigate(key)} key={key}>
-          {t(`menu.${key}`, { returnObjects: true })}
+          {t.system?.menu[key]}
         </Button>
       ))}
       <AboutUs />

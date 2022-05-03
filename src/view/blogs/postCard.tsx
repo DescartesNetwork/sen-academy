@@ -8,7 +8,7 @@ import { PostsData } from 'constant'
 import { AppState } from 'store'
 
 export type PostCardProps = {
-  data: PostsData
+  data: any
   onClick: (id: string) => void
 }
 
@@ -19,8 +19,16 @@ const HEIGHT_RATIO = 1.777777
 const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
   const {
     ui: { width },
+    i18n: { lang },
   } = useSelector((state: AppState) => state)
-  const { id, title, thumbnail, description, date } = data
+  console.log(data, 'datatatata')
+  const {
+    id,
+    [lang]: { title },
+    thumbnail,
+    description,
+    createdAt,
+  } = data
 
   const isMobile = width < 768
   const elementPaddingCount = width < 992 ? 5 : 8
@@ -62,7 +70,7 @@ const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
         <Col span={24} className="warp-post-card">
           <Space direction="vertical">
             <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-              {date}
+              {new Date(createdAt).toLocaleDateString('en-US')}
             </Typography.Text>
             <Typography.Title level={3} className="warp-post-card-title">
               {title}
