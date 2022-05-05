@@ -4,7 +4,6 @@ import { Card, Col, Image, Row, Space, Typography } from 'antd'
 import PostActions from './postActions'
 
 import { isLoggedIn } from 'helper/credential'
-import { PostsData } from 'constant'
 import { AppState } from 'store'
 
 export type PostCardProps = {
@@ -21,12 +20,10 @@ const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
     ui: { width },
     i18n: { lang },
   } = useSelector((state: AppState) => state)
-  console.log(data, 'datatatata')
   const {
     id,
-    [lang]: { title },
+    [lang]: { title, contents },
     thumbnail,
-    description,
     createdAt,
   } = data
 
@@ -75,8 +72,11 @@ const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
             <Typography.Title level={3} className="warp-post-card-title">
               {title}
             </Typography.Title>
-            <Typography.Text className="warp-post-card-description">
-              {description}
+            <Typography.Text
+              className="warp-post-card-description"
+              style={{ overflowWrap: 'anywhere' }}
+            >
+              {contents.slice(0, 120)}
             </Typography.Text>
           </Space>
         </Col>

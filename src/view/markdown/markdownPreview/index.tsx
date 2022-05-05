@@ -23,7 +23,6 @@ export type PreviewProps = {
 }
 
 const MarkdownPreview = ({ value = '', style = {} }: PreviewProps) => {
-  console.log(value, ' this is a value')
   const {
     ui: { theme },
   } = useSelector((state: AppState) => state)

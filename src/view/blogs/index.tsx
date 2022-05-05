@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
-import LanguageDetector from 'i18next-browser-languagedetector'
 
 import {
   Button,
@@ -17,8 +16,6 @@ import PostCard from './postCard'
 import MakeUpHtml from 'components/makeUpHtml'
 
 import './index.less'
-import { useSelector } from 'react-redux'
-import { AppState } from 'store'
 import useTranslations from 'hooks/useTranslations'
 
 const Blogs = () => {
@@ -112,7 +109,7 @@ const Blogs = () => {
           <Col span={24}>
             <Row gutter={[24, 24]}>
               {renderData?.slice(0, limitPost).map((data, idx) => (
-                <Col xs={24} md={12} lg={8} key={data.title + idx}>
+                <Col xs={24} md={12} lg={8} key={data.id + idx}>
                   <PostCard
                     data={data}
                     onClick={(id) =>
@@ -127,6 +124,7 @@ const Blogs = () => {
             <Button
               className="blogs-btn"
               onClick={() => setPostPerpage(postPerpage + 3)}
+              disabled={postPerpage >= renderData.length}
             >
               {t.system.viewMore}
             </Button>

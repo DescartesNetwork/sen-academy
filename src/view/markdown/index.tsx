@@ -86,7 +86,6 @@ const Markdown = () => {
         description: 'The article has been posted.',
       })
     } catch (er: any) {
-      console.log('go heereee')
       return window.notify({ type: 'error', description: er.message })
     } finally {
       return setLoading(false)

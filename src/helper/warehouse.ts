@@ -74,7 +74,7 @@ export const deletePost = async (
   await clone()
   await pull()
   await fs.promises.unlink(`${dir}/${filepath}`)
-  await git.add({ fs, dir, filepath })
+  await git.remove({ fs, dir, filepath: `${filepath}` })
   await git.commit({ fs, dir, author: { name, email }, message })
   await push(token)
 }
