@@ -1,12 +1,8 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useParams, useHistory } from 'react-router-dom'
-import MarkdownPreview from 'view/markdown/markdownPreview'
-// import {
-//   atelierCaveDark,
-//   atelierCaveLight,
-// } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
+import MarkdownPreview from 'view/markdown/markdownPreview'
 import { Col, Image, Row, Space, Typography } from 'antd'
 import ButtonExercise from 'components/buttonExercise'
 import MakeUpHtml from 'components/makeUpHtml'
@@ -15,6 +11,7 @@ import Category from 'components/category'
 import { asyncWait } from 'helper'
 import { AppState } from 'store'
 import useTranslations from 'hooks/useTranslations'
+import { PostsData } from 'constant'
 
 const META_PROPERTY = 'og:image'
 
@@ -27,19 +24,15 @@ const Details = () => {
   const history = useHistory()
   const { t } = useTranslations()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
-  // const {
-  //   ui: { theme },
-  // } = useSelector((state: AppState) => state)
 
   const blogCat = query.get('category') || ''
   const { postId } = useParams<{ postId: string }>() || ''
 
-  const postsData: any[] = t.post.filter((value: any) => {
-    const lowercaseCat = value.category?.map((a: string) => a.toLowerCase())
-    return lowercaseCat?.includes(blogCat)
+  const postsData: PostsData[] = t.post.filter((value) => {
+    const lowercaseCat = value.category.map((a: string) => a.toLowerCase())
+    return lowercaseCat.includes(blogCat)
   })
   const postData = postsData.find(({ id }) => id === postId)
-  // const syntaxStyle = theme === 'dark' ? atelierCaveLight : atelierCaveDark
 
   const importDependency = useCallback(() => {
     if (!document) return
@@ -97,7 +90,7 @@ const Details = () => {
               </Col>
               <Col>
                 <Space>
-                  {postData?.category.map((tag: any) => (
+                  {postData?.category.map((tag) => (
                     <Category key={tag} tag={tag} />
                   ))}
                   <Typography.Text type="secondary">

@@ -6,16 +6,14 @@ import { NavigationButton, NavigationMenu } from './navigation'
 import Language from 'components/language'
 import IonIcon from 'components/ionicon'
 
-import { LanguageType } from 'constant'
 import { useUI } from 'providers'
 import { setTheme } from 'store/ui.reducer'
 import { AppDispatch, AppState } from 'store'
-
 import logo from 'static/images/logo/logo.svg'
 import logoDark from 'static/images/logo/logo-dark.svg'
-import './index.less'
 import { setLang } from 'store/i18n.reducer'
-import useTranslations from 'hooks/useTranslations'
+
+import './index.less'
 
 const Header = () => {
   const {

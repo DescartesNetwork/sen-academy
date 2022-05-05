@@ -23,7 +23,7 @@ export type ArticleData = Record<LanguageType, SingleArticleData> & {
 }
 export type PageState = Record<string, ArticleData>
 
-export const fetchWarehouse = async () => {
+const fetchWarehouse = async () => {
   try {
     const res = await fetch(source)
     return await res.json()

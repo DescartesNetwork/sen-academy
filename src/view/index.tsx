@@ -15,10 +15,8 @@ import Watcher from './watcher'
 
 import { AppDispatch, AppState } from 'store'
 import { loadWarehouse } from 'store/warehouse.reducer'
-import 'static/base/multilangData'
 import { loadInitialData } from 'store/i18n.reducer'
 import useTranslations from 'hooks/useTranslations'
-//import { useMulilangData } from 'static/base/multilangData'
 
 const App = () => {
   const {
@@ -45,7 +43,7 @@ const App = () => {
     <Layout className="root-bg">
       {/* Translate site description */}
       <Helmet>
-        <title>{t.siteDesc}</title>
+        <title>{t.system.siteDesc}</title>
       </Helmet>
       <Affix>
         <Card

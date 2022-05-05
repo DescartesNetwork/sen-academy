@@ -1,9 +1,10 @@
 import { Image, Menu } from 'antd'
-import useTranslations from 'hooks/useTranslations'
 
+import useTranslations from 'hooks/useTranslations'
 import { LanguageType } from 'constant'
 import flagEn from 'static/images/system/flag-en.svg'
 import flagVn from 'static/images/system/flag-vn.svg'
+
 import './index.less'
 
 const ICON_LANG = {

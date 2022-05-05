@@ -21,19 +21,14 @@ export enum PostContentType {
   special = 'special',
 }
 
-type PostContent = {
-  type: PostContentType
-  text: string
-}
-
 export type PostsData = {
   id: string
-  title: string
-  description: string
-  content: PostContent[]
+  en: { title: string; contents: string }
+  vn: { title: string; contents: string }
   thumbnail: string
-  date: string
+  createdAt: string
   category: string[]
+  updatedAt: string
   quizButton?: EmbedData
   video?: string
 }

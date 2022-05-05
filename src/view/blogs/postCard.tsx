@@ -5,9 +5,10 @@ import PostActions from './postActions'
 
 import { isLoggedIn } from 'helper/credential'
 import { AppState } from 'store'
+import { PostsData } from 'constant'
 
 export type PostCardProps = {
-  data: any
+  data: PostsData
   onClick: (id: string) => void
 }
 

@@ -2,11 +2,11 @@ import { useHistory } from 'react-router-dom'
 
 import { Row, Col, Typography, Space } from 'antd'
 import MakeUpHtml from 'components/makeUpHtml'
-
 import BlockContainer from './blockContainer'
 
-import './index.less'
 import useTranslations from 'hooks/useTranslations'
+
+import './index.less'
 
 const Home = () => {
   const history = useHistory()

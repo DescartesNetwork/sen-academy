@@ -1,30 +1,37 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { defaultLang, supportedLangs } from '../static/base/multilangData'
 
 import { enSystem } from '../static/base/system-en'
 import { vnSystem } from '../static/base/system-vn'
-import { LanguageType } from 'constant'
+import { LanguageType, PostsData } from 'constant'
 
 const NAME = 'i18n'
+
+export const defaultLang = 'en'
+
+export const supportedLangs = {
+  en: 'English',
+  vn: 'VietNam',
+}
+type translationsState = {
+  system: any
+  post: PostsData[]
+}
 type i18nState = {
   lang: LanguageType
   supportedLangs: {}
-  translations: Record<LanguageType, any>
+  translations: Record<LanguageType, translationsState>
 }
 const initialState: i18nState = {
   lang: defaultLang, // "en" when app loads
   supportedLangs: { ...supportedLangs },
-  // We'll keep our translations in Redux to start.
-  // Later on we'll move them to their own files so
-  // that they're easier to manage.
   translations: {
     en: {
       system: enSystem,
-      post: [{ tagline: 'Continuous improvement', ratings: 'Ratings' }],
+      post: [],
     },
     vn: {
       system: vnSystem,
-      post: [{ tagline: 'Ständige Verbesserung', ratings: 'Bewertungen' }],
+      post: [],
     },
   },
 }

@@ -15,8 +15,9 @@ import { BlogTabs, DEFAULT_LIMIT_POST, PostsData, SelectedTabs } from 'constant'
 import PostCard from './postCard'
 import MakeUpHtml from 'components/makeUpHtml'
 
-import './index.less'
 import useTranslations from 'hooks/useTranslations'
+
+import './index.less'
 
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
@@ -28,8 +29,8 @@ const Blogs = () => {
   const blogCat = query.get('category') || ''
 
   const compare = (a: PostsData, b: PostsData) => {
-    const aDate = new Date(a.date)
-    const bDate = new Date(b.date)
+    const aDate = new Date(a.createdAt)
+    const bDate = new Date(b.createdAt)
     if (aDate > bDate) return -1
     if (aDate < bDate) return 1
     return 0
@@ -41,9 +42,9 @@ const Blogs = () => {
   }
 
   const blogTabs: BlogTabs[] = t.system.blogs.tabs
-  const postsData: PostsData[] = t.post.filter((value: any) => {
-    const lowercaseCat = value.category?.map((a: string) => a.toLowerCase())
-    return lowercaseCat?.includes(blogCat)
+  const postsData: PostsData[] = t.post.filter((value) => {
+    const lowercaseCat = value.category.map((a: string) => a.toLowerCase())
+    return lowercaseCat.includes(blogCat)
   })
 
   const filteredData = useMemo(() => {
