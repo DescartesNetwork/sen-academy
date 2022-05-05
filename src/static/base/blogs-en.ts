@@ -1751,6 +1751,339 @@ signers: [],
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/RpToXF79OFA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
+    {
+      id: 'eg-defi',
+      title: 'Những ví dụ kinh điển về DeFi',
+      description:
+        'Phân tích một AMM (Công cụ tạo lập thị trường tự động) và hệ sinh xung quanh nó.',
+      content: [
+        {
+          type: 'normal',
+          text: `<p>Trong bài này, chúng ta sẽ cùng nhau phân tích một sản phẩm DeFi điển hình: đó là <b>Công cụ tạo lập thị trường tự động (Automated Market Maker, hay AMM)</b>, cũng như hệ sinh xung quanh chính nó. Từ đó, bạn đọc sẽ có được một cái nhìn sâu sắc về kỹ thuật cũng như cách phát triển hệ sinh thái cho ý tưởng riêng của mình.</p>
+      <h2><strong>CLOB vs AMM</strong></h2>
+      <p>Bạn có thể ít nhiều đã nghe đến các sàn giao dịch như cổ phiếu hoặc crypto, nơi thanh khoản được tạo ra bởi chính người dùng. Thanh khoản ở đây được hiểu đơn giản như sau: Bạn muốn bán A để lấy B, và trên thị trường đang có nhiều người bán B để lấy A đối ứng. Khi giao dịch của bạn được khớp nhanh chóng với người đối ứng, thì đó là một thị trường thanh khoản tốt. Các hình thức tổ chức giao dịch như vậy được gọi là Central Limit Order Book hay <b>CLOB</b>. Các lệnh mua bán được tạo ra bởi chính người dùng, và việc mua bán diễn ra khi có 2 lệnh khớp nhau. Vấn đề lớn nhất đối với các sàn dạng CLOB là một số tài sản sẽ có thanh khoản kém và gần như không thể thực hiện giao dịch, hoặc giao dịch mất thời gian rất lâu để khớp lệnh đối ứng. AMM được sinh ra nhằm giải quyết vấn đề này.</p>
+      
+      <p><b>AMM</b> định nghĩa sẵn một đường cong giá trị, ví dụ như cặp tài sản A/B. Người dùng được khuyến khích đặt (deposit) tiền vào trong một hồ (pool) chung để tạo thanh khoản cho AMM. Khi ấy, người tham gia sẽ trở thành nhà cung cấp thanh khoản. Khi có một giao dịch được đặt lệnh, ngay lập tức AMM sẽ dựa vào đường cong giá để tính toán lượng tài sản bán ra sẽ là bao nhiêu. Đường cong giá này sẽ đảm bảo tuân thủ theo quy luật cung cầu, cũng như tính công bằng cho cả người cung cấp thanh khoản và người giao dịch. Với mỗi giao dịch, nhà cung cấp thanh khoản sẽ nhận được một khoảng phí nhỏ làm phần thưởng cho thanh khoản họ cung cấp vào. Còn về phía nhà giao dịch, tất cả các lệnh sẽ được giao dịch ngay tức khắc. Như vậy, AMM “giả lập” một thị trường với thanh khoản rất cao.</p></br>
+      <p class="content-img" style="max-width: 800px"><img src="${require('../images/posts/h1-post-8.png')}"/></p>
+      <p><i>Hình 1. So sánh cơ chế giữa CLOB và AMM.</i></p></br>
+      <h2><strong>Đường cong giá trị (Pricing Curve)</strong></h2>
+      <p>Để biểu diễn được quy luật cung cầu, đường cong giá trị nổi tiếng và được sử dụng rộng rãi hiện nay chính là hàm tích hằng (Product Constant Function). Hàm tích hằng được thể hiện như sau:</p>
+      
+      <p><b>Hàm tích hằng.</b> Với một thị trường cho cặp A và B với lượng thanh khoản cho trước là <math display="inline">
+      <msub>
+        <mi>R</mi>
+        <mi>A</mi>
+      </msub>
+    </math> và <math display="inline">
+    <msub>
+      <mi>R</mi>
+      <mi>B</mi>
+    </msub>
+  </math>, tất cả các giao dịch phải tuân theo:</p>
+      
+      <p><math display="block">
+      <msub>
+        <mi>R</mi>
+        <mi>A</mi>
+      </msub>
+      <mo>&#x00D7;<!-- × --></mo>
+      <msub>
+        <mi>R</mi>
+        <mi>B</mi>
+      </msub>
+      <mo>=</mo>
+      <mi>k</mi>
+    </math></p>
+      
+      <p>Giả sử trạng thái hiện tại của thị trường là <math display="inline">
+      <msub>
+        <mi>R</mi>
+        <mi>A</mi>
+      </msub>
+    </math> và có một giao dịch bán A với lượng <math display="inline">
+    <msub>
+      <mi>r</mi>
+      <mi>A</mi>
+    </msub>
+  </math>. Khi này <math display="inline">
+  <msubsup>
+    <mi>R</mi>
+    <mi>A</mi>
+    <mo>&#x2032;</mo>
+  </msubsup>
+  <mo>=</mo>
+  <msub>
+    <mi>R</mi>
+    <mi>A</mi>
+  </msub>
+  <mo>+</mo>
+  <msub>
+    <mi>r</mi>
+    <mi>A</mi>
+  </msub>
+</math> đồng thời phía B sẽ chuyển sang trạng thái mới là <math display="inline">
+<msub>
+  <mi>R'</mi>
+  <mi>B</mi>
+</msub>
+</math> sao cho:</p>
+<math display="block">
+  <msub>
+    <mi>R</mi>
+    <mi>A</mi>
+  </msub>
+  <mo>&#x00D7;<!-- × --></mo>
+  <msub>
+    <mi>R</mi>
+    <mi>B</mi>
+  </msub>
+  <mo>=</mo>
+  <msubsup>
+    <mi>R</mi>
+    <mi>A</mi>
+    <mo>&#x2032;</mo>
+  </msubsup>
+  <mo>&#x00D7;<!-- × --></mo>
+  <msubsup>
+    <mi>R</mi>
+    <mi>B</mi>
+    <mo>&#x2032;</mo>
+  </msubsup>
+  <mo>=</mo>
+  <mi>k</mi>
+</math>
+
+<p>Bằng công thức, chúng ta có thể tính toán được <math display="inline">
+<msub>
+  <mi>R'</mi>
+  <mi>B</mi>
+</msub>
+</math> sau đó tính được lượng <math  display="inline">
+<msub>
+  <mi>r</mi>
+  <mi>b</mi>
+</msub>
+<mo>=</mo>
+<msub>
+  <mi>R</mi>
+  <mi>B</mi>
+</msub>
+<mo>&#x2212;<!-- − --></mo>
+<msubsup>
+  <mi>R</mi>
+  <mi>B</mi>
+  <mo>&#x2032;</mo>
+</msubsup>
+</math> trả ra cho người giao dịch.</p></br>
+<p class="content-img" style="max-width: 800px"><img src="${require('../images/posts/h2-post-8.png')}"/></p>
+<p><i>Hình 2. Đường cong giá trị xy=1.</i></p></br>
+<p><bGiá cả.</b> Gọi giá của thị trường của A và B là p, khi đó <math  display="inline">
+<mi>p</mi>
+<mo>=</mo>
+<msub>
+  <mi>R</mi>
+  <mi>A</mi>
+</msub>
+<mo>&#x00F7;<!-- ÷ --></mo>
+<msub>
+  <mi>R</mi>
+  <mi>B</mi>
+</msub>
+</math></p>
+      
+      <p>Với ví dụ bên trên, khi nhà giao dịch bán A để lấy B, điều đó đồng nghĩa với việc lượng A trong hồ sẽ nhiều hơn và lượng B sẽ ít đi. Lúc này giá cả sau giao dịch sẽ tăng, cụ thể hơn là nhà giao dịch cần nhiều A hơn để mua cùng một lượng B với các giao dịch tiếp theo.</p></br>
+      <h2><strong>Token thanh khoản (Liquidity Provision Token)</strong></h2>
+      <p>Như đã nhắc ở trên, với mỗi giao dịch sẽ có một lượng phí nhỏ được thu và chia lại theo tỷ lệ cho các nhà cung cấp thanh khoản. Vấn đề đặt ra là hệ thống cần tổ chức một cơ chế ghi nhận số lượng thanh khoản mỗi cá nhân đã cung cấp. Cơ chế token hoá (tokenization) hiện tại là giải pháp hữu hiệu nhất. Với mỗi cặp token thanh khoản được cung cấp, nhà cung cấp thanh khoản sẽ được nhận lại một số lượng token thanh khoản (hay còn gọi là LP token) để bảo chứng cho số lượng thanh khoản đã được cung cấp vào AMM.</p>
+      
+      <p><b>Token thanh khoản.</b> Một cá nhân cung cấp thanh khoản với số lượng <math display="inline">
+      <msub>
+        <mi>R</mi>
+        <mi>A</mi>
+      </msub>
+    </math> và <math display="inline">
+    <msub>
+      <mi>R</mi>
+      <mi>B</mi>
+    </msub>
+  </math> cho thị trường, số lượng token thanh khoản nhận lại sẽ là:</p>
+  <math display="block">
+  <mi>L</mi>
+  <mi>P</mi>
+  <mo>=</mo>
+  <msqrt>
+    <msub>
+      <mi>R</mi>
+      <mi>A</mi>
+    </msub>
+    <mo>&#x00D7;<!-- × --></mo>
+    <msub>
+      <mi>R</mi>
+      <mi>B</mi>
+    </msub>
+  </msqrt>
+</math>  
+      <p>Lưu ý ở đây rằng khi cung cấp hoặc rút thanh khoản, giá trị <i>k</i> trong hàm tích hằng phải được thay đổi để phù hợp với trạng thái mới của thanh khoản trong thị trường.</p>
+      
+      <p><bPhái sinh.</b> LP cũng là token có giá trị, khi giá trị của LP được neo với 2 token A và B trong hồ. Do đó, ta có thể xem LP như một sản phẩm phái sinh có thể trao đổi được trong tương lai, tương tự như hợp đồng nợ, hợp đồng quyền chọn, vân vân.</p></br>
+      <h2><strong>Các dạng thức khác của hàm tích hằng</strong></h2>
+      <h3><strong>Hàm tích hằng tổng quát</strong></h3>
+      <p>Hàm tích hằng ở trên chỉ có thể áp dụng cho 2 tài sản trong một hồ, và đặt biệt hai tài sản này phải có tổng giá trị quy đổi ngang bằng nhau. Trong thực tế, nhu cầu về cấu trúc hồ phức tạp hơn rất nhiều như thế khi mà số lượng tài sản có thể là 3, 4 hoặc thậm chí 10. Các hồ lệch cũng cần thiết trong một số tình huống (hồ lệch khi giá trị quy đổi của các tài sản trong hồ là không bằng nhau). Vì vậy, hàm tích hằng tổng quát ra đời nhằm đáp ứng các nhu cầu này.</p>
+      
+      <p><b>Hàm tích hằng tổng quát.</b> Với một thị trường cho nhóm <i>n</i> tài sản <math display="inline">
+      <msub>
+        <mi>A</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mn>1..</mn>
+          <mi>n</mi>
+        </mrow>
+      </msub>
+    </math> với lượng thanh khoản cho trước là <math display="inline">
+    <msub>
+      <mi>R</mi>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mn>1..</mn>
+        <mi>n</mi>
+      </mrow>
+    </msub>
+  </math> tất cả các giao dịch phải tuân theo:</p>
+  <math display="block">
+  <munderover>
+    <mo>&#x2211;<!-- ∑ --></mo>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>i</mi>
+      <mo>=</mo>
+      <mn>1</mn>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>n</mi>
+    </mrow>
+  </munderover>
+  <mrow class="MJX-TeXAtom-ORD">
+    <msubsup>
+      <mi>R</mi>
+      <mi>i</mi>
+      <mrow class="MJX-TeXAtom-ORD">
+        <msub>
+          <mi>&#x03C9;<!-- ω --></mi>
+          <mi>i</mi>
+        </msub>
+      </mrow>
+    </msubsup>
+  </mrow>
+  <mo>=</mo>
+  <mi>k</mi>
+</math> 
+      <p>Trong đó <math display="inline">
+      <msub>
+        <mi>&#x03C9;<!-- ω --></mi>
+        <mi>i</mi>
+      </msub>
+    </math> là trọng số điều chỉnh độ lệch của tài sản trong hồ.</p>
+      
+      <p>So với hàm tích hằng đơn thuần, hàm tích hằng tổng quát cho phép nhiều tài sản cùng xây dựng một hồ. Hơn thế, giá trị quy đổi của các tài sản trong hồ được điều chỉnh thông qua trọng số. Điều này giúp điều chỉnh hồ lại về thế cân bằng theo lý thuyết tính toán.</p>
+      
+      <p><b>Hàm tích hằng khuếch đại.</b> Với một thị trường cho cặp tài sản A và B có giá trị quy đổi không biến thiên hoặc biến thiên rất nhỏ so với nhau, với lượng thanh khoản cho trước là <math display="inline">
+      <msub>
+        <mi>R</mi>
+        <mi>A</mi>
+      </msub>
+    </math> và <math display="inline">
+    <msub>
+      <mi>R</mi>
+      <mi>B</mi>
+    </msub>
+  </math>, tất cả các giao dịch phải tuân theo:</p>
+      
+  <math display="block">
+  <mrow class="MJX-TeXAtom-ORD">
+    <msub>
+      <mi>&#x03B3;<!-- γ --></mi>
+      <mi>A</mi>
+    </msub>
+  </mrow>
+  <mrow class="MJX-TeXAtom-ORD">
+    <msub>
+      <mi>R</mi>
+      <mi>A</mi>
+    </msub>
+  </mrow>
+  <mo>&#x00D7;<!-- × --></mo>
+  <mrow class="MJX-TeXAtom-ORD">
+    <msub>
+      <mi>&#x03B3;<!-- γ --></mi>
+      <mi>B</mi>
+    </msub>
+  </mrow>
+  <mrow class="MJX-TeXAtom-ORD">
+    <msub>
+      <mi>R</mi>
+      <mi>B</mi>
+    </msub>
+  </mrow>
+  <mo>=</mo>
+  <mi>k</mi>
+</math>
+      
+      <p>Trong đó <math display="inline">
+      <msub>
+        <mi>&#x03B3;<!-- γ --></mi>
+        <mi>A</mi>
+      </msub>
+    </math>, <math display="inline">
+    <msub>
+      <mi>&#x03B3;<!-- γ --></mi>
+      <mi>B</mi>
+    </msub>
+  </math> là hệ số khuếch đại trong hồ.</p>
+      
+      <p>Cặp tài sản không biến thiên hoặc biến thiên rất ít thường là các cặp token ổn định (stable token) ví dụ như USDC-USDT đều có giá trị loanh quoanh $1. Nếu ta sử dụng hàm tích hằng đơn thuần, một lượng lớn thanh khoản trải dài trên khoản giá từ $1 đến <math display="inline">
+      <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+    </math> và sẽ hiếm khi được sử dụng đến, gây ra lãng phí thanh khoản. Bằng các hệ số <math display="inline">
+    <mi>&#x03B3;<!-- γ --></mi>
+  </math>, hàm tích hằng khuếch đại sẽ “nén” thanh khoản về vùng giá hiệu quả, là $1 cho ví dụ của cặp USDC-USDT. Nhờ đó thanh khoản được sử dụng hiểu quả và giảm thiểu trượt giá hơn.</p></br>
+      <h2><strong>Lưu ý khi xây dựng chương trình</strong></h2>
+      <h3><strong>Tràn số</strong></h3>
+      <p>Thông thường số lượng token trên Solana được lưu dưới kiểu u64. Nghĩa là các phép tính nhân trong công thức tích hằng chỉ an toàn trên kiểu u128.</p></br>
+      <h3><strong>Làm tròn</strong></h3>
+      <p>Làm tròn quá bán là một lựa chọn đơn giản và phổ biến trong đời sống hằng ngày, nhưng nó lại rất nguy hiểm trong các ứng dụng DeFi. Vì các tính toán trong chương trình trên blockchain đều được ưu tiên tính toán bằng số nguyên, nghĩa là việc làm tròn “không chiến lược” có thể dẫn đến hiện tượng sai lệch và có thể bị tấn công trong một số tình huống nhất định.</p>
+      
+      <p>Hãy cùng quan sát ví dụ sau đây. Trong chương trình hiện đang có 11 token, A và B viết một chương trình chia đôi lượng tài sản này. Theo lẽ dĩ nhiên mỗi người sẽ nhận được 5.5 token. Tuy nhiên vì chương trình thực hiện tính toán dựa trên số nguyên và làm tròn quá bán (hoặc làm tròn lên) nên số token mỗi người sẽ nhận là 6. Tổng cả A và B sẽ là 12 trong khi tài khoản chương trình chỉ có 11. Việc này dẫn đến số tài sản này không thể được rút và khoá vĩnh viễn.</p>
+      
+      <p>Việc xác định chiến lược làm tròn rất quan trọng, bạn đọc cần dựa trên tính chất chương trình của mình để đưa ra quyết định phù hợp nhất.</p></br>
+      <h3><strong>Tấn công Re-Entrancy</strong></h3>
+      <p>Đây là một kiểu tấn công rất phổ biến ở trong lập trình DeFi. Hãy quan sát ví dụ sau, một trương trình thực hiện việc chuyển tiền với các bước như sau:</p>
+      <ul>
+         <li aria-level="1"><span>Bước 1: Kiểm tra số dư</span></li>
+         <li aria-level="1"><span>Bước 2: Chuyển tiền</span></li>
+         <li aria-level="1"><span>Bước 3: Cập nhật số dư mới trong hồ</span></li>
+      </ul>
+      <p>Ở bước 1, việc chuyển tiền được Solana Program của bạn gọi qua SPL Program tuy nhiên “attacker” lại điều hướng sang một Solana Program khác để tiếp tục gọi lại chương trình của bạn. Lúc này, vì bước 2 chưa thực hiện xong nên số dư vẫn chưa được cập nhật. Vì vậy ở lần gọi thứ 2, kiểm tra số dư vẫn cho ra kết quả hợp lệ và tiếp tục thực hiện việc chuyển tiền.</p>
+      
+      <p>Kiểu tấn công trên thường rất phổ biến trên Ethereum do cơ chế gọi hàm fallback. May thay, ở Solana vẫn chưa ghi nhận vụ tấn công nào sử dụng thủ thuật trên, tuy nhiên không vì thế mà khi viết chương trình chúng ta có thể bỏ qua lỗ hổng này.</p></br>
+      <h3><strong>Thiếu kiểm tra account</strong></h3>
+      <p>Thông thường một tài khoản (account) được thuê và định danh bởi rất nhiều thông tin. Ví dụ như một hồ được tạo ra có thể chứa nhiều thông tin về loại token trong hồ. Vì cơ chế không-trạng-thái (stateless), các tài khoản này sẽ được truyền lên bởi người dùng trong giao dịch liên quan. “Attacker” có thể lợi dụng để truyền các tài khoản không chính xác để khai thác lỗ hổng nếu chương trình thiếu đi các cơ chế kiểm tra đầy đủ. Các vụ tấn công nổi tiếng dùng cơ chế này diễn ra gần đây như Cashio, Wormhole, vân vân.</p></br>
+      <h2><strong>Hơn cả một AMM</strong></h2>
+      <p>Như đã đề cập ở trên, LP có thể được xem là sản phẩm phái sinh và có giá trị thực. Các LP này có thể được sử dụng như là đầu vào cho các sản phẩm tài chính khác.</p></br>
+      <h3><strong>Gửi tiết kiệm (Farming, Staking)</strong></h3>
+      <p>Hiện nay có nhiều giao thức cho phép nhà cung cấp thanh khoản khoán LP vào trong một hồ mới nhằm đào hoặc khai thác những token khác. Nhà cung cấp thành khoản có thể sinh ra nhiều lợi nhuận hơn, bên cạnh phí từ các hồ thanh khoản trong AMM.</p></br>
+      <h3><strong>Thế chấp</strong></h3>
+      <p>Ứng dụng tiếp theo của LP có thể được dùng để thế chấp và vay những token khác. Có 2 cơ chế vay khá phổ biến. Một là vay các token có sẵn ví như ETH, wSOL, vân vân. Hai là vay một token ổn định (stable token) - các token này thường có giá trị $1 và được đúc ra tương ứng với lượng LP khoá vào.</p></br>
+      <h3><strong>Quỹ chỉ số</strong></h3>
+      <p>Ở mô hình hàm tích hằng tổng quát, số lượng token có thể nhiều hơn 2. Khi đó LP được xem như một token đại diện cho “rổ” đầu tư. Thay vì mua một token duy nhất, người dùng có thể tham khảo mua một nhóm các token mạnh. Bạn không nhất thiết phải mua từng token một, mà chỉ cần mua LP cho hồ đại diện rổ token bạn muốn.</p></br>
+      <h2><strong>Lời kết</strong></h2>
+      <p>Qua bài viết, hi vọng bạn đọc đã có một cái nhìn tổng quát về AMM cũng như hệ sinh thái xung quanh một giao thức. Để xây dựng một giao thức thành công, các nhà sáng lập không chỉ cần xây dựng một hệ thống tốt, mà còn phải xây dựng một hệ thống có thể kết nối với các sinh thái xung quanh nó để tối đa hoá tài nguyên, cũng như mở rộng quy mô.</p>`,
+        },
+      ],
+      thumbnail: require('../images/posts/defi-thumbnail.png'),
+      date: 'Thu 5, May 2022',
+      category: ['blockchain', 'solana'],
+      quizButton: {
+        title: 'Làm bài tập tại đây',
+        embedCode: 'fRJB2GQg',
+      },
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/D5B2U56T8iY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    },
   ],
   user: [
     {
