@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Button, Col, Input, Modal, Row, Space, Typography } from 'antd'
 import IonIcon from 'components/ionicon'
 import Language from 'components/language'
-import Category from '../../../components/category'
+import Category from 'components/category'
 
 import { LanguageType } from 'constant'
 import { AppState } from 'store'

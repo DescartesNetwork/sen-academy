@@ -24,8 +24,8 @@ const Blogs = () => {
   const [postPerpage, setPostPerpage] = useState(DEFAULT_LIMIT_POST)
   const history = useHistory()
   const { t } = useTranslations()
-  const location = useLocation()
-  const query = useMemo(() => new URLSearchParams(location.search), [location])
+  const { search } = useLocation()
+  const query = useMemo(() => new URLSearchParams(search), [search])
   const blogCat = query.get('category') || ''
 
   const compare = (a: PostsData, b: PostsData) => {
