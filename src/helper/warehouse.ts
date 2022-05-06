@@ -12,7 +12,8 @@ const {
 const dir = '/sen-academy-warehouse'
 const fs = new LightningFS('fs')
 
-export const clone = async () => {
+export const clone = async (force = false) => {
+  if (force) await fs.promises.unlink(dir)
   return await git.clone({
     fs,
     http,
