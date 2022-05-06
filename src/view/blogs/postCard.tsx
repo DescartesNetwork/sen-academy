@@ -4,8 +4,8 @@ import { Card, Col, Image, Row, Space, Typography } from 'antd'
 import PostActions from './postActions'
 
 import { isLoggedIn } from 'helper/credential'
-import { PostsData } from 'constant'
 import { AppState } from 'store'
+import { PostsData } from 'constant'
 
 export type PostCardProps = {
   data: PostsData
@@ -19,8 +19,14 @@ const HEIGHT_RATIO = 1.777777
 const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
   const {
     ui: { width },
+    i18n: { lang },
   } = useSelector((state: AppState) => state)
-  const { id, title, thumbnail, description, date } = data
+  const {
+    id,
+    [lang]: { title, contents },
+    thumbnail,
+    createdAt,
+  } = data
 
   const isMobile = width < 768
   const elementPaddingCount = width < 992 ? 5 : 8
@@ -62,19 +68,22 @@ const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
         <Col span={24} className="warp-post-card">
           <Space direction="vertical">
             <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-              {date}
+              {new Date(createdAt).toLocaleDateString('en-US')}
             </Typography.Text>
             <Typography.Title level={3} className="warp-post-card-title">
               {title}
             </Typography.Title>
-            <Typography.Text className="warp-post-card-description">
-              {description}
+            <Typography.Text
+              className="warp-post-card-description"
+              style={{ overflowWrap: 'anywhere' }}
+            >
+              {contents.slice(0, 120)}
             </Typography.Text>
           </Space>
         </Col>
         {isLoggedIn() ? (
           <Col span={24}>
-            <PostActions />
+            <PostActions postId={id} />
           </Col>
         ) : null}
       </Row>

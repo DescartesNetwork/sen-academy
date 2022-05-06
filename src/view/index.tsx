@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-import { useTranslation } from 'react-i18next'
 
 import { Row, Col, Affix, Card, Layout } from 'antd'
 import Header from './header'
@@ -16,18 +15,24 @@ import Watcher from './watcher'
 
 import { AppDispatch, AppState } from 'store'
 import { loadWarehouse } from 'store/warehouse.reducer'
-import 'static/base/multilangData'
+import { loadInitialData } from 'store/i18n.reducer'
+import useTranslations from 'hooks/useTranslations'
 
 const App = () => {
   const {
     ui: { theme },
+    warehouse,
   } = useSelector((state: AppState) => state)
   const dispatch = useDispatch<AppDispatch>()
-  const { t } = useTranslation()
+  const { t } = useTranslations()
 
   useEffect(() => {
     dispatch(loadWarehouse())
   }, [dispatch])
+
+  useEffect(() => {
+    dispatch(loadInitialData())
+  }, [dispatch, warehouse])
 
   // Load theme
   useEffect(() => {
@@ -38,7 +43,7 @@ const App = () => {
     <Layout className="root-bg">
       {/* Translate site description */}
       <Helmet>
-        <title>{t('siteDesc', { returnObjects: true })}</title>
+        <title>{t.system.siteDesc}</title>
       </Helmet>
       <Affix>
         <Card

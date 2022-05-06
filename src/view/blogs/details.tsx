@@ -1,41 +1,38 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useParams, useHistory } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import {
-  atelierCaveDark,
-  atelierCaveLight,
-} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
+import MarkdownPreview from 'view/markdown/markdownPreview'
 import { Col, Image, Row, Space, Typography } from 'antd'
 import ButtonExercise from 'components/buttonExercise'
 import MakeUpHtml from 'components/makeUpHtml'
 import Category from 'components/category'
 
-import { PostContentType, PostsData } from 'constant'
 import { asyncWait } from 'helper'
 import { AppState } from 'store'
+import useTranslations from 'hooks/useTranslations'
+import { PostsData } from 'constant'
 
 const META_PROPERTY = 'og:image'
 
 const Details = () => {
+  const {
+    i18n: { lang },
+  } = useSelector((state: AppState) => state)
+
   const location = useLocation()
   const history = useHistory()
-  const { t } = useTranslation()
+  const { t } = useTranslations()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
-  const {
-    ui: { theme },
-  } = useSelector((state: AppState) => state)
 
   const blogCat = query.get('category') || ''
   const { postId } = useParams<{ postId: string }>() || ''
 
-  const postsData: PostsData[] = t(`postsData.${blogCat}`, {
-    returnObjects: true,
+  const postsData: PostsData[] = t.post.filter((value) => {
+    const lowercaseCat = value.category.map((a: string) => a.toLowerCase())
+    return lowercaseCat.includes(blogCat)
   })
   const postData = postsData.find(({ id }) => id === postId)
-  const syntaxStyle = theme === 'dark' ? atelierCaveLight : atelierCaveDark
 
   const importDependency = useCallback(() => {
     if (!document) return
@@ -62,6 +59,15 @@ const Details = () => {
     })()
   }, [history, postData])
 
+  if (!postData) return null
+
+  const {
+    [lang]: { title, contents },
+    thumbnail,
+    createdAt,
+    video,
+  } = postData
+
   return (
     <Row gutter={[24, 24]} justify="center" style={{ padding: '0 12px' }}>
       <Col span={24} style={{ maxWidth: 800 }} className="container">
@@ -71,16 +77,16 @@ const Details = () => {
           justify="center"
         >
           <Col span={24} className="post-img">
-            {postData?.video ? (
-              <MakeUpHtml>{postData.video}</MakeUpHtml>
+            {video ? (
+              <MakeUpHtml>{video}</MakeUpHtml>
             ) : (
-              <Image src={postData?.thumbnail} preview={false} />
+              <Image src={thumbnail} preview={false} />
             )}
           </Col>
           <Col span={24}>
             <Row gutter={[12, 12]}>
               <Col span={24}>
-                <Typography.Title level={1}>{postData?.title}</Typography.Title>
+                <Typography.Title level={1}>{title}</Typography.Title>
               </Col>
               <Col>
                 <Space>
@@ -88,29 +94,14 @@ const Details = () => {
                     <Category key={tag} tag={tag} />
                   ))}
                   <Typography.Text type="secondary">
-                    {postData?.date}
+                    {new Date(createdAt).toLocaleDateString('en-US')}
                   </Typography.Text>
                 </Space>
               </Col>
             </Row>
           </Col>
           <Col span={24} className="post-content">
-            {postData?.content?.map((content, idx) => {
-              const { type, text } = content
-              if (type === PostContentType.special)
-                // Return react high light for code content
-                return (
-                  <SyntaxHighlighter
-                    key={idx}
-                    language="react"
-                    style={syntaxStyle}
-                  >
-                    {text}
-                  </SyntaxHighlighter>
-                )
-
-              return <MakeUpHtml key={idx}>{text}</MakeUpHtml>
-            })}
+            <MarkdownPreview value={contents} />
           </Col>
           {/* Button Quiz */}
           <ButtonExercise

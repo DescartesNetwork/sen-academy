@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 
 import {
   Button,
@@ -16,20 +15,22 @@ import { BlogTabs, DEFAULT_LIMIT_POST, PostsData, SelectedTabs } from 'constant'
 import PostCard from './postCard'
 import MakeUpHtml from 'components/makeUpHtml'
 
+import useTranslations from 'hooks/useTranslations'
+
 import './index.less'
 
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
   const [postPerpage, setPostPerpage] = useState(DEFAULT_LIMIT_POST)
   const history = useHistory()
-  const { t } = useTranslation()
+  const { t } = useTranslations()
   const location = useLocation()
   const query = useMemo(() => new URLSearchParams(location.search), [location])
   const blogCat = query.get('category') || ''
 
   const compare = (a: PostsData, b: PostsData) => {
-    const aDate = new Date(a.date)
-    const bDate = new Date(b.date)
+    const aDate = new Date(a.createdAt)
+    const bDate = new Date(b.createdAt)
     if (aDate > bDate) return -1
     if (aDate < bDate) return 1
     return 0
@@ -40,9 +41,10 @@ const Blogs = () => {
     return setPostPerpage(DEFAULT_LIMIT_POST)
   }
 
-  const blogTabs: BlogTabs[] = t('blogs.tabs', { returnObjects: true })
-  const postsData: PostsData[] = t(`postsData.${blogCat}`, {
-    returnObjects: true,
+  const blogTabs: BlogTabs[] = t.system.blogs.tabs
+  const postsData: PostsData[] = t.post.filter((value) => {
+    const lowercaseCat = value.category.map((a: string) => a.toLowerCase())
+    return lowercaseCat.includes(blogCat)
   })
 
   const filteredData = useMemo(() => {
@@ -72,16 +74,12 @@ const Blogs = () => {
             <Space direction="vertical" size={32}>
               <span className="title">
                 <MakeUpHtml>
-                  {t(`banner.subDesc.${blogCat}.title`, {
-                    returnObjects: true,
-                  })}
+                  {t.system.banner.subDesc[blogCat].title}
                 </MakeUpHtml>
               </span>
               <Space direction="vertical">
                 <Typography.Text style={{ fontSize: 20 }} type="secondary">
-                  {t(`banner.subDesc.${blogCat}.label`, {
-                    returnObjects: true,
-                  })}
+                  {t.system.banner.subDesc[blogCat].label}
                 </Typography.Text>
               </Space>
             </Space>
@@ -89,9 +87,7 @@ const Blogs = () => {
           <Col xs={24} md={12} className={blogCat === 'dev' ? 'bg-circle' : ''}>
             <Image
               style={{ position: 'relative', zIndex: 9 }}
-              src={t(`banner.subDesc.${blogCat}.src`, {
-                returnObjects: true,
-              })}
+              src={t.system.banner.subDesc[blogCat].src}
               preview={false}
             />
           </Col>
@@ -114,7 +110,7 @@ const Blogs = () => {
           <Col span={24}>
             <Row gutter={[24, 24]}>
               {renderData?.slice(0, limitPost).map((data, idx) => (
-                <Col xs={24} md={12} lg={8} key={data.title + idx}>
+                <Col xs={24} md={12} lg={8} key={data.id + idx}>
                   <PostCard
                     data={data}
                     onClick={(id) =>
@@ -129,8 +125,9 @@ const Blogs = () => {
             <Button
               className="blogs-btn"
               onClick={() => setPostPerpage(postPerpage + 3)}
+              disabled={postPerpage >= renderData.length}
             >
-              {t('viewMore', { returnObjects: true })}
+              {t.system.viewMore}
             </Button>
           </Col>
         </Row>

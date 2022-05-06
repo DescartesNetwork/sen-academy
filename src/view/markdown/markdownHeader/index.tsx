@@ -1,6 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useTranslation } from 'react-i18next'
 
 import { Button, Col, Input, Modal, Row, Space, Typography } from 'antd'
 import IonIcon from 'components/ionicon'
@@ -9,6 +8,7 @@ import Category from '../../../components/category'
 
 import { LanguageType } from 'constant'
 import { AppState } from 'store'
+import useTranslations from 'hooks/useTranslations'
 
 export type MarkdownHeaderProps = {
   onPublish?: () => void
@@ -44,7 +44,7 @@ const MarkdownHeader = ({
   const {
     ui: { width },
   } = useSelector((state: AppState) => state)
-  const { t } = useTranslation()
+  const { t } = useTranslations()
 
   const isMobile = useMemo(() => width < 768, [width])
   const unsetTag = useCallback(
@@ -69,14 +69,14 @@ const MarkdownHeader = ({
       </Col>
       <Col flex="auto">
         <Input
-          placeholder={t('markdown.title', { returnObjects: true })}
+          placeholder={t.system.markdown.title}
           value={title}
           onChange={(e) => onTitle(e.target.value)}
         />
       </Col>
       <Col>
         <Button type="text" icon={<IonIcon name="trash" />} onClick={onDelete}>
-          {isMobile ? undefined : t('markdown.delete', { returnObjects: true })}
+          {isMobile ? undefined : t.system.markdown.delete}
         </Button>
       </Col>
       <Col>
@@ -87,9 +87,9 @@ const MarkdownHeader = ({
           loading={loading || saving}
         >
           {!isMobile
-            ? t(saving ? 'markdown.saving' : 'markdown.publish', {
-                returnObjects: true,
-              })
+            ? saving
+              ? t.system.markdown.saving
+              : t.system.markdown.publish
             : undefined}
         </Button>
         <Modal
@@ -138,9 +138,7 @@ const MarkdownHeader = ({
             </Col>
             <Col span={24}>
               <Button type="primary" onClick={publish} block>
-                {t(saving ? 'markdown.saving' : 'markdown.publish', {
-                  returnObjects: true,
-                })}
+                {saving ? t.system.markdown.saving : t.system.markdown.publish}
               </Button>
             </Col>
           </Row>
