@@ -26,9 +26,9 @@ export type PostsData = {
   en: { title: string; contents: string }
   vn: { title: string; contents: string }
   thumbnail: string
-  createdAt: string
+  createdAt: number
   category: string[]
-  updatedAt: string
+  updatedAt: number
   quizButton?: EmbedData
   video?: string
 }

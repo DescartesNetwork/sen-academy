@@ -6,8 +6,10 @@ import IonIcon from 'components/ionicon'
 
 import { deletePost } from 'helper/warehouse'
 import { getCredential } from 'helper/credential'
+import { PostsData } from 'constant'
+import Autosave from 'view/markdown/autosave'
 
-const PostActions = ({ postId }: { postId: string }) => {
+const PostActions = ({ postId, data }: { postId: string; data: PostsData }) => {
   const history = useHistory()
   const [loading, setLoading] = useState(false)
   const onDelete = async (e: MouseEvent<HTMLElement>) => {
@@ -27,6 +29,8 @@ const PostActions = ({ postId }: { postId: string }) => {
   }
   const onEdit = (e: MouseEvent<HTMLElement>) => {
     e.stopPropagation()
+    const autosave = new Autosave(postId)
+    autosave.set(data)
     history.push(`/edit/${postId}`)
   }
 
