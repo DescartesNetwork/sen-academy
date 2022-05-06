@@ -48,7 +48,7 @@ export const push = async (token: string) => {
   })
 }
 
-export const newPost = async (
+export const upsetPost = async (
   postId: string,
   data: ArticleData,
   { name, email, token }: GithubCredential,

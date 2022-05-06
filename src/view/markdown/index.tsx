@@ -9,7 +9,7 @@ import Editor from './editor'
 import Autosave from './autosave'
 import { LanguageType } from 'constant'
 import { getCredential } from 'helper/credential'
-import { newPost } from 'helper/warehouse'
+import { upsetPost } from 'helper/warehouse'
 import { ArticleData, SingleArticleData } from 'store/warehouse.reducer'
 
 let savingId: NodeJS.Timeout
@@ -80,7 +80,7 @@ const Markdown = () => {
   const onPublish = useCallback(async () => {
     setLoading(true)
     try {
-      await newPost(postId, data, getCredential())
+      await upsetPost(postId, data, getCredential())
       await window.notify({
         type: 'success',
         description: 'The article has been posted.',
