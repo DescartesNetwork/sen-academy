@@ -71,7 +71,7 @@ export const deletePost = async (
   { name, email, token }: GithubCredential,
 ) => {
   const filepath = `src/${postId}.json`
-  const message = `Add ${filepath}`
+  const message = `Delete ${filepath}`
   await clone()
   await pull()
   await fs.promises.unlink(`${dir}/${filepath}`)
