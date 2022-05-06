@@ -81,16 +81,18 @@ const Markdown = () => {
     setLoading(true)
     try {
       await upsetPost(postId, data, getCredential())
-      await window.notify({
+      autosave.clear()
+      window.notify({
         type: 'success',
         description: 'The article has been posted.',
       })
+      return history.push('/publisher')
     } catch (er: any) {
       return window.notify({ type: 'error', description: er.message })
     } finally {
       return setLoading(false)
     }
-  }, [postId, data])
+  }, [autosave, data, history, postId])
 
   useEffect(() => {
     if (savingId) clearTimeout(savingId)
