@@ -33,15 +33,25 @@ const Language = ({ value = 'en', onChange = () => {} }: LanguageProps) => {
       >
         <Menu.Item
           key="vn"
-          icon={<Image style={{ width: 32 }} src={flagVn} preview={false} />}
-          style={{ marginRight: 8 }}
+          icon={
+            <Image
+              style={{ width: 32, marginRight: 8 }}
+              src={flagVn}
+              preview={false}
+            />
+          }
         >
           <span>{t.system.languages.vn}</span>
         </Menu.Item>
         <Menu.Item
           key="en"
-          icon={<Image style={{ width: 32 }} src={flagEn} preview={false} />}
-          style={{ marginRight: 8 }}
+          icon={
+            <Image
+              style={{ width: 32, marginRight: 8 }}
+              src={flagEn}
+              preview={false}
+            />
+          }
         >
           <span>{t.system.languages.en}</span>
         </Menu.Item>
