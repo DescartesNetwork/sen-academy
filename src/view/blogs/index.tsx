@@ -43,8 +43,10 @@ const Blogs = () => {
 
   const blogTabs: BlogTabs[] = t.system.blogs.tabs
   const postsData: PostsData[] = t.post.filter((value) => {
-    const lowercaseCat = value.category.map((a: string) => a.toLowerCase())
-    return lowercaseCat.includes(blogCat)
+    const lowercaseCats = value.category.map((a: string) => a.toLowerCase())
+    for (let cat of lowercaseCats) {
+      return cat.includes(blogCat)
+    }
   })
 
   const filteredData = useMemo(() => {
