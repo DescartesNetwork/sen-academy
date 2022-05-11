@@ -2146,10 +2146,10 @@ signers: [],
       thumbnail: require('../images/posts/gd-thumbnail.png'),
       date: 'Wed 11, May 2022',
       category: ['blockchain', 'solana'],
-      // quizButton: {
-      //   title: 'Làm bài tập tại đây',
-      //   embedCode: 'fRJB2GQg',
-      // },
+      quizButton: {
+        title: 'Làm bài tập tại đây',
+        embedCode: 'wGMk71C1',
+      },
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/F0KuFQp4z1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
