@@ -35,6 +35,7 @@ const DEFAULT_ARTICLE = (
 const Markdown = () => {
   const [saving, setSaving] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [force, setForce] = useState(false)
   const [language, setLanguage] = useState<LanguageType>('en')
   const { postId } = useParams<{ postId: string }>()
   const autosave = useMemo(() => new Autosave(postId), [postId])
@@ -80,19 +81,24 @@ const Markdown = () => {
   const onPublish = useCallback(async () => {
     setLoading(true)
     try {
-      await upsetPost(postId, data, getCredential())
+      await upsetPost(postId, data, getCredential(), force)
       autosave.clear()
+      setForce(false) // Clear force
       window.notify({
         type: 'success',
         description: 'The article has been posted.',
       })
       return history.push('/publisher')
     } catch (er: any) {
-      return window.notify({ type: 'error', description: er.message })
+      setForce(true) // Force re-clone
+      return window.notify({
+        type: 'error',
+        description: `${er.message} Click again to force it.`,
+      })
     } finally {
       return setLoading(false)
     }
-  }, [autosave, data, history, postId])
+  }, [autosave, data, history, postId, force])
 
   useEffect(() => {
     if (savingId) clearTimeout(savingId)

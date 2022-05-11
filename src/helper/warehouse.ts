@@ -52,10 +52,11 @@ export const upsetPost = async (
   postId: string,
   data: ArticleData,
   { name, email, token }: GithubCredential,
+  force = false,
 ) => {
   const filepath = `src/${postId}.json`
   const message = `Add ${filepath}`
-  await clone()
+  await clone(force)
   await pull()
   await fs.promises.writeFile(
     `${dir}/${filepath}`,
@@ -69,10 +70,11 @@ export const upsetPost = async (
 export const deletePost = async (
   postId: string,
   { name, email, token }: GithubCredential,
+  force = false,
 ) => {
   const filepath = `src/${postId}.json`
   const message = `Delete ${filepath}`
-  await clone()
+  await clone(force)
   await pull()
   await fs.promises.unlink(`${dir}/${filepath}`)
   await git.remove({ fs, dir, filepath })
