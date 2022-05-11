@@ -15,24 +15,17 @@ import Watcher from './watcher'
 
 import { AppDispatch, AppState } from 'store'
 import { loadWarehouse } from 'store/warehouse.reducer'
-import { loadInitialData } from 'store/i18n.reducer'
-import useTranslations from 'hooks/useTranslations'
 
 const App = () => {
   const {
     ui: { theme },
-    warehouse,
+    i18n: { system },
   } = useSelector((state: AppState) => state)
   const dispatch = useDispatch<AppDispatch>()
-  const { t } = useTranslations()
 
   useEffect(() => {
     dispatch(loadWarehouse())
   }, [dispatch])
-
-  useEffect(() => {
-    dispatch(loadInitialData())
-  }, [dispatch, warehouse])
 
   // Load theme
   useEffect(() => {
@@ -43,7 +36,7 @@ const App = () => {
     <Layout className="root-bg">
       {/* Translate site description */}
       <Helmet>
-        <title>{t.system.siteDesc}</title>
+        <title>{system.siteDesc}</title>
       </Helmet>
       <Affix>
         <Card

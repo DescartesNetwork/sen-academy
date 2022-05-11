@@ -5,19 +5,19 @@ import { Row, Col, Image, Button } from 'antd'
 import { NavigationButton, NavigationMenu } from './navigation'
 import Language from 'components/language'
 import IonIcon from 'components/ionicon'
+import { setLanguage } from 'store/i18n.reducer'
 
 import { useUI } from 'providers'
 import { setTheme } from 'store/ui.reducer'
 import { AppDispatch, AppState } from 'store'
 import logo from 'static/images/logo/logo.svg'
 import logoDark from 'static/images/logo/logo-dark.svg'
-import { setLang } from 'store/i18n.reducer'
 
 import './index.less'
 
 const Header = () => {
   const {
-    i18n: { lang },
+    i18n: { language },
   } = useSelector((state: AppState) => state)
   const dispatch = useDispatch<AppDispatch>()
   const history = useHistory()
@@ -31,7 +31,7 @@ const Header = () => {
 
   const isMobile = width < 768
   const themeLogo = theme === 'dark' ? logoDark : logo
-  const curLang = lang
+  const curLang = language
 
   return (
     <Row justify="center">
@@ -58,7 +58,7 @@ const Header = () => {
           <Col>
             <Language
               value={curLang}
-              onChange={(newLang) => dispatch(setLang(newLang))}
+              onChange={(newLang) => dispatch(setLanguage(newLang))}
             />
           </Col>
         </Row>

@@ -5,17 +5,19 @@ import { Button, Drawer, Popover, Space } from 'antd'
 import IonIcon from 'components/ionicon'
 
 import { HEADER_MENU } from 'constant'
-import useTranslations from 'hooks/useTranslations'
+import { useSelector } from 'react-redux'
+import { AppState } from 'store'
 
 export const AboutUs = () => {
-  const { t } = useTranslations()
-  if (!t) return null
+  const {
+    i18n: { system },
+  } = useSelector((state: AppState) => state)
 
   return (
     <Popover content={'Coming soon'} trigger="click">
       <Button type="text" disabled>
         <Space>
-          <span>{t.system.menu.aboutUs}</span>
+          <span>{system.menu.aboutUs}</span>
           <IonIcon name="chevron-down" />
         </Space>
       </Button>
@@ -52,8 +54,10 @@ export type NavigationMenuProps = {
 export const NavigationMenu = ({
   direction = 'horizontal',
 }: NavigationMenuProps) => {
+  const {
+    i18n: { system },
+  } = useSelector((state: AppState) => state)
   const history = useHistory()
-  const { t } = useTranslations()
 
   const onNavigate = useCallback(
     (key: string) => {
@@ -68,7 +72,7 @@ export const NavigationMenu = ({
     <Space direction={direction}>
       {HEADER_MENU.map((key) => (
         <Button type="text" onClick={() => onNavigate(key)} key={key}>
-          {t.system?.menu[key]}
+          {system.menu[key]}
         </Button>
       ))}
       <AboutUs />

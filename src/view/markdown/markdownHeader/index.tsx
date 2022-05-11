@@ -8,7 +8,6 @@ import Category from 'components/category'
 
 import { LanguageType } from 'constant'
 import { AppState } from 'store'
-import useTranslations from 'hooks/useTranslations'
 
 export type MarkdownHeaderProps = {
   onPublish?: () => void
@@ -39,12 +38,14 @@ const MarkdownHeader = ({
   loading = false,
   saving = false,
 }: MarkdownHeaderProps) => {
+  const {
+    i18n: { system },
+  } = useSelector((state: AppState) => state)
   const [visible, setVisible] = useState(false)
   const [tag, setTag] = useState('')
   const {
     ui: { width },
   } = useSelector((state: AppState) => state)
-  const { t } = useTranslations()
 
   const isMobile = useMemo(() => width < 768, [width])
   const unsetTag = useCallback(
@@ -69,14 +70,14 @@ const MarkdownHeader = ({
       </Col>
       <Col flex="auto">
         <Input
-          placeholder={t.system.markdown.title}
+          placeholder={system.markdown.title}
           value={title}
           onChange={(e) => onTitle(e.target.value)}
         />
       </Col>
       <Col>
         <Button type="text" icon={<IonIcon name="trash" />} onClick={onDelete}>
-          {isMobile ? undefined : t.system.markdown.delete}
+          {isMobile ? undefined : system.markdown.delete}
         </Button>
       </Col>
       <Col>
@@ -88,8 +89,8 @@ const MarkdownHeader = ({
         >
           {!isMobile
             ? saving
-              ? t.system.markdown.saving
-              : t.system.markdown.publish
+              ? system.markdown.saving
+              : system.markdown.publish
             : undefined}
         </Button>
         <Modal
@@ -138,7 +139,7 @@ const MarkdownHeader = ({
             </Col>
             <Col span={24}>
               <Button type="primary" onClick={publish} block>
-                {saving ? t.system.markdown.saving : t.system.markdown.publish}
+                {saving ? system.markdown.saving : system.markdown.publish}
               </Button>
             </Col>
           </Row>

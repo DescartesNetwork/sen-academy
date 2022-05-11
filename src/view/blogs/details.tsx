@@ -4,8 +4,6 @@ import { useParams, useHistory } from 'react-router-dom'
 
 import MarkdownPreview from 'view/markdown/markdownPreview'
 import { Col, Image, Row, Space, Typography } from 'antd'
-import ButtonExercise from 'components/buttonExercise'
-import MakeUpHtml from 'components/makeUpHtml'
 import Category from 'components/category'
 
 import { asyncWait } from 'helper'
@@ -20,12 +18,14 @@ const Details = () => {
   } = useSelector((state: AppState) => state)
   const history = useHistory()
   const { postId } = useParams<{ postId: string }>() || ''
+  const postData = usePostData(postId)
+
   const {
     [language]: { title, contents },
     thumbnail,
     createdAt,
     category,
-  } = usePostData(postId)
+  } = postData
 
   const importDependency = useCallback(() => {
     if (!document) return

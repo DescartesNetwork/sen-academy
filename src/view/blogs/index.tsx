@@ -19,16 +19,17 @@ import {
   BlogTabs,
   DEFAULT_LIMIT_POST,
   ALIASES,
-  PostsData,
+  PostData,
   SelectedTabs,
 } from 'constant'
 import { compareAliases } from 'helper'
 import { AppState } from 'store'
 
 import './index.less'
+import { useAllPostData } from 'hooks/useAllPostsData'
 
 const Blogs = () => {
-  const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
+  const [selectedCat, setSelectedCat] = useState<SelectedTabs>(SelectedTabs.all)
   const [postPerpage, setPostPerpage] = useState(DEFAULT_LIMIT_POST)
   const {
     i18n: { system },
@@ -37,6 +38,7 @@ const Blogs = () => {
   const { search } = useLocation()
   const query = useMemo(() => new URLSearchParams(search), [search])
   const blogCat = query.get('category') || ''
+  const posts = useAllPostData()
   const keyCat = useMemo(() => {
     for (let alias in ALIASES) {
       if (alias.includes(blogCat)) return alias[0]
@@ -44,7 +46,7 @@ const Blogs = () => {
     return 'dev'
   }, [blogCat])
 
-  const compare = (a: PostsData, b: PostsData) => {
+  const compare = (a: PostData, b: PostData) => {
     const aDate = new Date(a.createdAt)
     const bDate = new Date(b.createdAt)
     if (aDate > bDate) return -1
@@ -53,25 +55,25 @@ const Blogs = () => {
   }
 
   const onSelectCategory = (e: RadioChangeEvent) => {
-    setSeletecCat(e.target.value)
+    setSelectedCat(e.target.value)
     return setPostPerpage(DEFAULT_LIMIT_POST)
   }
 
   const blogTabs: BlogTabs[] = system.blogs.tabs
-  const postsData: PostsData[] = t.post.filter((value) => {
+  const postsData: PostData[] = posts.filter((value) => {
     return compareAliases(value.category, [blogCat])
   })
 
   const filteredData = useMemo(() => {
     if (!postsData.length) return []
-    return postsData?.filter(({ category }) => category.includes(seletecCat))
-  }, [postsData, seletecCat])
+    return postsData?.filter(({ category }) => category.includes(selectedCat))
+  }, [postsData, selectedCat])
 
   const renderData = useMemo(() => {
-    const nextData = seletecCat === SelectedTabs.all ? postsData : filteredData
+    const nextData = selectedCat === SelectedTabs.all ? postsData : filteredData
     if (!nextData.length) return []
     return nextData?.sort(compare)
-  }, [filteredData, postsData, seletecCat])
+  }, [filteredData, postsData, selectedCat])
 
   const limitPost =
     postPerpage >= renderData?.length ? renderData?.length : postPerpage
@@ -109,7 +111,7 @@ const Blogs = () => {
             <Radio.Group
               onChange={onSelectCategory}
               className="blogs-btn"
-              defaultValue={seletecCat}
+              defaultValue={selectedCat}
             >
               <Space>
                 {blogTabs?.map((tab) => (

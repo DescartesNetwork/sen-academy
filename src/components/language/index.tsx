@@ -1,9 +1,11 @@
 import { Image, Menu } from 'antd'
+import { useSelector } from 'react-redux'
 
-import useTranslations from 'hooks/useTranslations'
 import { LanguageType } from 'constant'
 import flagEn from 'static/images/system/flag-en.svg'
 import flagVn from 'static/images/system/flag-vn.svg'
+
+import { AppState } from 'store'
 
 import './index.less'
 
@@ -18,7 +20,9 @@ export type LanguageProps = {
 }
 
 const Language = ({ value = 'en', onChange = () => {} }: LanguageProps) => {
-  const { t } = useTranslations()
+  const {
+    i18n: { system },
+  } = useSelector((state: AppState) => state)
 
   return (
     <Menu
@@ -41,7 +45,7 @@ const Language = ({ value = 'en', onChange = () => {} }: LanguageProps) => {
             />
           }
         >
-          <span>{t.system.languages.vn}</span>
+          <span>{system.languages.vn}</span>
         </Menu.Item>
         <Menu.Item
           key="en"
@@ -53,7 +57,7 @@ const Language = ({ value = 'en', onChange = () => {} }: LanguageProps) => {
             />
           }
         >
-          <span>{t.system.languages.en}</span>
+          <span>{system.languages.en}</span>
         </Menu.Item>
       </Menu.SubMenu>
     </Menu>

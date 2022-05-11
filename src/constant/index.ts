@@ -14,17 +14,12 @@ export enum SelectedTabs {
   liquidity = 'liquidity',
 }
 
-type EmbedData = {
-  title: string
-  embedCode: string
-}
-
 export enum PostContentType {
   nomarl = 'normal',
   special = 'special',
 }
 
-export type PostsData = {
+export type PostData = {
   id: string
   en: { title: string; contents: string }
   vn: { title: string; contents: string }
@@ -32,8 +27,6 @@ export type PostsData = {
   createdAt: number
   category: string[]
   updatedAt: number
-  quizButton?: EmbedData
-  video?: string
 }
 
 export const DEFAULT_LIMIT_POST = 9

@@ -5,10 +5,10 @@ import PostActions from './postActions'
 
 import { isLoggedIn } from 'helper/credential'
 import { AppState } from 'store'
-import { PostsData } from 'constant'
+import { PostData } from 'constant'
 
 export type PostCardProps = {
-  data: PostsData
+  data: PostData
   onClick: (id: string) => void
 }
 
@@ -19,11 +19,11 @@ const HEIGHT_RATIO = 1.777777
 const PostCard = ({ data, onClick = () => {} }: PostCardProps) => {
   const {
     ui: { width },
-    i18n: { lang },
+    i18n: { language },
   } = useSelector((state: AppState) => state)
   const {
     id,
-    [lang]: { title, contents },
+    [language]: { title, contents },
     thumbnail,
     createdAt,
   } = data
