@@ -37,3 +37,8 @@ export const DEFAULT_LIMIT_POST = 9
 export type BlogCategory = 'user' | 'dev'
 export type BlogTabs = { label: string; key: string }
 export type LanguageType = 'en' | 'vn'
+
+export const ALIASES: Array<string>[] = [
+  ['dev', 'developer', 'develop', 'developers', 'developing'],
+  ['user', 'users'],
+]

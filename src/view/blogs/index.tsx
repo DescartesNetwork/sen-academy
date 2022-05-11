@@ -11,13 +11,20 @@ import {
   Space,
   Typography,
 } from 'antd'
-import { BlogTabs, DEFAULT_LIMIT_POST, PostsData, SelectedTabs } from 'constant'
 import PostCard from './postCard'
 import MakeUpHtml from 'components/makeUpHtml'
 
 import useTranslations from 'hooks/useTranslations'
+import {
+  BlogTabs,
+  DEFAULT_LIMIT_POST,
+  ALIASES,
+  PostsData,
+  SelectedTabs,
+} from 'constant'
 
 import './index.less'
+import { isBelongToCategory } from 'helper'
 
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
@@ -27,6 +34,12 @@ const Blogs = () => {
   const { search } = useLocation()
   const query = useMemo(() => new URLSearchParams(search), [search])
   const blogCat = query.get('category') || ''
+  const keyCat = useMemo(() => {
+    for (let alias in ALIASES) {
+      if (alias.includes(blogCat)) return alias[0]
+    }
+    return 'dev'
+  }, [blogCat])
 
   const compare = (a: PostsData, b: PostsData) => {
     const aDate = new Date(a.createdAt)
@@ -43,10 +56,7 @@ const Blogs = () => {
 
   const blogTabs: BlogTabs[] = t.system.blogs.tabs
   const postsData: PostsData[] = t.post.filter((value) => {
-    const lowercaseCats = value.category.map((a: string) => a.toLowerCase())
-    for (let cat of lowercaseCats) {
-      return cat.includes(blogCat)
-    }
+    return isBelongToCategory(value.category, blogCat)
   })
 
   const filteredData = useMemo(() => {
@@ -76,20 +86,20 @@ const Blogs = () => {
             <Space direction="vertical" size={32}>
               <span className="title">
                 <MakeUpHtml>
-                  {t.system.banner.subDesc[blogCat].title}
+                  {t.system.banner.subDesc[keyCat]?.title}
                 </MakeUpHtml>
               </span>
               <Space direction="vertical">
                 <Typography.Text style={{ fontSize: 20 }} type="secondary">
-                  {t.system.banner.subDesc[blogCat].label}
+                  {t.system.banner.subDesc[keyCat]?.label}
                 </Typography.Text>
               </Space>
             </Space>
           </Col>
-          <Col xs={24} md={12} className={blogCat === 'dev' ? 'bg-circle' : ''}>
+          <Col xs={24} md={12} className={keyCat === 'dev' ? 'bg-circle' : ''}>
             <Image
               style={{ position: 'relative', zIndex: 9 }}
-              src={t.system.banner.subDesc[blogCat].src}
+              src={t.system.banner.subDesc[keyCat]?.src}
               preview={false}
             />
           </Col>
@@ -116,7 +126,7 @@ const Blogs = () => {
                   <PostCard
                     data={data}
                     onClick={(id) =>
-                      history.push(`/blogs/${id}?category=${blogCat}`)
+                      history.push(`/blogs/${id}?category=${keyCat}`)
                     }
                   />
                 </Col>
