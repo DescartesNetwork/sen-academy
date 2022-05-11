@@ -63,7 +63,7 @@ const Publisher = () => {
       <Col span={24}>
         <Row gutter={[24, 24]}>
           {postIds.map((postId) => (
-            <Col xs={24} sm={12} md={8} lg={6} xl={4} key={postId}>
+            <Col xs={24} sm={12} md={8} lg={6} key={postId}>
               <ArticlePreview postId={postId} />
             </Col>
           ))}
