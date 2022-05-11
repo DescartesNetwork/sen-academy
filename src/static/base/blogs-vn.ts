@@ -1414,10 +1414,10 @@ describe("demo_spl", async () => {
           <p>Vậy là các bạn đã hoàn thành việc tìm hiểu về PDA, cách thuê account, tạo PDA và update dữ liệu trên PDA. Hãy xem video hướng dẫn từng bước và để lại bình luận nếu có thắc mắc nhé!</p>
           <h2><strong>Tài liệu tham khảo</strong></h2>
           <ol>
-             <li aria-level="1"><a href="https://spl.solana.com/"><span>https://spl.solana.com/</span></a></li>
-             <li aria-level="1"><a href="https://solanacookbook.com/core-concepts/pdas.html"><span>https://solanacookbook.com/core-concepts/pdas.html</span></a></li>
-             <li aria-level="1"><span>​​</span><a href="https://solana.wiki/zh-cn/docs/account-model/#account-storage"><span>https://solana.wiki/zh-cn/docs/account-model/#account-storage</span></a></li>
-             <li aria-level="1"><a href="https://www.brianfriel.xyz/understanding-program-derived-addresses/"><span>https://www.brianfriel.xyz/understanding-program-derived-addresses/</span></a></li>
+             <li><a href="https://spl.solana.com/"><span>https://spl.solana.com/</span></a></li>
+             <li><a href="https://solanacookbook.com/core-concepts/pdas.html"><span>https://solanacookbook.com/core-concepts/pdas.html</span></a></li>
+             <li><span>​​</span><a href="https://solana.wiki/zh-cn/docs/account-model/#account-storage"><span>https://solana.wiki/zh-cn/docs/account-model/#account-storage</span></a></li>
+             <li><a href="https://www.brianfriel.xyz/understanding-program-derived-addresses/"><span>https://www.brianfriel.xyz/understanding-program-derived-addresses/</span></a></li>
           </ol>`,
         },
       ],
@@ -2336,9 +2336,9 @@ signers: [],
       <h3><strong>Tấn công Re-Entrancy</strong></h3>
       <p>Đây là một kiểu tấn công rất phổ biến ở trong lập trình DeFi. Hãy quan sát ví dụ sau, một trương trình thực hiện việc chuyển tiền với các bước như sau:</p>
       <ul>
-         <li aria-level="1"><span>Bước 1: Kiểm tra số dư</span></li>
-         <li aria-level="1"><span>Bước 2: Chuyển tiền</span></li>
-         <li aria-level="1"><span>Bước 3: Cập nhật số dư mới trong hồ</span></li>
+         <li><span>Bước 1: Kiểm tra số dư</span></li>
+         <li><span>Bước 2: Chuyển tiền</span></li>
+         <li><span>Bước 3: Cập nhật số dư mới trong hồ</span></li>
       </ul>
       <p>Ở bước 1, việc chuyển tiền được Solana Program của bạn gọi qua SPL Program tuy nhiên “attacker” lại điều hướng sang một Solana Program khác để tiếp tục gọi lại chương trình của bạn. Lúc này, vì bước 2 chưa thực hiện xong nên số dư vẫn chưa được cập nhật. Vì vậy ở lần gọi thứ 2, kiểm tra số dư vẫn cho ra kết quả hợp lệ và tiếp tục thực hiện việc chuyển tiền.</p>
       
@@ -2366,6 +2366,75 @@ signers: [],
       },
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/D5B2U56T8iY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    },
+    {
+      id: 'eg-game-defi',
+      title: 'Những ví dụ kinh điển trong GameFi',
+      description:
+        'Nghiên cứu các khía cạnh của Blockchain giúp GameFi đột phá thị trường hiện nay.',
+      content: [
+        {
+          type: 'normal',
+          text: `<p>Khoảng 1-2 năm gần đây, các khái niệm về GameFi, NFT, Metaverse, và mới nhất là SocialFi đã nổi lên và có được rất nhiều sự chú ý từ cộng đồng người dùng cũng như cộng đồng các nhà phát triển. Vậy thực sự công nghệ chuỗi khối đã góp phần xây dựng những thành tố nào để giúp tạo nên bước đột phá trong nền công nghiệp trò chơi hiện nay?</p></br>
+      <h2><strong>Tính sở hữu</strong></h2>
+      <p>Dưới góc nhìn chủ quan của người viết, quyền sở hữu trong một trò chơi có rất nhiều loại tùy vào điều kiện, nhưng người viết sẽ tạm chia thành 4 loại gồm:</p>
+      <ul>
+         <li><b>Sở hữu vật lý</b><span> khi bạn mua đĩa trò chơi hay các thể vật lý của game như thẻ bài.</span></li>
+         <li><b>Sở hữu danh hiệu</b><span> khi bạn tham gia các giải đấu và có vị thứ cao, khi đó bạn có một số đặc quyền cao hơn so với người chơi khác.</span></li>
+         <li><b>Sỡ hữu tài chính</b><span> là quyền đối với các loại tiền tệ hoặc hình thức dùng để thanh toán trong trò chơi của cá nhân.</span></li>
+         <li><b>Sở hữu tài sản</b><span> là quyền đối với các vật phẩm, kể cả nhân vật của cá nhân.</span></li>
+      </ul>
+      <p>Khi được hiện thực trên chuỗi khối, các quyền sở hữu trên sẽ tồn tại vĩnh viễn cùng người chơi, không bị can thiệp bởi bên thứ 3. Điều này hoàn toàn vượt trội so với các trò chơi truyền thống khi tất cả những gì thuộc “quyền sở hữu” của người chơi sẽ bị ảnh hưởng khi nhà phát hành kết thúc vòng đời của trò chơi đó.</p>
+      
+      <p class="content-img" style="max-width: 800px"><img src="${require('../images/posts/h1p9.png')}"/></p>
+      <i>Hình 1. Người chơi sẽ không thể tiếp tục truy cập khi nhà phát triển đóng cửa Khu Vườn Trên Mây.</i>
+      <p/></br>
+      <h3><strong>Fungible Token</strong></h3>
+      <p>Thường được gọi vắn tắt là token. Đây là ví dụ có thể coi là dễ thấy và hiển nhiên nhất khi ứng dụng chuỗi khối vào trò chơi. Công nghệ chuỗi khối cho phép nhà phát triển nhanh chóng triển khai một hệ thống micropayment với đa dạng token. Ngoài việc chấp nhận token cho việc thanh toán trong trò chơi, công nghệ chuỗi khối còn cho phép nhà phát triển mở rộng ra các “vùng lân cận” của trò chơi. Trò chơi có thể dễ dàng ứng dụng hệ thống trên cho các hoạt động như:</p>
+      <ul>
+         <li><span>Mua/Bán vật phẩm trong trò chơi.</span></li>
+         <li><span>Trả phí trong trò chơi (Ví dụ phí lai tạo, phí vào trận, vân vân)</span></li>
+         <li><span>Đăng ký theo dõi/Ủng hộ cho những streamer.</span></li>
+      </ul>
+      <h3><strong>Non Fungible Token</strong></h3>
+      <p>Thường được gọi vắn tắt là NFT. NFT chính là nền tảng giúp kết nối công nghiệp trò chơi và công nghệ chuỗi khối lại với nhau. Giờ đây, các vật phẩm trong trò chơi được “sỡ hữu hoá” bởi người chơi thông qua NFT và có thể dễ dàng trao đổi giữa các người chơi, thậm chí xa hơn nữa là giữa các trò chơi khác nhau.</p>
+      
+      <p>Các NFT này có thể được nhà phát triển phát hành, hoặc cũng có thể là nội dung được người dùng sinh ra thông qua các cơ chế được quy định. Trong The Sandbox, người dùng có thể sử dụng các công cụ để tạo nên vật phẩm và trao đổi chúng dưới dạng NFT. Trong Axie Infinity, người dùng có thể dùng cơ chế lai tạo từ hai “chiến thú” để tạo ra một “chiến thú” con mới.</p>
+      
+      <p class="content-img" style="max-width: 800px"><img src="${require('../images/posts/h2p9.png')}"/></p>
+      <i>Hình 2. Người chơi có thể tự tạo NFT trong The Sandbox.</i><p/></br>
+      
+      <p class="content-img" style="max-width: 800px"><img src="${require('../images/posts/h3p9.png')}"/></p>
+      <i>Hình 3. Cơ chế lai tạo trong Axie Infinity.</i><p/></br>
+      <h2><strong>Tính minh bạch - Chống gian lận.</strong></h2>
+      <sppan>Trong trò chơi truyền thống, vấn đề niềm tin vẫn chưa thật sự được giải quyết. Hãy xem một ví dụ về cơ chế Gacha vô cùng nổi tiếng, gắn liền với trò chơi Genshin Impact. Người chơi có thể dễ dàng thu thập các vật phẩm, nhân vật thông qua việc mở hộp bí mật. Những hộp bí mật này được gắn với các xác suất tương ứng với độ quý hiếm của từng vật phẩm.</p>
+      
+      <p>Vấn đề đặt ra là nếu xác suất này được xác định bởi nhà phát triển và từ máy chủ của nhà phát triển, họ có thể thao túng thuật toán để điều hướng người chơi theo các mục đích khác nhau. Nếu xác suất này được xác định ở phía thiết bị người chơi, khả năng cao người chơi xấu sẽ cố tình chỉnh sửa để đạt xác suất mong muốn. Công nghệ chuỗi khối là giải pháp hoàn hảo cho vấn đề trên. Khi mọi thuật toán xác định xác suất được hiện thực trên chuỗi khối và được giám sát bởi chính nhà phát triển và người chơi, không ai có thể can thiệp vào thuật toán trên để chiếm ưu thế.</p>
+      
+      <p class="content-img" style="max-width: 800px"><img src="${require('../images/posts/h4p9.png')}"/></p>
+      <i>Hình 4. Cơ chế Gacha trong trò chơi Genshin Impact.</i><p/></br>
+      <h2><strong>Tính kế thừa - Không biên giới</strong></h2>
+      <p>Có thể xem đây là hệ quả của Tính sở hữu khi các vật phẩm có thể được duy trì giữa các phiên bản của trò chơi, hoặc được chấp nhận giữa các trò chơi khác nhau. Yếu tố kế thừa thực sự đã tồn tại ở các trò chơi truyền thống từ rất lâu, tuy nhiên các nhà phát triển thường gặp khó khăn trong việc di dời những vật phẩm này giữa các phiên bản hoặc giữa các trò chơi, bởi sự khác nhau giữa công nghệ được áp dụng, mức chi phí lớn, chậm và không thể diễn ra 100%.</p>
+      
+      <p>Công nghệ chuỗi khối, khi tham gia vào hệ thống, sẽ trở thành một trung tâm giúp lưu trữ an toàn và lâu dài hầu hết các tài sản, thông tin trong trò chơi. Nhà phát triển giờ đây chỉ cần dựa trên đó và phát triển tiếp.</p>
+      
+      <p class="content-img" style="max-width: 800px"><img src="${require('../images/posts/h5p9.png')}"/></p>
+      <i>Hình 5. Các trò chơi có thể chia sẻ tài nguyên với nhau.</i><p/></br>
+      <h2><strong>Tính mở rộng - Hạn chế của chuỗi khối</strong></h2>
+      <p>Các giao dịch trên chuỗi khối luôn phải tiêu tốn một lượng chí phí và thời gian nhất định, trong khi đối với một số trò chơi, thời gian thực là yếu tố rất quan trọng. Hiện nay, Solana có thể thực hiện được khối lượng giao dịch lớn với chi phí rẻ trong thời gian ngắn, tuy nhiên vẫn chưa thật sự đủ đáp ứng trong một số trường hợp đặc biết. Vì thế, việc áp dụng công nghệ chuỗi khối vào trò chơi cần được tính toán hợp lý để cân bằng giữa trải nghiệm người chơi và lợi ích đem lại của công nghệ chuỗi khối.</p></br>
+      <h2><strong>Lời kết</strong></h2>
+      <p>Tuy vẫn còn hạn chế, nhưng những ưu điểm mà công nghệ chuỗi khối đem lại cho ngành công nghiệm trò chơi điện tử đang rất tích cực. Bài viết cố gắng cung cấp cho bạn đọc một góc nhìn tổng quan, từ đó giúp bạn có thể chọn lựa những gì phù hợp với chính mình để tham gia vào thị trường, hoặc phát triển những trò chơi vừa có trải nghiệm tuyệt vời, vừa tối đa hoá quyền lợi của người chơi.</p>`,
+        },
+      ],
+      thumbnail: require('../images/posts/gd-thumbnail.png'),
+      date: 'Wed 11, May 2022',
+      category: ['blockchain', 'solana'],
+      // quizButton: {
+      //   title: 'Làm bài tập tại đây',
+      //   embedCode: 'fRJB2GQg',
+      // },
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/F0KuFQp4z1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
   ],
   user: [
