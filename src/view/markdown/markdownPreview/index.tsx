@@ -48,7 +48,7 @@ const MarkdownPreview = ({ value = '', style = {} }: PreviewProps) => {
                   {...props}
                 />
               ) : (
-                <code className="inline-code " {...props}>
+                <code className={`inline-code ${className}`} {...props}>
                   {children}
                 </code>
               )
