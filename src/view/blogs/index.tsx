@@ -22,9 +22,9 @@ import {
   PostsData,
   SelectedTabs,
 } from 'constant'
+import { compareAliases } from 'helper'
 
 import './index.less'
-import { isBelongToCategory } from 'helper'
 
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
@@ -56,7 +56,7 @@ const Blogs = () => {
 
   const blogTabs: BlogTabs[] = t.system.blogs.tabs
   const postsData: PostsData[] = t.post.filter((value) => {
-    return isBelongToCategory(value.category, blogCat)
+    return compareAliases(value.category, [blogCat])
   })
 
   const filteredData = useMemo(() => {

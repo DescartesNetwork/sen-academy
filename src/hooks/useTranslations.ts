@@ -1,19 +1,19 @@
 import { useSelector } from 'react-redux'
 import { AppState } from 'store'
 
-export default function useTranslations() {
-  const lang = useSelector((state: AppState) => state.i18n.lang)
+const useTranslations = () => {
   const {
     i18n: {
+      lang,
       translations: { [lang]: t },
+      supportedLangs,
     },
   } = useSelector((state: AppState) => state)
-  const supportedLangs = useSelector(
-    (state: AppState) => state.i18n.supportedLangs,
-  )
   return {
     t,
     lang,
     supportedLangs,
   }
 }
+
+export default useTranslations

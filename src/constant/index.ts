@@ -40,5 +40,5 @@ export type LanguageType = 'en' | 'vn'
 
 export const ALIASES: Array<string>[] = [
   ['dev', 'developer', 'develop', 'developers', 'developing'],
-  ['user', 'users'],
+  ['user', 'users', 'news', 'newspaper', 'newspapers', 'daily', 'update'],
 ]
