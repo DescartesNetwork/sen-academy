@@ -10,20 +10,22 @@ import Category from 'components/category'
 
 import { asyncWait } from 'helper'
 import { AppState } from 'store'
-import useTranslations from 'hooks/useTranslations'
+import { usePostData } from 'hooks/usePostData'
 
 const META_PROPERTY = 'og:image'
 
 const Details = () => {
   const {
-    i18n: { lang },
+    i18n: { language },
   } = useSelector((state: AppState) => state)
-
   const history = useHistory()
-  const { t } = useTranslations()
   const { postId } = useParams<{ postId: string }>() || ''
-
-  const postData = t.post.find(({ id }) => id === postId)
+  const {
+    [language]: { title, contents },
+    thumbnail,
+    createdAt,
+    category,
+  } = usePostData(postId)
 
   const importDependency = useCallback(() => {
     if (!document) return
@@ -34,10 +36,10 @@ const Details = () => {
       meta.setAttribute('property', META_PROPERTY)
     }
 
-    if (postData?.thumbnail) meta.setAttribute('content', postData?.thumbnail)
+    if (thumbnail) meta.setAttribute('content', thumbnail)
 
     return document.head.prepend(meta)
-  }, [postData?.thumbnail])
+  }, [thumbnail])
 
   useEffect(() => {
     importDependency()
@@ -46,19 +48,11 @@ const Details = () => {
   useEffect(() => {
     ;(async () => {
       await asyncWait(200)
-      if (!postData) return history.push('/home')
+      if (!createdAt) return history.push('/home')
     })()
-  }, [history, postData])
+  }, [history, createdAt])
 
-  if (!postData) return null
-
-  const {
-    [lang]: { title, contents },
-    thumbnail,
-    createdAt,
-    video,
-  } = postData
-
+  if (!createdAt) return null
   return (
     <Row gutter={[24, 24]} justify="center" style={{ padding: '0 12px' }}>
       <Col span={24} style={{ maxWidth: 800 }} className="container">
@@ -68,11 +62,7 @@ const Details = () => {
           justify="center"
         >
           <Col span={24} className="post-img">
-            {video ? (
-              <MakeUpHtml>{video}</MakeUpHtml>
-            ) : (
-              <Image src={thumbnail} preview={false} />
-            )}
+            <Image src={thumbnail} preview={false} />
           </Col>
           <Col span={24}>
             <Row gutter={[12, 12]}>
@@ -81,7 +71,7 @@ const Details = () => {
               </Col>
               <Col>
                 <Space>
-                  {postData?.category.map((tag) => (
+                  {category.map((tag) => (
                     <Category key={tag} tag={tag} />
                   ))}
                   <Typography.Text type="secondary">
@@ -94,11 +84,6 @@ const Details = () => {
           <Col span={24} className="post-content">
             <MarkdownPreview value={contents} />
           </Col>
-          {/* Button Quiz */}
-          <ButtonExercise
-            embedCode={postData?.quizButton?.embedCode}
-            title={postData?.quizButton?.title}
-          />
         </Row>
       </Col>
     </Row>

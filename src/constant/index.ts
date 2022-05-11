@@ -1,3 +1,6 @@
+import { enSystem } from 'static/base/system-en'
+import { vnSystem } from 'static/base/system-vn'
+
 type HeaderMenu = 'home' | 'user' | 'dev' | 'admin'
 export type SubMenu = {
   label: string
@@ -42,3 +45,8 @@ export const ALIASES: Array<string>[] = [
   ['dev', 'developer', 'develop', 'developers', 'developing'],
   ['user', 'users', 'news', 'newspaper', 'newspapers', 'daily', 'update'],
 ]
+
+export const DEFAULT_SYSTEM: Record<LanguageType, any> = {
+  en: enSystem,
+  vn: vnSystem,
+}

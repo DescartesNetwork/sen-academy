@@ -21,7 +21,7 @@ export type ArticleData = Record<LanguageType, SingleArticleData> & {
   thumbnail: string
   category: string[]
 }
-export type PageState = Record<string, ArticleData>
+export type WarehouseState = Record<string, ArticleData>
 
 const fetchWarehouse = async () => {
   try {
@@ -36,8 +36,8 @@ const fetchWarehouse = async () => {
  * Store constructor
  */
 
-const NAME = 'page'
-const initialState: PageState = {}
+const NAME = 'warehouse'
+const initialState: WarehouseState = {}
 
 /**
  * Actions
