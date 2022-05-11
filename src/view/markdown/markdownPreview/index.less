@@ -3,17 +3,34 @@
     border-radius: 8px;
     max-width: 100%;
   }
-  & *:not(h1, h1 *, h2, h2 *, h3, h3 *, pre, pre *, i, i *) {
+  & *:not(h1, h1 *, h2, h2 *, h3, h3 *, pre, pre *, i, i *, em, em *) {
     font-size: 20px;
   }
   h1,
   h1 * {
-    font-size: 34px;
+    font-size: 38px;
+    font-weight: 800 !important;
+  }
+  h2,
+  h2 * {
+    font-size: 30px;
+    font-weight: 500 !important;
+  }
+  h3,
+  h3 * {
+    font-size: 24px;
+    font-weight: 500 !important;
   }
   i,
   i * {
     font-size: 18px;
     font-weight: 300;
+  }
+  em,
+  em * {
+    font-size: 18px;
+    font-weight: 300;
+    color: #a6a7ad;
   }
   pre,
   pre * {
@@ -45,6 +62,10 @@
     i * {
       color: #7a7b85;
     }
+    em,
+    em * {
+      color: #7a7b85;
+    }
   }
 }
 
@@ -52,6 +73,10 @@
   .markdown-preview {
     i,
     i * {
+      color: #a6a7ad;
+    }
+    em,
+    em * {
       color: #a6a7ad;
     }
   }
