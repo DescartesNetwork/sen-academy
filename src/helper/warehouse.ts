@@ -79,5 +79,3 @@ export const deletePost = async (
   await git.commit({ fs, dir, author: { name, email }, message })
   await push(token)
 }
-
-// export const

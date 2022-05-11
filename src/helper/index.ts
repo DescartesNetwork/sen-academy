@@ -29,9 +29,7 @@ export const isBelongToCategory = (categories: string[], blogCat: string) => {
   const lowercaseCats = categories.map((a: string) => a.toLowerCase())
   for (let cat of lowercaseCats) {
     for (let alias in ALIASES) {
-      if (alias?.includes(cat) && alias.includes(blogCat)) {
-        return true
-      }
+      if (alias?.includes(cat) && alias.includes(blogCat)) return true
     }
   }
   return false

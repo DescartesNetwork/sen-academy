@@ -36,9 +36,7 @@ const Blogs = () => {
   const blogCat = query.get('category') || ''
   const keyCat = useMemo(() => {
     for (let alias in ALIASES) {
-      if (alias.includes(blogCat)) {
-        return alias[0]
-      }
+      if (alias.includes(blogCat)) return alias[0]
     }
     return 'dev'
   }, [blogCat])
