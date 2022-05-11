@@ -2368,7 +2368,7 @@ signers: [],
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/D5B2U56T8iY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
     {
-      id: 'eg-game-defi',
+      id: 'eg-gamefi',
       title: 'Những ví dụ kinh điển trong GameFi',
       description:
         'Nghiên cứu các khía cạnh của Blockchain giúp GameFi đột phá thị trường hiện nay.',
