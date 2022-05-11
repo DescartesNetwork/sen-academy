@@ -18,7 +18,7 @@ import useTranslations from 'hooks/useTranslations'
 import {
   BlogTabs,
   DEFAULT_LIMIT_POST,
-  aliases,
+  ALIASES,
   PostsData,
   SelectedTabs,
 } from 'constant'
@@ -34,8 +34,10 @@ const Blogs = () => {
   const query = useMemo(() => new URLSearchParams(search), [search])
   const blogCat = query.get('category') || ''
   const keyCat = useMemo(() => {
-    if (aliases[blogCat]) {
-      return aliases[blogCat][0]
+    for (let i in ALIASES) {
+      if (ALIASES[i].includes(blogCat)) {
+        return ALIASES[i][0]
+      }
     }
     return 'dev'
   }, [blogCat])
@@ -57,8 +59,10 @@ const Blogs = () => {
   const postsData: PostsData[] = t.post.filter((value) => {
     const lowercaseCats = value.category.map((a: string) => a.toLowerCase())
     for (let cat of lowercaseCats) {
-      if (aliases[blogCat]?.includes(cat)) {
-        return true
+      for (let als in ALIASES) {
+        if (ALIASES[als]?.includes(cat) && ALIASES[als].includes(blogCat)) {
+          return true
+        }
       }
     }
     return false

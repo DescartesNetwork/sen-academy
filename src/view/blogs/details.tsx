@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useLocation, useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 import MarkdownPreview from 'view/markdown/markdownPreview'
 import { Col, Image, Row, Space, Typography } from 'antd'
@@ -11,7 +11,6 @@ import Category from 'components/category'
 import { asyncWait } from 'helper'
 import { AppState } from 'store'
 import useTranslations from 'hooks/useTranslations'
-import { PostsData } from 'constant'
 
 const META_PROPERTY = 'og:image'
 
@@ -20,21 +19,11 @@ const Details = () => {
     i18n: { lang },
   } = useSelector((state: AppState) => state)
 
-  const location = useLocation()
   const history = useHistory()
   const { t } = useTranslations()
-  const query = useMemo(() => new URLSearchParams(location.search), [location])
-
-  const blogCat = query.get('category') || ''
   const { postId } = useParams<{ postId: string }>() || ''
 
-  const postsData: PostsData[] = t.post.filter((value) => {
-    const lowercaseCats = value.category.map((a: string) => a.toLowerCase())
-    for (let cat of lowercaseCats) {
-      return cat.includes(blogCat)
-    }
-  })
-  const postData = postsData.find(({ id }) => id === postId)
+  const postData = t.post.find(({ id }) => id === postId)
 
   const importDependency = useCallback(() => {
     if (!document) return
