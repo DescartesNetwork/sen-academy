@@ -38,7 +38,7 @@ export type BlogCategory = 'user' | 'dev'
 export type BlogTabs = { label: string; key: string }
 export type LanguageType = 'en' | 'vn'
 
-export const ALIASES: Record<string, string[]> = {
-  dev: ['dev', 'developer', 'develop', 'developers', 'developing'],
-  user: ['user', 'users'],
-}
+export const ALIASES: Array<string>[] = [
+  ['dev', 'developer', 'develop', 'developers', 'developing'],
+  ['user', 'users'],
+]

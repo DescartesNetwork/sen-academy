@@ -24,6 +24,7 @@ import {
 } from 'constant'
 
 import './index.less'
+import { isBelongToCategory } from 'helper'
 
 const Blogs = () => {
   const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
@@ -34,9 +35,9 @@ const Blogs = () => {
   const query = useMemo(() => new URLSearchParams(search), [search])
   const blogCat = query.get('category') || ''
   const keyCat = useMemo(() => {
-    for (let i in ALIASES) {
-      if (ALIASES[i].includes(blogCat)) {
-        return ALIASES[i][0]
+    for (let alias in ALIASES) {
+      if (alias.includes(blogCat)) {
+        return alias[0]
       }
     }
     return 'dev'
@@ -57,15 +58,7 @@ const Blogs = () => {
 
   const blogTabs: BlogTabs[] = t.system.blogs.tabs
   const postsData: PostsData[] = t.post.filter((value) => {
-    const lowercaseCats = value.category.map((a: string) => a.toLowerCase())
-    for (let cat of lowercaseCats) {
-      for (let als in ALIASES) {
-        if (ALIASES[als]?.includes(cat) && ALIASES[als].includes(blogCat)) {
-          return true
-        }
-      }
-    }
-    return false
+    return isBelongToCategory(value.category, blogCat)
   })
 
   const filteredData = useMemo(() => {
