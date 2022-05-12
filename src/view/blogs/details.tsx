@@ -14,7 +14,7 @@ const META_PROPERTY = 'og:image'
 
 const Details = () => {
   const {
-    i18n: { language },
+    i18n: { language, system },
   } = useSelector((state: AppState) => state)
   const history = useHistory()
   const { postId } = useParams<{ postId: string }>() || ''
@@ -44,6 +44,11 @@ const Details = () => {
   useEffect(() => {
     importDependency()
   }, [importDependency])
+
+  useEffect(() => {
+    document.title = title
+    return () => (document.title = system.siteDesc)
+  }, [system.siteDesc, title])
 
   useEffect(() => {
     ;(async () => {
