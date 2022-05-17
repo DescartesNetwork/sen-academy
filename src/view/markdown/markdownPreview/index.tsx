@@ -9,6 +9,7 @@ import debounceRender from 'react-debounce-render'
 import { Row, Col } from 'antd'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import ReactMarkdown from 'react-markdown'
+import { Helmet } from 'react-helmet'
 
 import './index.less'
 import 'katex/dist/katex.min.css'
@@ -55,6 +56,11 @@ const MarkdownPreview = ({ value = '', style = {} }: PreviewProps) => {
                 </code>
               )
             },
+            script: ({ node, ...props }) => (
+              <Helmet>
+                <script {...props} />
+              </Helmet>
+            ),
           }}
         >
           {value}
