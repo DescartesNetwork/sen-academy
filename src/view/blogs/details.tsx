@@ -2,9 +2,9 @@ import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 
-import MarkdownPreview from 'view/markdown/markdownPreview'
 import { Col, Image, Row, Space, Typography } from 'antd'
 import Category from 'components/category'
+import MarkdownPreview from 'view/markdown/markdownPreview'
 
 import { asyncWait } from 'helper'
 import { AppState } from 'store'
