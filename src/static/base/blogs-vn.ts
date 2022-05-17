@@ -2436,6 +2436,374 @@ signers: [],
       video:
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/F0KuFQp4z1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     },
+    {
+      id: 'eg-prifi',
+      title: 'Những ví dụ kinh điển trong PriFi',
+      description:
+        'Nghiên cứu ứng dụng của PriFi qua việc xây dựng bản mẫu cho một máy trộn trên Solana.',
+      content: [
+        {
+          type: 'normal',
+          text: `<p>Privacy Finance (PriFi) hay Tài chính “Riêng tư” là một khái niệm rất mới, bắt đầu nở rộ trong những năm gần đây. Thực chất, tính riêng tư trong tài chính phi tập trung đã hình thành từ khá sớm cùng với sự hình thành của công nghệ chuỗi khối. Dash (1/2014), Moreno (4/2014), ZCash (10/2016) là những chuỗi khối được sinh ra nhằm bảo vệ thông tin giao dịch và quyền riêng tư cho người dùng. Trong đó, Dash sử dụng mixnet để làm rối giao dịch, còn Moreno và Zcash sử dụng zero-knowledge proof để giấu số dư nhưng vẫn giữ nguyên tính sở hữu của giao dịch. Với động lực phát triển của DeFi, PriFi đang dần quay trở lại như một “lớp riêng tư” (Privacy Layer) bổ sung cho thị trường hiện có. Ví dụ nổi tiếng nhất là Tornado.cash (12/2019) trên mạng Ethereum, và Blender.io cho đồng tiền Bitcoin.</p>
+
+      <p>Trong bài này, chúng ta sẽ thử xây dựng bản mẫu cho một máy trộn trên Solana. (Lưu ý, các phép tính trên hệ mật mã sẽ được dự kiến triển khai trong phiên bản 1.11.0, các phiên bản cũ hơn sẽ không thể hoàn thành bản mẫu được đề xuất trong bài.)</p></br>
+      <h2><strong>Nền tảng về mật mã</strong></h2>
+      <h3><strong>Hệ mã Đường cong Elliptic</strong></h3></br>
+      <p class="content-img"><img src="${require('../images/posts/h1p10.png')}"/></p>
+     <p><i>Hình 1: Đường cong Elliptic và phép toán cộng 2 điểm trên đường cong.</i></p></br>
+      
+      <p>Đường cong Elliptic có phương trình dạng <math display="inline">
+      <mi>y</mi>
+      <mo>=</mo>
+      <mrow class="MJX-TeXAtom-ORD">
+        <msup>
+          <mi>x</mi>
+          <mn>3</mn>
+        </msup>
+      </mrow>
+      <mo>+</mo>
+      <mi>a</mi>
+      <mi>x</mi>
+      <mo>+</mo>
+      <mi>b</mi>
+    </math> với phép toán cộng 2 điểm được xác định như sau: Cho <strong>P</strong> và <strong>Q</strong> là 2 điểm trên đường cong,  <strong>R= P + Q</strong> khi đó <strong>R</strong> là điểm đối xứng qua trục hoành với giao điểm của đường cong Elliptic và đường thẳng qua <strong>P</strong> và <strong>Q</strong>. Nếu giao điểm trên không tồn tại, tổng được xác định bằng 0.</p>
+      
+      <p>Như một hệ quả, phép nhân <b>nP</b> chính là biểu diễn của phép cộng <b>n</b> lần <b>P</b>.</p></br>
+      <h3><strong>Độ khó</strong></h3>
+      <p>Độ khó chính là nền tảng cho sự hình thành của mọi hệ mật mã. Trong Đường cong Elliptic, việc cho 2 điểm ngẫu nhiên <b>P</b> và <b>Q</b> và tìm <b>n</b> sao cho <b>nP = Q</b> được xem là một vấn đề khó, hiện không có thuật toán tối ưu nào giải được trong một khoảng thời gian khả thi.</p>
+      
+      <p>Tuy việc tìm <b>n</b> rất khó nhưng việc kiểm tra <b>n</b> sao cho <b>nP = Q</b> lại rất nhanh và đơn giản. Từ tính chất trên, các giao thức về bảo mật được xây dựng, trong đó có thể kể đến hàm băm Pedersen,<a href="https://en.wikipedia.org/wiki/Elliptic-curve_cryptography">khoá công khai</a>, <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm">chữ ký số</a>, <a href="https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman"><span>khoá trao đổi</a>, vân vân.</p></br>
+      <h3><strong>Phép đồng cấu</strong></h3>
+      <p>Gọi <math display="inline">
+      <mi>f</mi>
+      <mo stretchy="false">(</mo>
+      <mi>x</mi>
+      <mo stretchy="false">)</mo>
+      <mo>=</mo>
+      <mi>x</mi>
+      <mi>G</mi>
+    </math> trong đó <b>G</b> là điểm sinh trên một đường cong Elliptic (nói một cách dễ hiểu, <b>G</b> là điểm được quy định sẵn). Vì <math display="inline">
+    <mi>f</mi>
+    <mo stretchy="false">(</mo>
+    <mi>x</mi>
+    <mo>+</mo>
+    <mi>y</mi>
+    <mo stretchy="false">)</mo>
+    <mo>=</mo>
+    <mi>f</mi>
+    <mo stretchy="false">(</mo>
+    <mi>x</mi>
+    <mo stretchy="false">)</mo>
+    <mo>+</mo>
+    <mi>f</mi>
+    <mo stretchy="false">(</mo>
+    <mi>y</mi>
+    <mo stretchy="false">)</mo>
+  </math> nên <b>f</b> được gọi là một phép đồng cấu. Vậy phép nhân số nguyên (hoặc phần tử trong tập hữu hạn) được xem là một phép đồng cấu cho đường cong Elliptic khi <math display="inline">
+  <mo stretchy="false">(</mo>
+  <mi>x</mi>
+  <mo>+</mo>
+  <mi>y</mi>
+  <mo stretchy="false">)</mo>
+  <mi>G</mi>
+  <mo>=</mo>
+  <mi>x</mi>
+  <mi>G</mi>
+  <mo>+</mo>
+  <mi>y</mi>
+  <mi>G</mi>
+</math>.</p>
+      
+      <p>Ngoài ra, ta cũng thấy một tính chất của hàm <math display="inline">
+      <mi>f</mi>
+      <mo stretchy="false">(</mo>
+      <mi>x</mi>
+      <mo stretchy="false">)</mo>
+      <mo>=</mo>
+      <mi>x</mi>
+      <mi>G</mi>
+    </math> trong đường cong Elliptic là <math display="inline">
+    <mi>y</mi>
+    <mo>&#x22C5;<!-- ⋅ --></mo>
+    <mi>f</mi>
+    <mo stretchy="false">(</mo>
+    <mi>x</mi>
+    <mo stretchy="false">)</mo>
+    <mo>=</mo>
+    <mi>x</mi>
+    <mo>&#x22C5;<!-- ⋅ --></mo>
+    <mi>f</mi>
+    <mo stretchy="false">(</mo>
+    <mi>y</mi>
+    <mo stretchy="false">)</mo>
+  </math>.</p></br>
+      <h2><strong>Ý tưởng về máy trộn giao dịch</strong></h2>
+      <p>Ý tưởng về máy trộn được xây dựng dựa trên một hình thức trò chơi giải đố. Giả sử Alice tạo nên một câu đố <b>Q</b> và gửi kèm cùng một số lượng <math display="inline">
+      <mi>&#x03B1;<!-- α --></mi>
+    </math> token lên chương trình trên chuỗi khối. Nhiệm vụ của chương trình này là kiểm tra nếu bất kỳ ai có câu trả lời <b>A</b> thoả mãn <b>Q</b> sẽ được nhận <math display="inline">
+    <mi>&#x03B1;<!-- α --></mi>
+  </math>. Câu đố đặt ra phải được xác định là một vấn đề khó, chỉ có Alice, hoặc Bob, người được Alice tiết lộ câu trả lời <b>A</b> mới có thể giải đố và nhận về <math display="inline">
+  <mi>&#x03B1;<!-- α --></mi>
+</math>.</p>
+      
+      <p>Tuy nhiên, liên kết giữa người gửi và người nhận vẫn chưa thật sự được cắt đứt khi Alice có liên kết với <b>Q</b>,<b>Q</b> lại liên kết với <b>A</b>, và <b>A</b> lại liên kết với Bob. Rốt cuộc vẫn là Alice gửi tiền cho Bob. Để cắt đứt liên kết này, chúng ta phải cắt đứt liên kết giữ <b>Q</b> và <b>A</b> bằng một cơ chế trộn.</p></br>
+      <p class="content-img"><img src="${require('../images/posts/h2p10.png')}"/></p>
+      <p><i>Hình 2. Máy trộn giúp cắt đứt liên hệ giữa Q và A trong khi vẫn đảm bảo chính xác quá trình kiểm tra.</i></p></br>
+      <h2><strong>Hiện thực máy trộn</strong></h2></br>
+      <p class="content-img"><img src="${require('../images/posts/h3p10.png')}"/></p>
+      <p><i>Hình 3. Mô tả cơ chế trộn của một vòng trộn cho 3 câu đố.</i></p></br>
+      
+      <p><b>Câu đố</b> Với đường cong Elliptic và điểm G được quy định chung, cho <b>P</b> là một điểm trên đường cong, xác định <math display="inline">
+      <mi>x</mi>
+    </math> sao cho <math display="inline">
+    <mi>P</mi>
+    <mo>=</mo>
+    <mi>x</mi>
+    <mi>G</mi>
+  </math>.</p>
+      
+      <p>Để sinh ra một câu đố như trên, Alice lấy ngẫu nhiên một giá trị <math display="inline">
+      <mi>x</mi>
+    </math> , tính <math display="inline">
+    <mi>P</mi>
+    <mo>=</mo>
+    <mi>x</mi>
+    <mi>G</mi>
+  </math> và gửi <b>P</b> cùng với ví dụ 1 SOL, lên chương trình kiểm chứng.</p>
+      
+      <p><b>Cơ chế trộn. </b>Phép trộn được thực hiện lặp lại nhiều vòng cho tập hợp các câu đố <b>[P]</b>, và ở mỗi vòng các bước thực hiện là như nhau. Cho <b>n</b> máy trộn <math  display="inline">
+      <msub>
+        <mi>M</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mn>0...</mn>
+          <mi>n</mi>
+          <mo>&#x2212;<!-- − --></mo>
+          <msup>
+            <mn>1</mn>
+            <mo>&#x2032;</mo>
+          </msup>
+        </mrow>
+      </msub>
+    </math>, và một phép hoán vị, vòng trộn thứ <b>j</b> được diễn ra như sau:</p>
+      <ol>
+         <li><span>Mỗi máy trộn <math display="inline">
+         <msub>
+           <mi>M</mi>
+           <mi>i</mi>
+         </msub>
+       </math> chọn một giá trị ngẫu nhiên <math  display="inline">
+       <msub>
+         <mi>M</mi>
+         <mrow class="MJX-TeXAtom-ORD">
+           <msup>
+             <mi>i</mi>
+             <mo>&#x2032;</mo>
+           </msup>
+         </mrow>
+       </msub>
+     </math>, sau đó tính toán và nộp giá trị <math display="inline">
+     <mo stretchy="false">[</mo>
+     <mi>P</mi>
+     <msub>
+       <mo stretchy="false">]</mo>
+       <mi>j</mi>
+     </msub>
+     <mo>=</mo>
+     <mi>&#x03C0;<!-- π --></mi>
+     <mo stretchy="false">(</mo>
+     <mrow class="MJX-TeXAtom-ORD">
+       <msub>
+         <mi>z</mi>
+         <mi>i</mi>
+       </msub>
+     </mrow>
+     <mrow class="MJX-TeXAtom-ORD">
+       <mo stretchy="false">[</mo>
+       <mi>P</mi>
+       <msub>
+         <mo stretchy="false">]</mo>
+         <mrow class="MJX-TeXAtom-ORD">
+           <mi>j</mi>
+           <mo>&#x2212;<!-- − --></mo>
+           <mn>1</mn>
+         </mrow>
+       </msub>
+     </mrow>
+     <mo stretchy="false">)</mo>
+   </math> và <math  display="inline">
+   <msub>
+     <mi>G</mi>
+     <mi>j</mi>
+   </msub>
+   <mo>=</mo>
+   <mrow class="MJX-TeXAtom-ORD">
+     <msub>
+       <mi>z</mi>
+       <mi>i</mi>
+     </msub>
+   </mrow>
+   <mrow class="MJX-TeXAtom-ORD">
+     <msub>
+       <mi>G</mi>
+       <mrow class="MJX-TeXAtom-ORD">
+         <mi>j</mi>
+         <mo>&#x2212;<!-- − --></mo>
+         <mn>1</mn>
+       </mrow>
+     </msub>
+   </mrow>
+ </math> cùng với một số tiền cọc, ví dụ 10 SOL, lên chương trình kiểm chứng. Trong đó <math display="inline">
+ <msub>
+   <mi>G</mi>
+   <mn>0</mn>
+ </msub>
+ <mo>=</mo>
+ <mi>G</mi>
+</math> và <math display="inline">
+<msub>
+  <mi>[P]</mi>
+  <mn>0</mn>
+</msub>
+<mo>=</mo>
+<mi>[P]</mi>
+</math>.</span></li>
+         <li><span>Máy kiếm chứng sẽ chọn ngẫu nhiên một máy trộn và chấp nhận giá trị nộp từ máy trộn đó: <math display="inline">
+         <mo stretchy="false">[</mo>
+         <mi>P</mi>
+         <msub>
+           <mo stretchy="false">]</mo>
+           <mi>j</mi>
+         </msub>
+         <mo>=</mo>
+         <mi>&#x03C0;<!-- π --></mi>
+         <mo stretchy="false">(</mo>
+         <mrow class="MJX-TeXAtom-ORD">
+           <msub>
+             <mi>z</mi>
+             <mi>i</mi>
+           </msub>
+         </mrow>
+         <mrow class="MJX-TeXAtom-ORD">
+           <mo stretchy="false">[</mo>
+           <mi>P</mi>
+           <msub>
+             <mo stretchy="false">]</mo>
+             <mi>j</mi>
+           </msub>
+           <mo>&#x2212;<!-- − --></mo>
+           <mn>1</mn>
+         </mrow>
+         <mo stretchy="false">)</mo>
+         <mo>,</mo>
+         <mrow class="MJX-TeXAtom-ORD">
+           <msub>
+             <mi>G</mi>
+             <mi>j</mi>
+           </msub>
+         </mrow>
+         <mo>=</mo>
+         <mrow class="MJX-TeXAtom-ORD">
+           <msub>
+             <mi>z</mi>
+             <mi>i</mi>
+           </msub>
+         </mrow>
+         <mrow class="MJX-TeXAtom-ORD">
+           <msub>
+             <mi>G</mi>
+             <mrow class="MJX-TeXAtom-ORD">
+               <mi>j</mi>
+               <mo>&#x2212;<!-- − --></mo>
+               <mn>1</mn>
+             </mrow>
+           </msub>
+         </mrow>
+       </math>.</span></li>
+         <li><span>Tất cả các máy trộn không được chọn phải tiết lộ giá trị <b>z</b> để chứng minh không ứng xử sai trong các bước trước và lấy lại 10 SOL.</span></li>
+      </ol>
+      <p>Ta thấy bằng cách nhân với <math display="inline">
+      <mi>z</mi>
+    </math> cũng như hoán vị bởi <math display="inline">
+    <mi>&#x03C0;<!-- π --></mi>
+  </math>, vị trí của các câu hỏi đã bị thay đổi và không thể truy vết. Tuy nhiên câu trả lời vẫn không thay đổi vì <math display="inline">
+      <mi>P</mi>
+      <mo>=</mo>
+      <mi>x</mi>
+      <mi>G</mi>
+      <mo stretchy="false">&#x21D4;<!-- ⇔ --></mo>
+      <mi>z</mi>
+      <mi>P</mi>
+      <mo>=</mo>
+      <mi>x</mi>
+      <mi>z</mi>
+      <mi>G</mi>
+    </math>. Càng nhiều vòng trộn được diễn ra, càng khó truy vết được giao dịch gốc.</p>
+      
+      <p>Ngoài ra, các máy trộn cũng bị triệt tiêu động cơ làm sai khi mà ở xác suất bị phát hiện và mất khoảng cọc là rất cao.</p>
+      
+      <p><b>Hoàn tiền.</b> Sau khi trải qua <math display="inline">
+      <mi>k</mi>
+    </math> lần trộn và đủ an toàn, người dùng có thể dùng <math display="inline">
+    <mi>x</mi>
+  </math> để lần lượt kiểm tra <math display="inline">
+  <msub>
+    <mi>P</mi>
+    <mi>k</mi>
+  </msub>
+</math> nào tương ứng với <math display="inline">
+  <mi>k</mi>
+</math>. Nộp <math display="inline">
+<mo stretchy="false">(</mo>
+<mi>x</mi>
+<mo>,</mo>
+<msub>
+  <mi>P</mi>
+  <mi>k</mi>
+</msub>
+<mo stretchy="false">)</mo>
+</math> lên chương trình và nhận lại 1 SOL.</p></br>
+      <h2><strong>Thiết kế hệ thống</strong></h2>
+      <p><b>Hồ câu đố.</b> Tương tự như Tonardo.cash, hệ thống sẽ có các hồ 0.1 SOL, 1 SOL, 10 SOL, 100 SOL, 1000 SOL. Các câu đố sẽ được phân loại vào hồ tương ứng dựa trên lựa SOL được chuyển. Giả sử Alice muốn chuyển 10.1 SOL, Alice phải tạo 2 cấu đố <math display="inline">
+      <msub>
+        <mi>P</mi>
+        <mn>1</mn>
+      </msub>
+    </math>, <math display="inline">
+    <msub>
+      <mi>P</mi>
+      <mn>2</mn>
+    </msub>
+  </math>, trong đó <math display="inline">
+  <msub>
+    <mi>P</mi>
+    <mn>1</mn>
+  </msub>
+</math> sẽ vào hồ 0.1 SOL và <math display="inline">
+<msub>
+  <mi>P</mi>
+  <mn>2</mn>
+</msub>
+</math> sẽ vào 10 SOL.</p>
+      
+      <p><b>Cụm Trộn.</b> Để tham gia vào cụm máy trộn, các máy trộn đơn lẻ phải cọc tiền. Khi hệ thống một máy trộn cố tình gian lận, khoảng tiền cọc này sẽ bị tịch thu như 1 khoản phạt. Mỗi hồ sẽ có một cụm trộn để thực hiện việc trộn.</p>
+      
+      <p><b>Phí.</b> Khi nhận tiền về, người dùng phải trả một khoản phí, ví dụ 0.0005 SOL, cho hồ tương ứng. Định kỳ khoảng phí này sẽ được chia lại cho các máy trộn trong cụm trộn.</p></br>
+      <p class="content-img"><img src="${require('../images/posts/h4p10.png')}"/></p>
+      <p><i>Hình 4: Hệ thống máy trộn và mô hình phí.</i></p></br></br>
+      <h2><strong>Lời kết</strong></h2>
+      <p>Hệ thống máy trộn trên dựa nhiều vào ý tưởng <a href="https://en.wikipedia.org/wiki/Mix_network"> mixnet</a>, trong khi Tornado.cash dựa nhiều vào <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof">zero-knowledge proof</a>, tuy vậy cả hai vẫn đạt được mục tiêu xoá vết giữa người gửi và người nhận. Zero-knowledge proof gần như không yêu cầu cụm máy trộn, tuy nhiên đòi hỏi khối lượng tính toán lớn hơn. Mixnet thì ngược lại khi khối lượng tính toán đơn giản nhưng yêu cầu cụm máy trộn để thực hiện các bước cần thiết.</p>`,
+        },
+      ],
+      thumbnail: require('../images/posts/pf-thumbnail.png'),
+      date: 'Tue 17, May 2022',
+      category: ['blockchain', 'solana'],
+      // quizButton: {
+      //   title: 'Làm bài tập tại đây',
+      //   embedCode: 'wGMk71C1',
+      // },
+      video:
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/vbGo5YfeTiI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    },
   ],
   user: [
     {

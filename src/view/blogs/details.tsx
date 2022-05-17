@@ -7,6 +7,7 @@ import {
   atelierCaveDark,
   atelierCaveLight,
 } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { MathJax, MathJaxContext } from 'better-react-mathjax'
 
 import { Col, Image, Row, Space, Typography } from 'antd'
 import PostTags from './postTags'
@@ -18,6 +19,21 @@ import { asyncWait } from 'helper'
 import { AppState } from 'store'
 
 const META_PROPERTY = 'og:image'
+
+const config = {
+  loader: { load: ['[tex]/html'] },
+  tex: {
+    packages: { '[+]': ['html'] },
+    inlineMath: [
+      ['$', '$'],
+      ['\\(', '\\)'],
+    ],
+    displayMath: [
+      ['$$', '$$'],
+      ['\\[', '\\]'],
+    ],
+  },
+}
 
 const Details = () => {
   const location = useLocation()
@@ -107,7 +123,13 @@ const Details = () => {
                   </SyntaxHighlighter>
                 )
 
-              return <MakeUpHtml key={idx}>{text}</MakeUpHtml>
+              return (
+                <MathJaxContext version={3} config={config}>
+                  <MathJax hideUntilTypeset={'first'}>
+                    <MakeUpHtml key={idx}>{text}</MakeUpHtml>
+                  </MathJax>
+                </MathJaxContext>
+              )
             })}
           </Col>
           {/* Button Quiz */}
