@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
+import debounceRender from 'react-debounce-render'
 
 import { Row, Col } from 'antd'
 import SyntaxHighlighter from 'react-syntax-highlighter'
@@ -62,4 +63,4 @@ const MarkdownPreview = ({ value = '', style = {} }: PreviewProps) => {
   )
 }
 
-export default MarkdownPreview
+export default debounceRender(MarkdownPreview, 500)
