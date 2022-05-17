@@ -37,9 +37,9 @@ const MarkdownPreview = ({ value = '', style = {} }: PreviewProps) => {
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={{
-            code({ node, className, children, ...props }) {
+            code({ node, className, children, inline, ...props }) {
               const match = /language-(\w+)/.exec(className || '')
-              return match ? (
+              return !inline && match ? (
                 <SyntaxHighlighter
                   children={String(children).replace(/\n$/, '')}
                   style={syntaxStyle}

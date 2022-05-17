@@ -14,23 +14,10 @@
     }
   }
 }
-.post-img {
-  .sen-academy-image,
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  iframe {
-    width: 100%;
-    height: calc(100vw * 1.1 / 4);
-    @media (max-width: 1200px) {
-      height: calc(100vw * 1.5 / 4);
-    }
-    @media (max-width: 880px) {
-      height: calc(100vw * 2.03 / 4);
-    }
-  }
+.banner-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 .content-img {
   border-radius: 8px;
@@ -106,8 +93,11 @@
     margin-bottom: 6px !important;
   }
   table {
-    tbody, td,th {
-      border: 1px solid; padding: 4px 12px;
+    tbody,
+    td,
+    th {
+      border: 1px solid;
+      padding: 4px 12px;
     }
     tr {
       border-bottom: 1px solid;

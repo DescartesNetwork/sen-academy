@@ -66,8 +66,8 @@ const Details = () => {
           style={{ paddingTop: 70, paddingBottom: 70 }}
           justify="center"
         >
-          <Col span={24} className="post-img">
-            <Image src={thumbnail} preview={false} />
+          <Col span={24}>
+            <Image className="banner-img" src={thumbnail} preview={false} />
           </Col>
           <Col span={24}>
             <Row gutter={[12, 12]}>
