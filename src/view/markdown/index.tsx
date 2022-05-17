@@ -12,6 +12,7 @@ import { getCredential } from 'helper/credential'
 import { upsetPost } from 'helper/warehouse'
 import { ArticleData, SingleArticleData } from 'store/warehouse.reducer'
 
+const HEIGHT = 332
 let savingId: NodeJS.Timeout
 const DEFAULT_SINGLE_ARTICLE = (
   partialData: Partial<SingleArticleData> = {},
@@ -134,13 +135,16 @@ const Markdown = () => {
             defaultValue={defaultContents}
             value={contents}
             onChange={setContents}
-            height="calc(100vh - 276px)"
+            height={`calc(100vh - ${HEIGHT}px)`}
           />
         </Col>
         <Col xs={24} md={12}>
           <Preview
             value={contents}
-            style={{ height: 'calc(100vh - 220px)', overflow: 'auto' }}
+            style={{
+              height: `calc(100vh - ${HEIGHT - 56}px)`,
+              overflow: 'auto',
+            }}
           />
         </Col>
       </Row>
