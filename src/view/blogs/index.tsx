@@ -47,8 +47,8 @@ const Blogs = () => {
   }, [blogCat])
 
   const compare = (a: PostData, b: PostData) => {
-    const aDate = new Date(a.createdAt)
-    const bDate = new Date(b.createdAt)
+    const aDate = new Date(a.updatedAt)
+    const bDate = new Date(b.updatedAt)
     if (aDate > bDate) return -1
     if (aDate < bDate) return 1
     return 0

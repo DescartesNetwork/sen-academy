@@ -56,6 +56,10 @@ export const vnSystem = {
         label: 'Blockchain',
         key: 'blockchain',
       },
+      {
+        label: 'Web3 Camp',
+        key: 'web3camp',
+      },
     ],
   },
   languages: {

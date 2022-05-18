@@ -44,7 +44,7 @@ const MarkdownPreview = ({ value = '', style = {} }: PreviewProps) => {
                 <SyntaxHighlighter
                   children={String(children).replace(/\n$/, '')}
                   style={syntaxStyle}
-                  customStyle={{ borderRadius: 8 }}
+                  customStyle={{ borderRadius: 8, marginBottom: 16 }}
                   language={match[1]}
                   PreTag="div"
                   showLineNumbers

@@ -29,6 +29,7 @@ const Editor = ({
       hideIcons: ['side-by-side', 'preview'],
       minHeight: height,
       maxHeight: height,
+      spellChecker: false,
     })
     easyMDE.codemirror.on('change', () => {
       const value = easyMDE?.value() || ''
