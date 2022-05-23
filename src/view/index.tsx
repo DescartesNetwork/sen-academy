@@ -26,9 +26,6 @@ const App = () => {
     document.body.setAttribute('id', theme)
   }, [theme])
 
-  // @ts-ignore
-  console.log('Academy:', window.sentre)
-
   return (
     <Layout className="root-bg">
       {/* Translate site description */}
