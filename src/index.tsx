@@ -1,11 +1,10 @@
-import React from 'react'
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
 import { HashRouter } from 'react-router-dom'
 
 import { ConfigProvider } from 'antd'
 import App from './view'
-import { UIProvider } from 'providerd'
+import { UIProvider } from 'providers'
 
 import reportWebVitals from './reportWebVitals'
 import store from 'store'

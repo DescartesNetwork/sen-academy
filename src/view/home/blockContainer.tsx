@@ -1,5 +1,5 @@
 import { Button, Col, Image, Row, RowProps, Space, Typography } from 'antd'
-import { useUI } from 'providerd'
+import { useUI } from 'providers'
 
 type BlockProps = {
   imgUrl: string
