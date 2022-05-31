@@ -38,9 +38,7 @@ const MarkdownHeader = ({
   loading = false,
   saving = false,
 }: MarkdownHeaderProps) => {
-  const {
-    i18n: { system },
-  } = useSelector((state: AppState) => state)
+  const { system } = useSelector((state: AppState) => state.i18n)
   const [visible, setVisible] = useState(false)
   const [tag, setTag] = useState('')
   const {

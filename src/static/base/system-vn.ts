@@ -74,6 +74,9 @@ export const vnSystem = {
     title: 'Tiêu đề',
     publish: 'Xuất bản',
     delete: 'Xoá',
+    edit: 'Chỉnh sửa',
     saving: 'Đang lưu',
+    cancel: 'Huỷ',
+    confirm: 'Xác nhận',
   },
 }

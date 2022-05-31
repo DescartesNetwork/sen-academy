@@ -73,6 +73,9 @@ export const enSystem = {
     title: 'Title',
     publish: 'Publish',
     delete: 'Delete',
+    edit: 'Edit',
     saving: 'Saving',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
   },
 }
