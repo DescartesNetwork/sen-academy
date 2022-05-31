@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { Button, Col, Input, Modal, Row, Space, Typography } from 'antd'
-import IonIcon from 'components/ionicon'
+import IonIcon from '@sentre/antd-ionicon'
 import Language from 'components/language'
 import Category from 'components/category'
 

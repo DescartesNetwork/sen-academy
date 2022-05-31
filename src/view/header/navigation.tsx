@@ -2,7 +2,7 @@ import { Fragment, useCallback, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { Button, Drawer, Popover, Space } from 'antd'
-import IonIcon from 'components/ionicon'
+import IonIcon from '@sentre/antd-ionicon'
 
 import { HEADER_MENU } from 'constant'
 import { useSelector } from 'react-redux'

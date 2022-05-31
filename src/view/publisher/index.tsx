@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { Button, Col, Row, Typography } from 'antd'
-import IonIcon from 'components/ionicon'
+import IonIcon from '@sentre/antd-ionicon'
 import GithubLogin from 'components/githubLogin'
 
 import { allPostIds, randId } from 'view/markdown/autosave'

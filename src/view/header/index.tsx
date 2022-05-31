@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { Row, Col, Image, Button } from 'antd'
 import { NavigationButton, NavigationMenu } from './navigation'
 import Language from 'components/language'
-import IonIcon from 'components/ionicon'
+import IonIcon from '@sentre/antd-ionicon'
 import { setLanguage } from 'store/i18n.reducer'
 
 import { useUI } from 'providers'

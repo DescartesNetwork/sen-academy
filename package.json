@@ -5,6 +5,7 @@
   "dependencies": {
     "@isomorphic-git/lightning-fs": "^4.6.0",
     "@reduxjs/toolkit": "^1.8.0",
+    "@sentre/antd-ionicon": "^1.0.14",
     "@typeform/embed-react": "^1.13.0",
     "antd": "^4.18.2",
     "easymde": "^2.16.1",

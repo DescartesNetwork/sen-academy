@@ -1,5 +1,5 @@
 import { Tag } from 'antd'
-import IonIcon from 'components/ionicon'
+import IonIcon from '@sentre/antd-ionicon'
 
 import { randomColor } from 'helper'
 

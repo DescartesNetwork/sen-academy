@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { Button, Col, Modal, Row, Typography } from 'antd'
-import IonIcon from 'components/ionicon'
+import IonIcon from '@sentre/antd-ionicon'
 
 import { deletePost } from 'helper/warehouse'
 import { getCredential } from 'helper/credential'
