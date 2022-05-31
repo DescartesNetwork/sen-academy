@@ -1,15 +1,17 @@
 require('dotenv-cra').config() // https://github.com/gsoft-inc/craco/issues/180
 
-const { CracoLessPlugin } = require('./plugins/craco-less')
-const CracoTheme = require('./plugins/craco-theme')
-const CracoWasm = require('./plugins/craco-wasm')
-const CracoSilence = require('./plugins/craco-silence')
-const CracoCompatibility = require('./plugins/craco-compatibility')
+const {
+  CracoAppLessPlugin,
+  CracoTheme,
+  CracoWasm,
+  CracoSilence,
+  CracoCompatibility,
+} = require('@sentre/craco-plugins')
 
 module.exports = {
   plugins: [
     {
-      plugin: CracoLessPlugin,
+      plugin: CracoAppLessPlugin,
       options: {
         lessLoaderOptions: {
           lessOptions: {

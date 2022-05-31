@@ -9,17 +9,11 @@ import { useSelector } from 'react-redux'
 import { AppState } from 'store'
 
 export const AboutUs = () => {
-  const {
-    i18n: { system },
-  } = useSelector((state: AppState) => state)
-
+  const { system } = useSelector((state: AppState) => state.i18n)
   return (
     <Popover content={'Coming soon'} trigger="click">
-      <Button type="text" disabled>
-        <Space>
-          <span>{system.menu.aboutUs}</span>
-          <IonIcon name="chevron-down" />
-        </Space>
+      <Button type="text" icon={<IonIcon name="chevron-down" />} disabled>
+        {system.menu.aboutUs}
       </Button>
     </Popover>
   )
