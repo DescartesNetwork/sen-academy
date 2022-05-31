@@ -5,7 +5,7 @@
   "dependencies": {
     "@isomorphic-git/lightning-fs": "^4.6.0",
     "@reduxjs/toolkit": "^1.8.0",
-    "@sentre/antd-ionicon": "^1.0.14",
+    "@sentre/antd-ionicon": "^1.0.15",
     "antd": "^4.18.2",
     "easymde": "^2.16.1",
     "isomorphic-git": "^1.17.1",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.4.0",
-    "@sentre/craco-plugins": "^1.0.14",
+    "@sentre/craco-plugins": "^1.0.15",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -61,7 +61,6 @@
     "@types/react-helmet": "^6.1.5",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-syntax-highlighter": "^13.5.2",
-    "buffer": "^6.0.3",
     "gh-pages": "^3.2.3",
     "react-scripts": "^5.0.0",
     "typescript": "^4.6.3"
