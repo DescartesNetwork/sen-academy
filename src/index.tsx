@@ -4,7 +4,6 @@ import { HashRouter } from 'react-router-dom'
 
 import { ConfigProvider } from 'antd'
 import App from './view'
-import { UIProvider } from 'providers'
 
 import reportWebVitals from './reportWebVitals'
 import store from 'store'
@@ -14,13 +13,11 @@ import 'static/styles/dark.less'
 
 ReactDOM.render(
   <Provider store={store}>
-    <UIProvider antd>
-      <HashRouter>
-        <ConfigProvider prefixCls={'sen-academy'}>
-          <App />
-        </ConfigProvider>
-      </HashRouter>
-    </UIProvider>
+    <HashRouter>
+      <ConfigProvider prefixCls={'sen-academy'}>
+        <App />
+      </ConfigProvider>
+    </HashRouter>
   </Provider>,
   document.getElementById('root'),
 )

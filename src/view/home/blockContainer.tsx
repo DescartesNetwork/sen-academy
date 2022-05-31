@@ -1,5 +1,8 @@
+import { useSelector } from 'react-redux'
+
 import { Button, Col, Image, Row, RowProps, Space, Typography } from 'antd'
-import { useUI } from 'providers'
+
+import { AppState } from 'store'
 
 type BlockProps = {
   imgUrl: string
@@ -26,9 +29,7 @@ const BlockContainer = ({
   onClick = () => {},
   ...rest
 }: BlockProps) => {
-  const {
-    ui: { width },
-  } = useUI()
+  const { width } = useSelector((state: AppState) => state.ui)
 
   const isMobile = width < MAX_WIDTH_MOBILE
   const firstElm = floatRight ? 'first' : 'sec'
