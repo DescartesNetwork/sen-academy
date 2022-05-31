@@ -1,6 +1,9 @@
 import { Button, Col, Image, Row, Space, Typography } from 'antd'
-import { useUI } from 'providerd'
+import { useSelector } from 'react-redux'
 
+import { AppState } from 'store'
+
+import './index.less'
 import youtube from 'static/images/social/yt.svg'
 import facebook from 'static/images/social/fb.svg'
 import discord from 'static/images/social/dc.svg'
@@ -9,8 +12,6 @@ import telegram from 'static/images/social/te.svg'
 import medium from 'static/images/social/me.svg'
 import footerLogo from 'static/images/logo/ft-logo.svg'
 import footerLogoDark from 'static/images/logo/ft-logo-dark.svg'
-
-import './index.less'
 
 const SOCIAL_MEDIA = [
   {
@@ -25,9 +26,7 @@ const SOCIAL_MEDIA = [
 ]
 
 const Footer = () => {
-  const {
-    ui: { width, theme },
-  } = useUI()
+  const { width, theme } = useSelector((state: AppState) => state.ui)
 
   const isMobile = width < 768
   const themeLogo = theme === 'dark' ? footerLogoDark : footerLogo

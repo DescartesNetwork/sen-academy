@@ -2,7 +2,7 @@ import { Fragment, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { notification } from 'antd'
-import IonIcon from 'components/ionicon'
+import IonIcon from '@sentre/antd-ionicon'
 
 import { AppDispatch } from 'store'
 import { resize } from 'store/ui.reducer'

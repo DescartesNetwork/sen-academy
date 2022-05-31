@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 
 import {
   Button,
@@ -12,49 +12,66 @@ import {
   Space,
   Typography,
 } from 'antd'
-import { BlogTabs, DEFAULT_LIMIT_POST, PostsData, SelectedTabs } from 'constant'
 import PostCard from './postCard'
 import MakeUpHtml from 'components/makeUpHtml'
 
+import {
+  BlogTabs,
+  DEFAULT_LIMIT_POST,
+  ALIASES,
+  PostData,
+  SelectedTabs,
+} from 'constant'
+import { compareAliases } from 'helper'
+import { AppState } from 'store'
+
 import './index.less'
+import { useAllPostData } from 'hooks/useAllPostsData'
 
 const Blogs = () => {
-  const [seletecCat, setSeletecCat] = useState<SelectedTabs>(SelectedTabs.all)
+  const [selectedCat, setSelectedCat] = useState<SelectedTabs>(SelectedTabs.all)
   const [postPerpage, setPostPerpage] = useState(DEFAULT_LIMIT_POST)
+  const { system } = useSelector((state: AppState) => state.i18n)
   const history = useHistory()
-  const { t } = useTranslation()
-  const location = useLocation()
-  const query = useMemo(() => new URLSearchParams(location.search), [location])
+  const { search } = useLocation()
+  const query = useMemo(() => new URLSearchParams(search), [search])
   const blogCat = query.get('category') || ''
+  const posts = useAllPostData()
+  const keyCat = useMemo(() => {
+    for (let alias in ALIASES) {
+      if (alias.includes(blogCat)) return alias[0]
+    }
+    return 'dev'
+  }, [blogCat])
 
-  const compare = (a: PostsData, b: PostsData) => {
-    const aDate = new Date(a.date)
-    const bDate = new Date(b.date)
+  const compare = (a: PostData, b: PostData) => {
+    const aDate = new Date(a.updatedAt)
+    const bDate = new Date(b.updatedAt)
     if (aDate > bDate) return -1
     if (aDate < bDate) return 1
     return 0
   }
 
   const onSelectCategory = (e: RadioChangeEvent) => {
-    setSeletecCat(e.target.value)
+    setSelectedCat(e.target.value)
     return setPostPerpage(DEFAULT_LIMIT_POST)
   }
 
-  const blogTabs: BlogTabs[] = t('blogs.tabs', { returnObjects: true })
-  const postsData: PostsData[] = t(`postsData.${blogCat}`, {
-    returnObjects: true,
+  const blogTabs: BlogTabs[] = system.blogs.tabs
+  const postsData: PostData[] = posts.filter((value) => {
+    return compareAliases(value.category, [blogCat])
   })
 
   const filteredData = useMemo(() => {
     if (!postsData.length) return []
-    return postsData?.filter(({ category }) => category.includes(seletecCat))
-  }, [postsData, seletecCat])
+    return postsData?.filter(({ category }) => category.includes(selectedCat))
+  }, [postsData, selectedCat])
 
   const renderData = useMemo(() => {
-    const nextData = seletecCat === SelectedTabs.all ? postsData : filteredData
+    const nextData = selectedCat === SelectedTabs.all ? postsData : filteredData
     if (!nextData.length) return []
     return nextData?.sort(compare)
-  }, [filteredData, postsData, seletecCat])
+  }, [filteredData, postsData, selectedCat])
 
   const limitPost =
     postPerpage >= renderData?.length ? renderData?.length : postPerpage
@@ -71,27 +88,19 @@ const Blogs = () => {
           <Col xs={24} md={12}>
             <Space direction="vertical" size={32}>
               <span className="title">
-                <MakeUpHtml>
-                  {t(`banner.subDesc.${blogCat}.title`, {
-                    returnObjects: true,
-                  })}
-                </MakeUpHtml>
+                <MakeUpHtml>{system.banner.subDesc[keyCat]?.title}</MakeUpHtml>
               </span>
               <Space direction="vertical">
                 <Typography.Text style={{ fontSize: 20 }} type="secondary">
-                  {t(`banner.subDesc.${blogCat}.label`, {
-                    returnObjects: true,
-                  })}
+                  {system.banner.subDesc[keyCat]?.label}
                 </Typography.Text>
               </Space>
             </Space>
           </Col>
-          <Col xs={24} md={12} className={blogCat === 'dev' ? 'bg-circle' : ''}>
+          <Col xs={24} md={12} className={keyCat === 'dev' ? 'bg-circle' : ''}>
             <Image
               style={{ position: 'relative', zIndex: 9 }}
-              src={t(`banner.subDesc.${blogCat}.src`, {
-                returnObjects: true,
-              })}
+              src={system.banner.subDesc[keyCat]?.src}
               preview={false}
             />
           </Col>
@@ -100,7 +109,7 @@ const Blogs = () => {
             <Radio.Group
               onChange={onSelectCategory}
               className="blogs-btn"
-              defaultValue={seletecCat}
+              defaultValue={selectedCat}
             >
               <Space>
                 {blogTabs?.map((tab) => (
@@ -114,11 +123,11 @@ const Blogs = () => {
           <Col span={24}>
             <Row gutter={[24, 24]}>
               {renderData?.slice(0, limitPost).map((data, idx) => (
-                <Col xs={24} md={12} lg={8} key={data.title + idx}>
+                <Col xs={24} md={12} lg={8} key={data.id + idx}>
                   <PostCard
                     data={data}
                     onClick={(id) =>
-                      history.push(`/blogs/${id}?category=${blogCat}`)
+                      history.push(`/blogs/${id}?category=${keyCat}`)
                     }
                   />
                 </Col>
@@ -129,8 +138,9 @@ const Blogs = () => {
             <Button
               className="blogs-btn"
               onClick={() => setPostPerpage(postPerpage + 3)}
+              disabled={postPerpage >= renderData.length}
             >
-              {t('viewMore', { returnObjects: true })}
+              {system.viewMore}
             </Button>
           </Col>
         </Row>

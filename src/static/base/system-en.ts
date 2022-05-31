@@ -3,13 +3,14 @@ export const enSystem = {
   menu: {
     home: 'Home',
     user: 'User',
-    dev: 'Dev',
-    subMenu: [
-      {
-        label: 'About Us',
-        data: ['Comming soon'],
-      },
-    ],
+    dev: 'Developer',
+    admin: 'Admin',
+    aboutUs: 'About Us',
+  },
+  login: {
+    title: 'Login',
+    loginWithGithub: 'Login with GitHub',
+    adminOnly: '(Admin Only)',
   },
   banner: {
     title:
@@ -54,14 +55,27 @@ export const enSystem = {
         label: 'Blockchain',
         key: 'blockchain',
       },
+      {
+        label: 'Web3 Camp',
+        key: 'web3camp',
+      },
     ],
   },
   languages: {
     en: 'English',
-    vn: 'VietNamese',
+    vn: 'Tiếng Việt',
   },
   quiz: {
     button: 'Exercise',
   },
   viewMore: 'View more',
+  markdown: {
+    title: 'Title',
+    publish: 'Publish',
+    delete: 'Delete',
+    edit: 'Edit',
+    saving: 'Saving',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+  },
 }

@@ -4,12 +4,13 @@ export const vnSystem = {
     home: 'Trang chủ',
     user: 'Người dùng',
     dev: 'Lập trình viên',
-    subMenu: [
-      {
-        label: 'Về chúng tôi',
-        data: ['Comming soon'],
-      },
-    ],
+    admin: 'Quản trị viên',
+    aboutUs: 'Về chúng tôi',
+  },
+  login: {
+    title: 'Đăng nhập',
+    loginWithGithub: 'Đăng nhập với GitHub',
+    adminOnly: '(Chỉ dành cho quản lý)',
   },
   banner: {
     title:
@@ -55,14 +56,27 @@ export const vnSystem = {
         label: 'Blockchain',
         key: 'blockchain',
       },
+      {
+        label: 'Web3 Camp',
+        key: 'web3camp',
+      },
     ],
   },
   languages: {
-    en: 'Tiếng Anh',
+    en: 'English',
     vn: 'Tiếng Việt',
   },
   quiz: {
     button: 'Làm bài tập',
   },
   viewMore: 'Xem thêm',
+  markdown: {
+    title: 'Tiêu đề',
+    publish: 'Xuất bản',
+    delete: 'Xoá',
+    edit: 'Chỉnh sửa',
+    saving: 'Đang lưu',
+    cancel: 'Huỷ',
+    confirm: 'Xác nhận',
+  },
 }
