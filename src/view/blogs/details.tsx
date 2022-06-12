@@ -1,12 +1,11 @@
 import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { Col, Image, Row, Space, Typography } from 'antd'
 import Category from 'components/category'
 import MarkdownPreview from 'view/markdown/markdownPreview'
 
-import { asyncWait } from 'helper'
 import { AppState } from 'store'
 import { usePostData } from 'hooks/usePostData'
 
@@ -14,7 +13,7 @@ const META_PROPERTY = 'og:image'
 
 const Details = () => {
   const { language, system } = useSelector((state: AppState) => state.i18n)
-  const history = useHistory()
+
   const { postId } = useParams<{ postId: string }>() || ''
   const postData = usePostData(postId)
 
@@ -47,13 +46,6 @@ const Details = () => {
     document.title = title
     return () => (document.title = system.siteDesc)
   }, [system.siteDesc, title])
-
-  useEffect(() => {
-    ;(async () => {
-      await asyncWait(200)
-      if (!createdAt) return history.push('/home')
-    })()
-  }, [history, createdAt])
 
   if (!createdAt) return null
   return (
