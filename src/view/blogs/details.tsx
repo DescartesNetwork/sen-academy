@@ -56,7 +56,7 @@ const Details = () => {
       ogTitle = document.createElement('meta')
       ogTitle.setAttribute('property', 'og:title')
     }
-    if (title) metaImage.setAttribute('content', title)
+    if (title) ogTitle.setAttribute('content', title)
     document.head.prepend(ogTitle)
     let ogDescription = document.querySelector(
       `meta[property="og:description"]`,
@@ -65,7 +65,7 @@ const Details = () => {
       ogDescription = document.createElement('meta')
       ogDescription.setAttribute('property', 'og:description')
     }
-    if (contents) metaImage.setAttribute('content', contents.slice(0, 100))
+    if (contents) ogDescription.setAttribute('content', contents.slice(0, 100))
     return document.head.prepend(ogDescription)
   }, [contents, thumbnail, title])
 
