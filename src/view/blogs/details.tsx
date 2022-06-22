@@ -9,8 +9,6 @@ import MarkdownPreview from 'view/markdown/markdownPreview'
 import { AppState } from 'store'
 import { usePostData } from 'hooks/usePostData'
 
-const META_PROPERTY = 'og:image'
-
 const Details = () => {
   const { language, system } = useSelector((state: AppState) => state.i18n)
 
@@ -26,17 +24,50 @@ const Details = () => {
 
   const importDependency = useCallback(() => {
     if (!document) return
-    let meta = document.querySelector(`meta[property="${META_PROPERTY}"]`)
+    // for (const property of META_PROPERTY) {
+    let metaImage = document.querySelector(`meta[property="og:image"]`)
 
-    if (!meta) {
-      meta = document.createElement('meta')
-      meta.setAttribute('property', META_PROPERTY)
+    if (!metaImage) {
+      metaImage = document.createElement('meta')
+      metaImage.setAttribute('property', 'og:image')
+      let metaImageWidth = document.querySelector(
+        `meta[property="og:image:width"]`,
+      )
+      if (!metaImageWidth) {
+        metaImageWidth = document.createElement('meta')
+        metaImageWidth.setAttribute('property', 'og:image:width')
+        metaImageWidth.setAttribute('content', '828')
+        document.head.prepend(metaImageWidth)
+      }
+      let metaImageHeight = document.querySelector(
+        `meta[property="og:image:height"]`,
+      )
+      if (!metaImageHeight) {
+        metaImageHeight = document.createElement('meta')
+        metaImageHeight.setAttribute('property', 'og:image:height')
+        metaImageHeight.setAttribute('content', '434')
+        document.head.prepend(metaImageHeight)
+      }
     }
-
-    if (thumbnail) meta.setAttribute('content', thumbnail)
-
-    return document.head.prepend(meta)
-  }, [thumbnail])
+    if (thumbnail) metaImage.setAttribute('content', thumbnail)
+    document.head.prepend(metaImage)
+    let ogTitle = document.querySelector(`meta[property="og:title"]`)
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta')
+      ogTitle.setAttribute('property', 'og:title')
+    }
+    if (title) metaImage.setAttribute('content', title)
+    document.head.prepend(ogTitle)
+    let ogDescription = document.querySelector(
+      `meta[property="og:description"]`,
+    )
+    if (!ogDescription) {
+      ogDescription = document.createElement('meta')
+      ogDescription.setAttribute('property', 'og:description')
+    }
+    if (contents) metaImage.setAttribute('content', contents.slice(0, 100))
+    return document.head.prepend(ogDescription)
+  }, [contents, thumbnail, title])
 
   useEffect(() => {
     importDependency()
